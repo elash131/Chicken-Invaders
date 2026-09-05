@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: f6f65719fae5c9641964fe1d4dd80233
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1162496992324026299
+    second: PopcornTypes_0
+  - first:
+      213: -8668208465327212519
+    second: PopcornTypes_1
+  - first:
+      213: 2897070384597866715
+    second: PopcornTypes_2
+  - first:
+      213: 8530905101106492049
+    second: PopcornTypes_3
+  - first:
+      213: 4882114767529106494
+    second: PopcornTypes_4
+  - first:
+      213: 5483070573556476511
+    second: PopcornTypes_5
+  - first:
+      213: -2653884338779491248
+    second: PopcornTypes_6
+  - first:
+      213: -5741405784325270169
+    second: PopcornTypes_7
+  - first:
+      213: 3439206175800385958
+    second: PopcornTypes_8
+  - first:
+      213: -7255133147641964736
+    second: PopcornTypes_9
+  - first:
+      213: -3049442190740264500
+    second: PopcornTypes_10
+  - first:
+      213: 6697291154801296642
+    second: PopcornTypes_11
+  - first:
+      213: -3119111647345607348
+    second: PopcornTypes_12
+  - first:
+      213: 6616585729755219911
+    second: PopcornTypes_13
+  - first:
+      213: 748157154629268702
+    second: PopcornTypes_14
+  - first:
+      213: 7555818736789170080
+    second: PopcornTypes_15
+  - first:
+      213: 8666435725139456653
+    second: PopcornTypes_16
+  - first:
+      213: 8622359683389095928
+    second: PopcornTypes_17
+  - first:
+      213: 8928759172473095376
+    second: PopcornTypes_18
+  - first:
+      213: 2398854472422123748
+    second: PopcornTypes_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PopcornTypes_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 166
+        width: 50
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5400118052bfddfe0800000000000000
+      internalID: -1162496992324026299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 168
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9183321b35654b780800000000000000
+      internalID: -8668208465327212519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 168
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8924b5a26743820800000000000000
+      internalID: 2897070384597866715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 158
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1923504adfcd36670800000000000000
+      internalID: 8530905101106492049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_4
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 162
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3cd247b381c0c340800000000000000
+      internalID: 4882114767529106494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5a2b37d2a7c71c40800000000000000
+      internalID: 5483070573556476511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 128
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054731831428b2bd0800000000000000
+      internalID: -2653884338779491248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_7
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 124
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7655be1cbdd6250b0800000000000000
+      internalID: -5741405784325270169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_8
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 112
+        width: 38
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a169e19bc38abf20800000000000000
+      internalID: 3439206175800385958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_9
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 111
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04793a077d6905b90800000000000000
+      internalID: -7255133147641964736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_10
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 102
+        width: 38
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc966d1fb743ea5d0800000000000000
+      internalID: -3049442190740264500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2050c4f42de81fc50800000000000000
+      internalID: 6697291154801296642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 44
+        width: 60
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4d7e258b70b6b4d0800000000000000
+      internalID: -3119111647345607348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 58
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c78aff3aa5d2db50800000000000000
+      internalID: 6616585729755219911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_14
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 62
+        width: 46
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed438ddd7fcf16a00800000000000000
+      internalID: 748157154629268702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_15
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 58
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a72f81db19abd860800000000000000
+      internalID: 7555818736789170080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 50
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8231b1106d554870800000000000000
+      internalID: 8666435725139456653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_17
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ff7e06e276c8a770800000000000000
+      internalID: 8622359683389095928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_18
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 10
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d40548292359eb70800000000000000
+      internalID: 8928759172473095376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PopcornTypes_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 6
+        width: 32
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8e398de617a4120800000000000000
+      internalID: 2398854472422123748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PopcornTypes_0: -1162496992324026299
+      PopcornTypes_1: -8668208465327212519
+      PopcornTypes_10: -3049442190740264500
+      PopcornTypes_11: 6697291154801296642
+      PopcornTypes_12: -3119111647345607348
+      PopcornTypes_13: 6616585729755219911
+      PopcornTypes_14: 748157154629268702
+      PopcornTypes_15: 7555818736789170080
+      PopcornTypes_16: 8666435725139456653
+      PopcornTypes_17: 8622359683389095928
+      PopcornTypes_18: 8928759172473095376
+      PopcornTypes_19: 2398854472422123748
+      PopcornTypes_2: 2897070384597866715
+      PopcornTypes_3: 8530905101106492049
+      PopcornTypes_4: 4882114767529106494
+      PopcornTypes_5: 5483070573556476511
+      PopcornTypes_6: -2653884338779491248
+      PopcornTypes_7: -5741405784325270169
+      PopcornTypes_8: 3439206175800385958
+      PopcornTypes_9: -7255133147641964736
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

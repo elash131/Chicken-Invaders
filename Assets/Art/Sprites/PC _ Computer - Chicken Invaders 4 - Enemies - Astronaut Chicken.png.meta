@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: e50a092c38f8e2c4aaa9defcc1df54d3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4657061927124224081
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_0
+  - first:
+      213: 4825447075633476819
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_1
+  - first:
+      213: -6444690573837499671
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_2
+  - first:
+      213: 3913376624687290177
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_3
+  - first:
+      213: 418620090046095215
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_4
+  - first:
+      213: 1333972262994566923
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_5
+  - first:
+      213: 6771725066987163527
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_6
+  - first:
+      213: -6292847553701653652
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_7
+  - first:
+      213: -7667123960811486947
+    second: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 89
+        width: 102
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1584c37062531a040800000000000000
+      internalID: 4657061927124224081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 93
+        width: 102
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4b4998c8e67f240800000000000000
+      internalID: 4825447075633476819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_2
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 93
+        width: 102
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e28b1b811cdf86a0800000000000000
+      internalID: -6444690573837499671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_3
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 181
+        width: 79
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1479dc26e4b1f4630800000000000000
+      internalID: 3913376624687290177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_4
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 181
+        width: 79
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f1a0301cc3fc500800000000000000
+      internalID: 418620090046095215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0fd30c94b8338210800000000000000
+      internalID: 1333972262994566923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 24
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78fc06ef1100afd50800000000000000
+      internalID: 6771725066987163527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_7
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 15
+        width: 107
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c635de7ad705ba8a0800000000000000
+      internalID: -6292847553701653652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_8
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 15
+        width: 106
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1102fa3167e89590800000000000000
+      internalID: -7667123960811486947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_0: 4657061927124224081
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_1: 4825447075633476819
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_2: -6444690573837499671
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_3: 3913376624687290177
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_4: 418620090046095215
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_5: 1333972262994566923
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_6: 6771725066987163527
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_7: -6292847553701653652
+      PC _ Computer - Chicken Invaders 4 - Enemies - Astronaut Chicken_8: -7667123960811486947
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

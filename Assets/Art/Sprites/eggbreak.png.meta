@@ -1,0 +1,1404 @@
+fileFormatVersion: 2
+guid: 4aa4d3ae25fd21b46924307c27f7514b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2060042127104243948
+    second: eggbreak_0
+  - first:
+      213: 2713160123215657345
+    second: eggbreak_1
+  - first:
+      213: -5329650083005791406
+    second: eggbreak_2
+  - first:
+      213: 1653389676238004149
+    second: eggbreak_3
+  - first:
+      213: -7123094444210876549
+    second: eggbreak_4
+  - first:
+      213: -2429702460142202480
+    second: eggbreak_5
+  - first:
+      213: -4411331880108551332
+    second: eggbreak_6
+  - first:
+      213: 2089802511687835912
+    second: eggbreak_7
+  - first:
+      213: 6933003900552948399
+    second: eggbreak_8
+  - first:
+      213: -4796852826816657466
+    second: eggbreak_9
+  - first:
+      213: -6292730104721110119
+    second: eggbreak_10
+  - first:
+      213: -1693429212157218488
+    second: eggbreak_11
+  - first:
+      213: 7940182313882178345
+    second: eggbreak_12
+  - first:
+      213: -1527134037720330132
+    second: eggbreak_13
+  - first:
+      213: 1015644423955045098
+    second: eggbreak_14
+  - first:
+      213: -1924435102754735913
+    second: eggbreak_15
+  - first:
+      213: -2049297766903546463
+    second: eggbreak_16
+  - first:
+      213: -6769559219549695714
+    second: eggbreak_17
+  - first:
+      213: 4473433355811114945
+    second: eggbreak_18
+  - first:
+      213: -654120726979795869
+    second: eggbreak_19
+  - first:
+      213: 6961671736130288333
+    second: eggbreak_20
+  - first:
+      213: 4187552619166617235
+    second: eggbreak_21
+  - first:
+      213: -1404116615398397790
+    second: eggbreak_22
+  - first:
+      213: -8576374562671116525
+    second: eggbreak_23
+  - first:
+      213: 1799815746958951071
+    second: eggbreak_24
+  - first:
+      213: -9108658622402726547
+    second: eggbreak_25
+  - first:
+      213: 3872784574314006644
+    second: eggbreak_26
+  - first:
+      213: 1084310461155430505
+    second: eggbreak_27
+  - first:
+      213: -5341916647648942334
+    second: eggbreak_28
+  - first:
+      213: 420080556635018615
+    second: eggbreak_29
+  - first:
+      213: -5754896250588903280
+    second: eggbreak_30
+  - first:
+      213: -3696648828280390295
+    second: eggbreak_31
+  - first:
+      213: -1173086152205945199
+    second: eggbreak_32
+  - first:
+      213: 1355965354539845509
+    second: eggbreak_33
+  - first:
+      213: 8836534901175305420
+    second: eggbreak_34
+  - first:
+      213: 6161056977704885626
+    second: eggbreak_35
+  - first:
+      213: -5774566674644845256
+    second: eggbreak_36
+  - first:
+      213: 3122193714253080709
+    second: eggbreak_37
+  - first:
+      213: 4268406357818517362
+    second: eggbreak_38
+  - first:
+      213: -254097437166278543
+    second: eggbreak_39
+  - first:
+      213: 5772982090594039459
+    second: eggbreak_40
+  - first:
+      213: -7864077313026726719
+    second: eggbreak_41
+  - first:
+      213: 2039405310783536336
+    second: eggbreak_42
+  - first:
+      213: 765514878364605407
+    second: eggbreak_43
+  - first:
+      213: 3455359065205087739
+    second: eggbreak_44
+  - first:
+      213: 6048455803629105996
+    second: eggbreak_45
+  - first:
+      213: -6785488269159483362
+    second: eggbreak_46
+  - first:
+      213: 1912058343327510958
+    second: eggbreak_47
+  - first:
+      213: 5450371934615221932
+    second: eggbreak_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: eggbreak_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 234
+        width: 33
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce87368666db69c10800000000000000
+      internalID: 2060042127104243948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 233
+        width: 34
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1893603d1c417a520800000000000000
+      internalID: 2713160123215657345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 232
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2530f49bc774906b0800000000000000
+      internalID: -5329650083005791406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_3
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 232
+        width: 37
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bfd677862502f610800000000000000
+      internalID: 1653389676238004149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_4
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 231
+        width: 39
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7f804fb75fa52d90800000000000000
+      internalID: -7123094444210876549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_5
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 231
+        width: 41
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 091d4515c76f74ed0800000000000000
+      internalID: -2429702460142202480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_6
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 230
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5316cbf60dc7c2c0800000000000000
+      internalID: -4411331880108551332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_7
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 230
+        width: 44
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8016fd7ef48700d10800000000000000
+      internalID: 2089802511687835912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_8
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 229
+        width: 45
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa2bde905af63060800000000000000
+      internalID: 6933003900552948399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_9
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 229
+        width: 46
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c7c3c1d4c72e6db0800000000000000
+      internalID: -4796852826816657466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_10
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 227
+        width: 48
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b01b06f4bbba8a0800000000000000
+      internalID: -6292730104721110119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_11
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 227
+        width: 49
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 841791d8a1bbf78e0800000000000000
+      internalID: -1693429212157218488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 196
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92359cedeb1313e60800000000000000
+      internalID: 7940182313882178345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 196
+        width: 51
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c60954d0fa78ecae0800000000000000
+      internalID: -1527134037720330132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_14
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 194
+        width: 53
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aea52f3f83b481e00800000000000000
+      internalID: 1015644423955045098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_15
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 194
+        width: 54
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d8f20b58780b45e0800000000000000
+      internalID: -1924435102754735913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_16
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 193
+        width: 55
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad76b4e98e6f83e0800000000000000
+      internalID: -2049297766903546463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_17
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 193
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1115c8a1c1bd02a0800000000000000
+      internalID: -6769559219549695714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_18
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 191
+        width: 58
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf41839fe3d41e30800000000000000
+      internalID: 4473433355811114945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_19
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 191
+        width: 58
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364262c1aa81ce6f0800000000000000
+      internalID: -654120726979795869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_20
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 191
+        width: 60
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca3cea3f83dc9060800000000000000
+      internalID: 6961671736130288333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 154
+        width: 60
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ecea7abec2d1a30800000000000000
+      internalID: 4187552619166617235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_22
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 154
+        width: 61
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a864fba063938ce0800000000000000
+      internalID: -1404116615398397790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_23
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 152
+        width: 62
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31fba4b56c89af880800000000000000
+      internalID: -8576374562671116525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_24
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 152
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9284a2d2ea3af810800000000000000
+      internalID: 1799815746958951071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_25
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 152
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65f26f1e3b879180800000000000000
+      internalID: -9108658622402726547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_26
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 151
+        width: 65
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 478499b2d05eeb530800000000000000
+      internalID: 3872784574314006644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_27
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 151
+        width: 65
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 960d8679e9e3c0f00800000000000000
+      internalID: 1084310461155430505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_28
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 151
+        width: 66
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207a3259c13bdd5b0800000000000000
+      internalID: -5341916647648942334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 111
+        width: 67
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77557436a0d64d500800000000000000
+      internalID: 420080556635018615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_30
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 109
+        width: 68
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 098cb60d9508220b0800000000000000
+      internalID: -5754896250588903280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_31
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 109
+        width: 68
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96dbbf2f97dd2bcc0800000000000000
+      internalID: -3696648828280390295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_32
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 109
+        width: 69
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 196b5de1c5c58bfe0800000000000000
+      internalID: -1173086152205945199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_33
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 109
+        width: 70
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58785154e4b51d210800000000000000
+      internalID: 1355965354539845509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_34
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 108
+        width: 70
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc445e5bcada1aa70800000000000000
+      internalID: 8836534901175305420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_35
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 108
+        width: 70
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d9a05bda8708550800000000000000
+      internalID: 6161056977704885626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 71
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83d3cf1543e9cdfa0800000000000000
+      internalID: -5774566674644845256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_37
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 66
+        width: 72
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 588230a14a2445b20800000000000000
+      internalID: 3122193714253080709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_38
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 66
+        width: 72
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277aacaa7fc6c3b30800000000000000
+      internalID: 4268406357818517362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_39
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 65
+        width: 72
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178ed572ab3497cf0800000000000000
+      internalID: -254097437166278543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_40
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 73
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a6bc84ff90cd1050800000000000000
+      internalID: 5772982090594039459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_41
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 64
+        width: 73
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c465d6795f2dd290800000000000000
+      internalID: -7864077313026726719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_42
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 64
+        width: 73
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc3c4e235c6d4c10800000000000000
+      internalID: 2039405310783536336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 73
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdbd23bd9b7af9a00800000000000000
+      internalID: 765514878364605407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_44
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 20
+        width: 74
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd99f433c6e3ff20800000000000000
+      internalID: 3455359065205087739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_45
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 20
+        width: 74
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4376fed18e60f350800000000000000
+      internalID: 6048455803629105996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_46
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 20
+        width: 74
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e183b29ce5a15d1a0800000000000000
+      internalID: -6785488269159483362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_47
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 20
+        width: 74
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1bbd7ceeef88a10800000000000000
+      internalID: 1912058343327510958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: eggbreak_48
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 20
+        width: 74
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca6bf70b56c93ab40800000000000000
+      internalID: 5450371934615221932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      eggbreak_0: 2060042127104243948
+      eggbreak_1: 2713160123215657345
+      eggbreak_10: -6292730104721110119
+      eggbreak_11: -1693429212157218488
+      eggbreak_12: 7940182313882178345
+      eggbreak_13: -1527134037720330132
+      eggbreak_14: 1015644423955045098
+      eggbreak_15: -1924435102754735913
+      eggbreak_16: -2049297766903546463
+      eggbreak_17: -6769559219549695714
+      eggbreak_18: 4473433355811114945
+      eggbreak_19: -654120726979795869
+      eggbreak_2: -5329650083005791406
+      eggbreak_20: 6961671736130288333
+      eggbreak_21: 4187552619166617235
+      eggbreak_22: -1404116615398397790
+      eggbreak_23: -8576374562671116525
+      eggbreak_24: 1799815746958951071
+      eggbreak_25: -9108658622402726547
+      eggbreak_26: 3872784574314006644
+      eggbreak_27: 1084310461155430505
+      eggbreak_28: -5341916647648942334
+      eggbreak_29: 420080556635018615
+      eggbreak_3: 1653389676238004149
+      eggbreak_30: -5754896250588903280
+      eggbreak_31: -3696648828280390295
+      eggbreak_32: -1173086152205945199
+      eggbreak_33: 1355965354539845509
+      eggbreak_34: 8836534901175305420
+      eggbreak_35: 6161056977704885626
+      eggbreak_36: -5774566674644845256
+      eggbreak_37: 3122193714253080709
+      eggbreak_38: 4268406357818517362
+      eggbreak_39: -254097437166278543
+      eggbreak_4: -7123094444210876549
+      eggbreak_40: 5772982090594039459
+      eggbreak_41: -7864077313026726719
+      eggbreak_42: 2039405310783536336
+      eggbreak_43: 765514878364605407
+      eggbreak_44: 3455359065205087739
+      eggbreak_45: 6048455803629105996
+      eggbreak_46: -6785488269159483362
+      eggbreak_47: 1912058343327510958
+      eggbreak_48: 5450371934615221932
+      eggbreak_5: -2429702460142202480
+      eggbreak_6: -4411331880108551332
+      eggbreak_7: 2089802511687835912
+      eggbreak_8: 6933003900552948399
+      eggbreak_9: -4796852826816657466
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1378 @@
+fileFormatVersion: 2
+guid: 6086c9683178d5d46ab2e97b1e2af318
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3039053916582015884
+    second: chicken-body-leotard2_0
+  - first:
+      213: 8534155655037581625
+    second: chicken-body-leotard2_1
+  - first:
+      213: 4787521485025444947
+    second: chicken-body-leotard2_2
+  - first:
+      213: 4241688382065701321
+    second: chicken-body-leotard2_3
+  - first:
+      213: -8203799747477416483
+    second: chicken-body-leotard2_4
+  - first:
+      213: 6064240033887604830
+    second: chicken-body-leotard2_5
+  - first:
+      213: 3702508025222327170
+    second: chicken-body-leotard2_6
+  - first:
+      213: 3695669064620635292
+    second: chicken-body-leotard2_7
+  - first:
+      213: 4688211278276358497
+    second: chicken-body-leotard2_8
+  - first:
+      213: -618055051093213242
+    second: chicken-body-leotard2_9
+  - first:
+      213: -6927660641988223093
+    second: chicken-body-leotard2_10
+  - first:
+      213: -8846423194775652233
+    second: chicken-body-leotard2_11
+  - first:
+      213: 5143371668981462909
+    second: chicken-body-leotard2_12
+  - first:
+      213: 4663666209314511984
+    second: chicken-body-leotard2_13
+  - first:
+      213: -1708516696326424131
+    second: chicken-body-leotard2_14
+  - first:
+      213: 7516459220646595234
+    second: chicken-body-leotard2_15
+  - first:
+      213: 2770946491420333201
+    second: chicken-body-leotard2_16
+  - first:
+      213: -6328409322802323258
+    second: chicken-body-leotard2_17
+  - first:
+      213: -1292687633427408190
+    second: chicken-body-leotard2_18
+  - first:
+      213: -7240789314221245919
+    second: chicken-body-leotard2_19
+  - first:
+      213: -6481598005886124781
+    second: chicken-body-leotard2_20
+  - first:
+      213: 2709968817333559776
+    second: chicken-body-leotard2_21
+  - first:
+      213: -81986392643786947
+    second: chicken-body-leotard2_22
+  - first:
+      213: -2608576624282732612
+    second: chicken-body-leotard2_23
+  - first:
+      213: -6060929115158963506
+    second: chicken-body-leotard2_24
+  - first:
+      213: 5990382159985944538
+    second: chicken-body-leotard2_25
+  - first:
+      213: -7940609362350089505
+    second: chicken-body-leotard2_26
+  - first:
+      213: 2086200277861880982
+    second: chicken-body-leotard2_27
+  - first:
+      213: 1565946578350030454
+    second: chicken-body-leotard2_28
+  - first:
+      213: 5568444198758696291
+    second: chicken-body-leotard2_29
+  - first:
+      213: -5101757865942654409
+    second: chicken-body-leotard2_30
+  - first:
+      213: 5819057437810402153
+    second: chicken-body-leotard2_31
+  - first:
+      213: -2698029630386928960
+    second: chicken-body-leotard2_32
+  - first:
+      213: -5204139297142286210
+    second: chicken-body-leotard2_33
+  - first:
+      213: 274921982717206744
+    second: chicken-body-leotard2_34
+  - first:
+      213: -3144568988640656723
+    second: chicken-body-leotard2_35
+  - first:
+      213: -5158555930322389133
+    second: chicken-body-leotard2_36
+  - first:
+      213: 967421203058820597
+    second: chicken-body-leotard2_37
+  - first:
+      213: 5136251679604737932
+    second: chicken-body-leotard2_38
+  - first:
+      213: -879959001492998249
+    second: chicken-body-leotard2_39
+  - first:
+      213: -8924942205355014377
+    second: chicken-body-leotard2_40
+  - first:
+      213: -1098054334213151655
+    second: chicken-body-leotard2_41
+  - first:
+      213: -2266389413048253939
+    second: chicken-body-leotard2_42
+  - first:
+      213: 3124739840468391056
+    second: chicken-body-leotard2_43
+  - first:
+      213: 2666420495223552336
+    second: chicken-body-leotard2_44
+  - first:
+      213: -1580103141310654706
+    second: chicken-body-leotard2_45
+  - first:
+      213: 8265823104977043627
+    second: chicken-body-leotard2_46
+  - first:
+      213: -238550274837715126
+    second: chicken-body-leotard2_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chicken-body-leotard2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83712f7f63ec2a20800000000000000
+      internalID: 3039053916582015884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 939f7643a596f6670800000000000000
+      internalID: 8534155655037581625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3540e7ddc61b07240800000000000000
+      internalID: 4787521485025444947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c17dec2c118dda30800000000000000
+      internalID: 4241688382065701321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd55b23689f362e80800000000000000
+      internalID: -8203799747477416483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e50d29c5e22882450800000000000000
+      internalID: 6064240033887604830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28be865ae63f16330800000000000000
+      internalID: 3702508025222327170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 443
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94fc1c0f67a94330800000000000000
+      internalID: 3695669064620635292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16174a1815fdf0140800000000000000
+      internalID: 4688211278276358497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cff3f3a43a3c67f0800000000000000
+      internalID: -618055051093213242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f56d5b9510cdf90800000000000000
+      internalID: -6927660641988223093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778fe9689f03b3580800000000000000
+      internalID: -8846423194775652233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77b27d384de06740800000000000000
+      internalID: 5143371668981462909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c1f2d45bba8b040800000000000000
+      internalID: 4663666209314511984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db9b3a6ed112a48e0800000000000000
+      internalID: -1708516696326424131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_15
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 373
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa895756d3df4860800000000000000
+      internalID: 7516459220646595234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19459b02721647620800000000000000
+      internalID: 2770946491420333201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0e8111049fc28a0800000000000000
+      internalID: -6328409322802323258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cad40442737f0ee0800000000000000
+      internalID: -1292687633427408190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_19
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12af5686b7c838b90800000000000000
+      internalID: -7240789314221245919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_20
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31df64264fcbc06a0800000000000000
+      internalID: -6481598005886124781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e16d85084ebb9520800000000000000
+      internalID: 2709968817333559776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_22
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d372d0e6fc9bcdef0800000000000000
+      internalID: -81986392643786947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_23
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 303
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb77d3c81697ccbd0800000000000000
+      internalID: -2608576624282732612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca902af41143eba0800000000000000
+      internalID: -6060929115158963506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad7acca06dc122350800000000000000
+      internalID: 5990382159985944538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fda5bf82bd94dc190800000000000000
+      internalID: -7940609362350089505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 694574c791ca3fc10800000000000000
+      internalID: 2086200277861880982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67ebac3cd1c5bb510800000000000000
+      internalID: 1565946578350030454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365c892fe76174d40800000000000000
+      internalID: 5568444198758696291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732ee6e404ae239b0800000000000000
+      internalID: -5101757865942654409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_31
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 233
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963a844b8e171c050800000000000000
+      internalID: 5819057437810402153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c20f4f885cae8ad0800000000000000
+      internalID: -2698029630386928960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_33
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e78de28c1ee27c7b0800000000000000
+      internalID: -5204139297142286210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d02ec03618b0d300800000000000000
+      internalID: 274921982717206744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da24d5c5a2f3c54d0800000000000000
+      internalID: -3144568988640656723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 377362b66b02968b0800000000000000
+      internalID: -5158555930322389133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f580846578fc6d00800000000000000
+      internalID: 967421203058820597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_38
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8708d780b1a74740800000000000000
+      internalID: 5136251679604737932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_39
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 163
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7973a1b43f1c9c3f0800000000000000
+      internalID: -879959001492998249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7174ce0c95c342480800000000000000
+      internalID: -8924942205355014377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954a529966de2c0f0800000000000000
+      internalID: -1098054334213151655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_42
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d028d8036da2c80e0800000000000000
+      internalID: -2266389413048253939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_43
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09411ae445e4d5b20800000000000000
+      internalID: 3124739840468391056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_44
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059fe972057010520800000000000000
+      internalID: 2666420495223552336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_45
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0713b19098521ae0800000000000000
+      internalID: -1580103141310654706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_46
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba08f5cd15a16b270800000000000000
+      internalID: 8265823104977043627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-body-leotard2_47
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 93
+        width: 64
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a47e937f9cf70bcf0800000000000000
+      internalID: -238550274837715126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chicken-body-leotard2_0: 3039053916582015884
+      chicken-body-leotard2_1: 8534155655037581625
+      chicken-body-leotard2_10: -6927660641988223093
+      chicken-body-leotard2_11: -8846423194775652233
+      chicken-body-leotard2_12: 5143371668981462909
+      chicken-body-leotard2_13: 4663666209314511984
+      chicken-body-leotard2_14: -1708516696326424131
+      chicken-body-leotard2_15: 7516459220646595234
+      chicken-body-leotard2_16: 2770946491420333201
+      chicken-body-leotard2_17: -6328409322802323258
+      chicken-body-leotard2_18: -1292687633427408190
+      chicken-body-leotard2_19: -7240789314221245919
+      chicken-body-leotard2_2: 4787521485025444947
+      chicken-body-leotard2_20: -6481598005886124781
+      chicken-body-leotard2_21: 2709968817333559776
+      chicken-body-leotard2_22: -81986392643786947
+      chicken-body-leotard2_23: -2608576624282732612
+      chicken-body-leotard2_24: -6060929115158963506
+      chicken-body-leotard2_25: 5990382159985944538
+      chicken-body-leotard2_26: -7940609362350089505
+      chicken-body-leotard2_27: 2086200277861880982
+      chicken-body-leotard2_28: 1565946578350030454
+      chicken-body-leotard2_29: 5568444198758696291
+      chicken-body-leotard2_3: 4241688382065701321
+      chicken-body-leotard2_30: -5101757865942654409
+      chicken-body-leotard2_31: 5819057437810402153
+      chicken-body-leotard2_32: -2698029630386928960
+      chicken-body-leotard2_33: -5204139297142286210
+      chicken-body-leotard2_34: 274921982717206744
+      chicken-body-leotard2_35: -3144568988640656723
+      chicken-body-leotard2_36: -5158555930322389133
+      chicken-body-leotard2_37: 967421203058820597
+      chicken-body-leotard2_38: 5136251679604737932
+      chicken-body-leotard2_39: -879959001492998249
+      chicken-body-leotard2_4: -8203799747477416483
+      chicken-body-leotard2_40: -8924942205355014377
+      chicken-body-leotard2_41: -1098054334213151655
+      chicken-body-leotard2_42: -2266389413048253939
+      chicken-body-leotard2_43: 3124739840468391056
+      chicken-body-leotard2_44: 2666420495223552336
+      chicken-body-leotard2_45: -1580103141310654706
+      chicken-body-leotard2_46: 8265823104977043627
+      chicken-body-leotard2_47: -238550274837715126
+      chicken-body-leotard2_5: 6064240033887604830
+      chicken-body-leotard2_6: 3702508025222327170
+      chicken-body-leotard2_7: 3695669064620635292
+      chicken-body-leotard2_8: 4688211278276358497
+      chicken-body-leotard2_9: -618055051093213242
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,5980 @@
+fileFormatVersion: 2
+guid: cf06002860b30284c8ca5af5b284183d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7464586130795149779
+    second: chicken-face_0
+  - first:
+      213: 7721674256820779037
+    second: chicken-face_1
+  - first:
+      213: -813610304454031543
+    second: chicken-face_2
+  - first:
+      213: 1503626183575798462
+    second: chicken-face_3
+  - first:
+      213: -5842406731763488302
+    second: chicken-face_4
+  - first:
+      213: 6045539887563839695
+    second: chicken-face_5
+  - first:
+      213: 5295007619056234956
+    second: chicken-face_6
+  - first:
+      213: 5637780661923651009
+    second: chicken-face_7
+  - first:
+      213: -1316782084182479398
+    second: chicken-face_8
+  - first:
+      213: 2247327212329630121
+    second: chicken-face_9
+  - first:
+      213: -9163916086755599002
+    second: chicken-face_10
+  - first:
+      213: -7431144236071342004
+    second: chicken-face_11
+  - first:
+      213: 7353478477556816199
+    second: chicken-face_12
+  - first:
+      213: 2069144960185930055
+    second: chicken-face_13
+  - first:
+      213: -3069221235482278414
+    second: chicken-face_14
+  - first:
+      213: -8758941265922093435
+    second: chicken-face_15
+  - first:
+      213: -868642165910730777
+    second: chicken-face_16
+  - first:
+      213: -7480392737534804546
+    second: chicken-face_17
+  - first:
+      213: -148601434027916304
+    second: chicken-face_18
+  - first:
+      213: 1637930270463069515
+    second: chicken-face_19
+  - first:
+      213: -3933722500549401367
+    second: chicken-face_20
+  - first:
+      213: -8477809636673513415
+    second: chicken-face_21
+  - first:
+      213: 6100379910644226697
+    second: chicken-face_22
+  - first:
+      213: -8665031268178435386
+    second: chicken-face_23
+  - first:
+      213: -7587734319781249587
+    second: chicken-face_24
+  - first:
+      213: -6464585836981263258
+    second: chicken-face_25
+  - first:
+      213: -8671390789912183365
+    second: chicken-face_26
+  - first:
+      213: 7112056536919171895
+    second: chicken-face_27
+  - first:
+      213: 3395828000879664235
+    second: chicken-face_28
+  - first:
+      213: 4404141825699168808
+    second: chicken-face_29
+  - first:
+      213: -8524654942275800476
+    second: chicken-face_30
+  - first:
+      213: 4831965357733782196
+    second: chicken-face_31
+  - first:
+      213: 1835264979074376735
+    second: chicken-face_32
+  - first:
+      213: 2161139024899217930
+    second: chicken-face_33
+  - first:
+      213: 5301548706135420364
+    second: chicken-face_34
+  - first:
+      213: 7392066749482760118
+    second: chicken-face_35
+  - first:
+      213: -4908406012285018607
+    second: chicken-face_36
+  - first:
+      213: -2794640705481079440
+    second: chicken-face_37
+  - first:
+      213: -6641055890488407352
+    second: chicken-face_38
+  - first:
+      213: -7806924072233721323
+    second: chicken-face_39
+  - first:
+      213: 7873329521341160291
+    second: chicken-face_40
+  - first:
+      213: 3146402317638687112
+    second: chicken-face_41
+  - first:
+      213: 8111566346754126409
+    second: chicken-face_42
+  - first:
+      213: 7610633121681727766
+    second: chicken-face_43
+  - first:
+      213: 307927513549687714
+    second: chicken-face_44
+  - first:
+      213: 6571117180950659785
+    second: chicken-face_45
+  - first:
+      213: -886431799344773855
+    second: chicken-face_46
+  - first:
+      213: -8755361790753838491
+    second: chicken-face_47
+  - first:
+      213: 4430307624629304046
+    second: chicken-face_48
+  - first:
+      213: 8927916897131637946
+    second: chicken-face_49
+  - first:
+      213: -2702210192821917425
+    second: chicken-face_50
+  - first:
+      213: 3273726679839709478
+    second: chicken-face_51
+  - first:
+      213: -5921926125944474733
+    second: chicken-face_52
+  - first:
+      213: 7221760303923859659
+    second: chicken-face_53
+  - first:
+      213: -4370259797542145558
+    second: chicken-face_54
+  - first:
+      213: 6369966344552744018
+    second: chicken-face_55
+  - first:
+      213: -6571388443746822557
+    second: chicken-face_56
+  - first:
+      213: -4976299248822960067
+    second: chicken-face_57
+  - first:
+      213: -4074794029046643223
+    second: chicken-face_58
+  - first:
+      213: -1658135506367801898
+    second: chicken-face_59
+  - first:
+      213: 3962960792581214561
+    second: chicken-face_60
+  - first:
+      213: -289187367588122328
+    second: chicken-face_61
+  - first:
+      213: -6486848860956186434
+    second: chicken-face_62
+  - first:
+      213: 5081061650400321597
+    second: chicken-face_63
+  - first:
+      213: -3103529362347842985
+    second: chicken-face_64
+  - first:
+      213: -2663369180530076190
+    second: chicken-face_65
+  - first:
+      213: -3128912272635735458
+    second: chicken-face_66
+  - first:
+      213: -6335402002373396708
+    second: chicken-face_67
+  - first:
+      213: 6614091162582994209
+    second: chicken-face_68
+  - first:
+      213: 3057914104380862299
+    second: chicken-face_69
+  - first:
+      213: 1514336845097476577
+    second: chicken-face_70
+  - first:
+      213: 5630079611112062247
+    second: chicken-face_71
+  - first:
+      213: 3046693004727596082
+    second: chicken-face_72
+  - first:
+      213: -7002615790766593178
+    second: chicken-face_73
+  - first:
+      213: 4487012008747860158
+    second: chicken-face_74
+  - first:
+      213: -3146776621862491434
+    second: chicken-face_75
+  - first:
+      213: -7694903786668409987
+    second: chicken-face_76
+  - first:
+      213: 4902298307240037518
+    second: chicken-face_77
+  - first:
+      213: 6644254473344435644
+    second: chicken-face_78
+  - first:
+      213: 3336895244952986983
+    second: chicken-face_79
+  - first:
+      213: 5807320322042731405
+    second: chicken-face_80
+  - first:
+      213: 7136667228199080582
+    second: chicken-face_81
+  - first:
+      213: -6484754277439351361
+    second: chicken-face_82
+  - first:
+      213: -6091235921296998653
+    second: chicken-face_83
+  - first:
+      213: -437508287383220337
+    second: chicken-face_84
+  - first:
+      213: -4644027224544735426
+    second: chicken-face_85
+  - first:
+      213: -8421300167264470079
+    second: chicken-face_86
+  - first:
+      213: -3340064654396102615
+    second: chicken-face_87
+  - first:
+      213: 3446752574643374218
+    second: chicken-face_88
+  - first:
+      213: 8226695966602224153
+    second: chicken-face_89
+  - first:
+      213: 7840862558863853864
+    second: chicken-face_90
+  - first:
+      213: -4978877273493852287
+    second: chicken-face_91
+  - first:
+      213: -1421131632460311018
+    second: chicken-face_92
+  - first:
+      213: -4099736264072389887
+    second: chicken-face_93
+  - first:
+      213: 3036220941205759856
+    second: chicken-face_94
+  - first:
+      213: -6979718130937747097
+    second: chicken-face_95
+  - first:
+      213: 3744003778352804730
+    second: chicken-face_96
+  - first:
+      213: 6013410499319751529
+    second: chicken-face_97
+  - first:
+      213: 1303747140177039883
+    second: chicken-face_98
+  - first:
+      213: -5982740220910342925
+    second: chicken-face_99
+  - first:
+      213: 9046188668233272668
+    second: chicken-face_100
+  - first:
+      213: -3276521410490219042
+    second: chicken-face_101
+  - first:
+      213: 4228111863795493527
+    second: chicken-face_102
+  - first:
+      213: 3928483905530989585
+    second: chicken-face_103
+  - first:
+      213: -8739393949634052724
+    second: chicken-face_104
+  - first:
+      213: -587818504018045479
+    second: chicken-face_105
+  - first:
+      213: -2578753812288256195
+    second: chicken-face_106
+  - first:
+      213: -8626319004817468390
+    second: chicken-face_107
+  - first:
+      213: -2623963299693652937
+    second: chicken-face_108
+  - first:
+      213: 1233024269542856059
+    second: chicken-face_109
+  - first:
+      213: -3681859118650216567
+    second: chicken-face_110
+  - first:
+      213: -4285295466826534011
+    second: chicken-face_111
+  - first:
+      213: 2181670114019023208
+    second: chicken-face_112
+  - first:
+      213: 8603400412627462417
+    second: chicken-face_113
+  - first:
+      213: -7838439602346536058
+    second: chicken-face_114
+  - first:
+      213: 9095577127182932053
+    second: chicken-face_115
+  - first:
+      213: -4567057673134275158
+    second: chicken-face_116
+  - first:
+      213: -3253167523118033144
+    second: chicken-face_117
+  - first:
+      213: 4930419205501054157
+    second: chicken-face_118
+  - first:
+      213: 1673855012916338001
+    second: chicken-face_119
+  - first:
+      213: -3810557443275709454
+    second: chicken-face_120
+  - first:
+      213: 5380316043651510632
+    second: chicken-face_121
+  - first:
+      213: 3423671126182754282
+    second: chicken-face_122
+  - first:
+      213: -1363254640706786574
+    second: chicken-face_123
+  - first:
+      213: -5884739769605944164
+    second: chicken-face_124
+  - first:
+      213: 7901144051667745832
+    second: chicken-face_125
+  - first:
+      213: 8490308062072833693
+    second: chicken-face_126
+  - first:
+      213: -4919169223287517710
+    second: chicken-face_127
+  - first:
+      213: 7742182691115754988
+    second: chicken-face_128
+  - first:
+      213: 7301414161194984054
+    second: chicken-face_129
+  - first:
+      213: -3043656001332154418
+    second: chicken-face_130
+  - first:
+      213: -951201060571010347
+    second: chicken-face_131
+  - first:
+      213: -5676592656602050114
+    second: chicken-face_132
+  - first:
+      213: -6392594248631433925
+    second: chicken-face_133
+  - first:
+      213: -1095599631495516951
+    second: chicken-face_134
+  - first:
+      213: 5748340473101415805
+    second: chicken-face_135
+  - first:
+      213: 1861938543223868025
+    second: chicken-face_136
+  - first:
+      213: 1798578790257720440
+    second: chicken-face_137
+  - first:
+      213: 3193972649060972248
+    second: chicken-face_138
+  - first:
+      213: -3738842018809101754
+    second: chicken-face_139
+  - first:
+      213: 6776491591896577401
+    second: chicken-face_140
+  - first:
+      213: 482276282350820556
+    second: chicken-face_141
+  - first:
+      213: 1625704338678850024
+    second: chicken-face_142
+  - first:
+      213: 6309008796136847329
+    second: chicken-face_143
+  - first:
+      213: 5723151561894439843
+    second: chicken-face_144
+  - first:
+      213: -831371284677959677
+    second: chicken-face_145
+  - first:
+      213: -7051059703092480605
+    second: chicken-face_146
+  - first:
+      213: 3172905243415841432
+    second: chicken-face_147
+  - first:
+      213: 8816280313475610283
+    second: chicken-face_148
+  - first:
+      213: 239880851901840551
+    second: chicken-face_149
+  - first:
+      213: -7381148096420824401
+    second: chicken-face_150
+  - first:
+      213: -6554897052890395275
+    second: chicken-face_151
+  - first:
+      213: 9186381504759213151
+    second: chicken-face_152
+  - first:
+      213: -502956276147008182
+    second: chicken-face_153
+  - first:
+      213: -5518548488201777924
+    second: chicken-face_154
+  - first:
+      213: 4355718149037736116
+    second: chicken-face_155
+  - first:
+      213: 2376031577740588293
+    second: chicken-face_156
+  - first:
+      213: 7131748150034021031
+    second: chicken-face_157
+  - first:
+      213: 1860126571862567925
+    second: chicken-face_158
+  - first:
+      213: 4351668485299418551
+    second: chicken-face_159
+  - first:
+      213: 1155840775839194312
+    second: chicken-face_160
+  - first:
+      213: 4417714850429007383
+    second: chicken-face_161
+  - first:
+      213: -3518273873241162963
+    second: chicken-face_162
+  - first:
+      213: 5495514748837590687
+    second: chicken-face_163
+  - first:
+      213: -1610116741805870699
+    second: chicken-face_164
+  - first:
+      213: 7122305527427966323
+    second: chicken-face_165
+  - first:
+      213: -3849142107614482429
+    second: chicken-face_166
+  - first:
+      213: -7431520593236431655
+    second: chicken-face_167
+  - first:
+      213: 1855349688218504639
+    second: chicken-face_168
+  - first:
+      213: 4985968788134879181
+    second: chicken-face_169
+  - first:
+      213: -2480891021478835904
+    second: chicken-face_170
+  - first:
+      213: 3178106054515689889
+    second: chicken-face_171
+  - first:
+      213: -3612687931694959700
+    second: chicken-face_172
+  - first:
+      213: 1251698490276290109
+    second: chicken-face_173
+  - first:
+      213: -3998489892684994873
+    second: chicken-face_174
+  - first:
+      213: -4399488425726390693
+    second: chicken-face_175
+  - first:
+      213: 8347532310860110984
+    second: chicken-face_176
+  - first:
+      213: 5594872278374532113
+    second: chicken-face_177
+  - first:
+      213: 2649551153685862482
+    second: chicken-face_178
+  - first:
+      213: -7560827472580783036
+    second: chicken-face_179
+  - first:
+      213: 818366850877920717
+    second: chicken-face_180
+  - first:
+      213: -342137021711458357
+    second: chicken-face_181
+  - first:
+      213: -4554127390824117966
+    second: chicken-face_182
+  - first:
+      213: -415697751827200971
+    second: chicken-face_183
+  - first:
+      213: -2070654913862320040
+    second: chicken-face_184
+  - first:
+      213: -1790813956656248440
+    second: chicken-face_185
+  - first:
+      213: 2464577718450303234
+    second: chicken-face_186
+  - first:
+      213: 2357212989582101948
+    second: chicken-face_187
+  - first:
+      213: -4106047699186312224
+    second: chicken-face_188
+  - first:
+      213: -110279829364133737
+    second: chicken-face_189
+  - first:
+      213: 970416116550523029
+    second: chicken-face_190
+  - first:
+      213: -5488695705856750683
+    second: chicken-face_191
+  - first:
+      213: 205590655750887794
+    second: chicken-face_192
+  - first:
+      213: -6117035541281155120
+    second: chicken-face_193
+  - first:
+      213: 5758055954264489711
+    second: chicken-face_194
+  - first:
+      213: 3530109769022518521
+    second: chicken-face_195
+  - first:
+      213: 6465716843151842181
+    second: chicken-face_196
+  - first:
+      213: -1618004096238050359
+    second: chicken-face_197
+  - first:
+      213: -7024347703084653252
+    second: chicken-face_198
+  - first:
+      213: 44859512767622237
+    second: chicken-face_199
+  - first:
+      213: -383183631423151875
+    second: chicken-face_200
+  - first:
+      213: -4516184906652033350
+    second: chicken-face_201
+  - first:
+      213: 3171418163086567963
+    second: chicken-face_202
+  - first:
+      213: -9100927211614095786
+    second: chicken-face_203
+  - first:
+      213: 3319241867042689846
+    second: chicken-face_204
+  - first:
+      213: -2987946575821563308
+    second: chicken-face_205
+  - first:
+      213: -2272224052131895389
+    second: chicken-face_206
+  - first:
+      213: 2315183999256828181
+    second: chicken-face_207
+  - first:
+      213: 3529689562295972645
+    second: chicken-face_208
+  - first:
+      213: 7521531575364278209
+    second: chicken-face_209
+  - first:
+      213: 172116912497951845
+    second: chicken-face_210
+  - first:
+      213: 8867004161874017448
+    second: chicken-face_211
+  - first:
+      213: -3699367715670121692
+    second: chicken-face_212
+  - first:
+      213: 4117236386447037078
+    second: chicken-face_213
+  - first:
+      213: -1058603306856116585
+    second: chicken-face_214
+  - first:
+      213: -5136941663072151304
+    second: chicken-face_215
+  - first:
+      213: 7940848752764949291
+    second: chicken-face_216
+  - first:
+      213: 7874320340090136655
+    second: chicken-face_217
+  - first:
+      213: 6479584264121170693
+    second: chicken-face_218
+  - first:
+      213: 7492616617170880726
+    second: chicken-face_219
+  - first:
+      213: -7198344430517823346
+    second: chicken-face_220
+  - first:
+      213: 8481997609459481653
+    second: chicken-face_221
+  - first:
+      213: -7653046172685434632
+    second: chicken-face_222
+  - first:
+      213: -5081319291157270689
+    second: chicken-face_223
+  - first:
+      213: 19726262001173517
+    second: chicken-face_224
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chicken-face_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 470
+        width: 35
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d93a517989879760800000000000000
+      internalID: 7464586130795149779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d18b41d43d5e82b60800000000000000
+      internalID: 7721674256820779037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 470
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9478b612db975b4f0800000000000000
+      internalID: -813610304454031543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb203032c04fdd410800000000000000
+      internalID: 1503626183575798462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_4
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9e2e7280a9beea0800000000000000
+      internalID: -5842406731763488302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_5
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 470
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc892b14f7216e350800000000000000
+      internalID: 6045539887563839695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc175d81065ab7940800000000000000
+      internalID: 5295007619056234956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_7
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd968b44ab6d3e40800000000000000
+      internalID: 5637780661923651009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_8
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add64b9cba9d9bde0800000000000000
+      internalID: -1316782084182479398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_9
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 470
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a9f9f8513c103f10800000000000000
+      internalID: 2247327212329630121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_10
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66dd1712fda33d080800000000000000
+      internalID: -9163916086755599002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_11
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c40b64e60b54fd890800000000000000
+      internalID: -7431144236071342004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_12
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 470
+        width: 31
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749114607bdcc0660800000000000000
+      internalID: 7353478477556816199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_13
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 470
+        width: 32
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7411ca4e06417bc10800000000000000
+      internalID: 2069144960185930055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_14
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 470
+        width: 35
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f54ef93c8fe765d0800000000000000
+      internalID: -3069221235482278414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_15
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 469
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e0434535df17680800000000000000
+      internalID: -8758941265922093435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_16
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 469
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e707f76d86f1f3f0800000000000000
+      internalID: -868642165910730777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_17
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 469
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebd73d2207e403890800000000000000
+      internalID: -7480392737534804546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_18
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 469
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f307a778cf00fdf0800000000000000
+      internalID: -148601434027916304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_19
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 469
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d8fc127e81bb610800000000000000
+      internalID: 1637930270463069515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_20
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 469
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e4aacd3a3c9869c0800000000000000
+      internalID: -3933722500549401367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_21
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 469
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93811b48d05c85a80800000000000000
+      internalID: -8477809636673513415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_22
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 469
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98ad0e02537e8a450800000000000000
+      internalID: 6100379910644226697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_23
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 469
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c2629c88ff9fb780800000000000000
+      internalID: -8665031268178435386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_24
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 469
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcdf56376d3f2b690800000000000000
+      internalID: -7587734319781249587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_25
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 469
+        width: 31
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 664e5be9e6d2946a0800000000000000
+      internalID: -6464585836981263258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_26
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 469
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdb0b2050809a780800000000000000
+      internalID: -8671390789912183365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_27
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 469
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 733ef813db913b260800000000000000
+      internalID: 7112056536919171895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_28
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 469
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6cd1ce2397602f20800000000000000
+      internalID: 3395828000879664235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_29
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 469
+        width: 35
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8224d3508a7ae1d30800000000000000
+      internalID: 4404141825699168808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_30
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 468
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4627fdcde7752b980800000000000000
+      internalID: -8524654942275800476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 424
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b227ba54e69e0340800000000000000
+      internalID: 4831965357733782196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_32
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 424
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f14617a56cb287910800000000000000
+      internalID: 1835264979074376735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_33
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a1a513e78edfd10800000000000000
+      internalID: 2161139024899217930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_34
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd22ac9572e29940800000000000000
+      internalID: 5301548706135420364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_35
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b775e63b85e59660800000000000000
+      internalID: 7392066749482760118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_36
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11e1c58dcb6d1ebb0800000000000000
+      internalID: -4908406012285018607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_37
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07504f2c5117739d0800000000000000
+      internalID: -2794640705481079440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_38
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ca4ce97ada36d3a0800000000000000
+      internalID: -6641055890488407352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_39
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512201e4beb38a390800000000000000
+      internalID: -7806924072233721323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_40
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 424
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36bd2272c7fa34d60800000000000000
+      internalID: 7873329521341160291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_41
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 424
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 889d15fcc344aab20800000000000000
+      internalID: 3146402317638687112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_42
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 424
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 942fa4e8d92129070800000000000000
+      internalID: 8111566346754126409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_43
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 424
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61169a550866e9960800000000000000
+      internalID: 7610633121681727766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_44
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 424
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2abc2bd217af54400800000000000000
+      internalID: 307927513549687714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_45
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 422
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2c704c24c413b50800000000000000
+      internalID: 6571117180950659785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_46
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 422
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 125c17a99f2c2b3f0800000000000000
+      internalID: -886431799344773855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_47
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56ae616d6d4be7680800000000000000
+      internalID: -8755361790753838491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_48
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeafbb3df4d9b7d30800000000000000
+      internalID: 4430307624629304046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_49
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abc2db5ad1556eb70800000000000000
+      internalID: 8927916897131637946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_50
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09e8648522df7ad0800000000000000
+      internalID: -2702210192821917425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_51
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6299093021d9e6d20800000000000000
+      internalID: 3273726679839709478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_52
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39379fc609711dda0800000000000000
+      internalID: -5921926125944474733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_53
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc01660ebb8d83460800000000000000
+      internalID: 7221760303923859659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_54
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae174576ed7b953c0800000000000000
+      internalID: -4370259797542145558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_55
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 254824e04aaa66850800000000000000
+      internalID: 6369966344552744018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_56
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3661d51f60dbdc4a0800000000000000
+      internalID: -6571388443746822557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_57
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 422
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d304dd1e232a0fab0800000000000000
+      internalID: -4976299248822960067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_58
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 422
+        width: 34
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5cac57b6c6377c0800000000000000
+      internalID: -4074794029046643223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_59
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 422
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d51c79ca8e1df8e0800000000000000
+      internalID: -1658135506367801898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_60
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 421
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1619a9c18d34ff630800000000000000
+      internalID: 3962960792581214561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_61
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 373
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82131611f999cfbf0800000000000000
+      internalID: -289187367588122328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_62
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 373
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb82f0b64551af5a0800000000000000
+      internalID: -6486848860956186434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_63
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 373
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30a8f186ae838640800000000000000
+      internalID: 5081061650400321597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_64
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 373
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7522347fc7c0ee4d0800000000000000
+      internalID: -3103529362347842985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_65
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 373
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e518c867dfc90bd0800000000000000
+      internalID: -2663369180530076190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_66
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 373
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52df20added394d0800000000000000
+      internalID: -3128912272635735458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_67
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 373
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c173c3bf1712418a0800000000000000
+      internalID: -6335402002373396708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_68
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 373
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d4fc19ed8f9cb50800000000000000
+      internalID: 6614091162582994209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_69
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 373
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f27492da4ef6a20800000000000000
+      internalID: 3057914104380862299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_70
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 373
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1225a5651040510800000000000000
+      internalID: 1514336845097476577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_71
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 373
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72df08da39f022e40800000000000000
+      internalID: 5630079611112062247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_72
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 373
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234b47e4527084a20800000000000000
+      internalID: 3046693004727596082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_73
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 373
+        width: 34
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66be0dc2a06b1de90800000000000000
+      internalID: -7002615790766593178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_74
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 373
+        width: 36
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0045416a1154e30800000000000000
+      internalID: 4487012008747860158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_75
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 372
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dae162b5576454d0800000000000000
+      internalID: -3146776621862491434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_76
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 372
+        width: 35
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b32de76c5363590800000000000000
+      internalID: -7694903786668409987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_77
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 372
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c8a024656780440800000000000000
+      internalID: 4902298307240037518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_78
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 372
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb5cef0ad32253c50800000000000000
+      internalID: 6644254473344435644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_79
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 371
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765ec10bb880f4e20800000000000000
+      internalID: 3336895244952986983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_80
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 372
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8b934c701fb79050800000000000000
+      internalID: 5807320322042731405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_81
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 372
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6825af848098a0360800000000000000
+      internalID: 7136667228199080582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_82
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 372
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb55885a7568106a0800000000000000
+      internalID: -6484754277439351361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_83
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 372
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f3efbc335977ba0800000000000000
+      internalID: -6091235921296998653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_84
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 372
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fcb38d788ade9f0800000000000000
+      internalID: -437508287383220337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_85
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 371
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f84c928d91d8fb0800000000000000
+      internalID: -4644027224544735426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_86
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 372
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb7347ad18812b80800000000000000
+      internalID: -8421300167264470079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_87
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 372
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 928e1eba4e4b5a1d0800000000000000
+      internalID: -3340064654396102615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_88
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 372
+        width: 35
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a880848743355df20800000000000000
+      internalID: 3446752574643374218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_89
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 372
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 912e67c05681b2270800000000000000
+      internalID: 8226695966602224153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_90
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 370
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8298db164f650dc60800000000000000
+      internalID: 7840862558863853864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_91
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f222dbf7977eab0800000000000000
+      internalID: -4978877273493852287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_92
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 320
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 616d12c4f40274ce0800000000000000
+      internalID: -1421131632460311018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_93
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10b9d23d69fca17c0800000000000000
+      internalID: -4099736264072389887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_94
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077eb240cd2d22a20800000000000000
+      internalID: 3036220941205759856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_95
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 321
+        width: 31
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7692a1d075f032f90800000000000000
+      internalID: -6979718130937747097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_96
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73707e899f55f330800000000000000
+      internalID: 3744003778352804730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_97
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 321
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963ee8c1dfce37350800000000000000
+      internalID: 6013410499319751529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_98
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b021f2fcd17d71210800000000000000
+      internalID: 1303747140177039883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_99
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 320
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc623d877909fca0800000000000000
+      internalID: -5982740220910342925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_100
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5d453d3aa48a8d70800000000000000
+      internalID: 9046188668233272668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_101
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5c4cc03257782d0800000000000000
+      internalID: -3276521410490219042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_102
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 320
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a2520b6554daa30800000000000000
+      internalID: 4228111863795493527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_103
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 320
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c830f4c47c48630800000000000000
+      internalID: 3928483905530989585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_104
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 321
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d3ddf818f67b680800000000000000
+      internalID: -8739393949634052724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_105
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 320
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d55a9b5f26a7d7f0800000000000000
+      internalID: -587818504018045479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_106
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 320
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37cf5f021d663cd0800000000000000
+      internalID: -2578753812288256195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_107
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1457aeb198294880800000000000000
+      internalID: -8626319004817468390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_108
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 320
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7341912084fc59bd0800000000000000
+      internalID: -2623963299693652937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_109
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7599815a059c1110800000000000000
+      internalID: 1233024269542856059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_110
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98f22df83a867ecc0800000000000000
+      internalID: -3681859118650216567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_111
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 320
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58376363a729784c0800000000000000
+      internalID: -4285295466826534011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_112
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8699033e869d64e10800000000000000
+      internalID: 2181670114019023208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_113
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 320
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119eb1fa71b656770800000000000000
+      internalID: 8603400412627462417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_114
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 683d7c426b4483390800000000000000
+      internalID: -7838439602346536058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_115
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55818ece43bf93e70800000000000000
+      internalID: 9095577127182932053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_116
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 320
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa50c1c5e3d8e90c0800000000000000
+      internalID: -4567057673134275158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_117
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 320
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80756bdaf5d6ad2d0800000000000000
+      internalID: -3253167523118033144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_118
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 320
+        width: 34
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcc67a9152e5c6440800000000000000
+      internalID: 4930419205501054157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_119
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 320
+        width: 37
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15d926a044aba3710800000000000000
+      internalID: 1673855012916338001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_120
+      rect:
+        serializedVersion: 2
+        x: 954
+        y: 320
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f3a45dc13e2e1bc0800000000000000
+      internalID: -3810557443275709454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_121
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 269
+        width: 35
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861fe218fe8baaa40800000000000000
+      internalID: 5380316043651510632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_122
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 270
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae772e7ffb2538f20800000000000000
+      internalID: 3423671126182754282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_123
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 270
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fae44a802fb41de0800000000000000
+      internalID: -1363254640706786574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_124
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 270
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9c0605bb54355ea0800000000000000
+      internalID: -5884739769605944164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_125
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 270
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82cb8d627a086ad60800000000000000
+      internalID: 7901144051667745832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_126
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 270
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d968c79e232a3d570800000000000000
+      internalID: 8490308062072833693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_127
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 270
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdc9ef77a99bbbb0800000000000000
+      internalID: -4919169223287517710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_128
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 270
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce5e1224322c17b60800000000000000
+      internalID: 7742182691115754988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_129
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 270
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672a80cbe75d35560800000000000000
+      internalID: 7301414161194984054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_130
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 269
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf6c162ef2c2c5d0800000000000000
+      internalID: -3043656001332154418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_131
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 270
+        width: 32
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5daa0b2dca7acc2f0800000000000000
+      internalID: -951201060571010347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_132
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 270
+        width: 31
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb1d4a00e01b831b0800000000000000
+      internalID: -5676592656602050114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_133
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 270
+        width: 35
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b354e197661f847a0800000000000000
+      internalID: -6392594248631433925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_134
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 270
+        width: 38
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec29ac90f5abc0f0800000000000000
+      internalID: -1095599631495516951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_135
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 269
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75f53b443536cf40800000000000000
+      internalID: 5748340473101415805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_136
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 269
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a87767d3fe6d910800000000000000
+      internalID: 1861938543223868025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_137
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 269
+        width: 32
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87cfcd561e5d5f810800000000000000
+      internalID: 1798578790257720440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_138
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d6b791b335435c20800000000000000
+      internalID: 3193972649060972248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_139
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642449d3ef6fc1cc0800000000000000
+      internalID: -3738842018809101754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_140
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 975ba6e033fea0e50800000000000000
+      internalID: 6776491591896577401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_141
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 268
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccdd1d39b361b600800000000000000
+      internalID: 482276282350820556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_142
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e1a3c09b79af8610800000000000000
+      internalID: 1625704338678850024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_143
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 268
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e73d82d21a1e8750800000000000000
+      internalID: 6309008796136847329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_144
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aba072e508bc6f40800000000000000
+      internalID: 5723151561894439843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_145
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3006f4ca8306674f0800000000000000
+      internalID: -831371284677959677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_146
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5f913ee8a952e90800000000000000
+      internalID: -7051059703092480605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_147
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 268
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89a86c3128c680c20800000000000000
+      internalID: 3172905243415841432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_148
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 268
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba6bbf40c38b95a70800000000000000
+      internalID: 8816280313475610283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_149
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 268
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7acf6062d5a345300800000000000000
+      internalID: 239880851901840551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_150
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 268
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa394ec9e4e09990800000000000000
+      internalID: -7381148096420824401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_151
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57d86371cd35805a0800000000000000
+      internalID: -6554897052890395275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_152
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c246a9e459c7f70800000000000000
+      internalID: 9186381504759213151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_153
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4d44be7ee32509f0800000000000000
+      internalID: -502956276147008182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_154
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfcc6f4736d2a63b0800000000000000
+      internalID: -5518548488201777924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_155
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0cd17349e927c30800000000000000
+      internalID: 4355718149037736116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_156
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505b656912c59f020800000000000000
+      internalID: 2376031577740588293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_157
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aab356282f09f260800000000000000
+      internalID: 7131748150034021031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_158
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 164
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fb2221034f70d910800000000000000
+      internalID: 1860126571862567925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_159
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5b8866e6b346c30800000000000000
+      internalID: 4351668485299418551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_160
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cc9ecccf0f5a0010800000000000000
+      internalID: 1155840775839194312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_161
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 716f9ca1040ee4d30800000000000000
+      internalID: 4417714850429007383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_162
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2b3cea8d849c2fc0800000000000000
+      internalID: -3518273873241162963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_163
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f96726e2c8df34c40800000000000000
+      internalID: 5495514748837590687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_164
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59170c5aa57b7a9e0800000000000000
+      internalID: -1610116741805870699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_165
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 216
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3752520442387d260800000000000000
+      internalID: 7122305527427966323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_166
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 300f3a195a9159ac0800000000000000
+      internalID: -3849142107614482429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_167
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dc6423f46fedd890800000000000000
+      internalID: -7431520593236431655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_168
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd456c16b68fb910800000000000000
+      internalID: 1855349688218504639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_169
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcfd6fd2238b13540800000000000000
+      internalID: 4985968788134879181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_170
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 164
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0494c42a2ca129dd0800000000000000
+      internalID: -2480891021478835904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_171
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a90de54e96ea1c20800000000000000
+      internalID: 3178106054515689889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_172
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca33bfa87772dddc0800000000000000
+      internalID: -3612687931694959700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_173
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e9fc6252dee5110800000000000000
+      internalID: 1251698490276290109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_174
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 164
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c66584a0a28288c0800000000000000
+      internalID: -3998489892684994873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_175
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 216
+        width: 34
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ec2271690e1f2c0800000000000000
+      internalID: -4399488425726390693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_176
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 164
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c99ebd86468d370800000000000000
+      internalID: 8347532310860110984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_177
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 216
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 114c13cb1baf4ad40800000000000000
+      internalID: 5594872278374532113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_178
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 164
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2581ca18cb815c420800000000000000
+      internalID: 2649551153685862482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_179
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 216
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 444dec0097b821790800000000000000
+      internalID: -7560827472580783036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_180
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 163
+        width: 35
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc59882a05c6b5b00800000000000000
+      internalID: 818366850877920717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_181
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 216
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcfd064013c704bf0800000000000000
+      internalID: -342137021711458357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_182
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 163
+        width: 33
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2394d00544d7cc0c0800000000000000
+      internalID: -4554127390824117966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_183
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5344960e8152b3af0800000000000000
+      internalID: -415697751827200971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_184
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 163
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 850c1de935e8343e0800000000000000
+      internalID: -2070654913862320040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_185
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88941bec130c527e0800000000000000
+      internalID: -1790813956656248440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_186
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 163
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201b2958060f33220800000000000000
+      internalID: 2464577718450303234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_187
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbd4af799b086b020800000000000000
+      internalID: 2357212989582101948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_188
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 163
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb90335f536407c0800000000000000
+      internalID: -4106047699186312224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_189
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 216
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7903cd85415387ef0800000000000000
+      internalID: -110279829364133737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_190
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 163
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 598de47015c977d00800000000000000
+      internalID: 970416116550523029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_191
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ab423cf55c34d3b0800000000000000
+      internalID: -5488695705856750683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_192
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 163
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279db25bc976ad200800000000000000
+      internalID: 205590655750887794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_193
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d75f7ba59ceb1ba0800000000000000
+      internalID: -6117035541281155120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_194
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 163
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feef1c60269b8ef40800000000000000
+      internalID: 5758055954264489711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_195
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f439b0b1287df030800000000000000
+      internalID: 3530109769022518521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_196
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 163
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58b53564637dab950800000000000000
+      internalID: 6465716843151842181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_197
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 216
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3aa96d8d1bb89e0800000000000000
+      internalID: -1618004096238050359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_198
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 163
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35eeca0bf0848e90800000000000000
+      internalID: -7024347703084653252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_199
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5caf4b3d7f5f9000800000000000000
+      internalID: 44859512767622237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_200
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 163
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df067457488aeaaf0800000000000000
+      internalID: -383183631423151875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_201
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe560351c94351c0800000000000000
+      internalID: -4516184906652033350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_202
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 163
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1a2ff43404230c20800000000000000
+      internalID: 3171418163086567963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_203
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 216
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6563e097be203b180800000000000000
+      internalID: -9100927211614095786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_204
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 163
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6331fa854e0501e20800000000000000
+      internalID: 3319241867042689846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_205
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 216
+        width: 33
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a9f4c8b6ea886d0800000000000000
+      internalID: -2987946575821563308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_206
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 163
+        width: 33
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a7649a63407770e0800000000000000
+      internalID: -2272224052131895389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_207
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 216
+        width: 37
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5191f59b49f212020800000000000000
+      internalID: 2315183999256828181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_208
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 163
+        width: 35
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5233e00b4f9fbf030800000000000000
+      internalID: 3529689562295972645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_209
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 163
+        width: 34
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7d874fd19d16860800000000000000
+      internalID: 7521531575364278209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_210
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 216
+        width: 35
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56407458b6b736200800000000000000
+      internalID: 172116912497951845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_211
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 163
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac396a4e4ded0b70800000000000000
+      internalID: 8867004161874017448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_212
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 109
+        width: 31
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4232fe5a9a439acc0800000000000000
+      internalID: -3699367715670121692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_213
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6921d7eedac532930800000000000000
+      internalID: 4117236386447037078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_214
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79e89c0b6e51f41f0800000000000000
+      internalID: -1058603306856116585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_215
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f81eac26cae5b8b0800000000000000
+      internalID: -5136941663072151304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_216
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2398a34edf833e60800000000000000
+      internalID: 7940848752764949291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_217
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f48a4be11a4374d60800000000000000
+      internalID: 7874320340090136655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_218
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b3723de8b1ce950800000000000000
+      internalID: 6479584264121170693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_219
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d8c8a0ad1f1bf760800000000000000
+      internalID: 7492616617170880726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_220
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e88d21001e75a1c90800000000000000
+      internalID: -7198344430517823346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_221
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c7b81e2eb16b570800000000000000
+      internalID: 8481997609459481653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_222
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 108
+        width: 31
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f00c63bd0beac590800000000000000
+      internalID: -7653046172685434632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_223
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 109
+        width: 32
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f2b34d6078b79b0800000000000000
+      internalID: -5081319291157270689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chicken-face_224
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 109
+        width: 34
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0483574ee4164000800000000000000
+      internalID: 19726262001173517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chicken-face_0: 7464586130795149779
+      chicken-face_1: 7721674256820779037
+      chicken-face_10: -9163916086755599002
+      chicken-face_100: 9046188668233272668
+      chicken-face_101: -3276521410490219042
+      chicken-face_102: 4228111863795493527
+      chicken-face_103: 3928483905530989585
+      chicken-face_104: -8739393949634052724
+      chicken-face_105: -587818504018045479
+      chicken-face_106: -2578753812288256195
+      chicken-face_107: -8626319004817468390
+      chicken-face_108: -2623963299693652937
+      chicken-face_109: 1233024269542856059
+      chicken-face_11: -7431144236071342004
+      chicken-face_110: -3681859118650216567
+      chicken-face_111: -4285295466826534011
+      chicken-face_112: 2181670114019023208
+      chicken-face_113: 8603400412627462417
+      chicken-face_114: -7838439602346536058
+      chicken-face_115: 9095577127182932053
+      chicken-face_116: -4567057673134275158
+      chicken-face_117: -3253167523118033144
+      chicken-face_118: 4930419205501054157
+      chicken-face_119: 1673855012916338001
+      chicken-face_12: 7353478477556816199
+      chicken-face_120: -3810557443275709454
+      chicken-face_121: 5380316043651510632
+      chicken-face_122: 3423671126182754282
+      chicken-face_123: -1363254640706786574
+      chicken-face_124: -5884739769605944164
+      chicken-face_125: 7901144051667745832
+      chicken-face_126: 8490308062072833693
+      chicken-face_127: -4919169223287517710
+      chicken-face_128: 7742182691115754988
+      chicken-face_129: 7301414161194984054
+      chicken-face_13: 2069144960185930055
+      chicken-face_130: -3043656001332154418
+      chicken-face_131: -951201060571010347
+      chicken-face_132: -5676592656602050114
+      chicken-face_133: -6392594248631433925
+      chicken-face_134: -1095599631495516951
+      chicken-face_135: 5748340473101415805
+      chicken-face_136: 1861938543223868025
+      chicken-face_137: 1798578790257720440
+      chicken-face_138: 3193972649060972248
+      chicken-face_139: -3738842018809101754
+      chicken-face_14: -3069221235482278414
+      chicken-face_140: 6776491591896577401
+      chicken-face_141: 482276282350820556
+      chicken-face_142: 1625704338678850024
+      chicken-face_143: 6309008796136847329
+      chicken-face_144: 5723151561894439843
+      chicken-face_145: -831371284677959677
+      chicken-face_146: -7051059703092480605
+      chicken-face_147: 3172905243415841432
+      chicken-face_148: 8816280313475610283
+      chicken-face_149: 239880851901840551
+      chicken-face_15: -8758941265922093435
+      chicken-face_150: -7381148096420824401
+      chicken-face_151: -6554897052890395275
+      chicken-face_152: 9186381504759213151
+      chicken-face_153: -502956276147008182
+      chicken-face_154: -5518548488201777924
+      chicken-face_155: 4355718149037736116
+      chicken-face_156: 2376031577740588293
+      chicken-face_157: 7131748150034021031
+      chicken-face_158: 1860126571862567925
+      chicken-face_159: 4351668485299418551
+      chicken-face_16: -868642165910730777
+      chicken-face_160: 1155840775839194312
+      chicken-face_161: 4417714850429007383
+      chicken-face_162: -3518273873241162963
+      chicken-face_163: 5495514748837590687
+      chicken-face_164: -1610116741805870699
+      chicken-face_165: 7122305527427966323
+      chicken-face_166: -3849142107614482429
+      chicken-face_167: -7431520593236431655
+      chicken-face_168: 1855349688218504639
+      chicken-face_169: 4985968788134879181
+      chicken-face_17: -7480392737534804546
+      chicken-face_170: -2480891021478835904
+      chicken-face_171: 3178106054515689889
+      chicken-face_172: -3612687931694959700
+      chicken-face_173: 1251698490276290109
+      chicken-face_174: -3998489892684994873
+      chicken-face_175: -4399488425726390693
+      chicken-face_176: 8347532310860110984
+      chicken-face_177: 5594872278374532113
+      chicken-face_178: 2649551153685862482
+      chicken-face_179: -7560827472580783036
+      chicken-face_18: -148601434027916304
+      chicken-face_180: 818366850877920717
+      chicken-face_181: -342137021711458357
+      chicken-face_182: -4554127390824117966
+      chicken-face_183: -415697751827200971
+      chicken-face_184: -2070654913862320040
+      chicken-face_185: -1790813956656248440
+      chicken-face_186: 2464577718450303234
+      chicken-face_187: 2357212989582101948
+      chicken-face_188: -4106047699186312224
+      chicken-face_189: -110279829364133737
+      chicken-face_19: 1637930270463069515
+      chicken-face_190: 970416116550523029
+      chicken-face_191: -5488695705856750683
+      chicken-face_192: 205590655750887794
+      chicken-face_193: -6117035541281155120
+      chicken-face_194: 5758055954264489711
+      chicken-face_195: 3530109769022518521
+      chicken-face_196: 6465716843151842181
+      chicken-face_197: -1618004096238050359
+      chicken-face_198: -7024347703084653252
+      chicken-face_199: 44859512767622237
+      chicken-face_2: -813610304454031543
+      chicken-face_20: -3933722500549401367
+      chicken-face_200: -383183631423151875
+      chicken-face_201: -4516184906652033350
+      chicken-face_202: 3171418163086567963
+      chicken-face_203: -9100927211614095786
+      chicken-face_204: 3319241867042689846
+      chicken-face_205: -2987946575821563308
+      chicken-face_206: -2272224052131895389
+      chicken-face_207: 2315183999256828181
+      chicken-face_208: 3529689562295972645
+      chicken-face_209: 7521531575364278209
+      chicken-face_21: -8477809636673513415
+      chicken-face_210: 172116912497951845
+      chicken-face_211: 8867004161874017448
+      chicken-face_212: -3699367715670121692
+      chicken-face_213: 4117236386447037078
+      chicken-face_214: -1058603306856116585
+      chicken-face_215: -5136941663072151304
+      chicken-face_216: 7940848752764949291
+      chicken-face_217: 7874320340090136655
+      chicken-face_218: 6479584264121170693
+      chicken-face_219: 7492616617170880726
+      chicken-face_22: 6100379910644226697
+      chicken-face_220: -7198344430517823346
+      chicken-face_221: 8481997609459481653
+      chicken-face_222: -7653046172685434632
+      chicken-face_223: -5081319291157270689
+      chicken-face_224: 19726262001173517
+      chicken-face_23: -8665031268178435386
+      chicken-face_24: -7587734319781249587
+      chicken-face_25: -6464585836981263258
+      chicken-face_26: -8671390789912183365
+      chicken-face_27: 7112056536919171895
+      chicken-face_28: 3395828000879664235
+      chicken-face_29: 4404141825699168808
+      chicken-face_3: 1503626183575798462
+      chicken-face_30: -8524654942275800476
+      chicken-face_31: 4831965357733782196
+      chicken-face_32: 1835264979074376735
+      chicken-face_33: 2161139024899217930
+      chicken-face_34: 5301548706135420364
+      chicken-face_35: 7392066749482760118
+      chicken-face_36: -4908406012285018607
+      chicken-face_37: -2794640705481079440
+      chicken-face_38: -6641055890488407352
+      chicken-face_39: -7806924072233721323
+      chicken-face_4: -5842406731763488302
+      chicken-face_40: 7873329521341160291
+      chicken-face_41: 3146402317638687112
+      chicken-face_42: 8111566346754126409
+      chicken-face_43: 7610633121681727766
+      chicken-face_44: 307927513549687714
+      chicken-face_45: 6571117180950659785
+      chicken-face_46: -886431799344773855
+      chicken-face_47: -8755361790753838491
+      chicken-face_48: 4430307624629304046
+      chicken-face_49: 8927916897131637946
+      chicken-face_5: 6045539887563839695
+      chicken-face_50: -2702210192821917425
+      chicken-face_51: 3273726679839709478
+      chicken-face_52: -5921926125944474733
+      chicken-face_53: 7221760303923859659
+      chicken-face_54: -4370259797542145558
+      chicken-face_55: 6369966344552744018
+      chicken-face_56: -6571388443746822557
+      chicken-face_57: -4976299248822960067
+      chicken-face_58: -4074794029046643223
+      chicken-face_59: -1658135506367801898
+      chicken-face_6: 5295007619056234956
+      chicken-face_60: 3962960792581214561
+      chicken-face_61: -289187367588122328
+      chicken-face_62: -6486848860956186434
+      chicken-face_63: 5081061650400321597
+      chicken-face_64: -3103529362347842985
+      chicken-face_65: -2663369180530076190
+      chicken-face_66: -3128912272635735458
+      chicken-face_67: -6335402002373396708
+      chicken-face_68: 6614091162582994209
+      chicken-face_69: 3057914104380862299
+      chicken-face_7: 5637780661923651009
+      chicken-face_70: 1514336845097476577
+      chicken-face_71: 5630079611112062247
+      chicken-face_72: 3046693004727596082
+      chicken-face_73: -7002615790766593178
+      chicken-face_74: 4487012008747860158
+      chicken-face_75: -3146776621862491434
+      chicken-face_76: -7694903786668409987
+      chicken-face_77: 4902298307240037518
+      chicken-face_78: 6644254473344435644
+      chicken-face_79: 3336895244952986983
+      chicken-face_8: -1316782084182479398
+      chicken-face_80: 5807320322042731405
+      chicken-face_81: 7136667228199080582
+      chicken-face_82: -6484754277439351361
+      chicken-face_83: -6091235921296998653
+      chicken-face_84: -437508287383220337
+      chicken-face_85: -4644027224544735426
+      chicken-face_86: -8421300167264470079
+      chicken-face_87: -3340064654396102615
+      chicken-face_88: 3446752574643374218
+      chicken-face_89: 8226695966602224153
+      chicken-face_9: 2247327212329630121
+      chicken-face_90: 7840862558863853864
+      chicken-face_91: -4978877273493852287
+      chicken-face_92: -1421131632460311018
+      chicken-face_93: -4099736264072389887
+      chicken-face_94: 3036220941205759856
+      chicken-face_95: -6979718130937747097
+      chicken-face_96: 3744003778352804730
+      chicken-face_97: 6013410499319751529
+      chicken-face_98: 1303747140177039883
+      chicken-face_99: -5982740220910342925
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
