@@ -134,8 +134,6 @@ the boss.
 
 ## 5. Screens & UI
 
-![Proposed screen layouts](images/screens-layout.svg)
-
 1. **Main Menu** — title, Play, high score, control hint, mute toggle.
 2. **Wave Intro** — the wave number, centred, before combat starts.
 3. **Gameplay** — score and best top-left, wave top-centre, lives top-right. Boss health only during
