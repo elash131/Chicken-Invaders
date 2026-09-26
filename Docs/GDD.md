@@ -5,11 +5,11 @@
 | **Working title** | Cluck Invaders |
 | **Team** | Ela Shaul — solo: design, programming and asset integration |
 | **Genre** | 2D arcade / fixed shooter |
-| **Target platforms** | Windows standalone and Android APK |
+| **Target platforms** | PC — Windows standalone only |
 | **Engine** | Unity 6 (`6000.3.20f1`), URP 2D, Input System |
-| **Orientation** | Portrait, 1080 × 1920 reference resolution |
+| **Orientation** | Portrait PC game window, 1080 × 1920 reference resolution |
 | **Session length** | 3–6 minutes for a full run |
-| **Document version** | v1.0 — 2026-09-05 |
+| **Document version** | v1.1 — 2026-09-26 |
 
 A proposal for approval. Numbers below are starting values, not playtest results.
 
@@ -118,11 +118,11 @@ the boss.
 
 ## 4. Controls & Input
 
-| Action | Keyboard | Gamepad | Android touch |
-|---|---|---|---|
-| Move | A/D or arrow keys | Left stick | Bottom-left stick |
-| Fire | Hold Space | Hold south button | Hold bottom-right button |
-| Restart | R on the result screen | East button | Play Again button |
+| Action | Keyboard | Gamepad |
+|---|---|---|
+| Move | A/D or arrow keys | Left stick |
+| Fire | Hold Space | Hold south button |
+| Restart | R on the result screen | East button |
 
 - Input is read every frame and movement applied during physics updates. Releasing stops the ship;
   its sprite leans in the direction of travel.
@@ -137,12 +137,12 @@ the boss.
 1. **Main Menu** — title, Play, high score, control hint, mute toggle.
 2. **Wave Intro** — the wave number, centred, before combat starts.
 3. **Gameplay** — score and best top-left, wave top-centre, lives top-right. Boss health only during
-   the boss fight. Touch controls sit in their own band below the ship.
+   the boss fight.
 4. **Game Over / Victory** — result, final score, new-best message, Play Again.
 5. **Paused** — Resume over the frozen game.
 
 No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1080 × 1920 reference; HUD elements
-are anchored to their own corners, and the layout is checked at several phone aspect ratios.
+are anchored to their own corners, and the layout is checked at several PC game-window sizes and resolutions.
 
 ---
 
@@ -177,7 +177,7 @@ projectiles, chickens, player, effects, UI.
 
 **Scene:** one — `Assets/Scenes/SampleScene.unity`. Menus and gameplay share it; restarting resets
 state rather than reloading. **Packages:** Input System, Physics2D, URP 2D, Unity UI, TextMeshPro,
-`UnityEngine.Pool`. **Demo targets:** Windows and an Android phone.
+`UnityEngine.Pool`. **Demo target:** Windows PC only.
 
 ```mermaid
 flowchart TD
@@ -220,7 +220,6 @@ by accident. Chickens register themselves with `WaveManager` instead of it searc
 - **ScriptableObjects** — balance values and wave layouts as assets, so a new wave is a duplicated
   file rather than an edited component.
 - **PlayerPrefs and Gizmos** — the high score; the lose line and formation bounds drawn in the editor.
-- **Mobile build** — Android touch controls, tested on a phone.
 
 ---
 
@@ -233,7 +232,7 @@ by accident. Chickens register themselves with `WaveManager` instead of it searc
 - Three lives, respawn protection, scoring, saved high score.
 - Menu, HUD, pause, victory and game-over screens, restart.
 - Projectile pools, sound effects, music.
-- Windows build, and Android touch controls.
+- Windows standalone build.
 
 ### 8.2 Optional polish
 
@@ -247,11 +246,10 @@ by accident. Chickens register themselves with `WaveManager` instead of it searc
 - Weapon upgrades, shops, combo systems.
 - Multiplayer, online leaderboards, accounts.
 - Saving anything beyond the local high score.
-- iOS, localisation, selectable difficulty.
+- Localisation, selectable difficulty.
 
-**Risks:** the boss attacks need playtesting, mobile controls must not cover the ship or the eggs,
-and the artwork licence needs the lecturer's acceptance. The idea and this document need approval
-before full production.
+**Risks:** the boss attacks need playtesting, and the artwork licence needs the lecturer's
+acceptance. The idea and this document need approval before full production.
 
 ---
 
@@ -260,3 +258,4 @@ before full production.
 | Version | Date | Change |
 |---|---|---|
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
+| v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
