@@ -28,6 +28,7 @@ public static class GameSceneBuilder
         ConfigureShipSheet();
         ConfigureStarfield();
         BuildScene();
+        PlayerShootingSetup.SetUpScene(saveOpenScenes: false);
 
         AssetDatabase.SaveAssets();
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());

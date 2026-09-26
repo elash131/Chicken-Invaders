@@ -23,11 +23,20 @@ public class PlayerController : Singleton<PlayerController>
     [Tooltip("How fast the ship rolls into a turn, in bank units per second. Lower feels heavier.")]
     [SerializeField] private float _bankResponse = 6f;
 
+    [Header("Firing")]
+    [SerializeField, Min(0.01f)] private float _fireCooldown = 0.18f;
+    [SerializeField, Min(0.01f)] private float _bulletSpeed = 14f;
+    [SerializeField, Min(1)] private int _bulletDamage = 1;
+    [SerializeField, Min(0.1f)] private float _bulletLifetime = 2f;
+
     [Header("References")]
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Transform _firePoint;
+    [SerializeField] private ProjectilePool _projectilePool;
 
     private InputAction _move;
+    private InputAction _fire;
 
     private Vector3 _spawnPosition;
     private float _horizontal;
@@ -36,6 +45,8 @@ public class PlayerController : Singleton<PlayerController>
     private float _maxX;
     private int _lastScreenWidth;
     private int _lastScreenHeight;
+    private float _nextFireTime;
+    private bool _fireRequiresRelease;
 
     private void Awake()
     {
@@ -47,6 +58,7 @@ public class PlayerController : Singleton<PlayerController>
 
         var playerMap = InputSystem.actions.FindActionMap(Constants.PlayerActionMap, throwIfNotFound: true);
         _move = playerMap.FindAction(Constants.MoveAction, throwIfNotFound: true);
+        _fire = playerMap.FindAction(Constants.FireAction, throwIfNotFound: true);
     }
 
     private void Start()
@@ -87,6 +99,7 @@ public class PlayerController : Singleton<PlayerController>
 
         if (!GameManager.Instance.PlayerAlive)
         {
+            BlockInputUntilFireIsReleased();
             return;
         }
 
@@ -95,6 +108,40 @@ public class PlayerController : Singleton<PlayerController>
         _horizontal = _move.ReadValue<Vector2>().x;
 
         UpdateBankPose();
+        UpdateFiring();
+    }
+
+    private void UpdateFiring()
+    {
+        if (_fireRequiresRelease)
+        {
+            _fireRequiresRelease = _fire.IsPressed();
+            return;
+        }
+
+        if (!_fire.IsPressed() || Time.time < _nextFireTime)
+        {
+            return;
+        }
+
+        if (_firePoint == null || _projectilePool == null)
+        {
+            return;
+        }
+
+        _nextFireTime = Time.time + _fireCooldown;
+        _projectilePool.Fire(
+            _firePoint.position,
+            Vector2.up,
+            _bulletSpeed,
+            _bulletDamage,
+            _bulletLifetime);
+    }
+
+    private void BlockInputUntilFireIsReleased()
+    {
+        _horizontal = 0f;
+        _fireRequiresRelease |= _fire.IsPressed();
     }
 
     /// <summary>
@@ -143,6 +190,7 @@ public class PlayerController : Singleton<PlayerController>
 
         _horizontal = 0f;
         _bank = 0f;
+        _nextFireTime = Time.time;
         UpdateBankPose();
 
         _spriteRenderer.enabled = true;
@@ -151,6 +199,7 @@ public class PlayerController : Singleton<PlayerController>
     public void HidePlayer()
     {
         _rigidbody2D.linearVelocity = Vector2.zero;
+        BlockInputUntilFireIsReleased();
         _spriteRenderer.enabled = false;
     }
 

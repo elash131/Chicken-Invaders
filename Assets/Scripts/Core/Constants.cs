@@ -11,10 +11,15 @@ public static class Constants
     public const string EggTag          = "Egg";
     public const string PickupTag       = "Pickup";
 
+    // Physics layers
+    public const string PlayerLayer          = "Player";
+    public const string PlayerProjectileLayer = "PlayerProjectile";
+    public const string EnemyLayer           = "Enemy";
+
     // Input System - action map and action names, as they appear in InputSystem_Actions
     public const string PlayerActionMap = "Player";
     public const string MoveAction      = "Move";
-    public const string FireAction      = "Attack";
+    public const string FireAction      = "Fire";
     public const string RestartAction   = "Interact";
 
     // PlayerPrefs keys
