@@ -16,7 +16,7 @@ Final project for **Unity 101 for CS Students**, The Academic College of Tel-Avi
 | Unity | **6000.3.20f1** (Unity 6 LTS) |
 | Render pipeline | URP 2D |
 | Packages | Input System, TextMeshPro, Unity UI |
-| Targets | Windows standalone, Android |
+| Targets | Windows PC standalone only |
 
 ## How to run
 
@@ -24,13 +24,19 @@ Final project for **Unity 101 for CS Students**, The Academic College of Tel-Avi
 2. Open `Assets/Scenes/SampleScene.unity`.
 3. Press Play.
 
+## Implementation status
+
+The current prototype includes player movement/banking, the scrolling background and pooled Ion
+bullets fired on a held cooldown. Enemies, waves, the boss, full UI/audio and the complete run loop
+are planned; the GDD describes that target.
+
 ## Controls
 
-| Action | Keyboard | Gamepad | Android |
-|---|---|---|---|
-| Move | A / D or arrow keys | Left stick | On-screen stick |
-| Fire | Hold Space | Hold south button | On-screen button |
-| Restart | R on the result screen | East button | Play Again |
+| Action | Keyboard | Gamepad |
+|---|---|---|
+| Move | A / D or arrow keys | Left stick |
+| Fire | Hold Space | Hold south button |
+| Restart *(result flow planned)* | R | East button |
 
 ## Project structure
 
