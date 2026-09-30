@@ -9,9 +9,14 @@
 | **Engine** | Unity 6 (`6000.3.20f1`), URP 2D, Input System |
 | **Orientation** | Portrait PC game window, 1080 × 1920 reference resolution |
 | **Session length** | 3–6 minutes for a full run |
-| **Document version** | v1.1 — 2026-09-26 |
+| **Document version** | v1.2 — 2026-09-30 |
 
 A proposal for approval. Numbers below are starting values, not playtest results.
+
+Implementation status (2026-09-30): four formations and pooled player shooting are present.
+The run-state foundation and prototype menu/HUD/pause/result UI are implemented. Egg attacks,
+lose-line detection, the boss, audio and final presentation remain planned. The prototype's
+BossFight state displays a placeholder after wave four; victory requires a future boss-defeat event.
 
 ---
 
@@ -123,6 +128,7 @@ the boss.
 | Move | A/D or arrow keys | Left stick |
 | Fire | Hold Space | Hold south button |
 | Restart | R on the result screen | East button |
+| Pause / resume | Escape | Start button |
 
 - Input is read every frame and movement applied during physics updates. Releasing stops the ship;
   its sprite leans in the direction of travel.
@@ -141,7 +147,7 @@ the boss.
 4. **Game Over / Victory** — result, final score, new-best message, Play Again.
 5. **Paused** — Resume over the frozen game.
 
-No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1080 × 1920 reference; HUD elements
+No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1920 × 1080 reference; HUD elements
 are anchored to their own corners, and the layout is checked at several PC game-window sizes and resolutions.
 
 ---
@@ -156,7 +162,7 @@ are anchored to their own corners, and the layout is checked at several PC game-
 | Bullets, eggs, impacts | Combat feedback | Chicken Invaders sprite rips |
 | Food | Optional pickups | Chicken Invaders fan wiki |
 | Starfield, logo | Background and menu | Chicken Invaders sprite rips |
-| Font | Menu and HUD text | To select — record the licence |
+| Font | Menu and HUD text | Liberation Sans from bundled TMP resources — SIL OFL 1.1 |
 | Sound and music | Shots, clucks, impacts, pickups, death, wave clear, looping track | To select — record the licences |
 
 **Licence note.** The artwork is InterAction studios' and carries **no reuse licence**. It is used
@@ -259,3 +265,4 @@ acceptance. The idea and this document need approval before full production.
 |---|---|---|
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
+| v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |

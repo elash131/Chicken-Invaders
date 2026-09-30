@@ -147,9 +147,21 @@ names; the files were decoded and re-saved as real RGBA PNGs. Base URL for every
 
 ## Still to source
 
+The menu and HUD use **Bungee** throughout. Bungee and the included TextMesh Pro default
+**Liberation Sans** resources are both SIL Open Font License 1.1. Bungee comes from the official
+Google Fonts repository (`google/fonts/ofl/bungee`, downloaded 2026-09-30); its licence is stored
+at `Assets/Fonts/Bungee-OFL.txt`. Liberation Sans comes from the installed Unity uGUI 2.0.0
+package's **TMP Essential Resources**;
+its original notice is kept at `Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt`.
+Only the font, fallback, settings, line-breaking/style data and required mobile SDF shader/includes
+were imported. No examples, emoji sprites or additional Unity packages were added.
+
+The title uses the purple/white logo already listed above, with an additional `MenuTitle` slice
+that preserves existing slices and GUIDs. Buttons use Unity's built-in sliced UI sprite and colour
+states stored in `RunUI.prefab`; they require no downloaded or generated bitmap artwork.
+
 | Asset | Where to look | What to record |
 |---|---|---|
-| UI font | Google Fonts | The exact family and its licence (usually OFL 1.1) |
 | SFX ×6 — laser, cluck, splat, pickup, player death, wave clear | [freesound.org](https://freesound.org/) filtered to **CC0**, [pixabay](https://pixabay.com/sound-effects/), [mixkit](https://mixkit.co/free-sound-effects/game/) | Per-clip URL and licence name |
 | Music — gameplay loop, optional boss loop | Same three sites | Per-clip URL and licence name |
 

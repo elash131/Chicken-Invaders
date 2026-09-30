@@ -3,6 +3,9 @@ guid: f91fc3e337ab5894bb5debd50ff780bb
 TextureImporter:
   internalIDToNameTable:
   - first:
+      213: 741829365018273649
+    second: MenuTitle
+  - first:
       213: -3139975731760943542
     second: PC _ Computer - Chicken Invaders 4 - GUI - Logo_0
   - first:
@@ -133,6 +136,28 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites:
+    - serializedVersion: 2
+      name: MenuTitle
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 146
+        width: 964
+        height: 454
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData:
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31f452d98b3a4b42871a894928a751be
+      internalID: 741829365018273649
+      vertices: []
+      indices:
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: PC _ Computer - Chicken Invaders 4 - GUI - Logo_0
       rect:
@@ -323,6 +348,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      MenuTitle: 741829365018273649
       PC _ Computer - Chicken Invaders 4 - GUI - Logo_0: -3139975731760943542
       PC _ Computer - Chicken Invaders 4 - GUI - Logo_1: -2117449656339576180
       PC _ Computer - Chicken Invaders 4 - GUI - Logo_2: -8027105264925460162
