@@ -1,6 +1,5 @@
 /// <summary>
-/// Every string the game looks something up by. Keeping them here means a rename is one edit and
-/// a typo is a compile error instead of a silent failure at runtime.
+/// Shared lookup names. Action and layer values must also match their Unity assets.
 /// </summary>
 public static class Constants
 {
@@ -20,7 +19,8 @@ public static class Constants
     public const string PlayerActionMap = "Player";
     public const string MoveAction      = "Move";
     public const string FireAction      = "Fire";
-    public const string RestartAction   = "Interact";
+    public const string RestartAction   = "Restart";
+    public const string PauseAction     = "Pause";
 
     // PlayerPrefs keys
     public const string HighScoreKey = "HighScore";

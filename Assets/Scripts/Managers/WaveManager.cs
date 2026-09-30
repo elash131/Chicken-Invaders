@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -43,8 +42,13 @@ public sealed class WaveManager : MonoBehaviour
     private int _lastScreenWidth;
     private int _lastScreenHeight;
     private bool _isClearing;
+    private GameManager _game;
 
-    public bool AcceptsDamage => _phase == WavePhase.Active && !_isClearing;
+    public bool IsReady { get; private set; }
+    public GameBalanceConfig Balance => _balance;
+    public int WaveCount => _waves.Length;
+    public float WaveDelay => _balance.WaveDelay;
+    public bool AcceptsDamage => _phase == WavePhase.Active && !_isClearing && _game != null && _game.CanDamageEnemies;
     public int CurrentWaveNumber => _waveIndex + 1;
     public int LivingChickenCount => _livingChickens.Count;
 
@@ -52,48 +56,31 @@ public sealed class WaveManager : MonoBehaviour
     {
         _gameplayCamera = Camera.main;
 
-        if (_balance == null || _factory == null || _waves == null || _waves.Length == 0)
+        _game = GameManager.Instance;
+        if (_gameplayCamera == null || _game == null || _balance == null || _factory == null || _waves == null || _waves.Length != 4)
         {
             Debug.LogError("WaveManager is missing its balance, factory or wave configuration.", this);
             enabled = false;
             return;
         }
 
-        GameManager.Instance.OnGameStarted += HandleGameStarted;
-        GameManager.Instance.OnGameOver += HandleGameOver;
+        IsReady = System.Array.TrueForAll(_waves, wave => wave != null);
+        if (!IsReady) Debug.LogError("All four wave configurations must be assigned.", this);
     }
 
-    private void OnDestroy()
-    {
-        if (!GameManager.HasInstance)
-        {
-            return;
-        }
-
-        GameManager.Instance.OnGameStarted -= HandleGameStarted;
-        GameManager.Instance.OnGameOver -= HandleGameOver;
-    }
-
-    private void HandleGameStarted()
-    {
-        StopAllCoroutines();
-        ClearFormation();
-        _waveIndex = 0;
-        StartWave(_waveIndex);
-    }
-
-    private void HandleGameOver()
+    public void StopCombat()
     {
         _phase = WavePhase.Idle;
         SetAllColliders(false);
     }
 
-    private void StartWave(int index)
+    public void StartWave(int index)
     {
+        if (!IsReady || _game.State != GameState.WaveIntro) return;
+        _waveIndex = index;
         if (index < 0 || index >= _waves.Length)
         {
             _phase = WavePhase.Idle;
-            Debug.Log("All configured chicken waves cleared. The boss stage can start here.", this);
             return;
         }
 
@@ -183,7 +170,8 @@ public sealed class WaveManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_gameplayCamera == null)
+        if (_gameplayCamera == null || _game == null ||
+            (_game.State != GameState.WaveIntro && !_game.CanEnemiesAct))
         {
             return;
         }
@@ -260,6 +248,7 @@ public sealed class WaveManager : MonoBehaviour
         _entryFlights.Clear();
         _phase = WavePhase.Active;
         SetAllColliders(true);
+        _game.OnFormationReady();
     }
 
     private void UpdateActiveFormation()
@@ -319,7 +308,7 @@ public sealed class WaveManager : MonoBehaviour
         }
 
         _currentSpeed += _balance.SpeedIncreasePerKill;
-        GameManager.Instance.AddScore(_balance.ChickenScore);
+        _game.AddScore(_balance.ChickenScore);
 
         if (_livingChickens.Count > 0)
         {
@@ -327,14 +316,7 @@ public sealed class WaveManager : MonoBehaviour
         }
 
         _phase = WavePhase.Clearing;
-        StartCoroutine(StartNextWaveAfterDelay());
-    }
-
-    private IEnumerator StartNextWaveAfterDelay()
-    {
-        yield return new WaitForSeconds(_balance.WaveDelay);
-        _waveIndex++;
-        StartWave(_waveIndex);
+        _game.OnWaveCleared();
     }
 
     private void SetAllColliders(bool active)
@@ -348,7 +330,7 @@ public sealed class WaveManager : MonoBehaviour
         }
     }
 
-    private void ClearFormation()
+    public void ClearFormation()
     {
         _isClearing = true;
         _phase = WavePhase.Clearing;

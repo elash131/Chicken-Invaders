@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -47,14 +48,21 @@ public class PlayerController : Singleton<PlayerController>
     private int _lastScreenHeight;
     private float _nextFireTime;
     private bool _fireRequiresRelease;
+    private GameManager _game;
+    private Collider2D _collider;
+    private Coroutine _blinkRoutine;
+    private bool _visible;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        if (!enabled) return;
         // Local state and local references only - nothing here reaches out to another object.
         if (_rigidbody2D == null) _rigidbody2D = GetComponent<Rigidbody2D>();
         if (_spriteRenderer == null) _spriteRenderer = GetComponent<SpriteRenderer>();
 
         _spawnPosition = transform.position;
+        _collider = GetComponent<Collider2D>();
 
         var playerMap = InputSystem.actions.FindActionMap(Constants.PlayerActionMap, throwIfNotFound: true);
         _move = playerMap.FindAction(Constants.MoveAction, throwIfNotFound: true);
@@ -63,7 +71,27 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Start()
     {
+        _game = GameManager.Instance;
+        if (_game == null)
+        {
+            Debug.LogError("PlayerController needs a configured GameManager.", this);
+            enabled = false;
+            return;
+        }
+        _game.OnStateChanged += HandleStateChanged;
+        HidePlayer();
         CalculateBounds();
+    }
+
+    private void HandleStateChanged(GameState state)
+    {
+        if (!_game.CanControlPlayer) BlockInputUntilFireIsReleased();
+    }
+
+    protected override void OnDestroy()
+    {
+        if (_game != null) _game.OnStateChanged -= HandleStateChanged;
+        base.OnDestroy();
     }
 
     /// <summary>
@@ -97,7 +125,7 @@ public class PlayerController : Singleton<PlayerController>
             CalculateBounds();
         }
 
-        if (!GameManager.Instance.PlayerAlive)
+        if (!_game.CanControlPlayer)
         {
             BlockInputUntilFireIsReleased();
             return;
@@ -167,7 +195,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-        if (!GameManager.Instance.PlayerAlive)
+        if (!_game.CanControlPlayer)
         {
             return;
         }
@@ -191,16 +219,41 @@ public class PlayerController : Singleton<PlayerController>
         _horizontal = 0f;
         _bank = 0f;
         _nextFireTime = Time.time;
+        _fireRequiresRelease = true;
         UpdateBankPose();
 
+        _visible = true;
         _spriteRenderer.enabled = true;
+        if (_collider != null) _collider.enabled = true;
     }
 
     public void HidePlayer()
     {
+        _visible = false;
+        SetInvulnerable(false);
         _rigidbody2D.linearVelocity = Vector2.zero;
         BlockInputUntilFireIsReleased();
         _spriteRenderer.enabled = false;
+        if (_collider != null) _collider.enabled = false;
+    }
+
+    public void SetInvulnerable(bool invulnerable)
+    {
+        if (_blinkRoutine != null) StopCoroutine(_blinkRoutine);
+        _blinkRoutine = null;
+        if (_collider != null) _collider.enabled = _visible && !invulnerable;
+        _spriteRenderer.enabled = _visible;
+        if (invulnerable && _visible) _blinkRoutine = StartCoroutine(Blink());
+    }
+
+    private IEnumerator Blink()
+    {
+        var wait = new WaitForSeconds(0.12f);
+        while (true)
+        {
+            _spriteRenderer.enabled = !_spriteRenderer.enabled;
+            yield return wait;
+        }
     }
 
     /// <summary>

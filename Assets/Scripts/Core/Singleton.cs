@@ -9,9 +9,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     private static T _instance;
 
     /// <summary>
-    /// True when an instance already exists. Use this instead of a null-check on <see cref="Instance"/>
-    /// while tearing down (OnDestroy / OnDisable): reading Instance would resurrect the singleton by
-    /// creating a fresh GameObject, which then leaks into the next play session.
+    /// Does not search or create objects, including during teardown.
     /// </summary>
     public static bool HasInstance => _instance != null;
 
@@ -26,14 +24,20 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
             _instance = FindAnyObjectByType<T>();
 
-            if (_instance == null)
-            {
-                var singletonObject = new GameObject(typeof(T).Name);
-                _instance = singletonObject.AddComponent<T>();
-            }
-
             return _instance;
         }
+    }
+
+    protected virtual void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Debug.LogError($"Duplicate {typeof(T).Name} component.", this);
+            enabled = false;
+            Destroy(this); // Other managers may share this GameObject.
+            return;
+        }
+        _instance = this as T;
     }
 
     protected virtual void OnDestroy()

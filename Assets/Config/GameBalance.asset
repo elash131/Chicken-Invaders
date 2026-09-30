@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d2daa566a43554782af768eaee4073, type: 3}
   m_Name: GameBalance
   m_EditorClassIdentifier: Assembly-CSharp::GameBalanceConfig
+  _startingLives: 3
+  _respawnDelay: 1.5
+  _invulnerabilityDuration: 2.5
+  _restartLockout: 0.5
   _formationSpeed: 1.5
   _speedIncreasePerKill: 0.15
   _descendStep: 0.12

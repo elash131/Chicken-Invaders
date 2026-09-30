@@ -72,7 +72,7 @@ public sealed class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_isLive || !other.TryGetComponent<IDamageable>(out var target))
+        if (!_isLive || _owner == null || !_owner.CanDamage || !other.TryGetComponent<IDamageable>(out var target))
         {
             return;
         }

@@ -9,6 +9,12 @@ using System;
 /// </summary>
 public interface IGameManager
 {
+    GameState State { get; }
+    bool CanControlPlayer { get; }
+    bool CanEnemiesAct { get; }
+    bool CanDamageEnemies { get; }
+    bool CanDamagePlayer { get; }
+    event Action<GameState> OnStateChanged;
     int  Score       { get; }
     int  HighScore   { get; }
     int  Lives       { get; }
@@ -25,4 +31,7 @@ public interface IGameManager
     void RestartGame();
     void AddScore(int amount);
     void OnPlayerHit();
+    void PauseGame();
+    void ResumeGame();
+    void ReturnToMenu();
 }

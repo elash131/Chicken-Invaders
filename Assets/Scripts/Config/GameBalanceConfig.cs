@@ -3,6 +3,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameBalance", menuName = "Chicken Invaders/Game Balance")]
 public sealed class GameBalanceConfig : ScriptableObject
 {
+    [Header("Run")]
+    [SerializeField, Min(1)] private int _startingLives = 3;
+    [SerializeField, Min(0f)] private float _respawnDelay = 1.5f;
+    [SerializeField, Min(0f)] private float _invulnerabilityDuration = 2.5f;
+    [SerializeField, Min(0f)] private float _restartLockout = 0.5f;
+
+    public int StartingLives => _startingLives;
+    public float RespawnDelay => _respawnDelay;
+    public float InvulnerabilityDuration => _invulnerabilityDuration;
+    public float RestartLockout => _restartLockout;
+
     [Header("Chicken Formation")]
     [SerializeField, Min(0.1f)] private float _formationSpeed = 1.5f;
     [SerializeField, Min(0f)] private float _speedIncreasePerKill = 0.15f;

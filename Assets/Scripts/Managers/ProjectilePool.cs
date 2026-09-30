@@ -19,6 +19,8 @@ public sealed class ProjectilePool : MonoBehaviour
     private GameManager _gameManager;
     private Camera _gameplayCamera;
     private bool _isShuttingDown;
+    public bool IsReady => _pool != null && !_isShuttingDown;
+    public bool CanDamage => _gameManager != null && _gameManager.CanDamageEnemies;
 
     private void Start()
     {
@@ -58,7 +60,7 @@ public sealed class ProjectilePool : MonoBehaviour
 
     public void Fire(Vector2 position, Vector2 direction, float speed, int damage, float lifetime)
     {
-        if (_pool == null || _isShuttingDown)
+        if (_pool == null || _isShuttingDown || _gameManager == null || !_gameManager.CanControlPlayer)
         {
             return;
         }
