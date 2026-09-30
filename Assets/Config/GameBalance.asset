@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49d2daa566a43554782af768eaee4073, type: 3}
+  m_Name: GameBalance
+  m_EditorClassIdentifier: Assembly-CSharp::GameBalanceConfig
+  _formationSpeed: 1.5
+  _speedIncreasePerKill: 0.15
+  _descendStep: 0.12
+  _columnSpacing: 1.35
+  _rowSpacing: 1.15
+  _screenSidePadding: 0.25
+  _screenTopPadding: 1
+  _entryDuration: 0.8
+  _entryStagger: 0.1
+  _entrySideDistance: 1.5
+  _waveDelay: 1
+  _chickenScore: 100

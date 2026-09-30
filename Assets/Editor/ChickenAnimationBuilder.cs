@@ -65,6 +65,7 @@ public static class ChickenAnimationBuilder
 
         var binding = EditorCurveBinding.PPtrCurve(string.Empty, typeof(SpriteRenderer), "m_Sprite");
         AnimationUtility.SetObjectReferenceCurve(clip, binding, keys);
+        AnimationUtility.SetAnimationEvents(clip, System.Array.Empty<AnimationEvent>());
 
         var settings = AnimationUtility.GetAnimationClipSettings(clip);
         settings.loopTime = true;

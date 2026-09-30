@@ -44,5 +44,11 @@ TagManager:
   - name: Projectiles
     uniqueID: 1769173619
     locked: 0
+  - name: Chickens
+    uniqueID: 1769173620
+    locked: 0
+  - name: Player
+    uniqueID: 1875862075
+    locked: 0
   m_RenderingLayers:
   - Default

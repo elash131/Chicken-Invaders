@@ -269,7 +269,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -288,8 +288,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1875862075
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1907932533676763785, guid: 87335752b3b49c043b753e5086a285b3, type: 3}
@@ -656,6 +656,8 @@ GameObject:
   - component: {fileID: 1483515753}
   - component: {fileID: 1483515752}
   - component: {fileID: 1483515754}
+  - component: {fileID: 1483515756}
+  - component: {fileID: 1483515755}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -707,6 +709,41 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 5376378098569235870, guid: 29308980140855943995945be0a8f169, type: 3}
   _prewarmCount: 12
   _maxRetained: 32
+--- !u!114 &1483515755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483515751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1db73e4a42e5a1344ba460c4425b212c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaveManager
+  _balance: {fileID: 11400000, guid: a7a0e80c0a266fa4c9bacef8a4a4807c, type: 2}
+  _waves:
+  - {fileID: 11400000, guid: 8de0aa6a80d9d5f49bc0de1ac968b9b0, type: 2}
+  - {fileID: 11400000, guid: e6f02d2a2bfff604798cfc39709b3c9f, type: 2}
+  - {fileID: 11400000, guid: 87047b42da2942743a85a3b9b1104768, type: 2}
+  - {fileID: 11400000, guid: ab061fca3f502e14b9a80da01a0b40b9, type: 2}
+  _factory: {fileID: 1483515756}
+--- !u!114 &1483515756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483515751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2bfba2d66bdaa4c9636d06ac327e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChickenFactory
+  _chickenPrefabs:
+  - {fileID: 6394983299869067863, guid: b1d47e2a93c5416fa8e07d2c9b34f5a2, type: 3}
+  - {fileID: 6394983299869067860, guid: d28f5c1b74a3492e8b61f0d3c5a7e964, type: 3}
+  - {fileID: 6394983299869067861, guid: f39a6d4c85b247138c72e1f4d6b8a075, type: 3}
 --- !u!1 &1902567205
 GameObject:
   m_ObjectHideFlags: 0

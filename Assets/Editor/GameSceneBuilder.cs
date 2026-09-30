@@ -16,6 +16,8 @@ public static class GameSceneBuilder
 {
     private const string ShipSheetPath   = "Assets/Art/Sprites/hero_ship.png";
     private const string StarfieldPath   = "Assets/Art/Backgrounds/PC _ Computer - Chicken Invaders 3 - Background - Starfield.png";
+    private const string UnlitSpriteMaterialPath =
+        "Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Unlit-Default.mat";
 
     private const int ShipFrameWidth  = 45;
     private const int ShipFrameHeight = 37;
@@ -29,6 +31,7 @@ public static class GameSceneBuilder
         ConfigureStarfield();
         BuildScene();
         PlayerShootingSetup.SetUpScene(saveOpenScenes: false);
+        ChickenWaveSetup.SetUpScene(saveOpenScenes: false);
 
         AssetDatabase.SaveAssets();
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
@@ -197,6 +200,7 @@ public static class GameSceneBuilder
 
         var renderer = GetOrAdd<SpriteRenderer>(player);
         if (sprites.Count > 0) renderer.sprite = sprites[0];
+        renderer.sharedMaterial = AssetDatabase.LoadAssetAtPath<Material>(UnlitSpriteMaterialPath);
         renderer.sortingOrder = 10;
 
         // No Animator on the ship. The eight frames are banking poses, not an animation loop -
