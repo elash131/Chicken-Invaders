@@ -70,6 +70,11 @@ public class GameManager : Singleton<GameManager>, IGameManager
             enabled = false;
             yield break;
         }
+
+        var deathPresenter = GetComponent<PlayerDeathPresenter>();
+        if (deathPresenter == null) deathPresenter = gameObject.AddComponent<PlayerDeathPresenter>();
+        deathPresenter.Initialize(this, _player, _waves.Balance.PlayerExplosionPrefab);
+
         _player.HidePlayer();
         _ready = true;
     }

@@ -37,3 +37,4 @@ MonoBehaviour:
   _eggPoolPrewarmCount: 8
   _eggPoolMaxRetained: 24
   _chickenScore: 100
+  _playerExplosionPrefab: {fileID: 5284106739021456811, guid: 9bac2f7c4e5d431ab8d9304b5c6def12, type: 3}

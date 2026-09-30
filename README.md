@@ -36,7 +36,8 @@ the same pattern as the course examples. It is instantiated on entering Play Mod
 
 Regular-wave egg attacks are implemented: only the lowest living chicken in each column can lay,
 near-player safety suppresses unfair shots, and floor impacts play a pooled break animation. The
-lose-line trigger, boss gameplay, audio and final presentation are still planned.
+player now disappears on a valid hit while a reusable red flare expands and fades at the impact
+position. The lose-line trigger, boss gameplay, audio and final presentation are still planned.
 After wave four, the prototype enters BossFight and displays a placeholder with a Main menu button;
 it does not award victory. Damage/lose-line/boss-defeat commands are ready for those future systems.
 The respawn flow includes 1.5 seconds off-screen and 2.5 seconds of protection; one egg collision
@@ -96,7 +97,8 @@ are in [`Docs/ASSETS.md`](Docs/ASSETS.md).
   four-wave progression, result commands, menu return and five retries. The original scene was not changed.
 - Menu renders were visually checked at 1080x1920, 1920x1080 and 1024x768.
 - Egg attacks were exercised in the Editor. The later orientation and broken-egg hold adjustment
-  compiled and imported successfully but still needs a final visual play check. Boss defeat remains
+  compiled and imported successfully but still needs a final visual play check. The basic player-death
+  flare also compiled successfully and still needs a visual play check. Boss defeat remains
   integration-command-only. Physical gamepad input, a Windows player build and profiling remain untested.
 - The batch Editor emitted a separate search-index exception; the gameplay validation completed successfully.
 

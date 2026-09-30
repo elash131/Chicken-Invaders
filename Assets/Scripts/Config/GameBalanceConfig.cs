@@ -43,6 +43,9 @@ public sealed class GameBalanceConfig : ScriptableObject
     [Header("Scoring")]
     [SerializeField, Min(0)] private int _chickenScore = 100;
 
+    [Header("Presentation")]
+    [SerializeField] private PlayerExplosionEffect _playerExplosionPrefab;
+
     public float FormationSpeed => _formationSpeed;
     public float SpeedIncreasePerKill => _speedIncreasePerKill;
     public float DescendStep => _descendStep;
@@ -64,4 +67,5 @@ public sealed class GameBalanceConfig : ScriptableObject
     public int EggPoolPrewarmCount => _eggPoolPrewarmCount;
     public int EggPoolMaxRetained => _eggPoolMaxRetained;
     public int ChickenScore => _chickenScore;
+    public PlayerExplosionEffect PlayerExplosionPrefab => _playerExplosionPrefab;
 }
