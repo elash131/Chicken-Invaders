@@ -13,9 +13,9 @@
 
 A proposal for approval. Numbers below are starting values, not playtest results.
 
-Implementation status (2026-09-30): four formations and pooled player shooting are present.
-The run-state foundation and prototype menu/HUD/pause/result UI are implemented. Egg attacks,
-lose-line detection, the boss, audio and final presentation remain planned. The prototype's
+Implementation status (2026-09-30): four formations, pooled player shooting and pooled regular-wave
+egg attacks are present. The run-state foundation and prototype menu/HUD/pause/result UI are
+implemented. Lose-line detection, the boss, audio and final presentation remain planned. The prototype's
 BossFight state displays a placeholder after wave four; victory requires a future boss-defeat event.
 
 ---

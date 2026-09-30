@@ -14,6 +14,7 @@ public static class Constants
     public const string PlayerLayer          = "Player";
     public const string PlayerProjectileLayer = "PlayerProjectile";
     public const string EnemyLayer           = "Enemy";
+    public const string EnemyProjectileLayer = "EnemyProjectile";
 
     // Input System - action map and action names, as they appear in InputSystem_Actions
     public const string PlayerActionMap = "Player";

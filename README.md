@@ -26,19 +26,21 @@ Final project for **Unity 101 for CS Students**, The Academic College of Tel-Avi
 
 ## Implementation status
 
-The prototype includes movement/banking, scrolling background, pooled Ion bullets, and four
-chicken formations with entry animations, descent and speed increases per kill. An explicit run
+The prototype includes movement/banking, scrolling background, pooled Ion bullets, pooled chicken
+eggs, and four chicken formations with entry animations, descent and speed increases per kill. An explicit run
 state controls input, damage, wave progression, pause, respawn and result transitions. A simple
 UGUI/TMP interface provides Play, Resume, results and a return to the menu.
 It uses the existing purple/white title logo, Bungee for all menu and HUD text, and gold/violet buttons.
 `Assets/Resources/RunUI.prefab` contains the authored Canvas and serialized UI references, following
 the same pattern as the course examples. It is instantiated on entering Play Mode, so the scene is untouched.
 
-Egg attacks, the lose-line trigger, boss gameplay, audio and final presentation are still planned.
+Regular-wave egg attacks are implemented: only the lowest living chicken in each column can lay,
+near-player safety suppresses unfair shots, and floor impacts play a pooled break animation. The
+lose-line trigger, boss gameplay, audio and final presentation are still planned.
 After wave four, the prototype enters BossFight and displays a placeholder with a Main menu button;
 it does not award victory. Damage/lose-line/boss-defeat commands are ready for those future systems.
-The respawn flow includes 1.5 seconds off-screen and 2.5 seconds of protection, but no enemy currently
-triggers player damage during normal gameplay.
+The respawn flow includes 1.5 seconds off-screen and 2.5 seconds of protection; one egg collision
+costs one life and clears the active egg pool.
 
 ## Controls
 
@@ -93,8 +95,9 @@ are in [`Docs/ASSETS.md`](Docs/ASSETS.md).
 - An isolated Unity Editor copy passed 51 automated run-state and serialized-UI checks, including pause, respawn,
   four-wave progression, result commands, menu return and five retries. The original scene was not changed.
 - Menu renders were visually checked at 1080x1920, 1920x1080 and 1024x768.
-- Damage and boss defeat were invoked through integration commands: egg attacks and the boss are
-  not implemented yet. Physical gamepad input, a Windows player build and profiling remain untested.
+- Egg attacks were exercised in the Editor. The later orientation and broken-egg hold adjustment
+  compiled and imported successfully but still needs a final visual play check. Boss defeat remains
+  integration-command-only. Physical gamepad input, a Windows player build and profiling remain untested.
 - The batch Editor emitted a separate search-index exception; the gameplay validation completed successfully.
 
 ## Documentation

@@ -32,6 +32,7 @@ public sealed class WaveManager : MonoBehaviour
 
     private readonly HashSet<Chicken> _livingChickens = new();
     private readonly List<EntryFlight> _entryFlights = new();
+    private readonly List<Chicken> _eligibleShooters = new(5);
 
     private Camera _gameplayCamera;
     private WavePhase _phase;
@@ -43,6 +44,10 @@ public sealed class WaveManager : MonoBehaviour
     private int _lastScreenHeight;
     private bool _isClearing;
     private GameManager _game;
+    private PlayerController _player;
+    private EggPool _eggPool;
+    private Chicken[] _lowestShooters = System.Array.Empty<Chicken>();
+    private float _nextEggTime;
 
     public bool IsReady { get; private set; }
     public GameBalanceConfig Balance => _balance;
@@ -57,15 +62,32 @@ public sealed class WaveManager : MonoBehaviour
         _gameplayCamera = Camera.main;
 
         _game = GameManager.Instance;
-        if (_gameplayCamera == null || _game == null || _balance == null || _factory == null || _waves == null || _waves.Length != 4)
+        _player = PlayerController.Instance;
+        if (_gameplayCamera == null || _game == null || _player == null || _balance == null ||
+            _factory == null || _waves == null || _waves.Length != 4)
         {
             Debug.LogError("WaveManager is missing its balance, factory or wave configuration.", this);
             enabled = false;
             return;
         }
 
-        IsReady = System.Array.TrueForAll(_waves, wave => wave != null);
+        _eggPool = GetComponent<EggPool>();
+        if (_eggPool == null) _eggPool = gameObject.AddComponent<EggPool>();
+
+        IsReady = System.Array.TrueForAll(_waves, wave => wave != null) &&
+                  _eggPool.Initialize(_balance, _gameplayCamera, _game);
         if (!IsReady) Debug.LogError("All four wave configurations must be assigned.", this);
+    }
+
+    private void Update()
+    {
+        if (_phase != WavePhase.Active || _game == null || !_game.CanEnemiesAct ||
+            _eggPool == null || Time.time < _nextEggTime)
+        {
+            return;
+        }
+
+        TryLayEgg();
     }
 
     public void StopCombat()
@@ -98,6 +120,8 @@ public sealed class WaveManager : MonoBehaviour
         _currentSpeed = _balance.FormationSpeed;
         _livingChickens.Clear();
         _entryFlights.Clear();
+        _eligibleShooters.Clear();
+        _lowestShooters = new Chicken[config.Columns];
 
         RecalculateFormationOrigin();
         BuildFormation(config);
@@ -156,6 +180,10 @@ public sealed class WaveManager : MonoBehaviour
                 }
 
                 _livingChickens.Add(chicken);
+                if (_lowestShooters[column] == null || row > _lowestShooters[column].Row)
+                {
+                    _lowestShooters[column] = chicken;
+                }
                 _entryFlights.Add(new EntryFlight
                 {
                     Chicken = chicken,
@@ -249,6 +277,59 @@ public sealed class WaveManager : MonoBehaviour
         _phase = WavePhase.Active;
         SetAllColliders(true);
         _game.OnFormationReady();
+        ScheduleNextEgg();
+    }
+
+    private void TryLayEgg()
+    {
+        RefreshEligibleShooters();
+        if (_eligibleShooters.Count == 0)
+        {
+            _nextEggTime = Time.time + 0.25f;
+            return;
+        }
+
+        var shooter = _eligibleShooters[Random.Range(0, _eligibleShooters.Count)];
+        _eggPool.Fire(shooter.EggSpawnPosition);
+        ScheduleNextEgg(_eligibleShooters.Count);
+    }
+
+    private void RefreshEligibleShooters()
+    {
+        _eligibleShooters.Clear();
+        if (_player == null || _lowestShooters == null)
+        {
+            return;
+        }
+
+        var playerY = _player.transform.position.y;
+        foreach (var shooter in _lowestShooters)
+        {
+            if (shooter != null && shooter.transform.position.y - playerY >= _balance.EggSafetyDistance)
+            {
+                _eligibleShooters.Add(shooter);
+            }
+        }
+    }
+
+    private void ScheduleNextEgg(int eligibleCount = -1)
+    {
+        if (eligibleCount < 0)
+        {
+            RefreshEligibleShooters();
+            eligibleCount = _eligibleShooters.Count;
+        }
+
+        var combinedRate = _balance.EggRatePerShooter * eligibleCount;
+        if (combinedRate <= 0f)
+        {
+            _nextEggTime = Time.time + 0.25f;
+            return;
+        }
+
+        // An exponential interval preserves the configured average rate without synchronized volleys.
+        var sample = Mathf.Clamp(Random.value, 0.0001f, 0.9999f);
+        _nextEggTime = Time.time - Mathf.Log(1f - sample) / combinedRate;
     }
 
     private void UpdateActiveFormation()
@@ -310,6 +391,12 @@ public sealed class WaveManager : MonoBehaviour
         _currentSpeed += _balance.SpeedIncreasePerKill;
         _game.AddScore(_balance.ChickenScore);
 
+        if (chicken.Column >= 0 && chicken.Column < _lowestShooters.Length &&
+            _lowestShooters[chicken.Column] == chicken)
+        {
+            RefreshLowestShooter(chicken.Column);
+        }
+
         if (_livingChickens.Count > 0)
         {
             return;
@@ -317,6 +404,21 @@ public sealed class WaveManager : MonoBehaviour
 
         _phase = WavePhase.Clearing;
         _game.OnWaveCleared();
+    }
+
+    private void RefreshLowestShooter(int column)
+    {
+        Chicken lowest = null;
+        foreach (var candidate in _livingChickens)
+        {
+            if (candidate != null && candidate.Column == column &&
+                (lowest == null || candidate.Row > lowest.Row))
+            {
+                lowest = candidate;
+            }
+        }
+
+        _lowestShooters[column] = lowest;
     }
 
     private void SetAllColliders(bool active)
@@ -345,6 +447,9 @@ public sealed class WaveManager : MonoBehaviour
 
         _livingChickens.Clear();
         _entryFlights.Clear();
+        _eligibleShooters.Clear();
+        _lowestShooters = System.Array.Empty<Chicken>();
+        _nextEggTime = 0f;
         _isClearing = false;
         _phase = WavePhase.Idle;
     }
