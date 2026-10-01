@@ -33,12 +33,34 @@ public sealed class BossConfig : ScriptableObject
     [Tooltip("Time between the final blast and the Victory screen.")]
     [SerializeField, Min(0f)] private float _victoryDelay = 1.2f;
 
+    [Header("Ring Burst")]
+    [Tooltip("Seconds between ring bursts, in both phases.")]
+    [SerializeField, Min(0.5f)] private float _burstInterval = 6f;
+    [SerializeField, Min(0f)] private float _burstWarning = 0.6f;
+    [SerializeField, Range(3, 15)] private int _burstEggCount = 9;
+    [Tooltip("The fan of eggs, in degrees, centred straight down.")]
+    [SerializeField, Range(30f, 180f)] private float _burstArc = 140f;
+    [SerializeField, Min(0.1f)] private float _burstEggSpeedMultiplier = 0.8f;
+
+    [Header("Chick Escort")]
+    [Tooltip("The small formation she calls at half health. Empty means no escort.")]
+    [SerializeField] private WaveConfig _escortWave;
+    [Tooltip("How far below the top of the screen the escort row flies.")]
+    [SerializeField, Min(0f)] private float _escortTopPadding = 4.2f;
+
     [Header("Feast")]
     [Tooltip("During the defeat build-up she throws one piece of food this often.")]
     [SerializeField, Min(0.05f)] private float _feastInterval = 0.35f;
     [Tooltip("Pieces of food thrown out by the final blast.")]
     [SerializeField, Min(0)] private int _feastBurst = 6;
 
+    public float BurstInterval => _burstInterval;
+    public float BurstWarning => _burstWarning;
+    public int BurstEggCount => _burstEggCount;
+    public float BurstArc => _burstArc;
+    public float BurstEggSpeedMultiplier => _burstEggSpeedMultiplier;
+    public WaveConfig EscortWave => _escortWave;
+    public float EscortTopPadding => _escortTopPadding;
     public int Health => _health;
     public int Score => _score;
     public float EntryDuration => _entryDuration;

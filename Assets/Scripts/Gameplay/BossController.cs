@@ -36,9 +36,15 @@ public sealed class BossController : MonoBehaviour, IDamageable
     private float _volleyAt;
     private Vector2 _lockedTarget;
     private bool _windingUp;
+    private bool _burstWindingUp;
+    private float _burstAt;
+    private float _nextBurstAt;
     private int _health;
     private int _lastScreenWidth;
     private int _lastScreenHeight;
+
+    public event System.Action OnEnraged;
+    public event System.Action OnDefeatStarted;
 
     public bool IsActive => _phase != BossPhase.Inactive;
     public int Health => _health;
@@ -106,8 +112,10 @@ public sealed class BossController : MonoBehaviour, IDamageable
             return;
         }
 
-        if (!_game.CanEnemiesAct) return;
+        if (!_game.CanEnemiesAct || _phase == BossPhase.Inactive || _phase == BossPhase.Entering) return;
 
+        // A ring burst pauses her other attacks while it charges, so the two never overlap.
+        if (UpdateBurst()) return;
         if (_phase == BossPhase.Volley) UpdateVolley();
         else if (_phase == BossPhase.Rain) UpdateRain();
     }
@@ -138,6 +146,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _phase = BossPhase.Volley;
         _collider.enabled = true;
         _nextAttackAt = Time.time + _config.VolleyInterval;
+        _nextBurstAt = Time.time + _config.BurstInterval;
     }
 
     private void UpdateSweep()
@@ -187,6 +196,49 @@ public sealed class BossController : MonoBehaviour, IDamageable
         AudioManager.Play(SoundEffect.BossCharge);
     }
 
+    /// <summary>Charges and fires the ring of eggs. Returns true while it is charging.</summary>
+    private bool UpdateBurst()
+    {
+        if (_burstWindingUp)
+        {
+            if (!_game.PlayerAlive)
+            {
+                CancelBurst();
+                return false;
+            }
+            if (Time.time < _burstAt) return true;
+
+            CancelBurst();
+            FireBurst();
+            return false;
+        }
+
+        if (_windingUp || !_game.PlayerAlive || Time.time < _nextBurstAt) return false;
+        _burstWindingUp = true;
+        _burstAt = Time.time + _config.BurstWarning;
+        _presenter.SetVolleyWarning(true);
+        AudioManager.Play(SoundEffect.BossCharge, 0.75f);
+        return true;
+    }
+
+    private void CancelBurst()
+    {
+        _burstWindingUp = false;
+        _presenter.SetVolleyWarning(false);
+        _nextBurstAt = Time.time + _config.BurstInterval;
+    }
+
+    private void FireBurst()
+    {
+        var origin = EggOrigin;
+        var count = _config.BurstEggCount;
+        for (var i = 0; i < count; i++)
+        {
+            var angle = Mathf.Lerp(-_config.BurstArc * 0.5f, _config.BurstArc * 0.5f, i / (count - 1f));
+            _eggs.Fire(origin, Quaternion.Euler(0f, 0f, angle) * Vector2.down, _config.BurstEggSpeedMultiplier);
+        }
+    }
+
     private void FireVolley()
     {
         var origin = EggOrigin;
@@ -231,7 +283,9 @@ public sealed class BossController : MonoBehaviour, IDamageable
         {
             _phase = BossPhase.Rain;
             _windingUp = false;
+            CancelBurst();
             _presenter.Enrage();
+            OnEnraged?.Invoke();
             if (_cameraFeedback != null) _cameraFeedback.PlayEnrage();
             _nextAttackAt = Time.time + _config.EnrageDelay;
         }
@@ -243,6 +297,8 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _phase = BossPhase.Defeated;
         _collider.enabled = false;
         _windingUp = false;
+        _burstWindingUp = false;
+        OnDefeatStarted?.Invoke();
         _eggs.ReleaseAll();
         _presenter.Defeat();
         _exploded = false;
@@ -291,6 +347,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _phase = BossPhase.Inactive;
         _health = 0;
         _windingUp = false;
+        _burstWindingUp = false;
         _collider.enabled = false;
         _body.linearVelocity = Vector2.zero;
         _presenter.Hide();

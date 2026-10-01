@@ -30,10 +30,14 @@ Playable from menu to victory:
 
 - Horizontal ship with banking poses, held fire on a cooldown, pooled Ion bullets.
 - Four chicken formations (2–5 rows × 5) that fly in, sweep, step down at the walls and speed up
-  with every kill. Only the lowest chicken in each column lays eggs, never too close to the ship.
+  with every kill. Each wave starts faster and lays more eggs than the last. Only the lowest
+  chicken in each column lays eggs, never too close to the ship.
+- Dive bombers from wave 2: a chicken wobbles as a warning, then swoops at the ship, drops an aimed
+  egg and flies back into the formation.
 - A chicken reaching the lose line just above the ship ends the run.
-- Mother Hen after wave four: 30 health and a health bar. She fires aimed three-egg volleys, then
-  enrages at half health and rains eggs. Her helmet cracks and then her armour breaks as she takes
+- Mother Hen after wave four: 45 health and a health bar. She fires aimed five-egg volleys and
+  charged rings of eggs, then enrages at half health, rains eggs and calls a row of chicks that
+  shield her and dive-bomb the ship. Her helmet cracks and then her armour breaks as she takes
   damage, and she goes out in a chain of blasts and one big explosion. Her health is a vertical bar
   on the right edge. Short camera cues mark her entrance, enrage and defeat.
 - Chickens pop in a burst of feathers (a world-space particle system); Mother Hen sheds feathers on

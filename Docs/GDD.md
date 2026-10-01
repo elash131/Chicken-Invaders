@@ -77,8 +77,11 @@ stateDiagram-v2
   cooldown. Each bullet does one damage.
 - **Formation:** all chickens move as one body. When the outermost surviving chicken touches a wall,
   the whole flock steps down and reverses.
-- **Speed:** every kill makes the flock faster. It resets at the next wave — later waves add rows,
-  not speed.
+- **Speed:** every kill makes the flock faster. It resets at the next wave, and each later wave
+  starts faster, steps down further and lays more, quicker eggs (values per wave in its WaveConfig).
+- **Dive bombers:** from wave 2 a chicken now and then wobbles as a warning, then leaves the
+  formation and swoops through the ship's lane, dropping one aimed egg. It flies off the bottom and
+  back into its slot. Touching a diver costs a life; shooting one mid-dive drops its food close by.
 - **Eggs:** only the lowest surviving chicken in each column lays them, and it stops once it is too
   close to the player to dodge. **Eggs cannot be shot down** — dodging is the only answer.
 - **Scoring:** 100 per chicken, 500 for the boss, plus the food you catch (below). High score saved
@@ -94,17 +97,20 @@ stateDiagram-v2
 
 ### Waves and boss
 
-| Stage | Formation | Completion |
-|---|---|---|
-| Wave 1 | 2 rows × 5 chickens | Defeat all 10 |
-| Wave 2 | 3 rows × 5 | Defeat all 15 |
-| Wave 3 | 4 rows × 5 | Defeat all 20 |
-| Wave 4 | 5 rows × 5 | Defeat all 25 |
-| Mother Hen | One boss, 30 health | Defeat her to win |
+| Stage | Formation | Start speed / egg rate | Dive bombers | Completion |
+|---|---|---|---|---|
+| Wave 1 | 2 rows × 5 chickens | 1.5 / 0.15 | — | Defeat all 10 |
+| Wave 2 | 3 rows × 5 | 1.8 / 0.20 | one at a time, ~7 s apart | Defeat all 15 |
+| Wave 3 | 4 rows × 5 | 2.1 / 0.25 | up to two, ~5 s apart | Defeat all 20 |
+| Wave 4 | 5 rows × 5 | 2.4 / 0.30 | up to two, ~3.5 s apart, faster | Defeat all 25 |
+| Mother Hen | One boss, 45 health, chick escort at half health | Defeat her to win |
 
 The **Mother Hen** sweeps left and right above the lose line and never descends. A health bar shows
-what is left of her. At half health she speeds up and switches from aimed three-egg volleys to
-dropping eggs continuously along her path, so parking underneath her stops working.
+what is left of her. In the first phase she fires aimed five-egg volleys after a short warning.
+At half health she speeds up and switches to dropping eggs continuously along her path, so parking
+underneath her stops working, and she calls a row of four chicks that sweep below her, shield her
+and dive-bomb the ship (shooting them scores and drops food). In both phases she regularly pauses,
+charges and fires a ring of nine eggs fanned downwards, so the player must find the gap.
 Her armour shows the damage: the glass helmet cracks after she loses a third of her health, and
 the armour is gone for the last third. Her defeat is a short show: she swells, shakes and pops with
 small blasts, then disappears in one big explosion before the Victory screen. She throws out a
@@ -126,7 +132,7 @@ strengths are configured in GameBalance, and zero duration disables an individua
 | Descend step | Drop at each wall | 0.12 units |
 | Egg rate | Per eligible chicken | 0.15 eggs/s |
 | Egg speed | Reaction time an egg gives | 6 units/s |
-| Boss health / volley interval | Length of the boss fight | 30 / 2 s |
+| Boss health / volley interval / ring burst | Length of the boss fight | 45 / 1.5 s / every 6 s |
 
 **Where these live:** `GameBalanceConfig` and `WaveConfig` ScriptableObjects, so tuning never needs a
 recompile.
@@ -304,6 +310,8 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.7 | 2026-10-01 | Tougher Mother Hen: 45 health, five-egg volleys, ring bursts and a diving chick escort at half health |
+| v1.6 | 2026-10-01 | Each wave has its own difficulty; dive bombers from wave 2 — the earlier "later waves add rows, not speed" rule is dropped because playtests found the waves too easy |
 | v1.5 | 2026-10-01 | Feather particle bursts and chicken death pop; chicken kills are now an event that food and effects listen to |
 | v1.4 | 2026-10-01 | Feast Streak food pickups and Mother Hen's feast; a streak-based reward moved into scope |
 | v1.3 | 2026-10-01 | Music and sound effects with mute; lose line implemented; 16:9 letterbox; bigger Mother Hen with damage looks, side health bar and a defeat show; UI and Mother Hen moved into scene prefabs; fixed orientation, font and system list to match the game; audio kept as the next major pass |

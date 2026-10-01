@@ -92,6 +92,8 @@ public class GameManager : Singleton<GameManager>, IGameManager
             yield break;
         }
 
+        _boss.OnEnraged += CallBossEscort;
+        _boss.OnDefeatStarted += _waves.ScatterFormation;
         _player.HidePlayer();
         _ready = true;
     }
@@ -227,6 +229,12 @@ public class GameManager : Singleton<GameManager>, IGameManager
             EndRun(GameState.Victory);
     }
 
+    private void CallBossEscort()
+    {
+        var boss = _waves.Balance.Boss;
+        _waves.StartEscort(boss.EscortWave, boss.EscortTopPadding);
+    }
+
     public void ReportBossHealth(int current, int maximum)
     {
         OnBossHealthChanged?.Invoke(Mathf.Max(0, current), Mathf.Max(1, maximum));
@@ -305,6 +313,11 @@ public class GameManager : Singleton<GameManager>, IGameManager
 
     protected override void OnDestroy()
     {
+        if (_boss != null)
+        {
+            _boss.OnEnraged -= CallBossEscort;
+            _boss.OnDefeatStarted -= _waves.ScatterFormation;
+        }
         if (HasInstance && Instance == this)
         {
             CancelTimedWork();

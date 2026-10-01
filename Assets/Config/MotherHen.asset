@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fa6f8046ad4de5ab150b7c7b10e792, type: 3}
   m_Name: MotherHen
   m_EditorClassIdentifier: Assembly-CSharp::BossConfig
-  _health: 30
+  _health: 45
   _score: 500
   _entryDuration: 1.2
   _phaseOneSpeed: 1.4
-  _phaseTwoSpeed: 2.2
+  _phaseTwoSpeed: 2.8
   _sidePadding: 0.8
   _topPadding: 2.15
-  _volleyInterval: 2
-  _volleyWarning: 0.55
-  _volleyEggCount: 3
-  _volleySpread: 14
+  _volleyInterval: 1.5
+  _volleyWarning: 0.45
+  _volleyEggCount: 5
+  _volleySpread: 22
   _volleyEggSpeedMultiplier: 0.95
-  _rainInterval: 0.32
+  _rainInterval: 0.24
   _rainEggSpeedMultiplier: 1.05
   _rainHorizontalJitter: 0.45
   _enrageDelay: 0.45
@@ -55,3 +55,10 @@ MonoBehaviour:
   _enragedHeadIndex: 0
   _hurtHeadIndex: 0
   _defeatedHeadIndex: 0
+  _burstInterval: 6
+  _burstWarning: 0.6
+  _burstEggCount: 9
+  _burstArc: 140
+  _burstEggSpeedMultiplier: 0.8
+  _escortWave: {fileID: 11400000, guid: 44433c09d3c8490ab4d33dd60815e494, type: 2}
+  _escortTopPadding: 4.6
