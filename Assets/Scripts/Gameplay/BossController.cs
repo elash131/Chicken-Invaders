@@ -13,7 +13,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         Defeated
     }
 
-    private GameManager _game;
+    private IGameManager _game;
     private PlayerController _player;
     private EggPool _eggs;
     private BossCameraFeedback _cameraFeedback;
@@ -28,6 +28,9 @@ public sealed class BossController : MonoBehaviour, IDamageable
     private float _entryElapsed;
     private float _direction = 1f;
     private float _nextAttackAt;
+    private float _explodeAt;
+    private float _victoryAt;
+    private bool _exploded;
     private float _volleyAt;
     private Vector2 _lockedTarget;
     private bool _windingUp;
@@ -39,7 +42,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
     public int Health => _health;
 
     public bool Initialize(
-        GameManager game,
+        IGameManager game,
         PlayerController player,
         EggPool eggs,
         BossCameraFeedback cameraFeedback,
@@ -47,8 +50,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         Camera gameplayCamera)
     {
         if (_config != null) return true;
-        if (game == null || player == null || eggs == null || config == null ||
-            gameplayCamera == null || !config.IsConfigured)
+        if (game == null || player == null || eggs == null || config == null || gameplayCamera == null)
         {
             Debug.LogError("Mother Hen needs configured game, player, egg pool, camera and boss data.", this);
             return false;
@@ -64,13 +66,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _collider = GetComponent<BoxCollider2D>();
         _presenter = GetComponent<BossPresenter>();
 
-        gameObject.layer = LayerMask.NameToLayer(Constants.EnemyLayer);
-        _body.bodyType = RigidbodyType2D.Kinematic;
-        _body.gravityScale = 0f;
-        _body.freezeRotation = true;
-        _collider.isTrigger = true;
-        _collider.size = config.ColliderSize;
-        _collider.offset = new Vector2(0f, -0.05f);
+        // Layer, kinematic body and trigger size are authored on the prefab.
         _collider.enabled = false;
         _presenter.Initialize(config);
         _phase = BossPhase.Inactive;
@@ -88,7 +84,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _windingUp = false;
         RecalculateCombatPosition();
         _entryStart = new Vector2(_combatPosition.x,
-            _camera.ViewportToWorldPoint(Vector3.up).y + _collider.size.y);
+            _camera.ViewportToWorldPoint(Vector3.up).y + _collider.size.y * transform.lossyScale.y);
         SetPosition(_entryStart);
         _phase = BossPhase.Entering;
         _presenter.Show();
@@ -102,7 +98,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
 
         if (_phase == BossPhase.Defeated)
         {
-            if (Time.time >= _nextAttackAt) StopEncounter();
+            UpdateDefeat();
             return;
         }
 
@@ -217,7 +213,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
             (_phase != BossPhase.Volley && _phase != BossPhase.Rain)) return;
 
         _health = Mathf.Max(0, _health - amount);
-        _presenter.FlashHit();
+        _presenter.ShowDamage(_health, _config.Health);
         _game.ReportBossHealth(_health, _config.Health);
 
         if (_health == 0)
@@ -229,7 +225,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
             _phase = BossPhase.Rain;
             _windingUp = false;
             _presenter.Enrage();
-            _cameraFeedback?.PlayEnrage();
+            if (_cameraFeedback != null) _cameraFeedback.PlayEnrage();
             _nextAttackAt = Time.time + _config.EnrageDelay;
         }
     }
@@ -242,9 +238,25 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _windingUp = false;
         _eggs.ReleaseAll();
         _presenter.Defeat();
-        _nextAttackAt = Time.time + _config.DefeatDuration;
+        _exploded = false;
+        _explodeAt = Time.time + _config.DefeatDuration;
+        _victoryAt = _explodeAt + _config.VictoryDelay;
         _game.AddScore(_config.Score);
-        _game.OnBossDefeated();
+    }
+
+    // The run only ends after the show, so Victory appears once the final blast has landed.
+    private void UpdateDefeat()
+    {
+        if (!_exploded && Time.time >= _explodeAt)
+        {
+            _exploded = true;
+            _presenter.Explode();
+            if (_cameraFeedback != null) _cameraFeedback.PlayDefeat();
+        }
+
+        if (Time.time < _victoryAt) return;
+        _game.ReportBossDefeated();
+        StopEncounter();
     }
 
     public void StopEncounter()
@@ -262,7 +274,10 @@ public sealed class BossController : MonoBehaviour, IDamageable
     private void HandleStateChanged(GameState state)
     {
         if (state == GameState.Menu || state == GameState.WaveIntro || state == GameState.GameOver)
+        {
             StopEncounter();
+            _presenter.StopEffects();
+        }
     }
 
     private Vector2 EggOrigin => new(_body.position.x, _collider.bounds.min.y + 0.05f);

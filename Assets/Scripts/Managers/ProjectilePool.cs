@@ -16,7 +16,7 @@ public sealed class ProjectilePool : MonoBehaviour
     private readonly List<Projectile> _releaseScratch = new();
 
     private ObjectPool<Projectile> _pool;
-    private GameManager _gameManager;
+    private IGameManager _gameManager;
     private Camera _gameplayCamera;
     private bool _isShuttingDown;
     public bool IsReady => _pool != null && !_isShuttingDown;

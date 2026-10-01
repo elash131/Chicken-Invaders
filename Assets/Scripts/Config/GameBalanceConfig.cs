@@ -22,6 +22,8 @@ public sealed class GameBalanceConfig : ScriptableObject
     [SerializeField, Min(0.1f)] private float _rowSpacing = 1.15f;
     [SerializeField, Min(0f)] private float _screenSidePadding = 0.25f;
     [SerializeField, Min(0f)] private float _screenTopPadding = 1f;
+    [Tooltip("Height above the ship. A chicken reaching it ends the run.")]
+    [SerializeField, Min(0f)] private float _loseLineHeight = 0.8f;
 
     [Header("Chicken Entry")]
     [SerializeField, Min(0.05f)] private float _entryDuration = 0.8f;
@@ -44,7 +46,7 @@ public sealed class GameBalanceConfig : ScriptableObject
     [SerializeField, Min(0)] private int _chickenScore = 100;
 
     [Header("Presentation")]
-    [SerializeField] private PlayerExplosionEffect _playerExplosionPrefab;
+    [SerializeField] private ExplosionEffect _playerExplosionPrefab;
 
     [Header("Boss")]
     [SerializeField] private BossConfig _boss;
@@ -80,6 +82,7 @@ public sealed class GameBalanceConfig : ScriptableObject
     public float RowSpacing => _rowSpacing;
     public float ScreenSidePadding => _screenSidePadding;
     public float ScreenTopPadding => _screenTopPadding;
+    public float LoseLineHeight => _loseLineHeight;
     public float EntryDuration => _entryDuration;
     public float EntryStagger => _entryStagger;
     public float EntrySideDistance => _entrySideDistance;
@@ -94,7 +97,7 @@ public sealed class GameBalanceConfig : ScriptableObject
     public int EggPoolPrewarmCount => _eggPoolPrewarmCount;
     public int EggPoolMaxRetained => _eggPoolMaxRetained;
     public int ChickenScore => _chickenScore;
-    public PlayerExplosionEffect PlayerExplosionPrefab => _playerExplosionPrefab;
+    public ExplosionEffect PlayerExplosionPrefab => _playerExplosionPrefab;
     public BossConfig Boss => _boss;
     public CameraCue BossEntranceCamera => _bossEntranceCamera;
     public CameraCue BossEnrageCamera => _bossEnrageCamera;

@@ -6,7 +6,7 @@ using UnityEngine.Rendering;
 public sealed class BossCameraFeedback : MonoBehaviour
 {
     private Camera _camera;
-    private GameManager _game;
+    private IGameManager _game;
     private GameBalanceConfig _balance;
     private GameBalanceConfig.CameraCue _cue;
     private Vector3 _restPosition;
@@ -18,7 +18,7 @@ public sealed class BossCameraFeedback : MonoBehaviour
     private bool _bossEntered;
     private bool _enraged;
 
-    public void Initialize(GameManager game, GameBalanceConfig balance)
+    public void Initialize(IGameManager game, GameBalanceConfig balance)
     {
         if (_game != null) return;
         _camera = GetComponent<Camera>();
@@ -61,10 +61,6 @@ public sealed class BossCameraFeedback : MonoBehaviour
             _bossEntered = true;
             Play(_balance.BossEntranceCamera);
         }
-        else if (state == GameState.Victory && _bossEntered)
-        {
-            Play(_balance.BossDefeatCamera);
-        }
         else if (state == GameState.GameOver || state == GameState.WaveIntro)
         {
             StopFeedback();
@@ -77,6 +73,12 @@ public sealed class BossCameraFeedback : MonoBehaviour
         if (!_subscribed || !_bossEntered || _enraged || !_game.CanEnemiesAct) return;
         _enraged = true;
         Play(_balance.BossEnrageCamera);
+    }
+
+    /// <summary>Called on Mother Hen's final blast.</summary>
+    public void PlayDefeat()
+    {
+        if (_subscribed && _bossEntered) Play(_balance.BossDefeatCamera);
     }
 
     private void Play(GameBalanceConfig.CameraCue cue)

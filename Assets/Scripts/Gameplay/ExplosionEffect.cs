@@ -1,8 +1,11 @@
 using UnityEngine;
 
-/// <summary>A short, reusable 2D death flash that owns its visual lifetime.</summary>
+/// <summary>
+/// A short, reusable 2D flash that expands and fades, then hides itself. Used for the ship's death
+/// and for Mother Hen's defeat; callers keep their instances and replay them instead of spawning.
+/// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
-public sealed class PlayerExplosionEffect : MonoBehaviour
+public sealed class ExplosionEffect : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField, Min(0.01f)] private float _duration = 0.55f;
@@ -11,6 +14,8 @@ public sealed class PlayerExplosionEffect : MonoBehaviour
 
     private Color _baseColor;
     private float _elapsed;
+    private float _playDuration;
+    private float _sizeMultiplier = 1f;
     private bool _playing;
 
     private void Awake()
@@ -19,10 +24,12 @@ public sealed class PlayerExplosionEffect : MonoBehaviour
         _baseColor = _spriteRenderer.color;
     }
 
-    public void Play(Vector2 worldPosition)
+    public void Play(Vector2 worldPosition, float sizeMultiplier = 1f, float durationMultiplier = 1f)
     {
+        _sizeMultiplier = sizeMultiplier;
+        _playDuration = _duration * Mathf.Max(0.1f, durationMultiplier);
         transform.position = worldPosition;
-        transform.localScale = Vector3.one * _startScale;
+        transform.localScale = Vector3.one * (_startScale * _sizeMultiplier);
         _elapsed = 0f;
         _playing = true;
 
@@ -37,9 +44,9 @@ public sealed class PlayerExplosionEffect : MonoBehaviour
         if (!_playing) return;
 
         _elapsed += Time.deltaTime;
-        var progress = Mathf.Clamp01(_elapsed / _duration);
+        var progress = Mathf.Clamp01(_elapsed / _playDuration);
         var eased = Mathf.SmoothStep(0f, 1f, progress);
-        transform.localScale = Vector3.one * Mathf.Lerp(_startScale, _endScale, eased);
+        transform.localScale = Vector3.one * (Mathf.Lerp(_startScale, _endScale, eased) * _sizeMultiplier);
 
         var color = _baseColor;
         color.a = 1f - eased;

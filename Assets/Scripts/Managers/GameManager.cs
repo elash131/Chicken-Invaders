@@ -6,6 +6,10 @@ using UnityEngine.InputSystem;
 /// <summary>Owns run rules. Other systems report events and read permissions.</summary>
 public class GameManager : Singleton<GameManager>, IGameManager
 {
+    [Header("Scene References")]
+    [SerializeField] private BossController _boss;
+    [SerializeField] private BossCameraFeedback _cameraFeedback;
+
     private GameState _state = GameState.Menu;
     private GameState _stateBeforePause;
     private GameState _combatBeforeRespawn;
@@ -23,8 +27,6 @@ public class GameManager : Singleton<GameManager>, IGameManager
     private PlayerController _player;
     private WaveManager _waves;
     private ProjectilePool _projectiles;
-    private BossController _boss;
-    private BossCameraFeedback _cameraFeedback;
     private InputAction _restart;
     private InputAction _pause;
 
@@ -75,24 +77,15 @@ public class GameManager : Singleton<GameManager>, IGameManager
         }
 
         var deathPresenter = GetComponent<PlayerDeathPresenter>();
-        if (deathPresenter == null) deathPresenter = gameObject.AddComponent<PlayerDeathPresenter>();
-        deathPresenter.Initialize(this, _player, _waves.Balance.PlayerExplosionPrefab);
+        if (deathPresenter != null) deathPresenter.Initialize(this, _player, _waves.Balance.PlayerExplosionPrefab);
+        else Debug.LogError("Managers needs a PlayerDeathPresenter component.", this);
 
-        var gameplayCamera = Camera.main;
-        if (gameplayCamera != null)
-        {
-            _cameraFeedback = gameplayCamera.GetComponent<BossCameraFeedback>();
-            if (_cameraFeedback == null) _cameraFeedback = gameplayCamera.gameObject.AddComponent<BossCameraFeedback>();
-            _cameraFeedback.Initialize(this, _waves.Balance);
-        }
+        if (_cameraFeedback != null) _cameraFeedback.Initialize(this, _waves.Balance);
 
-        var bossObject = new GameObject("Mother Hen");
-        _boss = bossObject.AddComponent<BossController>();
-        if (!_boss.Initialize(this, _player, _waves.EnemyEggs, _cameraFeedback,
-                _waves.Balance.Boss, gameplayCamera))
+        if (_boss == null || !_boss.Initialize(this, _player, _waves.EnemyEggs, _cameraFeedback,
+                _waves.Balance.Boss, Camera.main))
         {
-            Debug.LogError("GameManager could not initialize Mother Hen.", this);
-            Destroy(bossObject);
+            Debug.LogError("GameManager needs the Mother Hen from the scene assigned.", this);
             enabled = false;
             yield break;
         }
@@ -138,12 +131,12 @@ public class GameManager : Singleton<GameManager>, IGameManager
         _waves.StartWave(_waveIndex);
     }
 
-    public void OnFormationReady()
+    public void ReportFormationReady()
     {
         if (_state == GameState.WaveIntro) ChangeState(GameState.Playing);
     }
 
-    public void OnWaveCleared()
+    public void ReportWaveCleared()
     {
         if (_state != GameState.Playing &&
             !(_state == GameState.Respawning && _combatBeforeRespawn == GameState.Playing)) return;
@@ -184,7 +177,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
         OnScoreChanged?.Invoke(_score, _highScore);
     }
 
-    public void OnPlayerHit()
+    public void ReportPlayerHit()
     {
         if (!CanDamagePlayer) return;
         _combatBeforeRespawn = _state;
@@ -218,14 +211,14 @@ public class GameManager : Singleton<GameManager>, IGameManager
         _protectionRoutine = null;
     }
 
-    public void OnLoseLineCrossed()
+    public void ReportLoseLineCrossed()
     {
         if (_state == GameState.Playing ||
             (_state == GameState.Respawning && _combatBeforeRespawn == GameState.Playing))
             EndRun(GameState.GameOver);
     }
 
-    public void OnBossDefeated()
+    public void ReportBossDefeated()
     {
         if (_state == GameState.BossFight ||
             (_state == GameState.Respawning && _combatBeforeRespawn == GameState.BossFight))

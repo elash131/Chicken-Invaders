@@ -11,7 +11,7 @@ public sealed class EggPool : MonoBehaviour
     private ObjectPool<EggProjectile> _pool;
     private EggProjectile _prefab;
     private Camera _gameplayCamera;
-    private GameManager _game;
+    private IGameManager _game;
     private float _speed;
     private float _lifetime;
     private float _breakFrameDuration;
@@ -20,7 +20,7 @@ public sealed class EggPool : MonoBehaviour
 
     public bool IsReady => _pool != null && !_isShuttingDown;
 
-    public bool Initialize(GameBalanceConfig balance, Camera gameplayCamera, GameManager game)
+    public bool Initialize(GameBalanceConfig balance, Camera gameplayCamera, IGameManager game)
     {
         if (IsReady) return true;
         if (balance == null || balance.EggPrefab == null || gameplayCamera == null || game == null)
@@ -89,7 +89,7 @@ public sealed class EggPool : MonoBehaviour
 
         var canDamage = _game != null && _game.CanDamagePlayer;
         Release(egg);
-        if (canDamage) _game.OnPlayerHit();
+        if (canDamage) _game.ReportPlayerHit();
     }
 
     public void ReleaseAll()

@@ -3,14 +3,14 @@ using UnityEngine;
 /// <summary>Observes player-death events and plays presentation without owning damage rules.</summary>
 public sealed class PlayerDeathPresenter : MonoBehaviour
 {
-    private GameManager _game;
+    private IGameManager _game;
     private PlayerController _player;
-    private PlayerExplosionEffect _effect;
+    private ExplosionEffect _effect;
 
     public void Initialize(
-        GameManager game,
+        IGameManager game,
         PlayerController player,
-        PlayerExplosionEffect effectPrefab)
+        ExplosionEffect effectPrefab)
     {
         if (_game != null) return;
         if (game == null || player == null || effectPrefab == null)
@@ -22,7 +22,7 @@ public sealed class PlayerDeathPresenter : MonoBehaviour
         _game = game;
         _player = player;
         _effect = Instantiate(effectPrefab);
-        _effect.name = "PlayerExplosionEffect";
+        _effect.name = "PlayerExplosion";
         _effect.Stop();
 
         _game.OnPlayerDied += PlayExplosion;

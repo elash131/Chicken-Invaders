@@ -17,8 +17,8 @@ MonoBehaviour:
   _entryDuration: 1.2
   _phaseOneSpeed: 1.4
   _phaseTwoSpeed: 2.2
-  _sidePadding: 0.35
-  _topPadding: 1.75
+  _sidePadding: 0.8
+  _topPadding: 2.15
   _volleyInterval: 2
   _volleyWarning: 0.55
   _volleyEggCount: 3
@@ -28,7 +28,8 @@ MonoBehaviour:
   _rainEggSpeedMultiplier: 1.05
   _rainHorizontalJitter: 0.45
   _enrageDelay: 0.45
-  _defeatDuration: 1.1
+  _defeatDuration: 2.4
+  _victoryDelay: 1.2
   _visualScale: 1.65
   _colliderSize: {x: 4.2, y: 2.7}
   _spriteMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}

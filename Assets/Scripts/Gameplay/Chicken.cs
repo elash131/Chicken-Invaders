@@ -18,6 +18,7 @@ public sealed class Chicken : MonoBehaviour, IDamageable
     public int Column { get; private set; }
     public Vector2 SlotOffset { get; private set; }
     public float HalfWidth => _collider2D != null ? _collider2D.bounds.extents.x : 0.5f;
+    public float HalfHeight => _collider2D != null ? _collider2D.bounds.extents.y : 0.5f;
     public Vector2 EggSpawnPosition => _collider2D != null
         ? new Vector2(_collider2D.bounds.center.x, _collider2D.bounds.min.y)
         : (Vector2)transform.position;

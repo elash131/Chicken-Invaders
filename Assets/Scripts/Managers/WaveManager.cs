@@ -43,7 +43,7 @@ public sealed class WaveManager : MonoBehaviour
     private int _lastScreenWidth;
     private int _lastScreenHeight;
     private bool _isClearing;
-    private GameManager _game;
+    private IGameManager _game;
     private PlayerController _player;
     private EggPool _eggPool;
     private Chicken[] _lowestShooters = System.Array.Empty<Chicken>();
@@ -57,6 +57,7 @@ public sealed class WaveManager : MonoBehaviour
     public int CurrentWaveNumber => _waveIndex + 1;
     public int LivingChickenCount => _livingChickens.Count;
     public EggPool EnemyEggs => _eggPool;
+    private float LoseLineY => _player.transform.position.y + _balance.LoseLineHeight;
 
     private void Start()
     {
@@ -73,7 +74,12 @@ public sealed class WaveManager : MonoBehaviour
         }
 
         _eggPool = GetComponent<EggPool>();
-        if (_eggPool == null) _eggPool = gameObject.AddComponent<EggPool>();
+        if (_eggPool == null)
+        {
+            Debug.LogError("Managers needs an EggPool component next to WaveManager.", this);
+            enabled = false;
+            return;
+        }
 
         IsReady = System.Array.TrueForAll(_waves, wave => wave != null) &&
                   _eggPool.Initialize(_balance, _gameplayCamera, _game);
@@ -277,7 +283,7 @@ public sealed class WaveManager : MonoBehaviour
         _entryFlights.Clear();
         _phase = WavePhase.Active;
         SetAllColliders(true);
-        _game.OnFormationReady();
+        _game.ReportFormationReady();
         ScheduleNextEgg();
     }
 
@@ -342,6 +348,7 @@ public sealed class WaveManager : MonoBehaviour
 
         var left = float.PositiveInfinity;
         var right = float.NegativeInfinity;
+        var bottom = float.PositiveInfinity;
 
         foreach (var chicken in _livingChickens)
         {
@@ -353,6 +360,15 @@ public sealed class WaveManager : MonoBehaviour
             var centre = _formationOrigin.x + chicken.SlotOffset.x;
             left = Mathf.Min(left, centre - chicken.HalfWidth);
             right = Mathf.Max(right, centre + chicken.HalfWidth);
+            bottom = Mathf.Min(bottom, _formationOrigin.y + chicken.SlotOffset.y - chicken.HalfHeight);
+        }
+
+        // Below this line a chicken can no longer be shot, so the run would never end.
+        if (bottom <= LoseLineY)
+        {
+            _phase = WavePhase.Idle;
+            _game.ReportLoseLineCrossed();
+            return;
         }
 
         var leftWall = _gameplayCamera.ViewportToWorldPoint(Vector3.zero).x + _balance.ScreenSidePadding;
@@ -363,7 +379,12 @@ public sealed class WaveManager : MonoBehaviour
             (_direction > 0f && right + movement >= rightWall))
         {
             _direction *= -1f;
-            _formationOrigin.y -= _balance.DescendStep;
+            // In a window narrower than the flock it touches a wall every step; descending each
+            // time would drop it onto the lose line within a second.
+            if (right - left < rightWall - leftWall)
+            {
+                _formationOrigin.y -= _balance.DescendStep;
+            }
             movement = _direction * _currentSpeed * Time.fixedDeltaTime;
         }
 
@@ -404,7 +425,7 @@ public sealed class WaveManager : MonoBehaviour
         }
 
         _phase = WavePhase.Clearing;
-        _game.OnWaveCleared();
+        _game.ReportWaveCleared();
     }
 
     private void RefreshLowestShooter(int column)
@@ -470,5 +491,11 @@ public sealed class WaveManager : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(_formationOrigin, 0.12f);
+
+        var player = _player != null ? _player : FindAnyObjectByType<PlayerController>();
+        if (player == null) return;
+        var y = player.transform.position.y + _balance.LoseLineHeight;
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(new Vector3(-10f, y, 0f), new Vector3(10f, y, 0f));
     }
 }

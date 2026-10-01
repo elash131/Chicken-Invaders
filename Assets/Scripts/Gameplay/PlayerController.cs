@@ -48,7 +48,7 @@ public class PlayerController : Singleton<PlayerController>
     private int _lastScreenHeight;
     private float _nextFireTime;
     private bool _fireRequiresRelease;
-    private GameManager _game;
+    private IGameManager _game;
     private Collider2D _collider;
     private Coroutine _blinkRoutine;
     private bool _visible;

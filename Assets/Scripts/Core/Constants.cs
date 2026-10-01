@@ -3,18 +3,11 @@
 /// </summary>
 public static class Constants
 {
-    // Tags
-    public const string PlayerTag       = "Player";
-    public const string ChickenTag      = "Chicken";
-    public const string PlayerBulletTag = "PlayerBullet";
-    public const string EggTag          = "Egg";
-    public const string PickupTag       = "Pickup";
-
     // Physics layers
-    public const string PlayerLayer          = "Player";
+    public const string PlayerLayer           = "Player";
     public const string PlayerProjectileLayer = "PlayerProjectile";
-    public const string EnemyLayer           = "Enemy";
-    public const string EnemyProjectileLayer = "EnemyProjectile";
+    public const string EnemyLayer            = "Enemy";
+    public const string EnemyProjectileLayer  = "EnemyProjectile";
 
     // Input System - action map and action names, as they appear in InputSystem_Actions
     public const string PlayerActionMap = "Player";
@@ -25,7 +18,4 @@ public static class Constants
 
     // PlayerPrefs keys
     public const string HighScoreKey = "HighScore";
-
-    // Animator parameters
-    public const string ThrustParam = "Thrust";
 }
