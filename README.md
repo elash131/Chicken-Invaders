@@ -46,7 +46,8 @@ Playable from menu to victory:
   every hit and bursts into a feather cloud.
 - The gameplay view is letterboxed to 16:9, so every resolution shows the same playfield.
 - Three lives, 1.5 s respawn and 2.5 s of blinking protection, score and saved high score.
-- Menu, wave intro, HUD, pause (also on focus loss), Game Over and Victory screens, restart.
+- Menu with a How To Play screen and a living background of drifting chickens; wave intro, HUD,
+  pause (also on focus loss), Game Over and Victory screens with fade-in transitions, restart.
 
 - Music for menu, waves, boss and victory with crossfades, sound effects for every event, muffled
   music while paused, and a remembered mute toggle.

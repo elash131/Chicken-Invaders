@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ion
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   _displayName: ION
+  _description: Your trusty blaster
   _shootSound: 0
   _frames:
   - {fileID: 3579277455228874141, guid: 3e7115e467493004bb8c7f5408439fe4, type: 3}

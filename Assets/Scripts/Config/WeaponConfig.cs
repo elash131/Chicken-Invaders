@@ -9,6 +9,8 @@ public sealed class WeaponConfig : ScriptableObject
 {
     [Header("Display")]
     [SerializeField] private string _displayName = "ION";
+    [Tooltip("One short line for the How To Play screen.")]
+    [SerializeField] private string _description;
     [SerializeField] private SoundEffect _shootSound = SoundEffect.Shoot;
 
     [Header("Bullet Look")]
@@ -31,6 +33,7 @@ public sealed class WeaponConfig : ScriptableObject
     [SerializeField] private bool _piercing;
 
     public string DisplayName => _displayName;
+    public string Description => _description;
     public SoundEffect ShootSound => _shootSound;
     public Sprite[] Frames => _frames;
     public float FrameRate => _frameRate;

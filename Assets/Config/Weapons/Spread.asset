@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Spread
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   _displayName: SPREAD
+  _description: Three shots in a fan
   _shootSound: 18
   _frames:
   - {fileID: 7283897517729702852, guid: 397eccd8819937e4880ac2d22a827dc4, type: 3}

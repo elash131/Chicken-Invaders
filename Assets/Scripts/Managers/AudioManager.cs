@@ -160,7 +160,8 @@ public sealed class AudioManager : Singleton<AudioManager>
                 SetPaused(true);
                 break;
             case GameState.GameOver:
-                StartCue(ResultCue(_config.GameOverJingle, null));
+                // After the jingle the calm menu track returns, so the "one more flight?" screen is not silent.
+                StartCue(ResultCue(_config.GameOverJingle, _config.MenuMusic));
                 break;
             case GameState.Victory:
                 StartCue(ResultCue(_config.VictoryJingle, _config.VictoryMusic));

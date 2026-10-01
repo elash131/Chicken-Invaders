@@ -25,6 +25,15 @@ public sealed class GameUIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _primaryButtonText;
     [SerializeField] private Button _menuButton;
 
+    [Header("How To Play")]
+    [SerializeField] private Button _howToButton;
+    [SerializeField] private HowToPlayPresenter _howTo;
+
+    [Header("Transitions")]
+    [SerializeField] private CanvasGroup _contentFade;
+    [SerializeField] private CanvasGroup _shadeFade;
+    [SerializeField, Min(0f)] private float _fadeDuration = 0.3f;
+
     [Header("Boss")]
     [SerializeField] private GameObject _bossHealthRoot;
     [SerializeField] private Image _bossHealthFill;
@@ -34,6 +43,7 @@ public sealed class GameUIManager : MonoBehaviour
     private Coroutine _unlockRoutine;
     private Coroutine _bossBannerRoutine;
     private bool _bossBannerShown;
+    private Coroutine _fadeRoutine;
 
     private void Start()
     {
@@ -46,6 +56,8 @@ public sealed class GameUIManager : MonoBehaviour
         }
 
         _primaryButton.onClick.AddListener(PressedPrimaryButton);
+        _howToButton.onClick.AddListener(OpenHowTo);
+        _howTo.OnClosed += SelectVisibleButton;
         _menuButton.onClick.AddListener(PressedMenuButton);
         _gameManager.OnStateChanged += RefreshState;
         _gameManager.OnScoreChanged += RefreshScore;
@@ -94,6 +106,8 @@ public sealed class GameUIManager : MonoBehaviour
         _primaryButton.gameObject.SetActive(menu || state == GameState.Paused ||
             state == GameState.GameOver || state == GameState.Victory);
         _menuButton.gameObject.SetActive(overlay && !menu);
+        _howToButton.gameObject.SetActive(menu);
+        if (!menu && _howTo.IsOpen) _howTo.Close();
         if (_bossHealthRoot != null)
             _bossHealthRoot.SetActive(_gameManager.CurrentWaveNumber > 4 &&
                 (state == GameState.BossFight || state == GameState.Respawning));
@@ -145,6 +159,7 @@ public sealed class GameUIManager : MonoBehaviour
 
         RefreshHUD();
         SelectVisibleButton();
+        if (overlay || showStatus) FadeInScreen();
 
         if (state == GameState.GameOver)
         {
@@ -209,6 +224,37 @@ public sealed class GameUIManager : MonoBehaviour
         }
     }
 
+    private void OpenHowTo()
+    {
+        AudioManager.Play(SoundEffect.UiClick);
+        _howTo.Open();
+    }
+
+    // Every new screen fades in rather than popping, the CanvasGroup fade from the course examples.
+    private void FadeInScreen()
+    {
+        if (_fadeRoutine != null) StopCoroutine(_fadeRoutine);
+        _fadeRoutine = StartCoroutine(FadeIn());
+    }
+
+    private IEnumerator FadeIn()
+    {
+        // Unscaled, because the pause screen fades in while timeScale is zero.
+        for (var t = 0f; t < 1f; t += Time.unscaledDeltaTime / Mathf.Max(0.01f, _fadeDuration))
+        {
+            SetFade(t);
+            yield return null;
+        }
+        SetFade(1f);
+        _fadeRoutine = null;
+    }
+
+    private void SetFade(float alpha)
+    {
+        if (_contentFade != null) _contentFade.alpha = alpha;
+        if (_shadeFade != null) _shadeFade.alpha = alpha;
+    }
+
     private void SelectVisibleButton()
     {
         if (EventSystem.current == null)
@@ -229,6 +275,8 @@ public sealed class GameUIManager : MonoBehaviour
         }
 
         _primaryButton.onClick.RemoveListener(PressedPrimaryButton);
+        _howToButton.onClick.RemoveListener(OpenHowTo);
+        _howTo.OnClosed -= SelectVisibleButton;
         _menuButton.onClick.RemoveListener(PressedMenuButton);
         _gameManager.OnStateChanged -= RefreshState;
         _gameManager.OnScoreChanged -= RefreshScore;

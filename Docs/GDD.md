@@ -167,12 +167,16 @@ the boss.
 
 ## 5. Screens & UI
 
-1. **Main Menu** — title, Play, high score, control hint. M (or gamepad Select) mutes, and is remembered.
-2. **Wave Intro** — the wave number, centred, before combat starts.
-3. **Gameplay** — score and best top-left, wave top-centre, lives top-right. During the boss fight her
+1. **Main Menu** — floating title, Play, How To Play, high score, control hint. M (or gamepad
+   Select) mutes, and is remembered. Behind it, a flock of decorative chickens drifts and swoops and
+   Mother Hen glides past now and then (an attract mode); it vanishes when a run starts.
+2. **How To Play** — controls and rules, the Feast Streak food ladder and the gift contents. The
+   ladder and gifts are built from the real Food, Gifts and weapon configs, so they always match.
+3. **Wave Intro** — the wave number, centred, before combat starts.
+4. **Gameplay** — score and best top-left, wave top-centre, lives top-right. During the boss fight her
    health is a vertical bar on the right edge, so it never covers her.
-4. **Game Over / Victory** — result, final score, new-best message, Play Again.
-5. **Paused** — Resume over the frozen game.
+5. **Game Over / Victory** — result, final score, new-best message, Play Again.
+6. **Paused** — Resume over the frozen game.
 
 No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1920 × 1080 reference; HUD elements
 are anchored to their own corners. The gameplay view is letterboxed to 16:9: any other window shape
@@ -317,6 +321,7 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.9 | 2026-10-01 | Menu: How To Play screen, attract-mode flock behind the title, fade-in screen transitions and a floating logo |
 | v1.8 | 2026-10-01 | Gift boxes with 8 s weapons (Spread, Lightning, Fireball) and a 12 s one-hit shield, from a shuffled bag; weapons are WeaponConfig assets; Mother Hen raised to 75 health to balance them |
 | v1.7 | 2026-10-01 | Tougher Mother Hen: 45 health, five-egg volleys, ring bursts and a diving chick escort at half health |
 | v1.6 | 2026-10-01 | Each wave has its own difficulty; dive bombers from wave 2 — the earlier "later waves add rows, not speed" rule is dropped because playtests found the waves too easy |

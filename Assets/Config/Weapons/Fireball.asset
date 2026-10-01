@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fireball
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   _displayName: FIREBALL
+  _description: Slow but triple damage
   _shootSound: 20
   _frames:
   - {fileID: -6682897790239961417, guid: e0c1070a0b01847429a70753ac7e6ad2, type: 3}

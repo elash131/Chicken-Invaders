@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
   _displayName: LIGHTNING
+  _description: Rapid bolts that pierce
   _shootSound: 19
   _frames:
   - {fileID: -5581922493740874068, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
