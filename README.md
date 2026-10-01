@@ -127,6 +127,25 @@ chicken sound by IMadeIt (CC-BY 3.0); sources and credits are in the same file.
 - [ ] Windows standalone build runs outside Unity
 - [ ] Gamepad controls
 
+## Performance
+
+Measured with the Unity Profiler on a Windows development build (2026-10-01), over one full run
+from the menu to the boss fight:
+
+| Measure | Result |
+|---|---|
+| Frame rate | Steady 60 FPS (16.7 ms frames, locked to the display refresh) |
+| CPU work per frame | About 1.9 ms — roughly a ninth of the frame budget |
+| Garbage per frame | About 0.8 KB, with a few small spikes at wave starts |
+| Managed (GC) memory | About 5 MB |
+| Total memory | About 280 MB, of which about 120 MB is textures |
+
+Bullets, eggs, pickups, feathers, sound voices and score popups are all pooled or created once at
+load, which is why gameplay itself makes almost no garbage. The remaining spikes come from each
+wave creating its chickens; they happen on the wave intro, not mid-fight, so chickens are not
+pooled. Texture memory is mostly the large Chicken Invaders sprite sheets and could be reduced
+with compression if needed.
+
 ## Documentation
 
 - [Game Design Document](Docs/GDD.md)
