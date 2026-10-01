@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -13,6 +14,7 @@ public sealed class Chicken : MonoBehaviour, IDamageable
     private WaveManager _owner;
     private int _health;
     private bool _isDead;
+    private SpriteRenderer[] _renderers;
 
     public int Row { get; private set; }
     public int Column { get; private set; }
@@ -27,6 +29,7 @@ public sealed class Chicken : MonoBehaviour, IDamageable
     {
         if (_rigidbody2D == null) _rigidbody2D = GetComponent<Rigidbody2D>();
         if (_collider2D == null) _collider2D = GetComponent<Collider2D>();
+        _renderers = GetComponentsInChildren<SpriteRenderer>();
     }
 
     public void Initialize(
@@ -85,6 +88,25 @@ public sealed class Chicken : MonoBehaviour, IDamageable
         var owner = _owner;
         _owner = null;
         owner.HandleChickenKilled(this);
+        StartCoroutine(Pop());
+    }
+
+    // A short swell and fade under the feather burst, so a kill reads as a hit rather than a vanish.
+    private IEnumerator Pop()
+    {
+        const float duration = 0.12f;
+        var startScale = transform.localScale;
+        for (var t = 0f; t < 1f; t += Time.deltaTime / duration)
+        {
+            transform.localScale = startScale * Mathf.Lerp(1f, 1.35f, t);
+            foreach (var spriteRenderer in _renderers)
+            {
+                var color = spriteRenderer.color;
+                color.a = 1f - t;
+                spriteRenderer.color = color;
+            }
+            yield return null;
+        }
         Destroy(gameObject);
     }
 

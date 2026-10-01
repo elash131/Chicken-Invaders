@@ -219,6 +219,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
 
         _health = Mathf.Max(0, _health - amount);
         _presenter.ShowDamage(_health, _config.Health);
+        FeatherBursts.Emit(EggOrigin + Vector2.up * 0.8f, 4);
         AudioManager.Play(SoundEffect.BossHit);
         _game.ReportBossHealth(_health, _config.Health);
 

@@ -128,6 +128,7 @@ public sealed class BossPresenter : MonoBehaviour
         _exploded = true;
         PlayBlast(transform.position, _finalBlastSize, 2.5f);
         AudioManager.Play(SoundEffect.BigBoom);
+        FeatherBursts.Emit(transform.position, 60);
         AudioManager.DuckMusic();
         SetVisible(false);
     }
@@ -188,6 +189,7 @@ public sealed class BossPresenter : MonoBehaviour
             Random.Range(bounds.min.y, bounds.max.y));
         PlayBlast(point, Random.Range(1.2f, 2.2f), 1f);
         AudioManager.Play(SoundEffect.Blast);
+        FeatherBursts.Emit(point, 6);
         // Blasts come faster as the boom approaches.
         _nextBlastAt = time + _blastInterval * Mathf.Lerp(1f, 0.45f, progress);
     }

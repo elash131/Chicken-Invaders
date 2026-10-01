@@ -20,6 +20,7 @@ public sealed class FoodManager : MonoBehaviour
     private IGameManager _game;
     private PlayerController _player;
     private Camera _camera;
+    private WaveManager _waves;
     private int _streak;
     private float _lastKillAt = float.NegativeInfinity;
 
@@ -56,6 +57,8 @@ public sealed class FoodManager : MonoBehaviour
         _game.OnStateChanged += HandleStateChanged;
         _game.OnPlayerDied += ResetStreak;
         _game.OnGameStarted += ClearAll;
+        _waves = GetComponent<WaveManager>();
+        if (_waves != null) _waves.OnChickenKilled += RegisterKill;
     }
 
     private void Prewarm()
@@ -72,8 +75,8 @@ public sealed class FoodManager : MonoBehaviour
         CatchTouchingFood();
     }
 
-    /// <summary>Called for every chicken kill: extends the streak and drops the food it earned.</summary>
-    public void RegisterKill(Vector2 position)
+    // Every chicken kill extends the streak and drops the food it earned.
+    private void RegisterKill(Vector2 position)
     {
         if (_pool == null) return;
         _streak = Time.time - _lastKillAt <= _config.StreakWindow ? _streak + 1 : 1;
@@ -177,6 +180,7 @@ public sealed class FoodManager : MonoBehaviour
             _game.OnPlayerDied -= ResetStreak;
             _game.OnGameStarted -= ClearAll;
         }
+        if (_waves != null) _waves.OnChickenKilled -= RegisterKill;
         _pool?.Dispose();
     }
 }

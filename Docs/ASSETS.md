@@ -178,5 +178,11 @@ small; music imports as **Streaming**, short effects as **Decompress On Load**.
 | `sfx_food_herring` | Kenney **Digital Audio** (`phaserDown1`) | CC0 |
 | `sfx_boss_alarm` | Made for this project: a two-tone siren synthesised with ffmpeg | Original |
 
+### Made for this project
+
+| File | What | Licence |
+|---|---|---|
+| `Art/Sprites/feather.png` | 96 × 32 white feather for the feather particle bursts, drawn procedurally | Original |
+
 > "Free on itch.io" is not a licence name. `CC0 1.0`, `CC-BY 4.0`, `OFL 1.1` are. Paste the exact
 > one into the table above.

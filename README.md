@@ -36,6 +36,8 @@ Playable from menu to victory:
   enrages at half health and rains eggs. Her helmet cracks and then her armour breaks as she takes
   damage, and she goes out in a chain of blasts and one big explosion. Her health is a vertical bar
   on the right edge. Short camera cues mark her entrance, enrage and defeat.
+- Chickens pop in a burst of feathers (a world-space particle system); Mother Hen sheds feathers on
+  every hit and bursts into a feather cloud.
 - The gameplay view is letterboxed to 16:9, so every resolution shows the same playfield.
 - Three lives, 1.5 s respawn and 2.5 s of blinking protection, score and saved high score.
 - Menu, wave intro, HUD, pause (also on focus loss), Game Over and Victory screens, restart.

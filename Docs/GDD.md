@@ -276,11 +276,12 @@ sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 - Menu, HUD, pause, victory and game-over screens, restart.
 - Projectile and food pools, sound effects, music.
 - Feast Streak food pickups and Mother Hen's feast.
+- Feather bursts and a short pop when a chicken dies; feathers on every boss hit.
 - Windows standalone build.
 
 ### 8.2 Optional polish
 
-- Hit flashes, feathers, a small screen shake on death.
+- A small screen shake on death.
 - Boss music and animated menu transitions.
 
 ### 8.3 Out of scope
@@ -303,5 +304,6 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.5 | 2026-10-01 | Feather particle bursts and chicken death pop; chicken kills are now an event that food and effects listen to |
 | v1.4 | 2026-10-01 | Feast Streak food pickups and Mother Hen's feast; a streak-based reward moved into scope |
 | v1.3 | 2026-10-01 | Music and sound effects with mute; lose line implemented; 16:9 letterbox; bigger Mother Hen with damage looks, side health bar and a defeat show; UI and Mother Hen moved into scene prefabs; fixed orientation, font and system list to match the game; audio kept as the next major pass |
