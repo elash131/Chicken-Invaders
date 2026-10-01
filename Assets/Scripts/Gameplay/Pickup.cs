@@ -1,11 +1,29 @@
 using UnityEngine;
 
+public enum PickupKind
+{
+    Food,
+    Herring,
+    Gift
+}
+
+/// <summary>What a pickup is and how it looks. Food uses one sprite; a gift animates its frames.</summary>
+public struct PickupContents
+{
+    public PickupKind Kind;
+    public Sprite[] Frames;
+    public float FrameRate;
+    public float Scale;
+    public int Points;
+    public int TierIndex;
+}
+
 /// <summary>
-/// One pooled piece of food: it pops up, spins and falls, bounces once on the floor, rests there
-/// and blinks before vanishing. FoodManager decides when it is caught and returns it to the pool.
+/// One pooled pickup - food or a gift: it pops up, spins and falls, bounces once on the floor, rests
+/// there and blinks before vanishing. PickupManager decides when it is caught and returns it to the pool.
 /// </summary>
 [RequireComponent(typeof(SpriteRenderer))]
-public sealed class FoodPickup : MonoBehaviour
+public sealed class Pickup : MonoBehaviour
 {
     private enum FoodState
     {
@@ -16,7 +34,7 @@ public sealed class FoodPickup : MonoBehaviour
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
-    private FoodManager _owner;
+    private PickupManager _owner;
     private FoodConfig _config;
     private Camera _camera;
     private FoodState _state;
@@ -25,9 +43,7 @@ public sealed class FoodPickup : MonoBehaviour
     private float _vanishAt;
     private bool _bounced;
 
-    public int Points { get; private set; }
-    public bool IsHerring { get; private set; }
-    public int TierIndex { get; private set; }
+    public PickupContents Contents { get; private set; }
     public bool IsActive => _state != FoodState.Pooled;
     public Bounds Bounds => _spriteRenderer.bounds;
 
@@ -36,17 +52,16 @@ public sealed class FoodPickup : MonoBehaviour
         if (_spriteRenderer == null) _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void Launch(FoodManager owner, FoodConfig config, Camera gameplayCamera, Vector2 position,
-        Sprite sprite, int points, int tierIndex, bool isHerring, float popMultiplier)
+    public void Launch(PickupManager owner, FoodConfig config, Camera gameplayCamera, Vector2 position,
+        PickupContents contents, float popMultiplier)
     {
         _owner = owner;
         _config = config;
         _camera = gameplayCamera;
-        _spriteRenderer.sprite = sprite;
+        Contents = contents;
+        _spriteRenderer.sprite = contents.Frames[0];
         _spriteRenderer.enabled = true;
-        Points = points;
-        TierIndex = tierIndex;
-        IsHerring = isHerring;
+        transform.localScale = Vector3.one * contents.Scale;
         _bounced = false;
         _state = FoodState.Falling;
 
@@ -59,6 +74,12 @@ public sealed class FoodPickup : MonoBehaviour
 
     private void Update()
     {
+        var frames = Contents.Frames;
+        if (_state != FoodState.Pooled && frames.Length > 1)
+        {
+            _spriteRenderer.sprite = frames[(int)(Time.time * Contents.FrameRate) % frames.Length];
+        }
+
         if (_state == FoodState.Falling) Fall();
         else if (_state == FoodState.Resting) Rest();
     }
@@ -116,8 +137,7 @@ public sealed class FoodPickup : MonoBehaviour
         _owner = null;
         _config = null;
         _camera = null;
-        Points = 0;
-        IsHerring = false;
+        Contents = default;
         gameObject.SetActive(false);
     }
 }

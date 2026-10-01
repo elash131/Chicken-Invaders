@@ -16,7 +16,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
     private IGameManager _game;
     private PlayerController _player;
     private EggPool _eggs;
-    private FoodManager _food;
+    private PickupManager _food;
     private BossCameraFeedback _cameraFeedback;
     private BossConfig _config;
     private Camera _camera;
@@ -53,7 +53,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         IGameManager game,
         PlayerController player,
         EggPool eggs,
-        FoodManager food,
+        PickupManager food,
         BossCameraFeedback cameraFeedback,
         BossConfig config,
         Camera gameplayCamera)

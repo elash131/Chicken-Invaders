@@ -103,5 +103,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8bb7ab006a346a1b3924dd60616af0a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FoodPickup
+  m_EditorClassIdentifier: Assembly-CSharp::Pickup
   _spriteRenderer: {fileID: 7310000000000000003}

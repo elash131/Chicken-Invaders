@@ -58,8 +58,12 @@ projectiles **100**, food **128**, starfield **100**. Sorting layers back → fr
 | `chicken-body-leotard2.png` | 48 colour variants, 64 × 69 | 100 | Costume overlay — one colour per chicken type |
 | `chicken-face.png` | 225 head frames, ~35 × 42 | 100 | Head layer |
 | `egg.png` / `eggbreak.png` | 4 eggs / break frames | 100 | Enemy projectile and its impact |
-| `bulletIon.png` | Beam frames | 100 | Player projectile (the one used) |
-| `bulletNeutron`, `bulletFork`, `bullet-bolt1/3/4` | Alternate weapons | 100 | Unused — kept for the boss or a later pass |
+| `bulletIon.png` | Beam frames | 100 | Default Ion blaster |
+| `bulletNeutron.png` | Green plasma, 3 sizes | 100 | Spread gift weapon |
+| `bullet-bolt3.png` | 8 cyan lightning frames (re-sliced 4 × 2) | 100 | Lightning gift weapon, animated |
+| `bullet-bolt1.png` | 2 fireball frames | 100 | Fireball gift weapon |
+| `bulletFork`, `bullet-bolt4` | Alternate weapons | 100 | Unused |
+| `…Starbound - Monsters - Unique - Unusual Gift Box.png` | 7 gift box frames + small ones | 40, Point filter | Gift pickup, animated |
 | `flare-my.png` | 4 coloured flares | 100 | Hit and explosion VFX |
 | `…Astronaut Chicken.png` | 3 whole chickens + parts | 100 | Mother Hen: three damage stages, feet and wings |
 | `…GUI - Logo.png` | Title logo | 100 | Main menu |
@@ -99,6 +103,10 @@ they are *not* uniform grids): `Fired`, `Ice_cream`, `Pizza`, `PopcornTypes`, `P
 ## Per-file sources
 
 ### The Spriters Resource
+The gift box is the one sprite not from Chicken Invaders: *Starbound* (Chucklefish), from
+spriters-resource.com — PC, Starbound, Monsters, Unique, "Unusual Gift Box". Same position as the
+other ripped art: coursework only, credited, no reuse licence.
+
 
 | File | Source |
 |---|---|
@@ -176,6 +184,9 @@ small; music imports as **Streaming**, short effects as **Decompress On Load**.
 | `sfx_respawn`, `sfx_wave_start`, `sfx_boss_charge` | Kenney **Digital Audio** — [kenney.nl/assets/digital-audio](https://kenney.nl/assets/digital-audio) (`powerUp1`, `zapThreeToneUp`, `phaserUp1`) | CC0 |
 | `sfx_chicken_1..3` | "Chicken Sound Effect" by **IMadeIt** — [opengameart.org/content/chicken-sound-effect](https://opengameart.org/content/chicken-sound-effect), cut into three clucks and loudness-normalised | **CC-BY 3.0** — credit: *Chicken sound by IMadeIt (OpenGameArt)* |
 | `sfx_food_herring` | Kenney **Digital Audio** (`phaserDown1`) | CC0 |
+| `sfx_shoot_spread`, `sfx_shoot_lightning`, `sfx_shoot_fireball` | Kenney **Sci-fi Sounds** `laserRetro_002`, Kenney **Digital Audio** `zap1` (trimmed), Kenney **Sci-fi Sounds** `laserLarge_000` (trimmed, lowered) | CC0 |
+| `sfx_gift_catch`, `sfx_weapon_expire` | Kenney **Digital Audio** (`powerUp10`, `phaserDown2`) | CC0 |
+| `sfx_shield_break` | Kenney **Impact Sounds** `impactGlass_light_000` layered with Kenney **Sci-fi Sounds** `forceField_000` | CC0 |
 | `sfx_boss_alarm` | Made for this project: a two-tone siren synthesised with ffmpeg | Original |
 
 ### Made for this project
@@ -183,6 +194,7 @@ small; music imports as **Streaming**, short effects as **Decompress On Load**.
 | File | What | Licence |
 |---|---|---|
 | `Art/Sprites/feather.png` | 96 × 32 white feather for the feather particle bursts, drawn procedurally | Original |
+| `Art/Sprites/shield.png` | 128 × 128 glowing cyan bubble for the shield, drawn procedurally | Original |
 
 > "Free on itch.io" is not a licence name. `CC0 1.0`, `CC-BY 4.0`, `OFL 1.1` are. Paste the exact
 > one into the table above.

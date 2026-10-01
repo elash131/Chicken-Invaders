@@ -3,8 +3,8 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 /// <summary>
-/// Owns the player-bullet pool. Enemy eggs will use a separate pool when they are implemented;
-/// different projectile owners must never release objects into one another's collections.
+/// Owns the player-bullet pool for every weapon; each launch takes its look and behaviour from a
+/// WeaponConfig. Enemy eggs use their own EggPool, so the two never mix collections.
 /// </summary>
 public sealed class ProjectilePool : MonoBehaviour
 {
@@ -58,7 +58,7 @@ public sealed class ProjectilePool : MonoBehaviour
         _gameManager.OnGameOver += ReleaseAll;
     }
 
-    public void Fire(Vector2 position, Vector2 direction, float speed, int damage, float lifetime)
+    public void Fire(Vector2 position, Vector2 direction, WeaponConfig weapon)
     {
         if (_pool == null || _isShuttingDown || _gameManager == null || !_gameManager.CanControlPlayer)
         {
@@ -66,7 +66,7 @@ public sealed class ProjectilePool : MonoBehaviour
         }
 
         var projectile = _pool.Get();
-        projectile.Launch(this, _gameplayCamera, position, direction, speed, damage, lifetime);
+        projectile.Launch(this, _gameplayCamera, position, direction, weapon);
     }
 
     public void Release(Projectile projectile)

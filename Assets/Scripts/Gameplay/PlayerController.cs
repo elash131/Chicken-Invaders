@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 /// rather than played on a loop by an Animator - the ship banks because the player is turning,
 /// which is the only reason it should ever bank.
 /// </summary>
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerWeapons))]
 public class PlayerController : Singleton<PlayerController>
 {
     [Header("Movement")]
@@ -24,17 +24,9 @@ public class PlayerController : Singleton<PlayerController>
     [Tooltip("How fast the ship rolls into a turn, in bank units per second. Lower feels heavier.")]
     [SerializeField] private float _bankResponse = 6f;
 
-    [Header("Firing")]
-    [SerializeField, Min(0.01f)] private float _fireCooldown = 0.18f;
-    [SerializeField, Min(0.01f)] private float _bulletSpeed = 14f;
-    [SerializeField, Min(1)] private int _bulletDamage = 1;
-    [SerializeField, Min(0.1f)] private float _bulletLifetime = 2f;
-
     [Header("References")]
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    [SerializeField] private Transform _firePoint;
-    [SerializeField] private ProjectilePool _projectilePool;
 
     private InputAction _move;
     private InputAction _fire;
@@ -46,7 +38,7 @@ public class PlayerController : Singleton<PlayerController>
     private float _maxX;
     private int _lastScreenWidth;
     private int _lastScreenHeight;
-    private float _nextFireTime;
+    private PlayerWeapons _weapons;
     private bool _fireRequiresRelease;
     private IGameManager _game;
     private Collider2D _collider;
@@ -63,6 +55,7 @@ public class PlayerController : Singleton<PlayerController>
 
         _spawnPosition = transform.position;
         _collider = GetComponent<Collider2D>();
+        _weapons = GetComponent<PlayerWeapons>();
 
         var playerMap = InputSystem.actions.FindActionMap(Constants.PlayerActionMap, throwIfNotFound: true);
         _move = playerMap.FindAction(Constants.MoveAction, throwIfNotFound: true);
@@ -149,24 +142,8 @@ public class PlayerController : Singleton<PlayerController>
             return;
         }
 
-        if (!_fire.IsPressed() || Time.time < _nextFireTime)
-        {
-            return;
-        }
-
-        if (_firePoint == null || _projectilePool == null)
-        {
-            return;
-        }
-
-        _nextFireTime = Time.time + _fireCooldown;
-        _projectilePool.Fire(
-            _firePoint.position,
-            Vector2.up,
-            _bulletSpeed,
-            _bulletDamage,
-            _bulletLifetime);
-        AudioManager.Play(SoundEffect.Shoot);
+        // The loadout owns cooldowns and bullet patterns; the controller only reports the trigger.
+        if (_fire.IsPressed()) _weapons.Fire();
     }
 
     private void BlockInputUntilFireIsReleased()
@@ -226,7 +203,6 @@ public class PlayerController : Singleton<PlayerController>
 
         _horizontal = 0f;
         _bank = 0f;
-        _nextFireTime = Time.time;
         _fireRequiresRelease = true;
         UpdateBankPose();
 

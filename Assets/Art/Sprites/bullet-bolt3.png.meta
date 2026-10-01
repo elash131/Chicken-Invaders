@@ -5,6 +5,27 @@ TextureImporter:
   - first:
       213: -5581922493740874068
     second: bullet-bolt3_0
+  - first:
+      213: -428020355004542635
+    second: bullet-bolt3_1
+  - first:
+      213: -2047862058773434893
+    second: bullet-bolt3_2
+  - first:
+      213: 1098855997234816313
+    second: bullet-bolt3_3
+  - first:
+      213: -3379826683929325258
+    second: bullet-bolt3_4
+  - first:
+      213: -1373079204918884007
+    second: bullet-bolt3_5
+  - first:
+      213: -2345903375227259862
+    second: bullet-bolt3_6
+  - first:
+      213: 3544312648704284691
+    second: bullet-bolt3_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -117,9 +138,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 105
-        width: 509
-        height: 151
+        y: 184
+        width: 128
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +149,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca600d4f0170982b0800000000000000
+      spriteID: 99bc1be7cc7ccaa0c62d65a5629a55ed
       internalID: -5581922493740874068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet-bolt3_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 184
+        width: 128
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436f53e1d7d6cf3c1e56b2fc5d3160cf
+      internalID: -428020355004542635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet-bolt3_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 184
+        width: 128
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e514de76fea56b6d1fe5596ad30a737
+      internalID: -2047862058773434893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet-bolt3_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 184
+        width: 128
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c073c5e4607cc7e1e3ae6baa5150f73
+      internalID: 1098855997234816313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet-bolt3_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 128
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa6a69f05881877f69200794b84494c3
+      internalID: -3379826683929325258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet-bolt3_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 128
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ce938debfec49a25ba60a4c53d07d5
+      internalID: -1373079204918884007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet-bolt3_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 112
+        width: 128
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d985574ee94fa40eb4f91141e163ae
+      internalID: -2345903375227259862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bullet-bolt3_7
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 112
+        width: 128
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bea613bd1e57c499e697f67991becea1
+      internalID: 3544312648704284691
       vertices: []
       indices: 
       edges: []
@@ -149,6 +324,13 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       bullet-bolt3_0: -5581922493740874068
+      bullet-bolt3_1: -428020355004542635
+      bullet-bolt3_2: -2047862058773434893
+      bullet-bolt3_3: 1098855997234816313
+      bullet-bolt3_4: -3379826683929325258
+      bullet-bolt3_5: -1373079204918884007
+      bullet-bolt3_6: -2345903375227259862
+      bullet-bolt3_7: 3544312648704284691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

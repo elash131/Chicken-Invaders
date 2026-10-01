@@ -18,5 +18,11 @@ public enum SoundEffect
     UiClick,
     Food,
     FoodHerring,
-    ChickenDive
+    ChickenDive,
+    ShootSpread,
+    ShootLightning,
+    ShootFireball,
+    GiftCatch,
+    ShieldBreak,
+    WeaponExpire
 }

@@ -1,9 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Shows the Feast Streak: a pulsing streak counter and "+points" that float up from each caught
-/// piece of food. Listens to FoodManager and owns no rules.
+/// pickup ("+300", "SPREAD!"). Listens to PickupManager and owns no rules.
 /// </summary>
 public sealed class FeastPresenter : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public sealed class FeastPresenter : MonoBehaviour
         public float StartedAt = float.NegativeInfinity;
     }
 
-    [SerializeField] private FoodManager _food;
+    [SerializeField, FormerlySerializedAs("_food")] private PickupManager _pickups;
     [SerializeField] private TextMeshProUGUI _streakText;
     [Tooltip("Inactive text that is cloned for the floating points.")]
     [SerializeField] private TextMeshProUGUI _popupTemplate;
@@ -32,9 +33,9 @@ public sealed class FeastPresenter : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
-        if (_food == null || _streakText == null || _popupTemplate == null || _camera == null)
+        if (_pickups == null || _streakText == null || _popupTemplate == null || _camera == null)
         {
-            Debug.LogError("FeastPresenter needs the FoodManager, its texts and a camera.", this);
+            Debug.LogError("FeastPresenter needs the PickupManager, its texts and a camera.", this);
             enabled = false;
             return;
         }
@@ -48,9 +49,9 @@ public sealed class FeastPresenter : MonoBehaviour
             _popups[i] = new Popup { Text = text };
         }
 
-        _food.OnStreakChanged += ShowStreak;
-        _food.OnFoodCaught += ShowPopup;
-        ShowStreak(_food.Streak);
+        _pickups.OnStreakChanged += ShowStreak;
+        _pickups.OnPickupCaught += ShowPopup;
+        ShowStreak(_pickups.Streak);
     }
 
     private void ShowStreak(int streak)
@@ -62,13 +63,13 @@ public sealed class FeastPresenter : MonoBehaviour
         _streakPunch = 1f;
     }
 
-    private void ShowPopup(Vector2 worldPosition, int points, bool herring)
+    private void ShowPopup(Vector2 worldPosition, string label)
     {
         var popup = _popups[_nextPopup];
         _nextPopup = (_nextPopup + 1) % _popups.Length;
         popup.WorldPosition = worldPosition;
         popup.StartedAt = Time.time;
-        popup.Text.text = herring ? "RED HERRING!" : $"+{points}";
+        popup.Text.text = label;
         popup.Text.gameObject.SetActive(true);
     }
 
@@ -96,8 +97,8 @@ public sealed class FeastPresenter : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (_food == null) return;
-        _food.OnStreakChanged -= ShowStreak;
-        _food.OnFoodCaught -= ShowPopup;
+        if (_pickups == null) return;
+        _pickups.OnStreakChanged -= ShowStreak;
+        _pickups.OnPickupCaught -= ShowPopup;
     }
 }

@@ -25,6 +25,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
     private Coroutine _protectionRoutine;
     private Coroutine _waveRoutine;
     private PlayerController _player;
+    private PlayerWeapons _weapons;
     private WaveManager _waves;
     private ProjectilePool _projectiles;
     private InputAction _restart;
@@ -69,6 +70,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
         // Pools and listeners finish initialization before Play can be accepted.
         yield return null;
         _player = PlayerController.Instance;
+        _weapons = _player != null ? _player.GetComponent<PlayerWeapons>() : null;
         _waves = GetComponent<WaveManager>();
         _projectiles = GetComponent<ProjectilePool>();
         if (_player == null || _waves == null || !_waves.IsReady || _projectiles == null || !_projectiles.IsReady)
@@ -84,7 +86,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
 
         if (_cameraFeedback != null) _cameraFeedback.Initialize(this, _waves.Balance);
 
-        if (_boss == null || !_boss.Initialize(this, _player, _waves.EnemyEggs, GetComponent<FoodManager>(),
+        if (_boss == null || !_boss.Initialize(this, _player, _waves.EnemyEggs, GetComponent<PickupManager>(),
                 _cameraFeedback, _waves.Balance.Boss, Camera.main))
         {
             Debug.LogError("GameManager needs the Mother Hen from the scene assigned.", this);
@@ -120,6 +122,9 @@ public class GameManager : Singleton<GameManager>, IGameManager
 
     private void BeginRun()
     {
+        // A fresh seed per run: the Editor can start Play mode from the same seed, which made gift
+        // drops and contents repeat in the same order game after game.
+        UnityEngine.Random.InitState(System.Environment.TickCount);
         CancelTimedWork();
         _boss.StopEncounter();
         _projectiles.ReleaseAll();
@@ -184,6 +189,13 @@ public class GameManager : Singleton<GameManager>, IGameManager
     public void ReportPlayerHit()
     {
         if (!CanDamagePlayer) return;
+        if (_weapons != null && _weapons.TryAbsorbHit())
+        {
+            // The shield takes the hit; a short blink stops the same egg burst landing straight after.
+            GrantProtection(_waves.Balance.ShieldBreakProtection);
+            return;
+        }
+
         _combatBeforeRespawn = _state;
         _lives--;
         ChangeState(GameState.Respawning);
@@ -200,15 +212,21 @@ public class GameManager : Singleton<GameManager>, IGameManager
         yield return new WaitUntil(() => _state != GameState.Paused);
         _respawnRoutine = null;
         _player.RespawnPlayer();
-        _invulnerable = true;
-        _player.SetInvulnerable(true);
         ChangeState(_combatBeforeRespawn);
-        _protectionRoutine = StartCoroutine(EndProtectionAfterDelay());
+        GrantProtection(_waves.Balance.InvulnerabilityDuration);
     }
 
-    private IEnumerator EndProtectionAfterDelay()
+    private void GrantProtection(float duration)
     {
-        yield return new WaitForSeconds(_waves.Balance.InvulnerabilityDuration);
+        if (_protectionRoutine != null) StopCoroutine(_protectionRoutine);
+        _invulnerable = true;
+        _player.SetInvulnerable(true);
+        _protectionRoutine = StartCoroutine(EndProtectionAfterDelay(duration));
+    }
+
+    private IEnumerator EndProtectionAfterDelay(float duration)
+    {
+        yield return new WaitForSeconds(duration);
         yield return new WaitUntil(() => _state != GameState.Paused);
         _invulnerable = false;
         _player.SetInvulnerable(false);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fa6f8046ad4de5ab150b7c7b10e792, type: 3}
   m_Name: MotherHen
   m_EditorClassIdentifier: Assembly-CSharp::BossConfig
-  _health: 45
+  _health: 75
   _score: 500
   _entryDuration: 1.2
   _phaseOneSpeed: 1.4

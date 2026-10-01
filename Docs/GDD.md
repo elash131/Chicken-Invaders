@@ -75,6 +75,12 @@ stateDiagram-v2
 
 - **Ship:** three lives, constant speed, clamped to the screen. Holding Fire shoots upward on a
   cooldown. Each bullet does one damage.
+- **Gifts:** now and then a kill also drops a gift box (a 3% chance per kill, never two at once,
+  and at the latest after a random 10–18 kills). Catching it gives 8 s of **Spread** (3-way shot),
+  **Lightning** (rapid bolts that pierce through chickens) or **Fireball** (slow, 3 damage), or a
+  **Shield** bubble for 12 s that absorbs one hit. Contents come from a shuffled bag, so every item
+  appears before any repeats and each run differs. Getting hit ends a gift weapon; a shield is spent
+  instead of a life and followed by 1 s of protection.
 - **Formation:** all chickens move as one body. When the outermost surviving chicken touches a wall,
   the whole flock steps down and reverses.
 - **Speed:** every kill makes the flock faster. It resets at the next wave, and each later wave
@@ -103,7 +109,7 @@ stateDiagram-v2
 | Wave 2 | 3 rows × 5 | 1.8 / 0.20 | one at a time, ~7 s apart | Defeat all 15 |
 | Wave 3 | 4 rows × 5 | 2.1 / 0.25 | up to two, ~5 s apart | Defeat all 20 |
 | Wave 4 | 5 rows × 5 | 2.4 / 0.30 | up to two, ~3.5 s apart, faster | Defeat all 25 |
-| Mother Hen | One boss, 45 health, chick escort at half health | Defeat her to win |
+| Mother Hen | One boss, 75 health, chick escort at half health | Defeat her to win |
 
 The **Mother Hen** sweeps left and right above the lose line and never descends. A health bar shows
 what is left of her. In the first phase she fires aimed five-egg volleys after a short warning.
@@ -132,7 +138,7 @@ strengths are configured in GameBalance, and zero duration disables an individua
 | Descend step | Drop at each wall | 0.12 units |
 | Egg rate | Per eligible chicken | 0.15 eggs/s |
 | Egg speed | Reaction time an egg gives | 6 units/s |
-| Boss health / volley interval / ring burst | Length of the boss fight | 45 / 1.5 s / every 6 s |
+| Boss health / volley interval / ring burst | Length of the boss fight | 75 / 1.5 s / every 6 s |
 
 **Where these live:** `GameBalanceConfig` and `WaveConfig` ScriptableObjects, so tuning never needs a
 recompile.
@@ -283,6 +289,7 @@ sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 - Projectile and food pools, sound effects, music.
 - Feast Streak food pickups and Mother Hen's feast.
 - Feather bursts and a short pop when a chicken dies; feathers on every boss hit.
+- Gift weapons (Spread, Lightning, Fireball) and the shield.
 - Windows standalone build.
 
 ### 8.2 Optional polish
@@ -293,7 +300,7 @@ sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 ### 8.3 Out of scope
 
 - Extra levels or a campaign beyond four waves and the boss.
-- Weapon upgrades, shops, and combo systems beyond the Feast Streak.
+- Permanent weapon upgrades and shops; combo systems beyond the Feast Streak.
 - Multiplayer, online leaderboards, accounts.
 - Saving anything beyond the local high score.
 - Localisation, selectable difficulty.
@@ -310,6 +317,7 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.8 | 2026-10-01 | Gift boxes with 8 s weapons (Spread, Lightning, Fireball) and a 12 s one-hit shield, from a shuffled bag; weapons are WeaponConfig assets; Mother Hen raised to 75 health to balance them |
 | v1.7 | 2026-10-01 | Tougher Mother Hen: 45 health, five-egg volleys, ring bursts and a diving chick escort at half health |
 | v1.6 | 2026-10-01 | Each wave has its own difficulty; dive bombers from wave 2 — the earlier "later waves add rows, not speed" rule is dropped because playtests found the waves too easy |
 | v1.5 | 2026-10-01 | Feather particle bursts and chicken death pop; chicken kills are now an event that food and effects listen to |

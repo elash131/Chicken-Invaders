@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ea1caac2ae499aa8cd3b320f0b73e8, type: 3}
+  m_Name: Gifts
+  m_EditorClassIdentifier: Assembly-CSharp::GiftConfig
+  _frames:
+  - {fileID: -4940954974181337498, guid: ca4aa13a1ffe3834dae40889b529ef66, type: 3}
+  - {fileID: 7811512289031638120, guid: ca4aa13a1ffe3834dae40889b529ef66, type: 3}
+  - {fileID: 1707676757725476821, guid: ca4aa13a1ffe3834dae40889b529ef66, type: 3}
+  - {fileID: 6727067444490290522, guid: ca4aa13a1ffe3834dae40889b529ef66, type: 3}
+  - {fileID: 890730692945995095, guid: ca4aa13a1ffe3834dae40889b529ef66, type: 3}
+  - {fileID: -8010917170522509678, guid: ca4aa13a1ffe3834dae40889b529ef66, type: 3}
+  - {fileID: 399280311293932875, guid: ca4aa13a1ffe3834dae40889b529ef66, type: 3}
+  _frameRate: 10
+  _scale: 1
+  _dropChance: 0.03
+  _guaranteedAfterKills: {x: 10, y: 18}
+  _weapons:
+  - {fileID: 11400000, guid: 7bce1301d43440959197ae17de470ea9, type: 2}
+  - {fileID: 11400000, guid: 315631ac24234092a59fbe0de57b602e, type: 2}
+  - {fileID: 11400000, guid: b2c2a7cc80c245579815afb00dcd13a7, type: 2}
+  _weaponDuration: 8
+  _shieldDuration: 12

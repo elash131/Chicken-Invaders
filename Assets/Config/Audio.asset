@@ -132,6 +132,42 @@ MonoBehaviour:
     _volume: 0.6
     _pitchVariation: 0.1
     _minInterval: 0.1
+  - _effect: 18
+    _clips:
+    - {fileID: 8300000, guid: acd8ce06a5e74d7b807304594be4ec3d, type: 3}
+    _volume: 0.35
+    _pitchVariation: 0.08
+    _minInterval: 0.03
+  - _effect: 19
+    _clips:
+    - {fileID: 8300000, guid: 8f96389716354a9f871a71a31aaacc56, type: 3}
+    _volume: 0.22
+    _pitchVariation: 0.1
+    _minInterval: 0.05
+  - _effect: 20
+    _clips:
+    - {fileID: 8300000, guid: c9f7073a25f24884b0c5e08bd861b31d, type: 3}
+    _volume: 0.5
+    _pitchVariation: 0.06
+    _minInterval: 0.05
+  - _effect: 21
+    _clips:
+    - {fileID: 8300000, guid: ad49e6af23094a08aea05f142624caae, type: 3}
+    _volume: 0.9
+    _pitchVariation: 0
+    _minInterval: 0
+  - _effect: 22
+    _clips:
+    - {fileID: 8300000, guid: f55cb323cb354124a1b537cd6f66054a, type: 3}
+    _volume: 0.9
+    _pitchVariation: 0
+    _minInterval: 0
+  - _effect: 23
+    _clips:
+    - {fileID: 8300000, guid: ffe96292d5d94d0ead24ff8cef3fd0d7, type: 3}
+    _volume: 0.7
+    _pitchVariation: 0
+    _minInterval: 0
   _pausedCutoff: 700
   _duckVolume: 0.25
   _duckRecovery: 1.6

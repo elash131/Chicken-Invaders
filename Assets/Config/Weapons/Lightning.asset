@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710c657f72d240adadeed64c32e75b0c, type: 3}
+  m_Name: Lightning
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponConfig
+  _displayName: LIGHTNING
+  _shootSound: 19
+  _frames:
+  - {fileID: -5581922493740874068, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  - {fileID: -428020355004542635, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  - {fileID: -2047862058773434893, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  - {fileID: 1098855997234816313, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  - {fileID: -3379826683929325258, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  - {fileID: -1373079204918884007, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  - {fileID: -2345903375227259862, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  - {fileID: 3544312648704284691, guid: 9cd4085452ae34643a84b7be82f778bd, type: 3}
+  _frameRate: 16
+  _scale: 0.45
+  _cooldown: 0.09
+  _bulletsPerShot: 1
+  _spreadAngle: 0
+  _speed: 18
+  _damage: 1
+  _lifetime: 1.5
+  _piercing: 1

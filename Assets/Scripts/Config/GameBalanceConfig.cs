@@ -8,11 +8,14 @@ public sealed class GameBalanceConfig : ScriptableObject
     [SerializeField, Min(0f)] private float _respawnDelay = 1.5f;
     [SerializeField, Min(0f)] private float _invulnerabilityDuration = 2.5f;
     [SerializeField, Min(0f)] private float _restartLockout = 0.5f;
+    [Tooltip("Blinking protection after the shield absorbs a hit.")]
+    [SerializeField, Min(0f)] private float _shieldBreakProtection = 1f;
 
     public int StartingLives => _startingLives;
     public float RespawnDelay => _respawnDelay;
     public float InvulnerabilityDuration => _invulnerabilityDuration;
     public float RestartLockout => _restartLockout;
+    public float ShieldBreakProtection => _shieldBreakProtection;
 
     // Speed, step-down and egg rate differ per wave and live in each WaveConfig.
     [Header("Chicken Formation")]

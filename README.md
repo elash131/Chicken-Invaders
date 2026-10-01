@@ -34,8 +34,10 @@ Playable from menu to victory:
   chicken in each column lays eggs, never too close to the ship.
 - Dive bombers from wave 2: a chicken wobbles as a warning, then swoops at the ship, drops an aimed
   egg and flies back into the formation.
+- Gift boxes: catch one for 8 s of Spread, Lightning (piercing) or Fireball, or a 12 s shield
+  bubble that absorbs one hit. Contents come from a shuffled bag, so every run differs. Each weapon is a `WeaponConfig` asset.
 - A chicken reaching the lose line just above the ship ends the run.
-- Mother Hen after wave four: 45 health and a health bar. She fires aimed five-egg volleys and
+- Mother Hen after wave four: 75 health and a health bar. She fires aimed five-egg volleys and
   charged rings of eggs, then enrages at half health, rains eggs and calls a row of chicks that
   shield her and dive-bomb the ship. Her helmet cracks and then her armour breaks as she takes
   damage, and she goes out in a chain of blasts and one big explosion. Her health is a vertical bar

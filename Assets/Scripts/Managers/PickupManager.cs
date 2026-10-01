@@ -4,47 +4,56 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 /// <summary>
-/// The Feast Streak: every chicken drops food, and the faster the kills come the better the food.
-/// Owns the food pool, the kill streak and catching. Points still go through GameManager.AddScore,
-/// so the score rules stay in one place.
+/// Everything that falls for the ship to catch. The Feast Streak: every chicken drops food, and the
+/// faster the kills come the better the food. Now and then a kill also drops a gift holding a
+/// weapon or a shield. Owns the pickup pool, the kill streak and catching. Points still go through
+/// GameManager.AddScore and the loadout through PlayerWeapons, so their rules stay in one place.
 /// </summary>
-public sealed class FoodManager : MonoBehaviour
+public sealed class PickupManager : MonoBehaviour
 {
     [SerializeField] private FoodConfig _config;
-    [SerializeField] private FoodPickup _foodPrefab;
+    [SerializeField] private Pickup _foodPrefab;
+    [SerializeField] private GiftConfig _gifts;
 
-    private readonly HashSet<FoodPickup> _activeFood = new();
-    private readonly List<FoodPickup> _scratch = new();
+    private readonly HashSet<Pickup> _activeFood = new();
+    private readonly List<Pickup> _scratch = new();
 
-    private ObjectPool<FoodPickup> _pool;
+    private ObjectPool<Pickup> _pool;
     private IGameManager _game;
     private PlayerController _player;
     private Camera _camera;
     private WaveManager _waves;
+    private PlayerWeapons _weapons;
     private int _streak;
+    private int _killsSinceGift;
+    private int _giftGuarantee;
+    // A shuffled bag of gift contents: every item appears once before any repeats. Index
+    // Weapons.Length stands for the shield.
+    private readonly List<int> _giftBag = new();
     private float _lastKillAt = float.NegativeInfinity;
 
     public int Streak => _streak;
     public bool HasActiveFood => _activeFood.Count > 0;
 
     public event Action<int> OnStreakChanged;
-    /// <summary>World position, points and whether it was a red herring.</summary>
-    public event Action<Vector2, int, bool> OnFoodCaught;
+    /// <summary>Where something was caught and what to show there, such as "+300" or "SHIELD".</summary>
+    public event Action<Vector2, string> OnPickupCaught;
 
     private void Start()
     {
         _game = GameManager.Instance;
         _player = PlayerController.Instance;
+        _weapons = _player != null ? _player.GetComponent<PlayerWeapons>() : null;
         _camera = Camera.main;
         if (_config == null || _foodPrefab == null || _game == null || _player == null || _camera == null ||
             _config.Tiers.Length == 0)
         {
-            Debug.LogError("FoodManager needs its config, food prefab, the game, the player and a camera.", this);
+            Debug.LogError("PickupManager needs its config, food prefab, the game, the player and a camera.", this);
             enabled = false;
             return;
         }
 
-        _pool = new ObjectPool<FoodPickup>(
+        _pool = new ObjectPool<Pickup>(
             () => Instantiate(_foodPrefab, transform),
             food => _activeFood.Add(food),
             food => { _activeFood.Remove(food); food.ResetForPool(); },
@@ -83,6 +92,34 @@ public sealed class FoodManager : MonoBehaviour
         _lastKillAt = Time.time;
         OnStreakChanged?.Invoke(_streak);
         Drop(position, TierForStreak(_streak), 1f);
+        TryDropGift(position);
+    }
+
+    private void TryDropGift(Vector2 position)
+    {
+        if (_gifts == null || _weapons == null || IsGiftFalling()) return;
+        _killsSinceGift++;
+        if (_killsSinceGift < _giftGuarantee && UnityEngine.Random.value >= _gifts.DropChance) return;
+
+        _killsSinceGift = 0;
+        _giftGuarantee = _gifts.RollGuarantee();
+        var contents = new PickupContents
+        {
+            Kind = PickupKind.Gift,
+            Frames = _gifts.Frames,
+            FrameRate = _gifts.FrameRate,
+            Scale = _gifts.Scale
+        };
+        _pool.Get().Launch(this, _config, _camera, position, contents, 0.6f);
+    }
+
+    private bool IsGiftFalling()
+    {
+        foreach (var pickup in _activeFood)
+        {
+            if (pickup.Contents.Kind == PickupKind.Gift) return true;
+        }
+        return false;
     }
 
     /// <summary>One piece of Mother Hen's feast: always good food, thrown wide.</summary>
@@ -107,9 +144,15 @@ public sealed class FoodManager : MonoBehaviour
     {
         var herring = _config.HerringSprite != null && UnityEngine.Random.value < _config.HerringChance;
         var tier = _config.Tiers[tierIndex];
-        _pool.Get().Launch(this, _config, _camera, position,
-            herring ? _config.HerringSprite : tier.Sprite, herring ? 0 : tier.Points, tierIndex, herring,
-            popMultiplier);
+        var contents = new PickupContents
+        {
+            Kind = herring ? PickupKind.Herring : PickupKind.Food,
+            Frames = new[] { herring ? _config.HerringSprite : tier.Sprite },
+            Scale = 1f,
+            Points = herring ? 0 : tier.Points,
+            TierIndex = tierIndex
+        };
+        _pool.Get().Launch(this, _config, _camera, position, contents, popMultiplier);
     }
 
     private void CatchTouchingFood()
@@ -131,21 +174,59 @@ public sealed class FoodManager : MonoBehaviour
         _scratch.Clear();
     }
 
-    private void Catch(FoodPickup food)
+    private void Catch(Pickup pickup)
     {
-        var position = (Vector2)food.transform.position;
-        var points = food.Points;
-        var herring = food.IsHerring;
-        var pitch = 1f + food.TierIndex * 0.06f;
-        Release(food);
+        var position = (Vector2)pickup.transform.position;
+        var contents = pickup.Contents;
+        Release(pickup);
 
-        _game.AddScore(points);
-        if (herring) AudioManager.Play(SoundEffect.FoodHerring);
-        else AudioManager.Play(SoundEffect.Food, pitch);
-        OnFoodCaught?.Invoke(position, points, herring);
+        switch (contents.Kind)
+        {
+            case PickupKind.Gift:
+                OnPickupCaught?.Invoke(position, OpenGift());
+                break;
+            case PickupKind.Herring:
+                AudioManager.Play(SoundEffect.FoodHerring);
+                OnPickupCaught?.Invoke(position, "RED HERRING!");
+                break;
+            default:
+                _game.AddScore(contents.Points);
+                AudioManager.Play(SoundEffect.Food, 1f + contents.TierIndex * 0.06f);
+                OnPickupCaught?.Invoke(position, $"+{contents.Points}");
+                break;
+        }
     }
 
-    public void Release(FoodPickup food)
+    // A gift holds the next item from the bag: a weapon or the shield. Returns the name to show.
+    private string OpenGift()
+    {
+        AudioManager.Play(SoundEffect.GiftCatch);
+        var pick = DrawFromGiftBag();
+        if (pick == _gifts.Weapons.Length)
+        {
+            _weapons.GiveShield(_gifts.ShieldDuration);
+            return "SHIELD!";
+        }
+
+        var weapon = _gifts.Weapons[pick];
+        _weapons.EquipGiftWeapon(weapon, _gifts.WeaponDuration);
+        return weapon.DisplayName + "!";
+    }
+
+    private int DrawFromGiftBag()
+    {
+        if (_giftBag.Count == 0)
+        {
+            for (var i = 0; i <= _gifts.Weapons.Length; i++) _giftBag.Add(i);
+        }
+
+        var index = UnityEngine.Random.Range(0, _giftBag.Count);
+        var pick = _giftBag[index];
+        _giftBag.RemoveAt(index);
+        return pick;
+    }
+
+    public void Release(Pickup food)
     {
         if (_pool != null && food != null && _activeFood.Contains(food)) _pool.Release(food);
     }
@@ -160,6 +241,9 @@ public sealed class FoodManager : MonoBehaviour
     private void ClearAll()
     {
         ResetStreak();
+        _killsSinceGift = 0;
+        _giftBag.Clear();
+        if (_gifts != null) _giftGuarantee = _gifts.RollGuarantee();
         if (_pool == null) return;
         _scratch.Clear();
         _scratch.AddRange(_activeFood);
