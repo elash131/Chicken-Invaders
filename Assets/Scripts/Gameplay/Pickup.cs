@@ -44,7 +44,6 @@ public sealed class Pickup : MonoBehaviour
     private bool _bounced;
 
     public PickupContents Contents { get; private set; }
-    public bool IsActive => _state != FoodState.Pooled;
     public Bounds Bounds => _spriteRenderer.bounds;
 
     private void Awake()

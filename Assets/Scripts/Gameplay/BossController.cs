@@ -46,8 +46,6 @@ public sealed class BossController : MonoBehaviour, IDamageable
     public event System.Action OnEnraged;
     public event System.Action OnDefeatStarted;
 
-    public bool IsActive => _phase != BossPhase.Inactive;
-    public int Health => _health;
 
     public bool Initialize(
         IGameManager game,

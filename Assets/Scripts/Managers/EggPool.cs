@@ -1,14 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
-/// <summary>Owns every regular-wave egg and is the only object allowed to return one.</summary>
+/// <summary>Owns every enemy egg - formation, divers and Mother Hen - and is the only object allowed to return one.</summary>
 public sealed class EggPool : MonoBehaviour
 {
-    private readonly HashSet<EggProjectile> _activeEggs = new();
-    private readonly List<EggProjectile> _releaseScratch = new();
-
-    private ObjectPool<EggProjectile> _pool;
+    private TrackedPool<EggProjectile> _pool;
     private EggProjectile _prefab;
     private Camera _gameplayCamera;
     private IGameManager _game;
@@ -39,25 +34,12 @@ public sealed class EggPool : MonoBehaviour
         _breakFrameDuration = balance.EggBreakFrameDuration;
         _brokenHoldDuration = balance.BrokenEggHoldDuration;
 
-        _pool = new ObjectPool<EggProjectile>(
-            CreateEgg,
-            OnGetEgg,
-            OnReleaseEgg,
-            OnDestroyEgg,
-            collectionCheck: true,
-            defaultCapacity: balance.EggPoolPrewarmCount,
-            maxSize: balance.EggPoolMaxRetained);
-
-        Prewarm(balance.EggPoolPrewarmCount);
+        _pool = new TrackedPool<EggProjectile>(CreateEgg, egg => egg.ResetForPool(),
+            balance.EggPoolPrewarmCount, balance.EggPoolMaxRetained);
         _game.OnGameStarted += ReleaseAll;
         _game.OnPlayerDied += ReleaseAll;
         _game.OnStateChanged += HandleStateChanged;
         return true;
-    }
-
-    public void Fire(Vector2 position)
-    {
-        Fire(position, Vector2.down, 1f);
     }
 
     public void Fire(Vector2 position, Vector2 direction, float speedMultiplier = 1f)
@@ -77,61 +59,25 @@ public sealed class EggPool : MonoBehaviour
             _brokenHoldDuration);
     }
 
-    public void Release(EggProjectile egg)
-    {
-        if (_pool == null || egg == null || !_activeEggs.Contains(egg)) return;
-        _pool.Release(egg);
-    }
+    public void Release(EggProjectile egg) => _pool?.Release(egg);
 
     public void HandlePlayerHit(EggProjectile egg)
     {
-        if (egg == null || !_activeEggs.Contains(egg)) return;
+        // Only an egg that is still out can hurt: a hit and an expiry on one frame count once.
+        if (_pool == null || !_pool.IsOut(egg)) return;
 
         var canDamage = _game != null && _game.CanDamagePlayer;
         Release(egg);
         if (canDamage) _game.ReportPlayerHit();
     }
 
-    public void ReleaseAll()
-    {
-        if (_pool == null || _activeEggs.Count == 0) return;
-
-        _releaseScratch.Clear();
-        _releaseScratch.AddRange(_activeEggs);
-        foreach (var egg in _releaseScratch)
-        {
-            if (egg != null && _activeEggs.Contains(egg)) _pool.Release(egg);
-        }
-        _releaseScratch.Clear();
-    }
+    public void ReleaseAll() => _pool?.ReleaseAll();
 
     private EggProjectile CreateEgg()
     {
         var egg = Instantiate(_prefab, transform);
         egg.gameObject.SetActive(false);
         return egg;
-    }
-
-    private void OnGetEgg(EggProjectile egg) => _activeEggs.Add(egg);
-
-    private void OnReleaseEgg(EggProjectile egg)
-    {
-        _activeEggs.Remove(egg);
-        egg.ResetForPool();
-    }
-
-    private void OnDestroyEgg(EggProjectile egg)
-    {
-        _activeEggs.Remove(egg);
-        if (egg != null) Destroy(egg.gameObject);
-    }
-
-    private void Prewarm(int count)
-    {
-        _releaseScratch.Clear();
-        for (var i = 0; i < count; i++) _releaseScratch.Add(_pool.Get());
-        foreach (var egg in _releaseScratch) _pool.Release(egg);
-        _releaseScratch.Clear();
     }
 
     private void HandleStateChanged(GameState state)
@@ -172,7 +118,6 @@ public sealed class EggPool : MonoBehaviour
             _game.OnStateChanged -= HandleStateChanged;
         }
 
-        ReleaseAll();
         _pool?.Dispose();
         _pool = null;
     }

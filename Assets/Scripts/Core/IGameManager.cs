@@ -25,7 +25,8 @@ public interface IGameManager : IGameManagerEvents
     int  HighScore         { get; }
     int  Lives             { get; }
     int  CurrentWaveNumber { get; }
-    bool GameOver          { get; }
+    int  WaveCount         { get; }
+    bool IsBossStage       { get; }
     bool PlayerAlive       { get; }
     bool CanControlPlayer  { get; }
     bool CanMovePlayer     { get; }

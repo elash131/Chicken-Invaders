@@ -179,7 +179,7 @@ public sealed class AudioManager : Singleton<AudioManager>
             yield return new WaitForSeconds(0.6f);
         }
 
-        if (_game.CurrentWaveNumber > 4)
+        if (_game.IsBossStage)
         {
             // Silence before the boss makes her alarm and her own track land harder.
             PlayMusic(null);

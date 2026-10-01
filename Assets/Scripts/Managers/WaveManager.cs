@@ -2,8 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Builds and moves regular chicken formations. All chickens are registered explicitly, so wave
-/// completion is a constant-time set check rather than a scene search.
+/// Builds and moves chicken formations: the regular waves and Mother Hen's escort. All chickens are
+/// tracked explicitly, so wave completion is a constant-time set check rather than a scene search.
+/// The entrance, egg laying and dives are small helpers it owns: FormationEntry, FormationEggs and
+/// ChickenDives.
 /// </summary>
 public sealed class WaveManager : MonoBehaviour
 {
@@ -15,24 +17,12 @@ public sealed class WaveManager : MonoBehaviour
         Clearing
     }
 
-    private sealed class EntryFlight
-    {
-        public Chicken Chicken;
-        public Vector2 Start;
-        public Vector2 Control;
-        public float Delay;
-        public float Elapsed;
-        public bool Arrived;
-    }
-
     [Header("Configuration")]
     [SerializeField] private GameBalanceConfig _balance;
     [SerializeField] private WaveConfig[] _waves;
     [SerializeField] private ChickenFactory _factory;
 
     private readonly HashSet<Chicken> _livingChickens = new();
-    private readonly List<EntryFlight> _entryFlights = new();
-    private readonly List<Chicken> _eligibleShooters = new(5);
 
     private Camera _gameplayCamera;
     private WavePhase _phase;
@@ -46,9 +36,9 @@ public sealed class WaveManager : MonoBehaviour
     private IGameManager _game;
     private PlayerController _player;
     private EggPool _eggPool;
-    private Chicken[] _lowestShooters = System.Array.Empty<Chicken>();
-    private float _nextEggTime;
     private WaveConfig _wave;
+    private FormationEntry _entry;
+    private FormationEggs _eggs;
     private ChickenDives _dives;
     private float _nextDiveTime;
     private float _topPadding;
@@ -61,8 +51,6 @@ public sealed class WaveManager : MonoBehaviour
     public int WaveCount => _waves.Length;
     public float WaveDelay => _balance.WaveDelay;
     public bool AcceptsDamage => _phase == WavePhase.Active && !_isClearing && _game != null && _game.CanDamageEnemies;
-    public int CurrentWaveNumber => _waveIndex + 1;
-    public int LivingChickenCount => _livingChickens.Count;
     public EggPool EnemyEggs => _eggPool;
     private float LoseLineY => _player.transform.position.y + _balance.LoseLineHeight;
 
@@ -73,7 +61,7 @@ public sealed class WaveManager : MonoBehaviour
         _game = GameManager.Instance;
         _player = PlayerController.Instance;
         if (_gameplayCamera == null || _game == null || _player == null || _balance == null ||
-            _factory == null || _waves == null || _waves.Length != 4)
+            _factory == null || _waves == null || _waves.Length == 0)
         {
             Debug.LogError("WaveManager is missing its balance, factory or wave configuration.", this);
             enabled = false;
@@ -92,18 +80,19 @@ public sealed class WaveManager : MonoBehaviour
                   _eggPool.Initialize(_balance, _gameplayCamera, _game);
         _dives = new ChickenDives(_balance, _gameplayCamera, _player, _eggPool,
             chicken => _formationOrigin + chicken.SlotOffset);
-        if (!IsReady) Debug.LogError("All four wave configurations must be assigned.", this);
+        _entry = new FormationEntry(_balance.EntryDuration);
+        _eggs = new FormationEggs(_balance, _player, _eggPool, _dives);
+        if (!IsReady) Debug.LogError("Every wave slot needs a WaveConfig.", this);
     }
 
     private void Update()
     {
-        if (_phase != WavePhase.Active || _game == null || !_game.CanEnemiesAct ||
-            _eggPool == null || Time.time < _nextEggTime)
+        if (_phase != WavePhase.Active || _game == null || !_game.CanEnemiesAct || _eggs == null)
         {
             return;
         }
 
-        TryLayEgg();
+        _eggs.Tick();
     }
 
     public void StopCombat()
@@ -163,9 +152,8 @@ public sealed class WaveManager : MonoBehaviour
         _currentSpeed = config.FormationSpeed;
         _dives.Clear();
         _livingChickens.Clear();
-        _entryFlights.Clear();
-        _eligibleShooters.Clear();
-        _lowestShooters = new Chicken[config.Columns];
+        _entry.Clear();
+        _eggs.Reset(config);
 
         RecalculateFormationOrigin();
         BuildFormation(config);
@@ -224,17 +212,9 @@ public sealed class WaveManager : MonoBehaviour
                 }
 
                 _livingChickens.Add(chicken);
-                if (_lowestShooters[column] == null || row > _lowestShooters[column].Row)
-                {
-                    _lowestShooters[column] = chicken;
-                }
-                _entryFlights.Add(new EntryFlight
-                {
-                    Chicken = chicken,
-                    Start = start,
-                    Control = new Vector2(target.x - side * 1.5f, target.y + 1.25f),
-                    Delay = order * _balance.EntryStagger
-                });
+                _eggs.Register(chicken);
+                _entry.Add(chicken, start, new Vector2(target.x - side * 1.5f, target.y + 1.25f),
+                    order * _balance.EntryStagger);
                 order++;
             }
         }
@@ -296,107 +276,14 @@ public sealed class WaveManager : MonoBehaviour
 
     private void UpdateEntryFlights()
     {
-        var arrivedCount = 0;
-        foreach (var flight in _entryFlights)
-        {
-            if (flight.Chicken == null)
-            {
-                continue;
-            }
+        if (!_entry.Tick(Time.fixedDeltaTime, _formationOrigin)) return;
 
-            if (flight.Arrived)
-            {
-                arrivedCount++;
-                continue;
-            }
-
-            flight.Elapsed += Time.fixedDeltaTime;
-            if (flight.Elapsed < flight.Delay)
-            {
-                continue;
-            }
-
-            var progress = Mathf.Clamp01((flight.Elapsed - flight.Delay) / _balance.EntryDuration);
-            var eased = Mathf.SmoothStep(0f, 1f, progress);
-            var target = _formationOrigin + flight.Chicken.SlotOffset;
-            flight.Chicken.MoveTo(QuadraticBezier(flight.Start, flight.Control, target, eased));
-
-            if (progress < 1f)
-            {
-                continue;
-            }
-
-            flight.Arrived = true;
-            flight.Chicken.MoveTo(target);
-            arrivedCount++;
-        }
-
-        if (arrivedCount != _livingChickens.Count)
-        {
-            return;
-        }
-
-        _entryFlights.Clear();
+        _entry.Clear();
         _phase = WavePhase.Active;
         SetAllColliders(true);
         _nextDiveTime = Time.time + _wave.DiveInterval;
         _game.ReportFormationReady();
-        ScheduleNextEgg();
-    }
-
-    private void TryLayEgg()
-    {
-        RefreshEligibleShooters();
-        if (_eligibleShooters.Count == 0)
-        {
-            _nextEggTime = Time.time + 0.25f;
-            return;
-        }
-
-        var shooter = _eligibleShooters[Random.Range(0, _eligibleShooters.Count)];
-        _eggPool.Fire(shooter.EggSpawnPosition, Vector2.down, _wave.EggSpeedMultiplier);
-        AudioManager.Play(SoundEffect.EggLay);
-        ScheduleNextEgg(_eligibleShooters.Count);
-    }
-
-    private void RefreshEligibleShooters()
-    {
-        _eligibleShooters.Clear();
-        if (_player == null || _lowestShooters == null)
-        {
-            return;
-        }
-
-        var playerY = _player.transform.position.y;
-        foreach (var shooter in _lowestShooters)
-        {
-            // A diving chicken drops its own aimed egg; it does not also lay from the formation.
-            if (shooter != null && !_dives.IsDiving(shooter) &&
-                shooter.transform.position.y - playerY >= _balance.EggSafetyDistance)
-            {
-                _eligibleShooters.Add(shooter);
-            }
-        }
-    }
-
-    private void ScheduleNextEgg(int eligibleCount = -1)
-    {
-        if (eligibleCount < 0)
-        {
-            RefreshEligibleShooters();
-            eligibleCount = _eligibleShooters.Count;
-        }
-
-        var combinedRate = _wave.EggRatePerShooter * eligibleCount;
-        if (combinedRate <= 0f)
-        {
-            _nextEggTime = Time.time + 0.25f;
-            return;
-        }
-
-        // An exponential interval preserves the configured average rate without synchronized volleys.
-        var sample = Mathf.Clamp(Random.value, 0.0001f, 0.9999f);
-        _nextEggTime = Time.time - Mathf.Log(1f - sample) / combinedRate;
+        _eggs.Begin();
     }
 
     private void UpdateActiveFormation()
@@ -476,11 +363,7 @@ public sealed class WaveManager : MonoBehaviour
         AudioManager.Play(SoundEffect.ChickenDie);
         OnChickenKilled?.Invoke(chicken.transform.position);
 
-        if (chicken.Column >= 0 && chicken.Column < _lowestShooters.Length &&
-            _lowestShooters[chicken.Column] == chicken)
-        {
-            RefreshLowestShooter(chicken.Column);
-        }
+        _eggs.HandleRemoved(chicken, _livingChickens);
 
         if (_livingChickens.Count > 0)
         {
@@ -489,21 +372,6 @@ public sealed class WaveManager : MonoBehaviour
 
         _phase = WavePhase.Clearing;
         _game.ReportWaveCleared();
-    }
-
-    private void RefreshLowestShooter(int column)
-    {
-        Chicken lowest = null;
-        foreach (var candidate in _livingChickens)
-        {
-            if (candidate != null && candidate.Column == column &&
-                (lowest == null || candidate.Row > lowest.Row))
-            {
-                lowest = candidate;
-            }
-        }
-
-        _lowestShooters[column] = lowest;
     }
 
     private void SetAllColliders(bool active)
@@ -531,19 +399,11 @@ public sealed class WaveManager : MonoBehaviour
         }
 
         _livingChickens.Clear();
-        _entryFlights.Clear();
-        _eligibleShooters.Clear();
+        _entry?.Clear();
         _dives?.Clear();
-        _lowestShooters = System.Array.Empty<Chicken>();
-        _nextEggTime = 0f;
+        _eggs?.Reset(null);
         _isClearing = false;
         _phase = WavePhase.Idle;
-    }
-
-    private static Vector2 QuadraticBezier(Vector2 start, Vector2 control, Vector2 end, float t)
-    {
-        var remaining = 1f - t;
-        return remaining * remaining * start + 2f * remaining * t * control + t * t * end;
     }
 
     private void OnDrawGizmosSelected()

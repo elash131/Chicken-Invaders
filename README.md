@@ -46,7 +46,7 @@ Playable from menu to victory:
   every hit and bursts into a feather cloud.
 - The gameplay view is letterboxed to 16:9, so every resolution shows the same playfield.
 - Three lives, 1.5 s respawn and 2.5 s of blinking protection, score and saved high score.
-- Menu with a How To Play screen and a living background of drifting chickens; wave intro, HUD,
+- Menu with How To Play and Quit, and a living background of drifting chickens; wave intro, HUD,
   pause (also on focus loss), Game Over and Victory screens with fade-in transitions, restart.
 
 - Music for menu, waves, boss and victory with crossfades, sound effects for every event, muffled
@@ -76,17 +76,21 @@ before shooting again. Game Over ignores restart for 0.5 seconds.
 ```
 Assets/
   Animations/   Chicken flap clip and its controller
-  Art/          Sprites and the tiled starfield background
-  Audio/        Music and SFX (CC0 / CC-BY, see ASSETS.md)
-  Config/       GameBalance, MotherHen, Audio and the four Wave assets
-  Fonts/        Bungee (SIL OFL)
-  Prefabs/      Boss, Chickens, Projectiles, UI (RunUI) and VFX
+  Art/          Art made for this project: feather and shield bubble
+  Audio/        Audio made for this project: the boss siren
+  Config/       ScriptableObjects: GameBalance, MotherHen, Food, Gifts, Audio,
+                Waves/ (four waves + boss escort) and Weapons/ (Ion, Spread, Lightning, Fireball)
+  Prefabs/      Boss, Chickens, Food, Menu (attract mode), Projectiles, UI (RunUI) and VFX
   Scenes/       SampleScene — the whole game lives in one scene
   Scripts/
-    Core/       Singleton base class, IGameManager, GameState, constants
-    Config/     GameBalanceConfig, WaveConfig, BossConfig, AudioConfig
-    Gameplay/   Player, projectiles, chickens, boss and background
-    Managers/   GameManager, WaveManager, pools, UI and presenters
+    Core/       Singleton<T>, IGameManager, IDamageable, TrackedPool<T>, Bezier, enums, constants
+    Config/     The ScriptableObject types
+    Managers/   GameManager, WaveManager, PickupManager, AudioManager and the bullet/egg pools
+    Gameplay/   Player and weapons, chickens and their formation helpers, Mother Hen, projectiles, pickups
+    Effects/    Visual feedback only: feathers, explosions, camera cues, letterbox, background, menu flock
+    UI/         Menus, HUD, How To Play and presenters
+  ThirdParty/   Everything not made for this project: Chicken Invaders and Starbound art, Kenney and
+                OpenGameArt audio, the Bungee font (sources and licences in ASSETS.md)
 Docs/
   GDD.md        Game design document
   ASSETS.md     Where every asset came from, and its licence
@@ -95,13 +99,16 @@ Docs/
 ## Design notes
 
 - `GameManager` owns the rules. Other systems report what happened through `IGameManager`, and the
-  UI and presenters only listen to its events, so they cannot change score or lives by accident.
-- One `Managers` object holds the focused managers. The UI and Mother Hen are prefabs placed in the
-  scene with their references set in the Inspector.
-- Only `GameManager` and `PlayerController` use the generic `Singleton<T>` base.
-- `WaveManager` tracks the chickens it creates instead of searching the scene every frame.
-- Player bullets, enemy eggs and food use separate `ObjectPool`s, prewarmed at load.
-- Balance values live in ScriptableObjects, so tuning does not need a recompile.
+  UI, audio and presenters only listen to its events, so they cannot change score or lives by accident.
+- One `Managers` object holds the focused managers. The UI, Mother Hen and the menu flock are prefabs
+  placed in the scene with their references set in the Inspector.
+- `Singleton<T>` is used only for the four objects many scripts need: `GameManager`,
+  `PlayerController`, `AudioManager` and `FeatherBursts`.
+- `WaveManager` tracks the chickens it creates instead of searching the scene every frame, and
+  announces each kill once (`OnChickenKilled`) for food and feathers to react to.
+- Bullets, eggs and pickups each own a `TrackedPool<T>`: Unity's `ObjectPool<T>`, prewarmed at load,
+  plus release-everything and a guard against releasing the same object twice.
+- Everything tunable lives in ScriptableObjects, so balancing never needs a recompile.
 - The background is a tiled sprite; artwork is never scaled non-uniformly.
 
 ## Assets

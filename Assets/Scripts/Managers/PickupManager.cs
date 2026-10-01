@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
 /// <summary>
 /// Everything that falls for the ship to catch. The Feast Streak: every chicken drops food, and the
@@ -15,10 +14,9 @@ public sealed class PickupManager : MonoBehaviour
     [SerializeField] private Pickup _foodPrefab;
     [SerializeField] private GiftConfig _gifts;
 
-    private readonly HashSet<Pickup> _activeFood = new();
     private readonly List<Pickup> _scratch = new();
 
-    private ObjectPool<Pickup> _pool;
+    private TrackedPool<Pickup> _pool;
     private IGameManager _game;
     private PlayerController _player;
     private Camera _camera;
@@ -33,7 +31,7 @@ public sealed class PickupManager : MonoBehaviour
     private float _lastKillAt = float.NegativeInfinity;
 
     public int Streak => _streak;
-    public bool HasActiveFood => _activeFood.Count > 0;
+    public bool HasActiveFood => _pool != null && _pool.ActiveCount > 0;
 
     public event Action<int> OnStreakChanged;
     /// <summary>Where something was caught and what to show there, such as "+300" or "SHIELD".</summary>
@@ -53,29 +51,14 @@ public sealed class PickupManager : MonoBehaviour
             return;
         }
 
-        _pool = new ObjectPool<Pickup>(
-            () => Instantiate(_foodPrefab, transform),
-            food => _activeFood.Add(food),
-            food => { _activeFood.Remove(food); food.ResetForPool(); },
-            food => { if (food != null) Destroy(food.gameObject); },
-            collectionCheck: true,
-            defaultCapacity: _config.PoolPrewarm,
-            maxSize: _config.PoolMaxRetained);
-        Prewarm();
+        _pool = new TrackedPool<Pickup>(() => Instantiate(_foodPrefab, transform), pickup => pickup.ResetForPool(),
+            _config.PoolPrewarm, _config.PoolMaxRetained);
 
         _game.OnStateChanged += HandleStateChanged;
         _game.OnPlayerDied += ResetStreak;
         _game.OnGameStarted += ClearAll;
         _waves = GetComponent<WaveManager>();
         if (_waves != null) _waves.OnChickenKilled += RegisterKill;
-    }
-
-    private void Prewarm()
-    {
-        _scratch.Clear();
-        for (var i = 0; i < _config.PoolPrewarm; i++) _scratch.Add(_pool.Get());
-        foreach (var food in _scratch) _pool.Release(food);
-        _scratch.Clear();
     }
 
     private void Update()
@@ -115,7 +98,7 @@ public sealed class PickupManager : MonoBehaviour
 
     private bool IsGiftFalling()
     {
-        foreach (var pickup in _activeFood)
+        foreach (var pickup in _pool.Active)
         {
             if (pickup.Contents.Kind == PickupKind.Gift) return true;
         }
@@ -157,7 +140,7 @@ public sealed class PickupManager : MonoBehaviour
 
     private void CatchTouchingFood()
     {
-        if (_activeFood.Count == 0 || !_game.CanMovePlayer || !_player.IsVisible) return;
+        if (!HasActiveFood || !_game.CanMovePlayer || !_player.IsVisible) return;
 
         // The ship plus everything below it: food resting on the floor is shorter than the gap
         // under the ship, so the ship's own outline would pass over a burger without touching it.
@@ -165,7 +148,7 @@ public sealed class PickupManager : MonoBehaviour
         var floor = _camera.ViewportToWorldPoint(Vector3.zero).y;
         catchArea.SetMinMax(new Vector3(catchArea.min.x, floor, catchArea.min.z), catchArea.max);
         _scratch.Clear();
-        foreach (var food in _activeFood)
+        foreach (var food in _pool.Active)
         {
             if (food.Bounds.Intersects(catchArea)) _scratch.Add(food);
         }
@@ -226,10 +209,7 @@ public sealed class PickupManager : MonoBehaviour
         return pick;
     }
 
-    public void Release(Pickup food)
-    {
-        if (_pool != null && food != null && _activeFood.Contains(food)) _pool.Release(food);
-    }
+    public void Release(Pickup food) => _pool?.Release(food);
 
     private void ResetStreak()
     {
@@ -244,11 +224,7 @@ public sealed class PickupManager : MonoBehaviour
         _killsSinceGift = 0;
         _giftBag.Clear();
         if (_gifts != null) _giftGuarantee = _gifts.RollGuarantee();
-        if (_pool == null) return;
-        _scratch.Clear();
-        _scratch.AddRange(_activeFood);
-        foreach (var food in _scratch) _pool.Release(food);
-        _scratch.Clear();
+        _pool?.ReleaseAll();
     }
 
     private void HandleStateChanged(GameState state)

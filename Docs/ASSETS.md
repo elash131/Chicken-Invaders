@@ -47,7 +47,7 @@ projectiles **100**, food **128**, starfield **100**. Sorting layers back → fr
 
 ---
 
-## Inventory — `Assets/Art/`
+## Inventory — `Assets/ThirdParty/ChickenInvaders/` and `Assets/ThirdParty/Starbound/`
 
 ### Sprites
 
@@ -62,7 +62,6 @@ projectiles **100**, food **128**, starfield **100**. Sorting layers back → fr
 | `bulletNeutron.png` | Green plasma, 3 sizes | 100 | Spread gift weapon |
 | `bullet-bolt3.png` | 8 cyan lightning frames (re-sliced 4 × 2) | 100 | Lightning gift weapon, animated |
 | `bullet-bolt1.png` | 2 fireball frames | 100 | Fireball gift weapon |
-| `bulletFork`, `bullet-bolt4` | Alternate weapons | 100 | Unused |
 | `…Starbound - Monsters - Unique - Unusual Gift Box.png` | 7 gift box frames + small ones | 40, Point filter | Gift pickup, animated |
 | `flare-my.png` | 4 coloured flares | 100 | Hit and explosion VFX |
 | `…Astronaut Chicken.png` | 3 whole chickens + parts | 100 | Mother Hen: three damage stages, feet and wings |
@@ -71,7 +70,7 @@ projectiles **100**, food **128**, starfield **100**. Sorting layers back → fr
 > `hero_ship.png` is derived from the *Authentic Hero* rip below: the original had **no alpha**
 > (a black background), so the black was keyed out. The unmodified original is kept beside it.
 
-### Food — `Assets/Art/Sprites/Food/`
+### Food — `Assets/ThirdParty/ChickenInvaders/Sprites/Food/`
 
 Ready to use as single sprites:
 
@@ -81,16 +80,10 @@ Ready to use as single sprites:
 | `TwinLegs.png` | 56 × 47 | Feast Streak food, streak 3–4 |
 | `CI3Roast.png` | 92 × 71 | Feast Streak food, streak 5–6 |
 | `PlainBurger` → `CheeseBurger` → `TomatoCheeseBurger` → `TLCBurger` → `DoubleBurger` → `TripleBurger` → `QuadBurger` | 62 × 52 up to 70 × 136 | The burger ladder, streak 7 up to 13+ |
-| `Corny1/2.png` | ~33 × 48 | Small common drop |
 | `RedHerring.png` | 69 × 64 | The rare red herring, worth nothing |
-| `Pumpkin`, `Mistletoe`, `MistletoeLeaf` | — | Seasonal, optional |
 
-**Collection sheets** (several items in one image, need Sprite Mode → Multiple → Slice → Automatic;
-they are *not* uniform grids): `Fired`, `Ice_cream`, `Pizza`, `PopcornTypes`, `Popcorn_yellow`,
-`Red_herring`, `Sweet`, `Vege`.
-
-> ⚠️ **`RedHerringOLD.png` has no transparency** — it renders as a rectangular box. Use
-> `RedHerring.png` instead.
+The other food sprites from the fan wiki (corn, pizza, popcorn, sweets, vegetables, pumpkin,
+mistletoe and the herring sheets) were unused and have been removed from the project.
 
 ### Backgrounds
 
@@ -158,7 +151,7 @@ names; the files were decoded and re-saved as real RGBA PNGs. Base URL for every
 The menu and HUD use **Bungee** throughout. Bungee and the included TextMesh Pro default
 **Liberation Sans** resources are both SIL Open Font License 1.1. Bungee comes from the official
 Google Fonts repository (`google/fonts/ofl/bungee`, downloaded 2026-09-30); its licence is stored
-at `Assets/Fonts/Bungee-OFL.txt`. Liberation Sans comes from the installed Unity uGUI 2.0.0
+at `Assets/ThirdParty/Fonts/Bungee-OFL.txt`. Liberation Sans comes from the installed Unity uGUI 2.0.0
 package's **TMP Essential Resources**;
 its original notice is kept at `Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt`.
 Only the font, fallback, settings, line-breaking/style data and required mobile SDF shader/includes
@@ -168,7 +161,7 @@ The title uses the purple/white logo already listed above, with an additional `M
 that preserves existing slices and GUIDs. Buttons use Unity's built-in sliced UI sprite and colour
 states stored in `RunUI.prefab`; they require no downloaded or generated bitmap artwork.
 
-## Audio — `Assets/Audio/`
+## Audio — `Assets/ThirdParty/Kenney/`, `Assets/ThirdParty/OpenGameArt/` and `Assets/Audio/`
 
 All audio is free to use: everything is **CC0** except the chicken sound, which is **CC-BY 3.0** and
 credited below. Downloaded 2026-10-01. Music was converted from WAV to OGG to keep the repository
@@ -187,14 +180,14 @@ small; music imports as **Streaming**, short effects as **Decompress On Load**.
 | `sfx_shoot_spread`, `sfx_shoot_lightning`, `sfx_shoot_fireball` | Kenney **Sci-fi Sounds** `laserRetro_002`, Kenney **Digital Audio** `zap1` (trimmed), Kenney **Sci-fi Sounds** `laserLarge_000` (trimmed, lowered) | CC0 |
 | `sfx_gift_catch`, `sfx_weapon_expire` | Kenney **Digital Audio** (`powerUp10`, `phaserDown2`) | CC0 |
 | `sfx_shield_break` | Kenney **Impact Sounds** `impactGlass_light_000` layered with Kenney **Sci-fi Sounds** `forceField_000` | CC0 |
-| `sfx_boss_alarm` | Made for this project: a two-tone siren synthesised with ffmpeg | Original |
+| `Assets/Audio/sfx_boss_alarm` | Made for this project: a two-tone siren synthesised with ffmpeg | Original |
 
 ### Made for this project
 
 | File | What | Licence |
 |---|---|---|
-| `Art/Sprites/feather.png` | 96 × 32 white feather for the feather particle bursts, drawn procedurally | Original |
-| `Art/Sprites/shield.png` | 128 × 128 glowing cyan bubble for the shield, drawn procedurally | Original |
+| `Assets/Art/feather.png` | 96 × 32 white feather for the feather particle bursts, drawn procedurally | Original |
+| `Assets/Art/shield.png` | 128 × 128 glowing cyan bubble for the shield, drawn procedurally | Original |
 
 > "Free on itch.io" is not a licence name. `CC0 1.0`, `CC-BY 4.0`, `OFL 1.1` are. Paste the exact
 > one into the table above.

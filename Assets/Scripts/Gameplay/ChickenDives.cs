@@ -128,7 +128,7 @@ public sealed class ChickenDives
     private void UpdateSwoop(Dive dive)
     {
         var progress = dive.Elapsed / _balance.DiveSwoopDuration;
-        var position = Bezier(dive.Start, dive.Control, dive.End, Mathf.Clamp01(progress));
+        var position = Bezier.Quadratic(dive.Start, dive.Control, dive.End, Mathf.Clamp01(progress));
         FlyTo(dive, position);
 
         if (!dive.EggDropped && progress >= EggDropProgress)
@@ -175,11 +175,5 @@ public sealed class ChickenDives
     private bool TouchesShip(Chicken chicken)
     {
         return _player.IsVisible && chicken.Bounds.Intersects(_player.CatchBounds);
-    }
-
-    private static Vector2 Bezier(Vector2 start, Vector2 control, Vector2 end, float t)
-    {
-        var remaining = 1f - t;
-        return remaining * remaining * start + 2f * remaining * t * control + t * t * end;
     }
 }

@@ -133,15 +133,14 @@ strengths are configured in GameBalance, and zero duration disables an individua
 |---|---|---|
 | Ship speed | Horizontal movement | 8 units/s |
 | Fire cooldown | Time between shots | 0.18 s |
-| Formation speed | Starting speed each wave | 1.5 units/s |
-| Speed increase per kill | The difficulty curve | 0.15 units/s |
-| Descend step | Drop at each wall | 0.12 units |
-| Egg rate | Per eligible chicken | 0.15 eggs/s |
-| Egg speed | Reaction time an egg gives | 6 units/s |
+| Formation speed / speed per kill / step down / egg rate | Per wave, in each WaveConfig | see the wave table |
+| Egg speed | Reaction time an egg gives | 6 units/s, times a per-wave multiplier |
+| Gift weapon / shield duration | How long a gift helps | 8 s / 12 s |
 | Boss health / volley interval / ring burst | Length of the boss fight | 75 / 1.5 s / every 6 s |
 
-**Where these live:** `GameBalanceConfig` and `WaveConfig` ScriptableObjects, so tuning never needs a
-recompile.
+**Where these live:** ScriptableObjects — `GameBalance`, the five `WaveConfig` assets (four waves and
+the boss escort), `MotherHen`, `Food`, `Gifts`, the four weapons and `Audio` — so tuning never needs
+a recompile.
 
 **Feel target:** a new player clears wave 1 within three attempts; ten minutes of practice reaches
 the boss.
@@ -167,7 +166,7 @@ the boss.
 
 ## 5. Screens & UI
 
-1. **Main Menu** — floating title, Play, How To Play, high score, control hint. M (or gamepad
+1. **Main Menu** — floating title, Play, How To Play, Quit, high score, control hint. M (or gamepad
    Select) mutes, and is remembered. Behind it, a flock of decorative chickens drifts and swoops and
    Mother Hen glides past now and then (an attract mode); it vanishes when a run starts.
 2. **How To Play** — controls and rules, the Feast Streak food ladder and the gift contents. The
@@ -220,39 +219,51 @@ state rather than reloading. **Packages:** Input System, Physics2D, URP 2D, Unit
 
 ```mermaid
 flowchart TD
-    Config[GameBalanceConfig / WaveConfig / BossConfig] -.-> WaveManager
-    WaveManager -->|Create| ChickenFactory
-    ChickenFactory --> Chicken
-    Chicken -->|killed| WaveManager
+    Configs[ScriptableObject configs] -.-> WaveManager
+    WaveManager -->|Create| ChickenFactory --> Chicken
+    Chicken -->|hit| WaveManager
+    WaveManager -->|OnChickenKilled| PickupManager
+    WaveManager -->|OnChickenKilled| FeatherBursts
     WaveManager -->|AddScore / ReportWaveCleared / ReportLoseLineCrossed| GameManager
-    Player[PlayerController] -->|Fire| Bullets[ProjectilePool]
-    WaveManager -->|Fire| Eggs[EggPool]
-    Boss[BossController] -->|Fire| Eggs
+    Player[PlayerController] -->|trigger| Weapons[PlayerWeapons] -->|Fire| Bullets[ProjectilePool]
+    WaveManager -->|eggs, dives| Eggs[EggPool]
+    Boss[BossController] -->|eggs| Eggs
     Eggs -->|ReportPlayerHit| GameManager
+    GameManager -->|TryAbsorbHit| Weapons
+    PickupManager -->|AddScore| GameManager
+    PickupManager -->|gift| Weapons
     Boss -->|ReportBossHealth / ReportBossDefeated| GameManager
-    GameManager -->|events| UI[GameUIManager]
-    GameManager -->|events| Presenters[PlayerDeathPresenter / BossCameraFeedback]
+    Boss -->|OnEnraged / OnDefeatStarted| GameManager -->|StartEscort / ScatterFormation| WaveManager
+    GameManager -->|events| Listeners[UI, AudioManager, presenters]
 ```
 
 The scene has one `Managers` object holding `GameManager`, `WaveManager`, `ChickenFactory`,
-`ProjectilePool`, `EggPool` and `PlayerDeathPresenter`. The UI (`RunUI`) and Mother Hen are prefabs
-placed in the scene; chickens and projectiles are instantiated from prefabs.
+`ProjectilePool`, `EggPool`, `PickupManager`, `PlayerDeathPresenter` and `AudioManager` (with its
+`Music` and `Effects` children). The UI (`RunUI`), Mother Hen and the menu's `MenuAttract` are
+prefabs placed in the scene; chickens, bullets, eggs and pickups are instantiated from prefabs.
 
 | System | Responsibility |
 |---|---|
-| `GameManager` (`IGameManager`) | Run state, score, lives, respawn, pause, win/lose, restart |
-| `PlayerController` | Movement, input, firing, respawn blink |
-| `WaveManager` / `ChickenFactory` / `Chicken` | Formations, movement, egg timing, lose line, wave completion |
-| `BossController` / `BossPresenter` | Mother Hen rules and attacks / her animation and hit feedback |
-| `ProjectilePool` / `EggPool` | Separate pools for player bullets and enemy eggs |
-| `GameUIManager` / `AudioManager` | Menus, HUD and boss bar / music and sound — listen to events, own no rules |
-| `FoodManager` / `FoodPickup` | Feast Streak: kill streak, food pool, catching — points go through `GameManager.AddScore` |
-| `PlayerDeathPresenter` / `BossCameraFeedback` / `FeastPresenter` | Explosion flare, boss camera cues, streak counter and score popups — presentation only |
-| `ScrollingBackground` / `LetterboxCamera` | Tiled starfield scroll / fixed 16:9 gameplay view |
+| `GameManager` (`IGameManager`) | Run state, score, lives, respawn, shield rule, pause, win/lose, restart |
+| `PlayerController` / `PlayerWeapons` | Input and movement / current weapon, gift timer, shield, firing patterns |
+| `WaveManager` / `ChickenFactory` / `Chicken` | Formations and escort: building, sweeping, lose line, kills, wave completion |
+| `FormationEntry` / `FormationEggs` / `ChickenDives` | Helpers owned by WaveManager: the fly-in, who lays eggs and when, the dive bombers |
+| `BossController` / `BossPresenter` | Mother Hen's rules, attacks and feast / her animation, damage looks and defeat show |
+| `ProjectilePool` / `EggPool` / `PickupManager` | Bullets, eggs, and food and gifts — each owns a `TrackedPool<T>` |
+| `AudioManager` | Music per run state with crossfades; one-shots by name (`SoundEffect`) |
+| `GameUIManager`, `FeastPresenter`, `LoadoutPresenter`, `HowToPlayPresenter` | Menus, HUD, boss bar, streak and popups, weapon timer, instructions |
+| `FeatherBursts`, `ExplosionEffect`, `PlayerDeathPresenter`, `BossCameraFeedback` | Visual feedback only |
+| `LetterboxCamera`, `ScrollingBackground`, `MenuAttract` | Fixed 16:9 view, tiled starfield, the menu's living background |
+
+Scripts are grouped by role: `Core` (singleton base, interfaces, `TrackedPool`, constants),
+`Config` (ScriptableObject types), `Managers` (scene systems), `Gameplay` (objects with rules),
+`Effects` (visual only) and `UI`. Everything not made for this project is under
+`Assets/ThirdParty`.
 
 The shape matters as much as the list: **`GameManager` is the only script that owns the rules.**
 Other systems *report* what happened (`ReportPlayerHit`, `ReportWaveCleared`, …) and GameManager
-decides what it means for the run; the UI and presenters only listen to its events. Chickens are
+decides what it means for the run; the UI, audio and presenters only listen to its events. A kill
+is announced once by `WaveManager.OnChickenKilled`, and food and feathers react to it. Chickens are
 tracked by `WaveManager` when it creates them instead of searching the scene, so "is the wave over?"
 is just "is the set empty?". `AudioManager` follows the same rule: music follows GameManager's
 state events, and gameplay code only asks for a sound by name.
@@ -265,18 +276,27 @@ sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 
 ### Course concepts
 
-- **Object Pool** — bullets, eggs and food, because they spawn constantly and `Instantiate` during
-  play causes the frame hitches that make a dodging game feel unfair.
-- **Coroutines** — wave intros, respawn delay, invulnerability: sequences with a start and an end,
-  rather than conditions checked every frame.
-- **Singleton** — a generic `Singleton<T>` base, used only for `GameManager` and `PlayerController`,
-  which many systems need. Everything else gets references from the Inspector.
+- **Object Pool** — bullets, eggs and pickups, because they spawn constantly and `Instantiate` during
+  play causes the frame hitches that make a dodging game feel unfair. Each owner wraps Unity's
+  `ObjectPool<T>` in one shared `TrackedPool<T>` (composition), which also releases everything at a
+  restart and makes a second release harmless. The feather burst is a particle system emitting at
+  any point, so it is its own pool.
+- **Coroutines** — wave advance, respawn delay, protection, screen fades, music crossfades and
+  result cues: sequences with a start and an end, rather than conditions checked every frame.
+- **Singleton** — a generic `Singleton<T>` base for the four objects that many scripts need:
+  `GameManager`, `PlayerController`, `AudioManager` and `FeatherBursts`. Everything else gets
+  references from the Inspector or is passed in by its owner.
+- **Observer** — managers broadcast events (`IGameManagerEvents`, `OnChickenKilled`, `OnEnraged`,
+  weapon and shield changes) and listeners unsubscribe in `OnDestroy`.
+- **Factory** — `ChickenFactory` builds configured chickens; it knows nothing about score or waves.
 - **Enum-keyed sounds** — the lecturer's SoundManager idea: `AudioManager.Play(SoundEffect.Shoot)`,
   with clips and volumes in an `Audio` ScriptableObject instead of `Resources.Load`.
 - **Interface** — `IGameManager` (with `IGameManagerEvents`) is the readable contract of what the
   rest of the game may ask of the run; other scripts depend on it, not on the concrete class.
-- **ScriptableObjects** — balance values and wave layouts as assets, so a new wave is a duplicated
-  file rather than an edited component.
+- **ScriptableObjects** — balance values, waves, the boss, food, gifts, weapons and audio as assets,
+  so a new wave or weapon is a duplicated file rather than new code.
+- **State** — `GameState` decides what may happen when (`CanControlPlayer`, `CanMovePlayer`,
+  `CanDamagePlayer`…); Mother Hen and the dive bombers each run a small phase machine.
 - **PlayerPrefs and Gizmos** — the high score; the lose line, formation origin and ship lane drawn
   in the Scene view.
 
@@ -321,6 +341,7 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.10 | 2026-10-01 | Clean-up: shared TrackedPool, WaveManager split into helpers, scripts grouped into Core/Config/Managers/Gameplay/Effects/UI, third-party assets moved to Assets/ThirdParty, unused art removed, Quit button |
 | v1.9 | 2026-10-01 | Menu: How To Play screen, attract-mode flock behind the title, fade-in screen transitions and a floating logo |
 | v1.8 | 2026-10-01 | Gift boxes with 8 s weapons (Spread, Lightning, Fireball) and a 12 s one-hit shield, from a shuffled bag; weapons are WeaponConfig assets; Mother Hen raised to 75 health to balance them |
 | v1.7 | 2026-10-01 | Tougher Mother Hen: 45 health, five-egg volleys, ring bursts and a diving chick escort at half health |

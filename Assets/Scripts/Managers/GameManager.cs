@@ -36,7 +36,9 @@ public class GameManager : Singleton<GameManager>, IGameManager
     public int HighScore => _highScore;
     public int Lives => _lives;
     public int CurrentWaveNumber => _waveIndex + 1;
-    public bool GameOver => _state == GameState.GameOver;
+    public int WaveCount => _waves != null ? _waves.WaveCount : 0;
+    // After the last regular wave comes Mother Hen; everything that changes for her asks this.
+    public bool IsBossStage => _waveIndex >= WaveCount;
     public bool PlayerAlive => CanControlPlayer;
     public bool CanControlPlayer => _state == GameState.Playing || _state == GameState.BossFight;
     // Between waves the ship may move and collect food, but not shoot.
