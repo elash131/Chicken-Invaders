@@ -125,6 +125,13 @@ MonoBehaviour:
     _volume: 0.8
     _pitchVariation: 0
     _minInterval: 0
+  - _effect: 17
+    _clips:
+    - {fileID: 8300000, guid: bdaa250c7bb344b4b1036b786a222896, type: 3}
+    - {fileID: 8300000, guid: 283ea20260c74f15a9f117310bbd2ac9, type: 3}
+    _volume: 0.6
+    _pitchVariation: 0.1
+    _minInterval: 0.1
   _pausedCutoff: 700
   _duckVolume: 0.25
   _duckRecovery: 1.6

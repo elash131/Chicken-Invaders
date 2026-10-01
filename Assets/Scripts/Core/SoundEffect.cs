@@ -17,5 +17,6 @@ public enum SoundEffect
     BigBoom,
     UiClick,
     Food,
-    FoodHerring
+    FoodHerring,
+    ChickenDive
 }

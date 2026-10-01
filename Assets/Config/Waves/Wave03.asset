@@ -15,3 +15,11 @@ MonoBehaviour:
   _rows: 4
   _columns: 5
   _rowVariants: 000000000100000002000000
+  _formationSpeed: 2.1
+  _speedIncreasePerKill: 0.19
+  _descendStep: 0.18
+  _eggRatePerShooter: 0.25
+  _eggSpeedMultiplier: 1.15
+  _diveInterval: 5
+  _maxDivers: 2
+  _diveSpeed: 1.1

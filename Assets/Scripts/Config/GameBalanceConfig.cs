@@ -14,10 +14,8 @@ public sealed class GameBalanceConfig : ScriptableObject
     public float InvulnerabilityDuration => _invulnerabilityDuration;
     public float RestartLockout => _restartLockout;
 
+    // Speed, step-down and egg rate differ per wave and live in each WaveConfig.
     [Header("Chicken Formation")]
-    [SerializeField, Min(0.1f)] private float _formationSpeed = 1.5f;
-    [SerializeField, Min(0f)] private float _speedIncreasePerKill = 0.15f;
-    [SerializeField, Min(0.01f)] private float _descendStep = 0.12f;
     [SerializeField, Min(0.1f)] private float _columnSpacing = 1.35f;
     [SerializeField, Min(0.1f)] private float _rowSpacing = 1.15f;
     [SerializeField, Min(0f)] private float _screenSidePadding = 0.25f;
@@ -33,7 +31,6 @@ public sealed class GameBalanceConfig : ScriptableObject
 
     [Header("Chicken Eggs")]
     [SerializeField] private EggProjectile _eggPrefab;
-    [SerializeField, Min(0f)] private float _eggRatePerShooter = 0.15f;
     [SerializeField, Min(0.1f)] private float _eggSpeed = 6f;
     [SerializeField, Min(0f)] private float _eggSafetyDistance = 2.5f;
     [SerializeField, Min(0.1f)] private float _eggLifetime = 5f;
@@ -41,6 +38,19 @@ public sealed class GameBalanceConfig : ScriptableObject
     [SerializeField, Min(0f)] private float _brokenEggHoldDuration = 0.5f;
     [SerializeField, Min(1)] private int _eggPoolPrewarmCount = 8;
     [SerializeField, Min(1)] private int _eggPoolMaxRetained = 24;
+
+    [Header("Dive Bombers")]
+    [Tooltip("The wobble that warns a chicken is about to dive.")]
+    [SerializeField, Min(0f)] private float _diveWarning = 0.45f;
+    [SerializeField, Min(0.1f)] private float _diveSwoopDuration = 1.4f;
+    [SerializeField, Min(0.1f)] private float _diveReturnDuration = 1.1f;
+    [Tooltip("How far sideways the swoop curves before it heads for the ship.")]
+    [SerializeField, Min(0f)] private float _diveSwing = 2.5f;
+
+    public float DiveWarning => _diveWarning;
+    public float DiveSwoopDuration => _diveSwoopDuration;
+    public float DiveReturnDuration => _diveReturnDuration;
+    public float DiveSwing => _diveSwing;
 
     [Header("Scoring")]
     [SerializeField, Min(0)] private int _chickenScore = 100;
@@ -75,9 +85,6 @@ public sealed class GameBalanceConfig : ScriptableObject
         }
     }
 
-    public float FormationSpeed => _formationSpeed;
-    public float SpeedIncreasePerKill => _speedIncreasePerKill;
-    public float DescendStep => _descendStep;
     public float ColumnSpacing => _columnSpacing;
     public float RowSpacing => _rowSpacing;
     public float ScreenSidePadding => _screenSidePadding;
@@ -88,7 +95,6 @@ public sealed class GameBalanceConfig : ScriptableObject
     public float EntrySideDistance => _entrySideDistance;
     public float WaveDelay => _waveDelay;
     public EggProjectile EggPrefab => _eggPrefab;
-    public float EggRatePerShooter => _eggRatePerShooter;
     public float EggSpeed => _eggSpeed;
     public float EggSafetyDistance => _eggSafetyDistance;
     public float EggLifetime => _eggLifetime;

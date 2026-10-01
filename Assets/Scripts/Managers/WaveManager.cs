@@ -48,6 +48,10 @@ public sealed class WaveManager : MonoBehaviour
     private EggPool _eggPool;
     private Chicken[] _lowestShooters = System.Array.Empty<Chicken>();
     private float _nextEggTime;
+    private WaveConfig _wave;
+    private ChickenDives _dives;
+    private float _nextDiveTime;
+    private float _topPadding;
 
     public bool IsReady { get; private set; }
 
@@ -86,6 +90,8 @@ public sealed class WaveManager : MonoBehaviour
 
         IsReady = System.Array.TrueForAll(_waves, wave => wave != null) &&
                   _eggPool.Initialize(_balance, _gameplayCamera, _game);
+        _dives = new ChickenDives(_balance, _gameplayCamera, _player, _eggPool,
+            chicken => _formationOrigin + chicken.SlotOffset);
         if (!IsReady) Debug.LogError("All four wave configurations must be assigned.", this);
     }
 
@@ -124,10 +130,38 @@ public sealed class WaveManager : MonoBehaviour
             return;
         }
 
+        BeginFormation(config, _balance.ScreenTopPadding);
+    }
+
+    /// <summary>
+    /// Mother Hen's chick escort: a small formation flown in during the boss fight. It reuses the
+    /// whole wave system, so escorts sweep, lay eggs, dive, score and drop food like any chicken.
+    /// </summary>
+    public void StartEscort(WaveConfig config, float topPadding)
+    {
+        if (!IsReady || config == null || _game.State != GameState.BossFight) return;
+        BeginFormation(config, topPadding);
+    }
+
+    /// <summary>Pops every remaining chicken in a puff of feathers without scoring them.</summary>
+    public void ScatterFormation()
+    {
+        foreach (var chicken in _livingChickens)
+        {
+            if (chicken != null) FeatherBursts.Emit(chicken.transform.position, 8);
+        }
+        ClearFormation();
+    }
+
+    private void BeginFormation(WaveConfig config, float topPadding)
+    {
+        _wave = config;
+        _topPadding = topPadding;
         _isClearing = false;
         _phase = WavePhase.Entering;
         _direction = 1f;
-        _currentSpeed = _balance.FormationSpeed;
+        _currentSpeed = config.FormationSpeed;
+        _dives.Clear();
         _livingChickens.Clear();
         _entryFlights.Clear();
         _eligibleShooters.Clear();
@@ -138,7 +172,7 @@ public sealed class WaveManager : MonoBehaviour
 
         if (_livingChickens.Count == 0)
         {
-            Debug.LogError($"Wave {index + 1} could not create any chickens.", this);
+            Debug.LogError($"{config.name} could not create any chickens.", this);
             _phase = WavePhase.Idle;
         }
     }
@@ -159,7 +193,7 @@ public sealed class WaveManager : MonoBehaviour
         _lastScreenWidth = Screen.width;
         _lastScreenHeight = Screen.height;
         var topCentre = _gameplayCamera.ViewportToWorldPoint(new Vector3(0.5f, 1f, 0f));
-        _formationOrigin = new Vector2(topCentre.x, topCentre.y - _balance.ScreenTopPadding);
+        _formationOrigin = new Vector2(topCentre.x, topCentre.y - _topPadding);
     }
 
     private void BuildFormation(WaveConfig config)
@@ -226,6 +260,25 @@ public sealed class WaveManager : MonoBehaviour
         else if (_phase == WavePhase.Active)
         {
             UpdateActiveFormation();
+            UpdateDives();
+        }
+    }
+
+    private void UpdateDives()
+    {
+        if (_dives.Tick(Time.fixedDeltaTime, _wave.DiveSpeed)) _game.ReportPlayerHit();
+
+        // New dives only start while the ship is in play, so a respawning player is not ambushed.
+        if (!_wave.HasDivers || !_game.CanControlPlayer || Time.time < _nextDiveTime ||
+            _dives.Count >= _wave.MaxDivers) return;
+
+        _nextDiveTime = Time.time + _wave.DiveInterval * Random.Range(0.7f, 1.3f);
+        var pick = Random.Range(0, _livingChickens.Count);
+        foreach (var chicken in _livingChickens)
+        {
+            if (pick-- > 0 || _dives.IsDiving(chicken)) continue;
+            _dives.Start(chicken);
+            return;
         }
     }
 
@@ -286,6 +339,7 @@ public sealed class WaveManager : MonoBehaviour
         _entryFlights.Clear();
         _phase = WavePhase.Active;
         SetAllColliders(true);
+        _nextDiveTime = Time.time + _wave.DiveInterval;
         _game.ReportFormationReady();
         ScheduleNextEgg();
     }
@@ -300,7 +354,7 @@ public sealed class WaveManager : MonoBehaviour
         }
 
         var shooter = _eligibleShooters[Random.Range(0, _eligibleShooters.Count)];
-        _eggPool.Fire(shooter.EggSpawnPosition);
+        _eggPool.Fire(shooter.EggSpawnPosition, Vector2.down, _wave.EggSpeedMultiplier);
         AudioManager.Play(SoundEffect.EggLay);
         ScheduleNextEgg(_eligibleShooters.Count);
     }
@@ -316,7 +370,9 @@ public sealed class WaveManager : MonoBehaviour
         var playerY = _player.transform.position.y;
         foreach (var shooter in _lowestShooters)
         {
-            if (shooter != null && shooter.transform.position.y - playerY >= _balance.EggSafetyDistance)
+            // A diving chicken drops its own aimed egg; it does not also lay from the formation.
+            if (shooter != null && !_dives.IsDiving(shooter) &&
+                shooter.transform.position.y - playerY >= _balance.EggSafetyDistance)
             {
                 _eligibleShooters.Add(shooter);
             }
@@ -331,7 +387,7 @@ public sealed class WaveManager : MonoBehaviour
             eligibleCount = _eligibleShooters.Count;
         }
 
-        var combinedRate = _balance.EggRatePerShooter * eligibleCount;
+        var combinedRate = _wave.EggRatePerShooter * eligibleCount;
         if (combinedRate <= 0f)
         {
             _nextEggTime = Time.time + 0.25f;
@@ -387,7 +443,7 @@ public sealed class WaveManager : MonoBehaviour
             // time would drop it onto the lose line within a second.
             if (right - left < rightWall - leftWall)
             {
-                _formationOrigin.y -= _balance.DescendStep;
+                _formationOrigin.y -= _wave.DescendStep;
             }
             movement = _direction * _currentSpeed * Time.fixedDeltaTime;
         }
@@ -400,7 +456,7 @@ public sealed class WaveManager : MonoBehaviour
     {
         foreach (var chicken in _livingChickens)
         {
-            if (chicken != null)
+            if (chicken != null && !_dives.IsDiving(chicken))
             {
                 chicken.MoveTo(_formationOrigin + chicken.SlotOffset);
             }
@@ -414,7 +470,8 @@ public sealed class WaveManager : MonoBehaviour
             return;
         }
 
-        _currentSpeed += _balance.SpeedIncreasePerKill;
+        _dives.Remove(chicken);
+        _currentSpeed += _wave.SpeedIncreasePerKill;
         _game.AddScore(_balance.ChickenScore);
         AudioManager.Play(SoundEffect.ChickenDie);
         OnChickenKilled?.Invoke(chicken.transform.position);
@@ -476,6 +533,7 @@ public sealed class WaveManager : MonoBehaviour
         _livingChickens.Clear();
         _entryFlights.Clear();
         _eligibleShooters.Clear();
+        _dives?.Clear();
         _lowestShooters = System.Array.Empty<Chicken>();
         _nextEggTime = 0f;
         _isClearing = false;
