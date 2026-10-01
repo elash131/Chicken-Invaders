@@ -15,7 +15,9 @@ public static class Constants
     public const string FireAction      = "Fire";
     public const string RestartAction   = "Restart";
     public const string PauseAction     = "Pause";
+    public const string MuteAction      = "Mute";
 
     // PlayerPrefs keys
     public const string HighScoreKey = "HighScore";
+    public const string MutedKey     = "Muted";
 }

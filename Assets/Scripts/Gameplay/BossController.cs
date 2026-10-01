@@ -180,6 +180,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _windingUp = true;
         _volleyAt = Time.time + _config.VolleyWarning;
         _presenter.SetVolleyWarning(true);
+        AudioManager.Play(SoundEffect.BossCharge);
     }
 
     private void FireVolley()
@@ -214,6 +215,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
 
         _health = Mathf.Max(0, _health - amount);
         _presenter.ShowDamage(_health, _config.Health);
+        AudioManager.Play(SoundEffect.BossHit);
         _game.ReportBossHealth(_health, _config.Health);
 
         if (_health == 0)

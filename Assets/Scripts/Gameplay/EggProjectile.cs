@@ -105,6 +105,7 @@ public sealed class EggProjectile : MonoBehaviour
     private void BeginBreak()
     {
         _state = EggState.Breaking;
+        AudioManager.Play(SoundEffect.EggSplat);
         _collider2D.enabled = false;
         _rigidbody2D.linearVelocity = Vector2.zero;
         _rigidbody2D.angularVelocity = 0f;

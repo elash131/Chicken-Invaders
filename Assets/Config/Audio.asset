@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a1cff9035a44332831d15560ce438d4, type: 3}
+  m_Name: Audio
+  m_EditorClassIdentifier: Assembly-CSharp::AudioConfig
+  _menuMusic: {fileID: 8300000, guid: 0bc09136f025478db5630b728f29290e, type: 3}
+  _gameMusic: {fileID: 8300000, guid: 098b0404cb50479eaa1a066b484c01a3, type: 3}
+  _bossMusic: {fileID: 8300000, guid: 0d521bd13dde4d57b61888c25b084232, type: 3}
+  _victoryMusic: {fileID: 8300000, guid: c7e5153bf23b47daa33cde749de1e25f, type: 3}
+  _victoryJingle: {fileID: 8300000, guid: 2a5c3738599e4592aedfd4eda5c45ae9, type: 3}
+  _gameOverJingle: {fileID: 8300000, guid: fd6621c2c59e4d5cb62f70b6062179f4, type: 3}
+  _musicVolume: 0.5
+  _fadeDuration: 0.6
+  _effects:
+  - _effect: 0
+    _clips:
+    - {fileID: 8300000, guid: fa12e9dca1de4256b57749008e722a3e, type: 3}
+    _volume: 0.35
+    _pitchVariation: 0.08
+    _minInterval: 0.03
+  - _effect: 1
+    _clips:
+    - {fileID: 8300000, guid: e84c54f123bc4234969a1a4e851be4fb, type: 3}
+    - {fileID: 8300000, guid: bdaa250c7bb344b4b1036b786a222896, type: 3}
+    - {fileID: 8300000, guid: 283ea20260c74f15a9f117310bbd2ac9, type: 3}
+    _volume: 0.8
+    _pitchVariation: 0.12
+    _minInterval: 0.03
+  - _effect: 2
+    _clips:
+    - {fileID: 8300000, guid: 93356b187fc046479c4f3d71b5ad2517, type: 3}
+    _volume: 0.4
+    _pitchVariation: 0.1
+    _minInterval: 0.1
+  - _effect: 3
+    _clips:
+    - {fileID: 8300000, guid: fd78929e462943dba05a7228b4133759, type: 3}
+    _volume: 0.45
+    _pitchVariation: 0.12
+    _minInterval: 0.08
+  - _effect: 4
+    _clips:
+    - {fileID: 8300000, guid: 66fecde5cbec41618b1e5afeef0d6667, type: 3}
+    _volume: 0.9
+    _pitchVariation: 0.03
+    _minInterval: 0
+  - _effect: 5
+    _clips:
+    - {fileID: 8300000, guid: da1ec7ddfad7464c9023221799422ba8, type: 3}
+    _volume: 0.6
+    _pitchVariation: 0
+    _minInterval: 0
+  - _effect: 6
+    _clips:
+    - {fileID: 8300000, guid: 3c207449e2024f0ea225858eea787259, type: 3}
+    _volume: 0.6
+    _pitchVariation: 0
+    _minInterval: 0
+  - _effect: 7
+    _clips:
+    - {fileID: 8300000, guid: 2cde45648f7c4531a4bf8f2981582399, type: 3}
+    _volume: 0.7
+    _pitchVariation: 0
+    _minInterval: 0
+  - _effect: 8
+    _clips:
+    - {fileID: 8300000, guid: ef4a224e84b345148cb7d0ff9aec0144, type: 3}
+    _volume: 0.6
+    _pitchVariation: 0
+    _minInterval: 0
+  - _effect: 9
+    _clips:
+    - {fileID: 8300000, guid: c6c44801997f4b5293801cc7de5ee67e, type: 3}
+    _volume: 0.7
+    _pitchVariation: 0.03
+    _minInterval: 0
+  - _effect: 10
+    _clips:
+    - {fileID: 8300000, guid: c07f7d7fe12e4422b4357a875136f6cc, type: 3}
+    _volume: 0.45
+    _pitchVariation: 0.12
+    _minInterval: 0.05
+  - _effect: 11
+    _clips:
+    - {fileID: 8300000, guid: 6b3143f240c545e19650e4059bc3a071, type: 3}
+    _volume: 0.9
+    _pitchVariation: 0.05
+    _minInterval: 0
+  - _effect: 12
+    _clips:
+    - {fileID: 8300000, guid: 4e8439c2483b473b8ffe04a39f31f1b7, type: 3}
+    _volume: 0.55
+    _pitchVariation: 0.15
+    _minInterval: 0.05
+  - _effect: 13
+    _clips:
+    - {fileID: 8300000, guid: 8526ed3fe7bf4b28919c0be6065275c1, type: 3}
+    _volume: 1
+    _pitchVariation: 0
+    _minInterval: 0
+  - _effect: 14
+    _clips:
+    - {fileID: 8300000, guid: 3e526067e7b04bc2b5071eed451e37d1, type: 3}
+    _volume: 0.7
+    _pitchVariation: 0.05
+    _minInterval: 0
+  - _effect: 15
+    _clips:
+    - {fileID: 8300000, guid: 6558ec2ceedd4d4ba0c26e2451e5290f, type: 3}
+    _volume: 0.7
+    _pitchVariation: 0.1
+    _minInterval: 0.05
+  _pausedCutoff: 700
+  _duckVolume: 0.25
+  _duckRecovery: 1.6

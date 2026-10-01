@@ -164,6 +164,7 @@ public class PlayerController : Singleton<PlayerController>
             _bulletSpeed,
             _bulletDamage,
             _bulletLifetime);
+        AudioManager.Play(SoundEffect.Shoot);
     }
 
     private void BlockInputUntilFireIsReleased()

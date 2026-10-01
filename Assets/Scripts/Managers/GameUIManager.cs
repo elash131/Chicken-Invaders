@@ -46,7 +46,7 @@ public sealed class GameUIManager : MonoBehaviour
         }
 
         _primaryButton.onClick.AddListener(PressedPrimaryButton);
-        _menuButton.onClick.AddListener(_gameManager.ReturnToMenu);
+        _menuButton.onClick.AddListener(PressedMenuButton);
         _gameManager.OnStateChanged += RefreshState;
         _gameManager.OnScoreChanged += RefreshScore;
         _gameManager.OnLivesChanged += RefreshLives;
@@ -186,8 +186,15 @@ public sealed class GameUIManager : MonoBehaviour
         _unlockRoutine = null;
     }
 
+    private void PressedMenuButton()
+    {
+        AudioManager.Play(SoundEffect.UiClick);
+        _gameManager.ReturnToMenu();
+    }
+
     private void PressedPrimaryButton()
     {
+        AudioManager.Play(SoundEffect.UiClick);
         if (_gameManager.State == GameState.Menu)
         {
             _gameManager.StartGame();
@@ -222,7 +229,7 @@ public sealed class GameUIManager : MonoBehaviour
         }
 
         _primaryButton.onClick.RemoveListener(PressedPrimaryButton);
-        _menuButton.onClick.RemoveListener(_gameManager.ReturnToMenu);
+        _menuButton.onClick.RemoveListener(PressedMenuButton);
         _gameManager.OnStateChanged -= RefreshState;
         _gameManager.OnScoreChanged -= RefreshScore;
         _gameManager.OnLivesChanged -= RefreshLives;

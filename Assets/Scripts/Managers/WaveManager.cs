@@ -298,6 +298,7 @@ public sealed class WaveManager : MonoBehaviour
 
         var shooter = _eligibleShooters[Random.Range(0, _eligibleShooters.Count)];
         _eggPool.Fire(shooter.EggSpawnPosition);
+        AudioManager.Play(SoundEffect.EggLay);
         ScheduleNextEgg(_eligibleShooters.Count);
     }
 
@@ -412,6 +413,7 @@ public sealed class WaveManager : MonoBehaviour
 
         _currentSpeed += _balance.SpeedIncreasePerKill;
         _game.AddScore(_balance.ChickenScore);
+        AudioManager.Play(SoundEffect.ChickenDie);
 
         if (chicken.Column >= 0 && chicken.Column < _lowestShooters.Length &&
             _lowestShooters[chicken.Column] == chicken)

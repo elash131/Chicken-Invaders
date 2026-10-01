@@ -1372,8 +1372,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A / D  or  ARROWS   Move     SPACE   Fire
 
-    ESC   Pause     Gamepad
-    supported'
+    ESC   Pause     M   Mute'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c30c0498c8a414e47941001bafb0c7bd, type: 2}
   m_sharedMaterial: {fileID: -3893606068473350595, guid: c30c0498c8a414e47941001bafb0c7bd, type: 2}

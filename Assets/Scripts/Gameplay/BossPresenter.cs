@@ -95,6 +95,7 @@ public sealed class BossPresenter : MonoBehaviour
         var stage = Mathf.Clamp((int)(lost * stageCount), 0, Mathf.Max(0, stageCount - 1));
         // A longer flash when the armour breaks, so the change of look reads as a big hit.
         _hitFlashUntil = Time.time + (stage != _damageStage ? 0.3f : 0.1f);
+        if (stage != _damageStage) AudioManager.Play(SoundEffect.ArmourBreak);
         SetDamageStage(stage);
     }
 
@@ -126,6 +127,8 @@ public sealed class BossPresenter : MonoBehaviour
         if (_exploded) return;
         _exploded = true;
         PlayBlast(transform.position, _finalBlastSize, 2.5f);
+        AudioManager.Play(SoundEffect.BigBoom);
+        AudioManager.DuckMusic();
         SetVisible(false);
     }
 
@@ -184,6 +187,7 @@ public sealed class BossPresenter : MonoBehaviour
             Random.Range(bounds.min.x, bounds.max.x),
             Random.Range(bounds.min.y, bounds.max.y));
         PlayBlast(point, Random.Range(1.2f, 2.2f), 1f);
+        AudioManager.Play(SoundEffect.Blast);
         // Blasts come faster as the boom approaches.
         _nextBlastAt = time + _blastInterval * Mathf.Lerp(1f, 0.45f, progress);
     }
