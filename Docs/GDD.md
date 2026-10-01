@@ -15,7 +15,7 @@ A proposal for approval. Numbers below are starting values, not playtest results
 
 **Status (2026-10-01):** the full loop is playable — four waves, the lose line, the two-phase
 Mother Hen with a health bar, respawn, pause, Game Over, Victory and restart, with music and sound
-effects. Still to come: the optional food pickups dropped by chickens.
+effects, and the Feast Streak food pickups.
 
 ---
 
@@ -81,8 +81,14 @@ stateDiagram-v2
   not speed.
 - **Eggs:** only the lowest surviving chicken in each column lays them, and it stops once it is too
   close to the player to dodge. **Eggs cannot be shot down** — dodging is the only answer.
-- **Scoring:** 100 per chicken, 500 for the boss. High score saved locally. (Optional: 50 per
-  drumstick, see 8.2.)
+- **Scoring:** 100 per chicken, 500 for the boss, plus the food you catch (below). High score saved
+  locally.
+- **Feast Streak:** every chicken drops food. A kill within 1.2 s of the previous one raises the
+  streak, and the streak decides the food: drumstick (50) → twin legs (100) → roast (200) → a
+  burger that grows taller with every extra kill, from a plain burger (300) to the quad burger
+  (1500). Food falls through the same air as the eggs, so chasing it is a risk for a reward; it
+  never hurts. It bounces once, rests on the floor for 2.5 s and blinks before it vanishes. A
+  rare red herring is worth nothing. Getting hit resets the streak.
 - **Failure:** an egg costs one life. The ship vanishes for 1.5 s, then returns at the centre with
   2.5 s of blinking invulnerability. The enemies never pause — you come back to a live board.
 
@@ -101,7 +107,8 @@ what is left of her. At half health she speeds up and switches from aimed three-
 dropping eggs continuously along her path, so parking underneath her stops working.
 Her armour shows the damage: the glass helmet cracks after she loses a third of her health, and
 the armour is gone for the last third. Her defeat is a short show: she swells, shakes and pops with
-small blasts, then disappears in one big explosion before the Victory screen.
+small blasts, then disappears in one big explosion before the Victory screen. She throws out a
+feast of roasts and burgers while she goes, and Victory waits until every piece has been caught or has vanished.
 
 Her entrance, half-health change and defeat receive short camera cues. The view briefly pulls back
 and settles with gentle shake; normal combat keeps a fixed view. The extra view margin preserves
@@ -170,7 +177,7 @@ the same at every resolution.
 |---|---|---|
 | Ship, chickens, boss | Player and enemies | Chicken Invaders sprite rips |
 | Bullets, eggs, impacts | Combat feedback | Chicken Invaders sprite rips |
-| Food | Optional pickups | Chicken Invaders fan wiki |
+| Food | Feast Streak pickups: legs, roast, seven burgers, red herring | Chicken Invaders fan wiki |
 | Starfield, logo | Background and menu | Chicken Invaders sprite rips |
 | Font | Menu and HUD text | Bungee from Google Fonts — SIL OFL 1.1 |
 | Sound and music | Shots, clucks, eggs, explosions, boss cues, UI, menu/wave/boss/victory music | Kenney and OpenGameArt — CC0, chicken CC-BY 3.0 (see ASSETS.md) |
@@ -223,7 +230,8 @@ placed in the scene; chickens and projectiles are instantiated from prefabs.
 | `BossController` / `BossPresenter` | Mother Hen rules and attacks / her animation and hit feedback |
 | `ProjectilePool` / `EggPool` | Separate pools for player bullets and enemy eggs |
 | `GameUIManager` / `AudioManager` | Menus, HUD and boss bar / music and sound — listen to events, own no rules |
-| `PlayerDeathPresenter` / `BossCameraFeedback` | Explosion flare and boss camera cues — presentation only |
+| `FoodManager` / `FoodPickup` | Feast Streak: kill streak, food pool, catching — points go through `GameManager.AddScore` |
+| `PlayerDeathPresenter` / `BossCameraFeedback` / `FeastPresenter` | Explosion flare, boss camera cues, streak counter and score popups — presentation only |
 | `ScrollingBackground` / `LetterboxCamera` | Tiled starfield scroll / fixed 16:9 gameplay view |
 
 The shape matters as much as the list: **`GameManager` is the only script that owns the rules.**
@@ -241,8 +249,8 @@ sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 
 ### Course concepts
 
-- **Object Pool** — bullets and eggs, because they spawn constantly and `Instantiate` during play
-  causes the frame hitches that make a dodging game feel unfair.
+- **Object Pool** — bullets, eggs and food, because they spawn constantly and `Instantiate` during
+  play causes the frame hitches that make a dodging game feel unfair.
 - **Coroutines** — wave intros, respawn delay, invulnerability: sequences with a start and an end,
   rather than conditions checked every frame.
 - **Singleton** — a generic `Singleton<T>` base, used only for `GameManager` and `PlayerController`,
@@ -266,19 +274,19 @@ sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 - Four chicken formations, egg attacks, and the Mother Hen boss.
 - Three lives, respawn protection, scoring, saved high score.
 - Menu, HUD, pause, victory and game-over screens, restart.
-- Projectile pools, sound effects, music.
+- Projectile and food pools, sound effects, music.
+- Feast Streak food pickups and Mother Hen's feast.
 - Windows standalone build.
 
 ### 8.2 Optional polish
 
-- Drumsticks that fall from defeated chickens and award points when collected.
 - Hit flashes, feathers, a small screen shake on death.
 - Boss music and animated menu transitions.
 
 ### 8.3 Out of scope
 
 - Extra levels or a campaign beyond four waves and the boss.
-- Weapon upgrades, shops, combo systems.
+- Weapon upgrades, shops, and combo systems beyond the Feast Streak.
 - Multiplayer, online leaderboards, accounts.
 - Saving anything beyond the local high score.
 - Localisation, selectable difficulty.
@@ -295,4 +303,5 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.4 | 2026-10-01 | Feast Streak food pickups and Mother Hen's feast; a streak-based reward moved into scope |
 | v1.3 | 2026-10-01 | Music and sound effects with mute; lose line implemented; 16:9 letterbox; bigger Mother Hen with damage looks, side health bar and a defeat show; UI and Mother Hen moved into scene prefabs; fixed orientation, font and system list to match the game; audio kept as the next major pass |

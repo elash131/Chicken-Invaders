@@ -16,6 +16,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
     private IGameManager _game;
     private PlayerController _player;
     private EggPool _eggs;
+    private FoodManager _food;
     private BossCameraFeedback _cameraFeedback;
     private BossConfig _config;
     private Camera _camera;
@@ -31,6 +32,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
     private float _explodeAt;
     private float _victoryAt;
     private bool _exploded;
+    private float _nextFeastAt;
     private float _volleyAt;
     private Vector2 _lockedTarget;
     private bool _windingUp;
@@ -45,6 +47,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         IGameManager game,
         PlayerController player,
         EggPool eggs,
+        FoodManager food,
         BossCameraFeedback cameraFeedback,
         BossConfig config,
         Camera gameplayCamera)
@@ -59,6 +62,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _game = game;
         _player = player;
         _eggs = eggs;
+        _food = food;
         _cameraFeedback = cameraFeedback;
         _config = config;
         _camera = gameplayCamera;
@@ -241,6 +245,7 @@ public sealed class BossController : MonoBehaviour, IDamageable
         _eggs.ReleaseAll();
         _presenter.Defeat();
         _exploded = false;
+        _nextFeastAt = Time.time;
         _explodeAt = Time.time + _config.DefeatDuration;
         _victoryAt = _explodeAt + _config.VictoryDelay;
         _game.AddScore(_config.Score);
@@ -249,16 +254,34 @@ public sealed class BossController : MonoBehaviour, IDamageable
     // The run only ends after the show, so Victory appears once the final blast has landed.
     private void UpdateDefeat()
     {
+        if (!_exploded && Time.time >= _nextFeastAt)
+        {
+            DropFeastItem();
+            _nextFeastAt = Time.time + _config.FeastInterval;
+        }
+
         if (!_exploded && Time.time >= _explodeAt)
         {
             _exploded = true;
             _presenter.Explode();
             if (_cameraFeedback != null) _cameraFeedback.PlayDefeat();
+            for (var i = 0; i < _config.FeastBurst; i++) DropFeastItem();
         }
 
-        if (Time.time < _victoryAt) return;
+        // Victory waits until the feast has been caught or has vanished; every piece of food
+        // disappears on its own, so this always ends.
+        if (Time.time < _victoryAt || (_food != null && _food.HasActiveFood)) return;
         _game.ReportBossDefeated();
         StopEncounter();
+    }
+
+    // The collider is already off, but its size still describes her body.
+    private void DropFeastItem()
+    {
+        if (_food == null) return;
+        var half = Vector2.Scale(_collider.size, transform.lossyScale) * 0.5f;
+        var offset = new Vector2(Random.Range(-half.x, half.x), Random.Range(-half.y, half.y));
+        _food.DropFeastItem(_body.position + offset);
     }
 
     public void StopEncounter()

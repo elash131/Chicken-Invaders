@@ -46,6 +46,7 @@ public sealed class WaveManager : MonoBehaviour
     private IGameManager _game;
     private PlayerController _player;
     private EggPool _eggPool;
+    private FoodManager _food;
     private Chicken[] _lowestShooters = System.Array.Empty<Chicken>();
     private float _nextEggTime;
 
@@ -74,6 +75,7 @@ public sealed class WaveManager : MonoBehaviour
         }
 
         _eggPool = GetComponent<EggPool>();
+        _food = GetComponent<FoodManager>();
         if (_eggPool == null)
         {
             Debug.LogError("Managers needs an EggPool component next to WaveManager.", this);
@@ -414,6 +416,7 @@ public sealed class WaveManager : MonoBehaviour
         _currentSpeed += _balance.SpeedIncreasePerKill;
         _game.AddScore(_balance.ChickenScore);
         AudioManager.Play(SoundEffect.ChickenDie);
+        if (_food != null) _food.RegisterKill(chicken.transform.position);
 
         if (chicken.Column >= 0 && chicken.Column < _lowestShooters.Length &&
             _lowestShooters[chicken.Column] == chicken)

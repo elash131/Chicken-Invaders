@@ -38,6 +38,8 @@ public class GameManager : Singleton<GameManager>, IGameManager
     public bool GameOver => _state == GameState.GameOver;
     public bool PlayerAlive => CanControlPlayer;
     public bool CanControlPlayer => _state == GameState.Playing || _state == GameState.BossFight;
+    // Between waves the ship may move and collect food, but not shoot.
+    public bool CanMovePlayer => CanControlPlayer || _state == GameState.WaveIntro;
     public bool CanEnemiesAct => CanControlPlayer || _state == GameState.Respawning;
     public bool CanDamageEnemies => CanEnemiesAct;
     public bool CanDamagePlayer => CanControlPlayer && !_invulnerable;
@@ -82,8 +84,8 @@ public class GameManager : Singleton<GameManager>, IGameManager
 
         if (_cameraFeedback != null) _cameraFeedback.Initialize(this, _waves.Balance);
 
-        if (_boss == null || !_boss.Initialize(this, _player, _waves.EnemyEggs, _cameraFeedback,
-                _waves.Balance.Boss, Camera.main))
+        if (_boss == null || !_boss.Initialize(this, _player, _waves.EnemyEggs, GetComponent<FoodManager>(),
+                _cameraFeedback, _waves.Balance.Boss, Camera.main))
         {
             Debug.LogError("GameManager needs the Mother Hen from the scene assigned.", this);
             enabled = false;
@@ -166,7 +168,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
 
     public void AddScore(int amount)
     {
-        if (!CanDamageEnemies || amount <= 0) return;
+        if (!(CanDamageEnemies || CanMovePlayer) || amount <= 0) return;
         _score += amount;
         if (_score > _highScore)
         {

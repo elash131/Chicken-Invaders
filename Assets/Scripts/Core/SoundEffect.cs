@@ -16,5 +16,6 @@ public enum SoundEffect
     Blast,
     BigBoom,
     UiClick,
-    Food
+    Food,
+    FoodHerring
 }

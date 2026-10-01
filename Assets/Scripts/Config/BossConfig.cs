@@ -33,6 +33,12 @@ public sealed class BossConfig : ScriptableObject
     [Tooltip("Time between the final blast and the Victory screen.")]
     [SerializeField, Min(0f)] private float _victoryDelay = 1.2f;
 
+    [Header("Feast")]
+    [Tooltip("During the defeat build-up she throws one piece of food this often.")]
+    [SerializeField, Min(0.05f)] private float _feastInterval = 0.35f;
+    [Tooltip("Pieces of food thrown out by the final blast.")]
+    [SerializeField, Min(0)] private int _feastBurst = 6;
+
     public int Health => _health;
     public int Score => _score;
     public float EntryDuration => _entryDuration;
@@ -51,4 +57,6 @@ public sealed class BossConfig : ScriptableObject
     public float EnrageDelay => _enrageDelay;
     public float DefeatDuration => _defeatDuration;
     public float VictoryDelay => _victoryDelay;
+    public float FeastInterval => _feastInterval;
+    public int FeastBurst => _feastBurst;
 }

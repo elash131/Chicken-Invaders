@@ -117,8 +117,14 @@ MonoBehaviour:
     _clips:
     - {fileID: 8300000, guid: 6558ec2ceedd4d4ba0c26e2451e5290f, type: 3}
     _volume: 0.7
-    _pitchVariation: 0.1
+    _pitchVariation: 0.03
     _minInterval: 0.05
+  - _effect: 16
+    _clips:
+    - {fileID: 8300000, guid: 28eeddfbbed44b899bbb7bcfa76fbbf5, type: 3}
+    _volume: 0.8
+    _pitchVariation: 0
+    _minInterval: 0
   _pausedCutoff: 700
   _duckVolume: 0.25
   _duckRecovery: 1.6

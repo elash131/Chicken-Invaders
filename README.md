@@ -43,7 +43,9 @@ Playable from menu to victory:
 - Music for menu, waves, boss and victory with crossfades, sound effects for every event, muffled
   music while paused, and a remembered mute toggle.
 
-Not done yet: the optional food pickups dropped by chickens.
+- **Feast Streak:** every chicken drops food, and fast kills upgrade it — drumstick, twin legs,
+  roast, then a burger that stacks taller with every extra kill (50 up to 1500 points). Mother Hen
+  bursts into a feast of burgers and roasts when she is defeated.
 
 ## Controls
 
@@ -56,8 +58,9 @@ Not done yet: the optional food pickups dropped by chickens.
 | Mute / unmute | M | Select button |
 
 Losing focus pauses an active run; returning to the window requires explicit resume. Gameplay input
-is blocked in menus, intros, pause, respawn and result screens. Fire must be released after a UI
-transition before shooting again. Game Over ignores restart for 0.5 seconds.
+is blocked in menus, pause, respawn and result screens. Between waves the ship can move and
+collect food, but not shoot. Fire must be released after a UI transition
+before shooting again. Game Over ignores restart for 0.5 seconds.
 
 ## Project structure
 
@@ -88,7 +91,7 @@ Docs/
   scene with their references set in the Inspector.
 - Only `GameManager` and `PlayerController` use the generic `Singleton<T>` base.
 - `WaveManager` tracks the chickens it creates instead of searching the scene every frame.
-- Player bullets and enemy eggs use separate `ObjectPool`s, prewarmed at load.
+- Player bullets, enemy eggs and food use separate `ObjectPool`s, prewarmed at load.
 - Balance values live in ScriptableObjects, so tuning does not need a recompile.
 - The background is a tiled sprite; artwork is never scaled non-uniformly.
 

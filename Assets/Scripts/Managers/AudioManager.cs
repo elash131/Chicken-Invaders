@@ -36,9 +36,9 @@ public sealed class AudioManager : Singleton<AudioManager>
     private bool _muted;
 
     /// <summary>Plays a one-shot if an AudioManager exists. Safe to call from anywhere.</summary>
-    public static void Play(SoundEffect effect)
+    public static void Play(SoundEffect effect, float pitch = 1f)
     {
-        if (HasInstance) Instance.PlayEffect(effect);
+        if (HasInstance) Instance.PlayEffect(effect, pitch);
     }
 
     protected override void Awake()
@@ -117,7 +117,7 @@ public sealed class AudioManager : Singleton<AudioManager>
         if (HasInstance && Instance._config != null) Instance._duck = Instance._config.DuckVolume;
     }
 
-    private void PlayEffect(SoundEffect effect)
+    private void PlayEffect(SoundEffect effect, float pitch)
     {
         if (_voices.Length == 0 || !_effectLookup.TryGetValue(effect, out var entry) ||
             entry.Clips == null || entry.Clips.Length == 0) return;
@@ -132,7 +132,7 @@ public sealed class AudioManager : Singleton<AudioManager>
         // Pitch belongs to the AudioSource, so each sound gets the next voice in turn.
         var voice = _voices[_nextVoice];
         _nextVoice = (_nextVoice + 1) % _voices.Length;
-        voice.pitch = 1f + UnityEngine.Random.Range(-entry.PitchVariation, entry.PitchVariation);
+        voice.pitch = pitch + UnityEngine.Random.Range(-entry.PitchVariation, entry.PitchVariation);
         voice.PlayOneShot(clip, entry.Volume);
     }
 

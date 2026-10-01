@@ -725,6 +725,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5459888477184544957, guid: 65daac254b7520a40a1de0f627b21b1f, type: 3}
+      propertyPath: _food
+      value: 
+      objectReference: {fileID: 1483515761}
     - target: {fileID: 9010968454504299955, guid: 65daac254b7520a40a1de0f627b21b1f, type: 3}
       propertyPath: m_Name
       value: RunUI
@@ -1068,6 +1072,7 @@ GameObject:
   - component: {fileID: 1483515758}
   - component: {fileID: 1483515757}
   - component: {fileID: 1483515760}
+  - component: {fileID: 1483515761}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1197,6 +1202,20 @@ MonoBehaviour:
   _effectSource: {fileID: 2129228698}
   _voiceCount: 8
   _config: {fileID: 11400000, guid: 8c99469b36214da794f410bd4b390175, type: 2}
+--- !u!114 &1483515761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483515751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8be08bbc34a4d6c92570bd5d3ff388d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FoodManager
+  _config: {fileID: 11400000, guid: 3bca90650aef482ba115b4f8737eed16, type: 2}
+  _foodPrefab: {fileID: 7310000000000000004, guid: f0da9b74503b450c935ab14351e6cf5d, type: 3}
 --- !u!1001 &1630343588
 PrefabInstance:
   m_ObjectHideFlags: 0

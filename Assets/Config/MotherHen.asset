@@ -29,7 +29,9 @@ MonoBehaviour:
   _rainHorizontalJitter: 0.45
   _enrageDelay: 0.45
   _defeatDuration: 2.4
-  _victoryDelay: 1.2
+  _victoryDelay: 2
+  _feastInterval: 0.35
+  _feastBurst: 6
   _visualScale: 1.65
   _colliderSize: {x: 4.2, y: 2.7}
   _spriteMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}

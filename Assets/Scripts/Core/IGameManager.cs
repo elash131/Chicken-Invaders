@@ -28,6 +28,7 @@ public interface IGameManager : IGameManagerEvents
     bool GameOver          { get; }
     bool PlayerAlive       { get; }
     bool CanControlPlayer  { get; }
+    bool CanMovePlayer     { get; }
     bool CanEnemiesAct     { get; }
     bool CanDamageEnemies  { get; }
     bool CanDamagePlayer   { get; }

@@ -85,7 +85,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void HandleStateChanged(GameState state)
     {
-        if (!_game.CanControlPlayer) BlockInputUntilFireIsReleased();
+        if (!_game.CanMovePlayer) BlockInputUntilFireIsReleased();
     }
 
     protected override void OnDestroy()
@@ -125,7 +125,7 @@ public class PlayerController : Singleton<PlayerController>
             CalculateBounds();
         }
 
-        if (!_game.CanControlPlayer)
+        if (!_game.CanMovePlayer)
         {
             BlockInputUntilFireIsReleased();
             return;
@@ -134,9 +134,11 @@ public class PlayerController : Singleton<PlayerController>
         // Move is a Vector2 action; this game only uses its horizontal axis. Read in Update so the
         // pose responds on the frame the key goes down, then applied in FixedUpdate.
         _horizontal = _move.ReadValue<Vector2>().x;
-
         UpdateBankPose();
-        UpdateFiring();
+
+        // Between waves the ship moves but does not shoot. A menu press still has to be released.
+        if (_game.CanControlPlayer) UpdateFiring();
+        else if (_fireRequiresRelease) _fireRequiresRelease = _fire.IsPressed();
     }
 
     private void UpdateFiring()
@@ -196,7 +198,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-        if (!_game.CanControlPlayer)
+        if (!_game.CanMovePlayer)
         {
             return;
         }
@@ -211,6 +213,11 @@ public class PlayerController : Singleton<PlayerController>
     /// Puts the ship back at its starting point. The transform and the Rigidbody2D hold separate
     /// poses and Physics2D does not sync them automatically, so both are set.
     /// </summary>
+    public bool IsVisible => _visible;
+
+    /// <summary>The area that catches food: the ship's artwork, so a catch matches what the player sees.</summary>
+    public Bounds CatchBounds => _spriteRenderer.bounds;
+
     public void RespawnPlayer()
     {
         transform.position = _spawnPosition;

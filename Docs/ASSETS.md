@@ -73,12 +73,12 @@ Ready to use as single sprites:
 
 | File | px | Use |
 |---|---|---|
-| `CI3Leg.png` | 42 × 70 | **The drumstick pickup** — start here |
-| `TwinLegs.png` | 56 × 47 | Larger drop |
-| `CI3Roast.png` | 92 × 71 | Rare drop |
-| `PlainBurger` → `CheeseBurger` → `TomatoCheeseBurger` → `TLCBurger` → `DoubleBurger` → `TripleBurger` → `QuadBurger` | 62 × 52 up to 70 × 136 | A seven-tier ladder, if a streak mechanic is ever added |
+| `CI3Leg.png` | 42 × 70 | Feast Streak food, streak 1–2 |
+| `TwinLegs.png` | 56 × 47 | Feast Streak food, streak 3–4 |
+| `CI3Roast.png` | 92 × 71 | Feast Streak food, streak 5–6 |
+| `PlainBurger` → `CheeseBurger` → `TomatoCheeseBurger` → `TLCBurger` → `DoubleBurger` → `TripleBurger` → `QuadBurger` | 62 × 52 up to 70 × 136 | The burger ladder, streak 7 up to 13+ |
 | `Corny1/2.png` | ~33 × 48 | Small common drop |
-| `RedHerring.png` | 69 × 64 | A joke pickup worth nothing |
+| `RedHerring.png` | 69 × 64 | The rare red herring, worth nothing |
 | `Pumpkin`, `Mistletoe`, `MistletoeLeaf` | — | Seasonal, optional |
 
 **Collection sheets** (several items in one image, need Sprite Mode → Multiple → Slice → Automatic;
@@ -175,6 +175,7 @@ small; music imports as **Streaming**, short effects as **Decompress On Load**.
 | `sfx_egg_lay`, `sfx_ui_click` | Kenney **Interface Sounds** — [kenney.nl/assets/interface-sounds](https://kenney.nl/assets/interface-sounds) (`drop_002`, `click_001`) | CC0 |
 | `sfx_respawn`, `sfx_wave_start`, `sfx_boss_charge` | Kenney **Digital Audio** — [kenney.nl/assets/digital-audio](https://kenney.nl/assets/digital-audio) (`powerUp1`, `zapThreeToneUp`, `phaserUp1`) | CC0 |
 | `sfx_chicken_1..3` | "Chicken Sound Effect" by **IMadeIt** — [opengameart.org/content/chicken-sound-effect](https://opengameart.org/content/chicken-sound-effect), cut into three clucks and loudness-normalised | **CC-BY 3.0** — credit: *Chicken sound by IMadeIt (OpenGameArt)* |
+| `sfx_food_herring` | Kenney **Digital Audio** (`phaserDown1`) | CC0 |
 | `sfx_boss_alarm` | Made for this project: a two-tone siren synthesised with ffmpeg | Original |
 
 > "Free on itch.io" is not a licence name. `CC0 1.0`, `CC-BY 4.0`, `OFL 1.1` are. Paste the exact
