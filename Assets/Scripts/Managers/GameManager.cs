@@ -23,6 +23,8 @@ public class GameManager : Singleton<GameManager>, IGameManager
     private PlayerController _player;
     private WaveManager _waves;
     private ProjectilePool _projectiles;
+    private BossController _boss;
+    private BossCameraFeedback _cameraFeedback;
     private InputAction _restart;
     private InputAction _pause;
 
@@ -46,6 +48,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
     public event Action OnGameStarted;
     public event Action OnGameOver;
     public event Action OnPlayerDied;
+    public event Action<int, int> OnBossHealthChanged;
 
     protected override void Awake()
     {
@@ -75,6 +78,25 @@ public class GameManager : Singleton<GameManager>, IGameManager
         if (deathPresenter == null) deathPresenter = gameObject.AddComponent<PlayerDeathPresenter>();
         deathPresenter.Initialize(this, _player, _waves.Balance.PlayerExplosionPrefab);
 
+        var gameplayCamera = Camera.main;
+        if (gameplayCamera != null)
+        {
+            _cameraFeedback = gameplayCamera.GetComponent<BossCameraFeedback>();
+            if (_cameraFeedback == null) _cameraFeedback = gameplayCamera.gameObject.AddComponent<BossCameraFeedback>();
+            _cameraFeedback.Initialize(this, _waves.Balance);
+        }
+
+        var bossObject = new GameObject("Mother Hen");
+        _boss = bossObject.AddComponent<BossController>();
+        if (!_boss.Initialize(this, _player, _waves.EnemyEggs, _cameraFeedback,
+                _waves.Balance.Boss, gameplayCamera))
+        {
+            Debug.LogError("GameManager could not initialize Mother Hen.", this);
+            Destroy(bossObject);
+            enabled = false;
+            yield break;
+        }
+
         _player.HidePlayer();
         _ready = true;
     }
@@ -102,6 +124,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
     private void BeginRun()
     {
         CancelTimedWork();
+        _boss.StopEncounter();
         _projectiles.ReleaseAll();
         _waves.ClearFormation();
         _score = 0;
@@ -137,8 +160,15 @@ public class GameManager : Singleton<GameManager>, IGameManager
         yield return new WaitForSeconds(_waves.WaveDelay);
         yield return new WaitUntil(() => _state != GameState.Paused);
         _waveRoutine = null;
-        if (_waveIndex < _waves.WaveCount) _waves.StartWave(_waveIndex);
-        else ChangeState(GameState.BossFight);
+        if (_waveIndex < _waves.WaveCount)
+        {
+            _waves.StartWave(_waveIndex);
+        }
+        else
+        {
+            ChangeState(GameState.BossFight);
+            _boss.StartEncounter();
+        }
     }
 
     public void AddScore(int amount)
@@ -202,12 +232,18 @@ public class GameManager : Singleton<GameManager>, IGameManager
             EndRun(GameState.Victory);
     }
 
+    public void ReportBossHealth(int current, int maximum)
+    {
+        OnBossHealthChanged?.Invoke(Mathf.Max(0, current), Mathf.Max(1, maximum));
+    }
+
     private void EndRun(GameState result)
     {
         _restartAllowedAt = Time.unscaledTime + _waves.Balance.RestartLockout;
         ChangeState(result);
         CancelTimedWork();
         _waves.StopCombat();
+        if (result != GameState.Victory) _boss.StopEncounter();
         _projectiles.ReleaseAll();
         _player.HidePlayer();
         SaveBest();
@@ -233,6 +269,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
             _state != GameState.Victory && _state != GameState.BossFight)) return;
         ChangeState(GameState.Menu);
         CancelTimedWork();
+        _boss.StopEncounter();
         _waves.ClearFormation();
         _projectiles.ReleaseAll();
         _player.HidePlayer();

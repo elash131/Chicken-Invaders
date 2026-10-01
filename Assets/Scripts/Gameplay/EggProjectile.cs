@@ -42,6 +42,7 @@ public sealed class EggProjectile : MonoBehaviour
         EggPool owner,
         Camera gameplayCamera,
         Vector2 position,
+        Vector2 direction,
         float speed,
         float lifetime,
         float breakFrameDuration,
@@ -55,7 +56,10 @@ public sealed class EggProjectile : MonoBehaviour
         _breakFrameIndex = 0;
         _state = EggState.Flying;
 
-        transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        if (direction.sqrMagnitude < 0.001f) direction = Vector2.down;
+        direction.Normalize();
+        var directionAngle = Vector2.SignedAngle(Vector2.down, direction);
+        transform.rotation = Quaternion.Euler(0f, 0f, 90f + directionAngle);
         transform.position = position;
         _rigidbody2D.position = position;
         _rigidbody2D.linearVelocity = Vector2.zero;
@@ -64,7 +68,7 @@ public sealed class EggProjectile : MonoBehaviour
         _collider2D.enabled = true;
         _spriteRenderer.sprite = _flightSprite;
         gameObject.SetActive(true);
-        _rigidbody2D.linearVelocity = Vector2.down * speed;
+        _rigidbody2D.linearVelocity = direction * speed;
     }
 
     private void Update()

@@ -56,6 +56,7 @@ public sealed class WaveManager : MonoBehaviour
     public bool AcceptsDamage => _phase == WavePhase.Active && !_isClearing && _game != null && _game.CanDamageEnemies;
     public int CurrentWaveNumber => _waveIndex + 1;
     public int LivingChickenCount => _livingChickens.Count;
+    public EggPool EnemyEggs => _eggPool;
 
     private void Start()
     {

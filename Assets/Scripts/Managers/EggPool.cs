@@ -57,14 +57,21 @@ public sealed class EggPool : MonoBehaviour
 
     public void Fire(Vector2 position)
     {
+        Fire(position, Vector2.down, 1f);
+    }
+
+    public void Fire(Vector2 position, Vector2 direction, float speedMultiplier = 1f)
+    {
         if (!IsReady || _game == null || !_game.CanEnemiesAct) return;
+        if (direction.sqrMagnitude < 0.001f) direction = Vector2.down;
 
         var egg = _pool.Get();
         egg.Launch(
             this,
             _gameplayCamera,
             position,
-            _speed,
+            direction.normalized,
+            _speed * Mathf.Max(0.1f, speedMultiplier),
             _lifetime,
             _breakFrameDuration,
             _brokenHoldDuration);
@@ -130,7 +137,7 @@ public sealed class EggPool : MonoBehaviour
     private void HandleStateChanged(GameState state)
     {
         if (state == GameState.Menu || state == GameState.WaveIntro ||
-            state == GameState.BossFight || state == GameState.GameOver || state == GameState.Victory)
+            state == GameState.GameOver || state == GameState.Victory)
         {
             ReleaseAll();
         }

@@ -27,6 +27,11 @@ public sealed class GameUIManager : MonoBehaviour
 
     private GameManager _gameManager;
     private Coroutine _unlockRoutine;
+    private Coroutine _bossBannerRoutine;
+    private RectTransform _bossHealthRoot;
+    private Image _bossHealthFill;
+    private TextMeshProUGUI _bossHealthText;
+    private bool _bossBannerShown;
 
     // The presentation is authored as a prefab. Only this small bootstrap is created in code.
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -60,9 +65,12 @@ public sealed class GameUIManager : MonoBehaviour
 
         _primaryButton.onClick.AddListener(PressedPrimaryButton);
         _menuButton.onClick.AddListener(_gameManager.ReturnToMenu);
+        CreateBossHealthDisplay();
         _gameManager.OnStateChanged += RefreshState;
         _gameManager.OnScoreChanged += RefreshScore;
         _gameManager.OnLivesChanged += RefreshLives;
+        _gameManager.OnBossHealthChanged += RefreshBossHealth;
+        _gameManager.OnGameStarted += ResetBossPresentation;
         RefreshState(_gameManager.State);
     }
 
@@ -89,11 +97,13 @@ public sealed class GameUIManager : MonoBehaviour
 
         var menu = state == GameState.Menu;
         var overlay = menu || state == GameState.Paused || state == GameState.GameOver ||
-            state == GameState.Victory || state == GameState.BossFight;
+            state == GameState.Victory;
+        var showStatus = state == GameState.WaveIntro || state == GameState.Respawning ||
+            state == GameState.Paused || state == GameState.GameOver || state == GameState.Victory;
 
         _shade.SetActive(overlay);
         _logo.SetActive(menu);
-        _statusText.gameObject.SetActive(!menu);
+        _statusText.gameObject.SetActive(showStatus);
         _captionText.gameObject.SetActive(overlay);
         _bestText.gameObject.SetActive(overlay);
         _controlsText.gameObject.SetActive(overlay);
@@ -103,6 +113,9 @@ public sealed class GameUIManager : MonoBehaviour
         _primaryButton.gameObject.SetActive(menu || state == GameState.Paused ||
             state == GameState.GameOver || state == GameState.Victory);
         _menuButton.gameObject.SetActive(overlay && !menu);
+        if (_bossHealthRoot != null)
+            _bossHealthRoot.gameObject.SetActive(_gameManager.CurrentWaveNumber > 4 &&
+                (state == GameState.BossFight || state == GameState.Respawning));
 
         _primaryButton.interactable = state != GameState.GameOver;
         _primaryButtonText.text = menu ? "PLAY" : state == GameState.Paused ? "RESUME" : "PLAY AGAIN";
@@ -111,7 +124,9 @@ public sealed class GameUIManager : MonoBehaviour
         switch (state)
         {
             case GameState.WaveIntro:
-                _statusText.text = $"WAVE {_gameManager.CurrentWaveNumber}";
+                _statusText.text = _gameManager.CurrentWaveNumber > 4
+                    ? "MOTHER HEN APPROACHING"
+                    : $"WAVE {_gameManager.CurrentWaveNumber}";
                 break;
             case GameState.Respawning:
                 _statusText.text = "GET READY";
@@ -129,8 +144,18 @@ public sealed class GameUIManager : MonoBehaviour
                 _captionText.text = $"FINAL SCORE   {_gameManager.Score:000000}\nThe skies are yours.";
                 break;
             case GameState.BossFight:
-                _statusText.text = "FOUR WAVES\nCLEARED";
-                _captionText.text = "Boss gameplay is coming next.";
+                if (!_bossBannerShown)
+                {
+                    _bossBannerShown = true;
+                    _statusText.gameObject.SetActive(true);
+                    _statusText.text = "MOTHER HEN";
+                    _bossBannerRoutine = StartCoroutine(HideBossBanner());
+                }
+                else
+                {
+                    _statusText.gameObject.SetActive(false);
+                    _statusText.text = string.Empty;
+                }
                 break;
             default:
                 _statusText.text = string.Empty;
@@ -144,6 +169,73 @@ public sealed class GameUIManager : MonoBehaviour
         {
             _unlockRoutine = StartCoroutine(UnlockRestart());
         }
+    }
+
+    private void CreateBossHealthDisplay()
+    {
+        var rootObject = new GameObject("Boss Health", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        _bossHealthRoot = rootObject.GetComponent<RectTransform>();
+        _bossHealthRoot.SetParent(transform, false);
+        _bossHealthRoot.anchorMin = new Vector2(0.5f, 1f);
+        _bossHealthRoot.anchorMax = new Vector2(0.5f, 1f);
+        _bossHealthRoot.pivot = new Vector2(0.5f, 1f);
+        _bossHealthRoot.anchoredPosition = new Vector2(0f, -88f);
+        _bossHealthRoot.sizeDelta = new Vector2(500f, 38f);
+        var background = rootObject.GetComponent<Image>();
+        background.color = new Color(0.05f, 0.025f, 0.12f, 0.9f);
+        background.raycastTarget = false;
+
+        var fillObject = new GameObject("Fill", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        var fillRect = fillObject.GetComponent<RectTransform>();
+        fillRect.SetParent(_bossHealthRoot, false);
+        fillRect.anchorMin = Vector2.zero;
+        fillRect.anchorMax = Vector2.one;
+        fillRect.offsetMin = new Vector2(4f, 4f);
+        fillRect.offsetMax = new Vector2(-4f, -4f);
+        _bossHealthFill = fillObject.GetComponent<Image>();
+        _bossHealthFill.color = new Color(1f, 0.31f, 0.08f, 1f);
+        _bossHealthFill.type = Image.Type.Filled;
+        _bossHealthFill.fillMethod = Image.FillMethod.Horizontal;
+        _bossHealthFill.raycastTarget = false;
+
+        _bossHealthText = Instantiate(_waveText, _bossHealthRoot);
+        _bossHealthText.name = "Boss Health Label";
+        _bossHealthText.text = "MOTHER HEN  30 / 30";
+        _bossHealthText.fontSize = 20f;
+        _bossHealthText.alignment = TextAlignmentOptions.Center;
+        _bossHealthText.raycastTarget = false;
+        var labelRect = _bossHealthText.rectTransform;
+        labelRect.anchorMin = Vector2.zero;
+        labelRect.anchorMax = Vector2.one;
+        labelRect.offsetMin = Vector2.zero;
+        labelRect.offsetMax = Vector2.zero;
+        _bossHealthRoot.gameObject.SetActive(false);
+    }
+
+    private void RefreshBossHealth(int current, int maximum)
+    {
+        if (_bossHealthFill == null || _bossHealthText == null) return;
+        var safeMaximum = Mathf.Max(1, maximum);
+        _bossHealthFill.fillAmount = Mathf.Clamp01(current / (float)safeMaximum);
+        _bossHealthText.text = $"MOTHER HEN  {Mathf.Max(0, current)} / {safeMaximum}";
+    }
+
+    private void ResetBossPresentation()
+    {
+        _bossBannerShown = false;
+        if (_bossBannerRoutine != null) StopCoroutine(_bossBannerRoutine);
+        _bossBannerRoutine = null;
+    }
+
+    private IEnumerator HideBossBanner()
+    {
+        yield return new WaitForSeconds(1.05f);
+        if (_gameManager.State == GameState.BossFight)
+        {
+            _statusText.text = string.Empty;
+            _statusText.gameObject.SetActive(false);
+        }
+        _bossBannerRoutine = null;
     }
 
     private IEnumerator UnlockRestart()
@@ -194,5 +286,7 @@ public sealed class GameUIManager : MonoBehaviour
         _gameManager.OnStateChanged -= RefreshState;
         _gameManager.OnScoreChanged -= RefreshScore;
         _gameManager.OnLivesChanged -= RefreshLives;
+        _gameManager.OnBossHealthChanged -= RefreshBossHealth;
+        _gameManager.OnGameStarted -= ResetBossPresentation;
     }
 }

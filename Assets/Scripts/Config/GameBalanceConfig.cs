@@ -46,6 +46,33 @@ public sealed class GameBalanceConfig : ScriptableObject
     [Header("Presentation")]
     [SerializeField] private PlayerExplosionEffect _playerExplosionPrefab;
 
+    [Header("Boss")]
+    [SerializeField] private BossConfig _boss;
+
+    [Header("Boss Camera Feedback")]
+    [SerializeField] private CameraCue _bossEntranceCamera = new(0.9f, 0.045f, 0.025f);
+    [SerializeField] private CameraCue _bossEnrageCamera = new(0.35f, 0.02f, 0.04f);
+    [SerializeField] private CameraCue _bossDefeatCamera = new(1.1f, 0.06f, 0.065f);
+
+    [System.Serializable]
+    public struct CameraCue
+    {
+        [SerializeField, Min(0f)] private float _duration;
+        [SerializeField, Range(0f, 0.1f)] private float _zoomOutFraction;
+        [SerializeField, Range(0f, 0.1f)] private float _shakeDistance;
+
+        public float Duration => Mathf.Max(0f, _duration);
+        public float ZoomOutFraction => Mathf.Clamp(_zoomOutFraction, 0f, 0.1f);
+        public float ShakeDistance => Mathf.Clamp(_shakeDistance, 0f, 0.1f);
+
+        public CameraCue(float duration, float zoomOutFraction, float shakeDistance)
+        {
+            _duration = duration;
+            _zoomOutFraction = zoomOutFraction;
+            _shakeDistance = shakeDistance;
+        }
+    }
+
     public float FormationSpeed => _formationSpeed;
     public float SpeedIncreasePerKill => _speedIncreasePerKill;
     public float DescendStep => _descendStep;
@@ -68,4 +95,8 @@ public sealed class GameBalanceConfig : ScriptableObject
     public int EggPoolMaxRetained => _eggPoolMaxRetained;
     public int ChickenScore => _chickenScore;
     public PlayerExplosionEffect PlayerExplosionPrefab => _playerExplosionPrefab;
+    public BossConfig Boss => _boss;
+    public CameraCue BossEntranceCamera => _bossEntranceCamera;
+    public CameraCue BossEnrageCamera => _bossEnrageCamera;
+    public CameraCue BossDefeatCamera => _bossDefeatCamera;
 }

@@ -38,3 +38,16 @@ MonoBehaviour:
   _eggPoolMaxRetained: 24
   _chickenScore: 100
   _playerExplosionPrefab: {fileID: 5284106739021456811, guid: 9bac2f7c4e5d431ab8d9304b5c6def12, type: 3}
+  _boss: {fileID: 11400000, guid: 2f74c393d0264afeae8610707188594e, type: 2}
+  _bossEntranceCamera:
+    _duration: 0.9
+    _zoomOutFraction: 0.045
+    _shakeDistance: 0.025
+  _bossEnrageCamera:
+    _duration: 0.35
+    _zoomOutFraction: 0.02
+    _shakeDistance: 0.04
+  _bossDefeatCamera:
+    _duration: 1.1
+    _zoomOutFraction: 0.06
+    _shakeDistance: 0.065
