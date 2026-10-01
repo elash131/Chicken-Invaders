@@ -26,22 +26,24 @@ Final project for **Unity 101 for CS Students**, The Academic College of Tel-Avi
 
 ## Implementation status
 
-The prototype includes movement/banking, scrolling background, pooled Ion bullets, pooled chicken
-eggs, and four chicken formations with entry animations, descent and speed increases per kill. An explicit run
-state controls input, damage, wave progression, pause, respawn and result transitions. A simple
-UGUI/TMP interface provides Play, Resume, results and a return to the menu.
-It uses the existing purple/white title logo, Bungee for all menu and HUD text, and gold/violet buttons.
-`Assets/Resources/RunUI.prefab` contains the authored Canvas and serialized UI references, following
-the same pattern as the course examples. It is instantiated on entering Play Mode, so the scene is untouched.
+Playable from menu to victory:
 
-Regular-wave egg attacks are implemented: only the lowest living chicken in each column can lay,
-near-player safety suppresses unfair shots, and floor impacts play a pooled break animation. The
-player now disappears on a valid hit while a reusable red flare expands and fades at the impact
-position. The lose-line trigger, boss gameplay, audio and final presentation are still planned.
-After wave four, the prototype enters BossFight and displays a placeholder with a Main menu button;
-it does not award victory. Damage/lose-line/boss-defeat commands are ready for those future systems.
-The respawn flow includes 1.5 seconds off-screen and 2.5 seconds of protection; one egg collision
-costs one life and clears the active egg pool.
+- Horizontal ship with banking poses, held fire on a cooldown, pooled Ion bullets.
+- Four chicken formations (2–5 rows × 5) that fly in, sweep, step down at the walls and speed up
+  with every kill. Only the lowest chicken in each column lays eggs, never too close to the ship.
+- A chicken reaching the lose line just above the ship ends the run.
+- Mother Hen after wave four: 30 health and a health bar. She fires aimed three-egg volleys, then
+  enrages at half health and rains eggs. Her helmet cracks and then her armour breaks as she takes
+  damage, and she goes out in a chain of blasts and one big explosion. Her health is a vertical bar
+  on the right edge. Short camera cues mark her entrance, enrage and defeat.
+- The gameplay view is letterboxed to 16:9, so every resolution shows the same playfield.
+- Three lives, 1.5 s respawn and 2.5 s of blinking protection, score and saved high score.
+- Menu, wave intro, HUD, pause (also on focus loss), Game Over and Victory screens, restart.
+
+- Music for menu, waves, boss and victory with crossfades, sound effects for every event, muffled
+  music while paused, and a remembered mute toggle.
+
+Not done yet: the optional food pickups dropped by chickens.
 
 ## Controls
 
@@ -51,6 +53,7 @@ costs one life and clears the active egg pool.
 | Fire | Hold Space | Hold south button |
 | Restart (result screen) | R | East button |
 | Pause / resume | Escape | Start button |
+| Mute / unmute | M | Select button |
 
 Losing focus pauses an active run; returning to the window requires explicit resume. Gameplay input
 is blocked in menus, intros, pause, respawn and result screens. Fire must be released after a UI
@@ -62,14 +65,16 @@ transition before shooting again. Game Over ignores restart for 0.5 seconds.
 Assets/
   Animations/   Chicken flap clip and its controller
   Art/          Sprites and the tiled starfield background
-  Editor/       Editor tools that build the scene and rebuild animation clips
-  Prefabs/      Chicken prefab and its colour variants
+  Audio/        Music and SFX (CC0 / CC-BY, see ASSETS.md)
+  Config/       GameBalance, MotherHen, Audio and the four Wave assets
+  Fonts/        Bungee (SIL OFL)
+  Prefabs/      Boss, Chickens, Projectiles, UI (RunUI) and VFX
   Scenes/       SampleScene — the whole game lives in one scene
   Scripts/
-    Core/       Singleton base class, interfaces, constants
-    Config/     GameBalanceConfig, WaveConfig
-    Gameplay/   Player, projectiles, chickens, factory and background
-    Managers/   GameManager, WaveManager, ProjectilePool, GameUIManager
+    Core/       Singleton base class, IGameManager, GameState, constants
+    Config/     GameBalanceConfig, WaveConfig, BossConfig, AudioConfig
+    Gameplay/   Player, projectiles, chickens, boss and background
+    Managers/   GameManager, WaveManager, pools, UI and presenters
 Docs/
   GDD.md        Game design document
   ASSETS.md     Where every asset came from, and its licence
@@ -77,30 +82,31 @@ Docs/
 
 ## Design notes
 
-- `GameManager` owns the rules. UI and audio only listen to its events, so they cannot change score
-  or lives by accident.
-- Only GameManager and PlayerController use the generic `Singleton<T>` base; other systems use references.
-- WaveManager tracks the chickens it creates instead of searching the scene every frame.
+- `GameManager` owns the rules. Other systems report what happened through `IGameManager`, and the
+  UI and presenters only listen to its events, so they cannot change score or lives by accident.
+- One `Managers` object holds the focused managers. The UI and Mother Hen are prefabs placed in the
+  scene with their references set in the Inspector.
+- Only `GameManager` and `PlayerController` use the generic `Singleton<T>` base.
+- `WaveManager` tracks the chickens it creates instead of searching the scene every frame.
+- Player bullets and enemy eggs use separate `ObjectPool`s, prewarmed at load.
 - Balance values live in ScriptableObjects, so tuning does not need a recompile.
-- The background is a **tiled** sprite whose Size is a whole number of tiles. Artwork is never
-  scaled non-uniformly.
+- The background is a tiled sprite; artwork is never scaled non-uniformly.
 
 ## Assets
 
 The sprites are third-party artwork from InterAction studios' *Chicken Invaders*, used for
 coursework only and not presented as original work. Full per-file sources and the licence position
-are in [`Docs/ASSETS.md`](Docs/ASSETS.md).
+are in [`Docs/ASSETS.md`](Docs/ASSETS.md). Music and sound effects are free assets (CC0), except the
+chicken sound by IMadeIt (CC-BY 3.0); sources and credits are in the same file.
 
-## Validation (2026-09-30)
+## Testing
 
-- An isolated Unity Editor copy passed 51 automated run-state and serialized-UI checks, including pause, respawn,
-  four-wave progression, result commands, menu return and five retries. The original scene was not changed.
-- Menu renders were visually checked at 1080x1920, 1920x1080 and 1024x768.
-- Egg attacks were exercised in the Editor. The later orientation and broken-egg hold adjustment
-  compiled and imported successfully but still needs a final visual play check. The basic player-death
-  flare also compiled successfully and still needs a visual play check. Boss defeat remains
-  integration-command-only. Physical gamepad input, a Windows player build and profiling remain untested.
-- The batch Editor emitted a separate search-index exception; the gameplay validation completed successfully.
+- [ ] Full run in the Editor: menu → four waves → Mother Hen → Victory → Play Again
+- [ ] Game Over by losing all lives, and by letting the flock reach the lose line
+- [ ] Pause with Escape and by switching windows; resume continues the same phase
+- [ ] UI at 16:9, 4:3 and a tall window
+- [ ] Windows standalone build runs outside Unity
+- [ ] Gamepad controls
 
 ## Documentation
 

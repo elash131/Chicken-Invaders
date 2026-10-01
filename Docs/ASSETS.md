@@ -17,8 +17,8 @@ as third-party rather than presented as licensed. **No public build may ship the
 **Replacement plan.** For any public release, swap in CC0 art and rename the game. Kenney's
 [Space Shooter Redux](https://kenney.nl/assets/space-shooter-redux) (CC0) covers the ship,
 projectiles and UI directly; [Chicken Sprites by Shepardskin](https://opengameart.org/content/chicken-sprites)
-(CC0) covers the enemies. Every sprite is referenced through a prefab field or the editor scene
-builder, so this is an asset swap, not a code change.
+(CC0) covers the enemies. Every sprite is referenced through a prefab, scene or config field,
+so this is an asset swap, not a code change.
 
 **Open question for the lecturer:** is ripped artwork acceptable for this submission? If not, the
 swap above is a day's work and no code changes.
@@ -61,7 +61,7 @@ projectiles **100**, food **128**, starfield **100**. Sorting layers back → fr
 | `bulletIon.png` | Beam frames | 100 | Player projectile (the one used) |
 | `bulletNeutron`, `bulletFork`, `bullet-bolt1/3/4` | Alternate weapons | 100 | Unused — kept for the boss or a later pass |
 | `flare-my.png` | 4 coloured flares | 100 | Hit and explosion VFX |
-| `…Astronaut Chicken.png` | 3 whole chickens + parts | 100 | Alternative enemy look |
+| `…Astronaut Chicken.png` | 3 whole chickens + parts | 100 | Mother Hen: three damage stages, feet and wings |
 | `…GUI - Logo.png` | Title logo | 100 | Main menu |
 
 > `hero_ship.png` is derived from the *Authentic Hero* rip below: the original had **no alpha**
@@ -145,7 +145,7 @@ names; the files were decoded and re-saved as real RGBA PNGs. Base URL for every
 
 ---
 
-## Still to source
+## Fonts and UI
 
 The menu and HUD use **Bungee** throughout. Bungee and the included TextMesh Pro default
 **Liberation Sans** resources are both SIL Open Font License 1.1. Bungee comes from the official
@@ -160,13 +160,22 @@ The title uses the purple/white logo already listed above, with an additional `M
 that preserves existing slices and GUIDs. Buttons use Unity's built-in sliced UI sprite and colour
 states stored in `RunUI.prefab`; they require no downloaded or generated bitmap artwork.
 
-| Asset | Where to look | What to record |
-|---|---|---|
-| SFX ×6 — laser, cluck, splat, pickup, player death, wave clear | [freesound.org](https://freesound.org/) filtered to **CC0**, [pixabay](https://pixabay.com/sound-effects/), [mixkit](https://mixkit.co/free-sound-effects/game/) | Per-clip URL and licence name |
-| Music — gameplay loop, optional boss loop | Same three sites | Per-clip URL and licence name |
+## Audio — `Assets/Audio/`
 
-Keep one-shots under ~1 second or they feel laggy. Import Type: **Decompress On Load** for the
-short effects, **Streaming** for music.
+All audio is free to use: everything is **CC0** except the chicken sound, which is **CC-BY 3.0** and
+credited below. Downloaded 2026-10-01. Music was converted from WAV to OGG to keep the repository
+small; music imports as **Streaming**, short effects as **Decompress On Load**.
+
+| File | Source | Licence |
+|---|---|---|
+| `music_menu`, `music_game`, `music_boss`, `music_victory` | "5 Chiptunes (Action)" by **Juhani Junkala** — [opengameart.org/content/5-chiptunes-action](https://opengameart.org/content/5-chiptunes-action) (Title Screen, Level 1, Level 3, Ending) | CC0 |
+| `jingle_victory`, `jingle_gameover`, `sfx_wave_clear` | Kenney **Music Jingles** — [kenney.nl/assets/music-jingles](https://kenney.nl/assets/music-jingles) (`jingles_NES12`, `NES11`, `NES09`) | CC0 |
+| `sfx_shoot`, `sfx_egg_splat`, `sfx_player_explode`, `sfx_blast`, `sfx_big_boom` | Kenney **Sci-fi Sounds** — [kenney.nl/assets/sci-fi-sounds](https://kenney.nl/assets/sci-fi-sounds) (`laserSmall_000`, `slime_000`, `explosionCrunch_003/000`; the big boom layers `lowFrequency_explosion_000` with `explosionCrunch_004`) | CC0 |
+| `sfx_boss_hit`, `sfx_glass_break`, `sfx_food` | Kenney **Impact Sounds** — [kenney.nl/assets/impact-sounds](https://kenney.nl/assets/impact-sounds) (`impactMetal_medium_000`; glass layers `impactGlass_heavy_001` + `_004`; `footstep_snow_000`) | CC0 |
+| `sfx_egg_lay`, `sfx_ui_click` | Kenney **Interface Sounds** — [kenney.nl/assets/interface-sounds](https://kenney.nl/assets/interface-sounds) (`drop_002`, `click_001`) | CC0 |
+| `sfx_respawn`, `sfx_wave_start`, `sfx_boss_charge` | Kenney **Digital Audio** — [kenney.nl/assets/digital-audio](https://kenney.nl/assets/digital-audio) (`powerUp1`, `zapThreeToneUp`, `phaserUp1`) | CC0 |
+| `sfx_chicken_1..3` | "Chicken Sound Effect" by **IMadeIt** — [opengameart.org/content/chicken-sound-effect](https://opengameart.org/content/chicken-sound-effect), cut into three clucks and loudness-normalised | **CC-BY 3.0** — credit: *Chicken sound by IMadeIt (OpenGameArt)* |
+| `sfx_boss_alarm` | Made for this project: a two-tone siren synthesised with ffmpeg | Original |
 
 > "Free on itch.io" is not a licence name. `CC0 1.0`, `CC-BY 4.0`, `OFL 1.1` are. Paste the exact
 > one into the table above.

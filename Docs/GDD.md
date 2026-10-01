@@ -7,17 +7,15 @@
 | **Genre** | 2D arcade / fixed shooter |
 | **Target platforms** | PC — Windows standalone only |
 | **Engine** | Unity 6 (`6000.3.20f1`), URP 2D, Input System |
-| **Orientation** | Portrait PC game window, 1080 × 1920 reference resolution |
+| **Orientation** | Landscape PC window, 1920 × 1080 reference resolution |
 | **Session length** | 3–6 minutes for a full run |
-| **Document version** | v1.2 — 2026-09-30 |
+| **Document version** | v1.3 — 2026-10-01 |
 
 A proposal for approval. Numbers below are starting values, not playtest results.
 
-Implementation status (2026-09-30): four formations, pooled player shooting and pooled regular-wave
-egg attacks are present. The run-state foundation and prototype menu/HUD/pause/result UI are
-implemented, along with a basic player-death flare. Lose-line detection, the boss, audio and final
-presentation remain planned. The prototype's BossFight state displays a placeholder after wave four;
-victory requires a future boss-defeat event.
+**Status (2026-10-01):** the full loop is playable — four waves, the lose line, the two-phase
+Mother Hen with a health bar, respawn, pause, Game Over, Victory and restart, with music and sound
+effects. Still to come: the optional food pickups dropped by chickens.
 
 ---
 
@@ -83,7 +81,8 @@ stateDiagram-v2
   not speed.
 - **Eggs:** only the lowest surviving chicken in each column lays them, and it stops once it is too
   close to the player to dodge. **Eggs cannot be shot down** — dodging is the only answer.
-- **Scoring:** 100 per chicken, 500 for the boss, 50 for a drumstick. High score saved locally.
+- **Scoring:** 100 per chicken, 500 for the boss. High score saved locally. (Optional: 50 per
+  drumstick, see 8.2.)
 - **Failure:** an egg costs one life. The ship vanishes for 1.5 s, then returns at the centre with
   2.5 s of blinking invulnerability. The enemies never pause — you come back to a live board.
 
@@ -100,6 +99,14 @@ stateDiagram-v2
 The **Mother Hen** sweeps left and right above the lose line and never descends. A health bar shows
 what is left of her. At half health she speeds up and switches from aimed three-egg volleys to
 dropping eggs continuously along her path, so parking underneath her stops working.
+Her armour shows the damage: the glass helmet cracks after she loses a third of her health, and
+the armour is gone for the last third. Her defeat is a short show: she swells, shakes and pops with
+small blasts, then disappears in one big explosion before the Victory screen.
+
+Her entrance, half-health change and defeat receive short camera cues. The view briefly pulls back
+and settles with gentle shake; normal combat keeps a fixed view. The extra view margin preserves
+edge visibility. Entrance plays once per run, including across pause and respawn. Durations and
+strengths are configured in GameBalance, and zero duration disables an individual cue.
 
 ### Parameters to tune
 
@@ -141,15 +148,17 @@ the boss.
 
 ## 5. Screens & UI
 
-1. **Main Menu** — title, Play, high score, control hint, mute toggle.
+1. **Main Menu** — title, Play, high score, control hint. M (or gamepad Select) mutes, and is remembered.
 2. **Wave Intro** — the wave number, centred, before combat starts.
-3. **Gameplay** — score and best top-left, wave top-centre, lives top-right. Boss health only during
-   the boss fight.
+3. **Gameplay** — score and best top-left, wave top-centre, lives top-right. During the boss fight her
+   health is a vertical bar on the right edge, so it never covers her.
 4. **Game Over / Victory** — result, final score, new-best message, Play Again.
 5. **Paused** — Resume over the frozen game.
 
 No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1920 × 1080 reference; HUD elements
-are anchored to their own corners, and the layout is checked at several PC game-window sizes and resolutions.
+are anchored to their own corners. The gameplay view is letterboxed to 16:9: any other window shape
+gets black bars instead of a wider or narrower world, so the formation, ship lane and boss path are
+the same at every resolution.
 
 ---
 
@@ -163,8 +172,8 @@ are anchored to their own corners, and the layout is checked at several PC game-
 | Bullets, eggs, impacts | Combat feedback | Chicken Invaders sprite rips |
 | Food | Optional pickups | Chicken Invaders fan wiki |
 | Starfield, logo | Background and menu | Chicken Invaders sprite rips |
-| Font | Menu and HUD text | Liberation Sans from bundled TMP resources — SIL OFL 1.1 |
-| Sound and music | Shots, clucks, impacts, pickups, death, wave clear, looping track | To select — record the licences |
+| Font | Menu and HUD text | Bungee from Google Fonts — SIL OFL 1.1 |
+| Sound and music | Shots, clucks, eggs, explosions, boss cues, UI, menu/wave/boss/victory music | Kenney and OpenGameArt — CC0, chicken CC-BY 3.0 (see ASSETS.md) |
 
 **Licence note.** The artwork is InterAction studios' and carries **no reuse licence**. It is used
 for coursework only and is declared as third-party, not presented as original. A public build would
@@ -188,33 +197,47 @@ state rather than reloading. **Packages:** Input System, Physics2D, URP 2D, Unit
 
 ```mermaid
 flowchart TD
-    Config[GameBalanceConfig / WaveConfig] -.-> GameManager
-    GameManager --> WaveManager
-    WaveManager --> ChickenFactory
+    Config[GameBalanceConfig / WaveConfig / BossConfig] -.-> WaveManager
+    WaveManager -->|Create| ChickenFactory
     ChickenFactory --> Chicken
-    Chicken -->|registers| WaveManager
-    Chicken -->|AddScore| GameManager
-    Player[PlayerController] -->|OnPlayerHit| GameManager
-    Player -->|Get / Release| Pool[ProjectilePool]
-    Chicken -->|Get / Release| Pool
+    Chicken -->|killed| WaveManager
+    WaveManager -->|AddScore / ReportWaveCleared / ReportLoseLineCrossed| GameManager
+    Player[PlayerController] -->|Fire| Bullets[ProjectilePool]
+    WaveManager -->|Fire| Eggs[EggPool]
+    Boss[BossController] -->|Fire| Eggs
+    Eggs -->|ReportPlayerHit| GameManager
+    Boss -->|ReportBossHealth / ReportBossDefeated| GameManager
     GameManager -->|events| UI[GameUIManager]
-    GameManager -->|events| Audio[AudioManager]
+    GameManager -->|events| Presenters[PlayerDeathPresenter / BossCameraFeedback]
 ```
+
+The scene has one `Managers` object holding `GameManager`, `WaveManager`, `ChickenFactory`,
+`ProjectilePool`, `EggPool` and `PlayerDeathPresenter`. The UI (`RunUI`) and Mother Hen are prefabs
+placed in the scene; chickens and projectiles are instantiated from prefabs.
 
 | System | Responsibility |
 |---|---|
-| `GameManager` | Score, lives, game state, respawn, restart |
-| `PlayerController` | Movement, input, firing |
-| `WaveManager` / `ChickenFactory` | Build formations, manage wave progression |
-| `Chicken` / `Boss` | Enemy movement, health, attacks |
-| `ProjectilePool` / `Projectile` | Reuse bullets and eggs |
-| `GameUIManager` / `AudioManager` | Show state and play sound — they own no rules |
-| `ScrollingBackground` / `LoseLine` | Background scroll, formation-loss detection |
+| `GameManager` (`IGameManager`) | Run state, score, lives, respawn, pause, win/lose, restart |
+| `PlayerController` | Movement, input, firing, respawn blink |
+| `WaveManager` / `ChickenFactory` / `Chicken` | Formations, movement, egg timing, lose line, wave completion |
+| `BossController` / `BossPresenter` | Mother Hen rules and attacks / her animation and hit feedback |
+| `ProjectilePool` / `EggPool` | Separate pools for player bullets and enemy eggs |
+| `GameUIManager` / `AudioManager` | Menus, HUD and boss bar / music and sound — listen to events, own no rules |
+| `PlayerDeathPresenter` / `BossCameraFeedback` | Explosion flare and boss camera cues — presentation only |
+| `ScrollingBackground` / `LetterboxCamera` | Tiled starfield scroll / fixed 16:9 gameplay view |
 
-The shape matters as much as the list: **`GameManager` is the only script that owns the rules.** UI
-and audio have arrows pointing into them and none coming out, so they cannot change the score even
-by accident. Chickens register themselves with `WaveManager` instead of it searching the scene, so
-"is the wave over?" is just "is the list empty?".
+The shape matters as much as the list: **`GameManager` is the only script that owns the rules.**
+Other systems *report* what happened (`ReportPlayerHit`, `ReportWaveCleared`, …) and GameManager
+decides what it means for the run; the UI and presenters only listen to its events. Chickens are
+tracked by `WaveManager` when it creates them instead of searching the scene, so "is the wave over?"
+is just "is the set empty?". `AudioManager` follows the same rule: music follows GameManager's
+state events, and gameplay code only asks for a sound by name.
+
+**Audio design.** Each part of the run has its own track (menu, waves, boss, victory), crossfaded.
+The boss gets silence and a siren before her track, a charge-up sound that warns of every volley,
+a glass shatter when her helmet cracks, and a chain of blasts ending in a big boom that briefly
+ducks the music. Pausing muffles the music with a low-pass filter instead of stopping it. Repeated
+sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 
 ### Course concepts
 
@@ -222,11 +245,16 @@ by accident. Chickens register themselves with `WaveManager` instead of it searc
   causes the frame hitches that make a dodging game feel unfair.
 - **Coroutines** — wave intros, respawn delay, invulnerability: sequences with a start and an end,
   rather than conditions checked every frame.
-- **Singleton** — the managers, via a generic base class, so a dying chicken can reach score, pool
-  and audio without a reference threaded through the factory.
+- **Singleton** — a generic `Singleton<T>` base, used only for `GameManager` and `PlayerController`,
+  which many systems need. Everything else gets references from the Inspector.
+- **Enum-keyed sounds** — the lecturer's SoundManager idea: `AudioManager.Play(SoundEffect.Shoot)`,
+  with clips and volumes in an `Audio` ScriptableObject instead of `Resources.Load`.
+- **Interface** — `IGameManager` (with `IGameManagerEvents`) is the readable contract of what the
+  rest of the game may ask of the run; other scripts depend on it, not on the concrete class.
 - **ScriptableObjects** — balance values and wave layouts as assets, so a new wave is a duplicated
   file rather than an edited component.
-- **PlayerPrefs and Gizmos** — the high score; the lose line and formation bounds drawn in the editor.
+- **PlayerPrefs and Gizmos** — the high score; the lose line, formation origin and ship lane drawn
+  in the Scene view.
 
 ---
 
@@ -267,3 +295,4 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.3 | 2026-10-01 | Music and sound effects with mute; lose line implemented; 16:9 letterbox; bigger Mother Hen with damage looks, side health bar and a defeat show; UI and Mother Hen moved into scene prefabs; fixed orientation, font and system list to match the game; audio kept as the next major pass |
