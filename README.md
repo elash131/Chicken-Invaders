@@ -31,12 +31,13 @@ Playable from menu to victory:
 - Horizontal ship with banking poses, held fire on a cooldown, pooled Ion bullets.
 - Four chicken formations (2–5 rows × 5) that fly in, sweep, step down at the walls and speed up
   with every kill. Each wave starts faster and lays more eggs than the last. Only the lowest
-  chicken in each column lays eggs, never too close to the ship.
+  chicken in each column lays eggs, all the way down, but never close and directly above the ship.
 - Dive bombers from wave 2: a chicken wobbles as a warning, then swoops at the ship, drops an aimed
   egg and flies back into the formation.
 - Gift boxes: catch one for 8 s of Spread, Lightning (piercing) or Fireball, or a 12 s shield
   bubble that absorbs one hit. Contents come from a shuffled bag, so every run differs. Each weapon is a `WeaponConfig` asset.
-- A chicken reaching the lose line just above the ship ends the run.
+- A chicken reaching the lose line just above the ship ends the run: the flock dives onto the ship,
+  which explodes with a red flash before Game Over ("THE FLOCK BROKE THROUGH!").
 - Mother Hen after wave four: 75 health and a health bar. She fires aimed five-egg volleys and
   charged rings of eggs, then enrages at half health, rains eggs and calls a row of chicks that
   shield her and dive-bomb the ship. Her helmet cracks and then her armour breaks as she takes

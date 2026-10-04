@@ -40,6 +40,9 @@ public sealed class GameUIManager : MonoBehaviour
     [SerializeField] private Image _bossHealthFill;
     [SerializeField] private TextMeshProUGUI _bossHealthText;
 
+    private static readonly Color FullHealthColor = new(1f, 0.62f, 0.1f);
+    private static readonly Color LowHealthColor = new(0.85f, 0.08f, 0.08f);
+
     private IGameManager _gameManager;
     private Coroutine _unlockRoutine;
     private Coroutine _bossBannerRoutine;
@@ -135,7 +138,8 @@ public sealed class GameUIManager : MonoBehaviour
                 break;
             case GameState.GameOver:
                 _statusText.text = "GAME OVER";
-                _captionText.text = $"FINAL SCORE   {_gameManager.Score:000000}\nOne more flight?";
+                var reason = _gameManager.FlockBrokeThrough ? "THE FLOCK BROKE THROUGH!" : "OUT OF LIVES";
+                _captionText.text = $"{reason}\nFINAL SCORE   {_gameManager.Score:000000}";
                 break;
             case GameState.Victory:
                 _statusText.text = "VICTORY";
@@ -174,7 +178,10 @@ public sealed class GameUIManager : MonoBehaviour
     {
         if (_bossHealthFill == null || _bossHealthText == null) return;
         var safeMaximum = Mathf.Max(1, maximum);
-        _bossHealthFill.fillAmount = Mathf.Clamp01(current / (float)safeMaximum);
+        var fraction = Mathf.Clamp01(current / (float)safeMaximum);
+        _bossHealthFill.fillAmount = fraction;
+        // Warm when she is healthy, red as she nears defeat, so progress reads at a glance.
+        _bossHealthFill.color = Color.Lerp(LowHealthColor, FullHealthColor, fraction);
         _bossHealthText.text = $"MOTHER HEN  {Mathf.Max(0, current)} / {safeMaximum}";
     }
 

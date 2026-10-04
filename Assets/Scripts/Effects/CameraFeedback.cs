@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-/// <summary>Brief boss camera cues; gameplay always sees the unmodified camera.</summary>
+/// <summary>
+/// Brief camera cues for big moments - Mother Hen's entrance, enrage and defeat, and the flock
+/// breaking through. Gameplay always sees the unmodified camera.
+/// </summary>
 [DisallowMultipleComponent, RequireComponent(typeof(Camera))]
-public sealed class BossCameraFeedback : MonoBehaviour
+public sealed class CameraFeedback : MonoBehaviour
 {
     private Camera _camera;
     private IGameManager _game;
@@ -24,7 +27,7 @@ public sealed class BossCameraFeedback : MonoBehaviour
         _camera = GetComponent<Camera>();
         if (game == null || balance == null || !_camera.orthographic)
         {
-            Debug.LogError("BossCameraFeedback needs the game, balance and an orthographic camera.", this);
+            Debug.LogError("CameraFeedback needs the game, balance and an orthographic camera.", this);
             return;
         }
 
@@ -44,6 +47,7 @@ public sealed class BossCameraFeedback : MonoBehaviour
         _subscribed = true;
         _game.OnGameStarted += ResetRun;
         _game.OnStateChanged += HandleStateChanged;
+        _game.OnBreakthroughImpact += PlayBreakthrough;
         RenderPipelineManager.beginCameraRendering += BeginRendering;
         RenderPipelineManager.endCameraRendering += EndRendering;
         HandleStateChanged(_game.State);
@@ -66,6 +70,8 @@ public sealed class BossCameraFeedback : MonoBehaviour
             StopFeedback();
         }
     }
+
+    private void PlayBreakthrough() => Play(_balance.BreakthroughCamera);
 
     /// <summary>Called once when Mother Hen crosses her half-health threshold.</summary>
     public void PlayEnrage()
@@ -159,6 +165,7 @@ public sealed class BossCameraFeedback : MonoBehaviour
         {
             _game.OnGameStarted -= ResetRun;
             _game.OnStateChanged -= HandleStateChanged;
+            _game.OnBreakthroughImpact -= PlayBreakthrough;
         }
         _subscribed = false;
     }

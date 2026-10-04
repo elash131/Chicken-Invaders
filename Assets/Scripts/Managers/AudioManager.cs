@@ -90,6 +90,7 @@ public sealed class AudioManager : Singleton<AudioManager>
 
         _game.OnStateChanged += HandleStateChanged;
         _game.OnPlayerDied += HandlePlayerDied;
+        _game.OnBreakthroughImpact += HandleBreakthroughImpact;
         SetMusicFilter(OpenCutoff);
         PlayMusic(_config.MenuMusic);
     }
@@ -159,6 +160,11 @@ public sealed class AudioManager : Singleton<AudioManager>
             case GameState.Paused:
                 SetPaused(true);
                 break;
+            case GameState.Breakthrough:
+                // The music drops out and the siren sounds while the flock dives at the ship.
+                PlayMusic(null);
+                Play(SoundEffect.BossAlarm);
+                break;
             case GameState.GameOver:
                 // After the jingle the calm menu track returns, so the "one more flight?" screen is not silent.
                 StartCue(ResultCue(_config.GameOverJingle, _config.MenuMusic));
@@ -170,6 +176,12 @@ public sealed class AudioManager : Singleton<AudioManager>
     }
 
     private void HandlePlayerDied() => Play(SoundEffect.PlayerExplode);
+
+    private void HandleBreakthroughImpact()
+    {
+        Play(SoundEffect.BigBoom);
+        DuckMusic();
+    }
 
     private IEnumerator WaveIntroCue(bool waveCleared)
     {
@@ -274,6 +286,7 @@ public sealed class AudioManager : Singleton<AudioManager>
         {
             _game.OnStateChanged -= HandleStateChanged;
             _game.OnPlayerDied -= HandlePlayerDied;
+            _game.OnBreakthroughImpact -= HandleBreakthroughImpact;
         }
         base.OnDestroy();
     }

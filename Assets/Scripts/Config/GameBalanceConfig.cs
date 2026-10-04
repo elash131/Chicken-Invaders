@@ -35,7 +35,11 @@ public sealed class GameBalanceConfig : ScriptableObject
     [Header("Chicken Eggs")]
     [SerializeField] private EggProjectile _eggPrefab;
     [SerializeField, Min(0.1f)] private float _eggSpeed = 6f;
+    [Tooltip("A chicken closer than this above the ship may not lay - unless it is off to the side.")]
     [SerializeField, Min(0f)] private float _eggSafetyDistance = 2.5f;
+    [Tooltip("A low chicken may still lay when it is at least this far sideways from the ship: its egg " +
+             "falls beside the ship, in plain sight.")]
+    [SerializeField, Min(0f)] private float _eggSideClearance = 1.5f;
     [SerializeField, Min(0.1f)] private float _eggLifetime = 5f;
     [SerializeField, Min(0.01f)] private float _eggBreakFrameDuration = 0.04f;
     [SerializeField, Min(0f)] private float _brokenEggHoldDuration = 0.5f;
@@ -63,6 +67,17 @@ public sealed class GameBalanceConfig : ScriptableObject
 
     [Header("Boss")]
     [SerializeField] private BossConfig _boss;
+
+    [Header("Breakthrough")]
+    [Tooltip("How long the flock takes to dive onto the ship once it reaches the lose line.")]
+    [SerializeField, Min(0.1f)] private float _breakthroughChargeDuration = 0.9f;
+    [Tooltip("Time between the impact and the Game Over screen.")]
+    [SerializeField, Min(0f)] private float _breakthroughHold = 1.4f;
+    [SerializeField] private CameraCue _breakthroughCamera = new(0.8f, 0.06f, 0.1f);
+
+    public float BreakthroughChargeDuration => _breakthroughChargeDuration;
+    public float BreakthroughHold => _breakthroughHold;
+    public CameraCue BreakthroughCamera => _breakthroughCamera;
 
     [Header("Boss Camera Feedback")]
     [SerializeField] private CameraCue _bossEntranceCamera = new(0.9f, 0.045f, 0.025f);
@@ -100,6 +115,7 @@ public sealed class GameBalanceConfig : ScriptableObject
     public EggProjectile EggPrefab => _eggPrefab;
     public float EggSpeed => _eggSpeed;
     public float EggSafetyDistance => _eggSafetyDistance;
+    public float EggSideClearance => _eggSideClearance;
     public float EggLifetime => _eggLifetime;
     public float EggBreakFrameDuration => _eggBreakFrameDuration;
     public float BrokenEggHoldDuration => _brokenEggHoldDuration;

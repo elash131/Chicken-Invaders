@@ -3,8 +3,8 @@ using UnityEngine;
 
 /// <summary>
 /// Decides when the formation lays an egg and who lays it: only the lowest living chicken in each
-/// column, never one that is diving or too close above the ship to dodge. Timing is random but keeps
-/// the wave's average rate per eligible chicken.
+/// column, never one that is diving, and never one so close directly above the ship that its egg
+/// could not be dodged. Timing is random but keeps the wave's average rate per eligible chicken.
 /// </summary>
 public sealed class FormationEggs
 {
@@ -79,17 +79,25 @@ public sealed class FormationEggs
     private int RefreshEligible()
     {
         _eligible.Clear();
-        var playerY = _player.transform.position.y;
+        Vector2 ship = _player.transform.position;
         foreach (var chicken in _lowestPerColumn)
         {
             // A diving chicken drops its own aimed egg; it does not also lay from the formation.
-            if (chicken != null && !_dives.IsDiving(chicken) &&
-                chicken.transform.position.y - playerY >= _balance.EggSafetyDistance)
+            if (chicken != null && !_dives.IsDiving(chicken) && IsFairToLay(chicken.transform.position, ship))
             {
                 _eligible.Add(chicken);
             }
         }
         return _eligible.Count;
+    }
+
+    // Fair means dodgeable: high enough above the ship to react, or far enough to the side that the
+    // egg falls past it. Only a low chicken right above the ship stays silent, so a low flock keeps
+    // up the pressure without ever dropping an egg the player cannot avoid.
+    private bool IsFairToLay(Vector2 chicken, Vector2 ship)
+    {
+        return chicken.y - ship.y >= _balance.EggSafetyDistance ||
+               Mathf.Abs(chicken.x - ship.x) >= _balance.EggSideClearance;
     }
 
     private void ScheduleNext(int eligibleCount)

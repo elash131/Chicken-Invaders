@@ -14,7 +14,8 @@ public sealed class WaveManager : MonoBehaviour
         Idle,
         Entering,
         Active,
-        Clearing
+        Clearing,
+        Breakthrough
     }
 
     [Header("Configuration")]
@@ -40,6 +41,7 @@ public sealed class WaveManager : MonoBehaviour
     private FormationEntry _entry;
     private FormationEggs _eggs;
     private ChickenDives _dives;
+    private FlockBreakthrough _breakthrough;
     private float _nextDiveTime;
     private float _topPadding;
 
@@ -81,6 +83,7 @@ public sealed class WaveManager : MonoBehaviour
         _dives = new ChickenDives(_balance, _gameplayCamera, _player, _eggPool,
             chicken => _formationOrigin + chicken.SlotOffset);
         _entry = new FormationEntry(_balance.EntryDuration);
+        _breakthrough = new FlockBreakthrough(_balance.BreakthroughChargeDuration);
         _eggs = new FormationEggs(_balance, _player, _eggPool, _dives);
         if (!IsReady) Debug.LogError("Every wave slot needs a WaveConfig.", this);
     }
@@ -222,6 +225,13 @@ public sealed class WaveManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_phase == WavePhase.Breakthrough)
+        {
+            // Runs while GameManager holds the Breakthrough state; Game Over stops combat and with it this.
+            _breakthrough.Tick(Time.fixedDeltaTime);
+            return;
+        }
+
         if (_gameplayCamera == null || _game == null ||
             (_game.State != GameState.WaveIntro && !_game.CanEnemiesAct))
         {
@@ -274,6 +284,23 @@ public sealed class WaveManager : MonoBehaviour
         }
     }
 
+    private void BeginBreakthrough()
+    {
+        // GameManager decides whether this ends the run (the boss escort cannot); only then does the
+        // flock charge. Otherwise it simply stops where it is.
+        _game.ReportLoseLineCrossed();
+        if (_game.State != GameState.Breakthrough)
+        {
+            _phase = WavePhase.Idle;
+            return;
+        }
+
+        _phase = WavePhase.Breakthrough;
+        SetAllColliders(false);
+        _dives.Clear();
+        _breakthrough.Begin(_livingChickens, _player.transform.position);
+    }
+
     private void UpdateEntryFlights()
     {
         if (!_entry.Tick(Time.fixedDeltaTime, _formationOrigin)) return;
@@ -313,8 +340,7 @@ public sealed class WaveManager : MonoBehaviour
         // Below this line a chicken can no longer be shot, so the run would never end.
         if (bottom <= LoseLineY)
         {
-            _phase = WavePhase.Idle;
-            _game.ReportLoseLineCrossed();
+            BeginBreakthrough();
             return;
         }
 
@@ -401,6 +427,7 @@ public sealed class WaveManager : MonoBehaviour
         _livingChickens.Clear();
         _entry?.Clear();
         _dives?.Clear();
+        _breakthrough?.Clear();
         _eggs?.Reset(null);
         _isClearing = false;
         _phase = WavePhase.Idle;

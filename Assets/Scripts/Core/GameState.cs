@@ -7,5 +7,7 @@ public enum GameState
     BossFight,
     Paused,
     GameOver,
-    Victory
+    Victory,
+    // The flock reached the ship's line: a short, uncontrollable lead-in to Game Over.
+    Breakthrough
 }

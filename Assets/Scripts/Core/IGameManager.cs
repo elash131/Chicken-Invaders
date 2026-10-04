@@ -12,6 +12,7 @@ public interface IGameManagerEvents
     event Action            OnGameStarted;
     event Action            OnGameOver;
     event Action            OnPlayerDied;
+    event Action            OnBreakthroughImpact;  // the flock hits the ship at the end of a breakthrough
 }
 
 /// <summary>
@@ -27,6 +28,7 @@ public interface IGameManager : IGameManagerEvents
     int  CurrentWaveNumber { get; }
     int  WaveCount         { get; }
     bool IsBossStage       { get; }
+    bool FlockBrokeThrough { get; }                 // why the last run ended: the line, not lives
     bool PlayerAlive       { get; }
     bool CanControlPlayer  { get; }
     bool CanMovePlayer     { get; }

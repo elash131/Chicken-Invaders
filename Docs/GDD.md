@@ -9,7 +9,7 @@
 | **Engine** | Unity 6 (`6000.3.20f1`), URP 2D, Input System |
 | **Orientation** | Landscape PC window, 1920 × 1080 reference resolution |
 | **Session length** | 3–6 minutes for a full run |
-| **Document version** | v1.11 — 2026-10-04 |
+| **Document version** | v1.13 — 2026-10-05 |
 
 The numbers below have been tuned by playtesting; every one of them lives in a config asset.
 
@@ -67,7 +67,9 @@ stateDiagram-v2
     Respawn --> Playing: back to a live board
     Respawn --> BossFight: back to the boss
     BossFight --> Victory: boss defeated and her feast gone
-    Playing --> GameOver: no lives, or the flock crosses the lose line
+    Playing --> GameOver: no lives left
+    Playing --> Breakthrough: the flock reaches the lose line
+    Breakthrough --> GameOver: the flock dives onto the ship
     BossFight --> GameOver: no lives
     Playing --> Paused: Esc or focus lost (also from intro, boss, respawn)
     Paused --> Playing: Resume returns to the same phase
@@ -95,8 +97,10 @@ stateDiagram-v2
 - **Dive bombers:** from wave 2 a chicken now and then wobbles as a warning, then leaves the
   formation and swoops through the ship's lane, dropping one aimed egg. It flies off the bottom and
   back into its slot. Touching a diver costs a life; shooting one mid-dive drops its food close by.
-- **Eggs:** only the lowest surviving chicken in each column lays them, and it stops once it is too
-  close to the player to dodge. **Eggs cannot be shot down** — dodging is the only answer.
+- **Eggs:** only the lowest surviving chicken in each column lays them, as in Space Invaders, and a
+  low flock keeps laying all the way down. The one exception keeps it fair: a chicken less than 2.5
+  units above the ship *and* less than 1.5 units to its side stays silent, because its egg could not
+  be dodged. **Eggs cannot be shot down** — dodging is the only answer.
 - **Scoring:** 100 per chicken, 500 for the boss, plus the food you catch (below). High score saved
   locally.
 - **Feast Streak:** every chicken drops food. A kill within 1.2 s of the previous one raises the
@@ -105,6 +109,10 @@ stateDiagram-v2
   (1500). Food falls through the same air as the eggs, so chasing it is a risk for a reward; it
   never hurts. It bounces off the screen sides, bounces once on the floor, rests there for 2.5 s and
   blinks before it vanishes. A rare red herring is worth nothing. Getting hit resets the streak.
+- **Lose line:** if the flock's lowest chicken reaches the line just above the ship, the run is lost
+  whatever lives remain. It is shown, not just announced: controls lock, the music cuts to a siren,
+  the whole flock dives onto the ship, and the ship explodes with a red flash, a heavy shake and a
+  big boom before Game Over ("THE FLOCK BROKE THROUGH!").
 - **Failure:** an egg, or touching a diving chicken, costs one life. The ship vanishes for 1.5 s, then returns at the centre with
   2.5 s of blinking invulnerability. The enemies never pause — you come back to a live board.
 
@@ -183,7 +191,8 @@ the boss.
 3. **Wave Intro** — the wave number, centred, before combat starts.
 4. **Gameplay** — score and best top-left, wave top-centre, lives top-right. During the boss fight her
    health is a vertical bar on the right edge, so it never covers her.
-5. **Game Over / Victory** — result, final score, personal best, Play Again and Main Menu.
+5. **Game Over / Victory** — result, the reason for a Game Over ("OUT OF LIVES" or "THE FLOCK BROKE
+   THROUGH!"), final score, personal best, Play Again and Main Menu.
 6. **Paused** — Resume or Main Menu over the frozen game, with the music muffled.
 
 No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1920 × 1080 reference; HUD elements
@@ -257,12 +266,12 @@ prefabs placed in the scene; chickens, bullets, eggs and pickups are instantiate
 | `GameManager` (`IGameManager`) | Run state, score, lives, respawn, shield rule, pause, win/lose, restart |
 | `PlayerController` / `PlayerWeapons` | Input and movement / current weapon, gift timer, shield, firing patterns |
 | `WaveManager` / `ChickenFactory` / `Chicken` | Formations and escort: building, sweeping, lose line, kills, wave completion |
-| `FormationEntry` / `FormationEggs` / `ChickenDives` | Helpers owned by WaveManager: the fly-in, who lays eggs and when, the dive bombers |
+| `FormationEntry` / `FormationEggs` / `ChickenDives` / `FlockBreakthrough` | Helpers owned by WaveManager: the fly-in, who lays eggs and when, the dive bombers, the final charge at the lose line |
 | `BossController` / `BossPresenter` | Mother Hen's rules, attacks and feast / her animation, damage looks and defeat show |
 | `ProjectilePool` / `EggPool` / `PickupManager` | Bullets, eggs, and food and gifts — each owns a `TrackedPool<T>` |
 | `AudioManager` | Music per run state with crossfades; one-shots by name (`SoundEffect`) |
 | `GameUIManager`, `FeastPresenter`, `LoadoutPresenter`, `HowToPlayPresenter` | Menus, HUD, boss bar, streak and popups, weapon timer, instructions |
-| `FeatherBursts`, `ExplosionEffect`, `PlayerDeathPresenter`, `BossCameraFeedback` | Visual feedback only |
+| `FeatherBursts`, `ExplosionEffect`, `PlayerDeathPresenter`, `CameraFeedback`, `ImpactFlash` | Visual feedback only |
 | `LetterboxCamera`, `ScrollingBackground`, `MenuAttract` | Fixed 16:9 view, tiled starfield, the menu's living background |
 
 Scripts are grouped by role: `Core` (singleton base, interfaces, `TrackedPool`, constants),
@@ -352,6 +361,8 @@ replacements.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.13 | 2026-10-05 | A low flock keeps laying eggs from the sides; only chickens close and directly above the ship stay silent |
+| v1.12 | 2026-10-04 | Lose line shown as a breakthrough (flock dives onto the ship, red flash, shake, boom) with a Game Over reason; Mother Hen's health bar now visibly empties and changes colour |
 | v1.11 | 2026-10-04 | GDD checked line by line against the game: state diagram, controls (mute, D-pad, between-wave movement), result and pause screens, import sizes, scope and risks corrected; food now bounces off the screen sides |
 | v1.10 | 2026-10-01 | Clean-up: shared TrackedPool, WaveManager split into helpers, scripts grouped into Core/Config/Managers/Gameplay/Effects/UI, third-party assets moved to Assets/ThirdParty, unused art removed, Quit button |
 | v1.9 | 2026-10-01 | Menu: How To Play screen, attract-mode flock behind the title, fade-in screen transitions and a floating logo |

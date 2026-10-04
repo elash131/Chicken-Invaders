@@ -8,7 +8,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
 {
     [Header("Scene References")]
     [SerializeField] private BossController _boss;
-    [SerializeField] private BossCameraFeedback _cameraFeedback;
+    [SerializeField] private CameraFeedback _cameraFeedback;
 
     private GameState _state = GameState.Menu;
     private GameState _stateBeforePause;
@@ -24,6 +24,8 @@ public class GameManager : Singleton<GameManager>, IGameManager
     private Coroutine _respawnRoutine;
     private Coroutine _protectionRoutine;
     private Coroutine _waveRoutine;
+    private Coroutine _breakthroughRoutine;
+    private bool _flockBrokeThrough;
     private PlayerController _player;
     private PlayerWeapons _weapons;
     private WaveManager _waves;
@@ -39,6 +41,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
     public int WaveCount => _waves != null ? _waves.WaveCount : 0;
     // After the last regular wave comes Mother Hen; everything that changes for her asks this.
     public bool IsBossStage => _waveIndex >= WaveCount;
+    public bool FlockBrokeThrough => _flockBrokeThrough;
     public bool PlayerAlive => CanControlPlayer;
     public bool CanControlPlayer => _state == GameState.Playing || _state == GameState.BossFight;
     // Between waves the ship may move and collect food, but not shoot.
@@ -55,6 +58,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
     public event Action OnGameStarted;
     public event Action OnGameOver;
     public event Action OnPlayerDied;
+    public event Action OnBreakthroughImpact;
     public event Action<int, int> OnBossHealthChanged;
 
     protected override void Awake()
@@ -131,6 +135,7 @@ public class GameManager : Singleton<GameManager>, IGameManager
         _boss.StopEncounter();
         _projectiles.ReleaseAll();
         _waves.ClearFormation();
+        _flockBrokeThrough = false;
         _score = 0;
         _lives = _waves.Balance.StartingLives;
         _waveIndex = 0;
@@ -237,9 +242,29 @@ public class GameManager : Singleton<GameManager>, IGameManager
 
     public void ReportLoseLineCrossed()
     {
+        if (_breakthroughRoutine != null) return;
         if (_state == GameState.Playing ||
             (_state == GameState.Respawning && _combatBeforeRespawn == GameState.Playing))
-            EndRun(GameState.GameOver);
+            _breakthroughRoutine = StartCoroutine(Breakthrough());
+    }
+
+    // The run is lost the moment the flock reaches the line, whatever lives are left. These seconds
+    // only show it happening: the flock dives onto the ship, the ship is destroyed, then Game Over.
+    private IEnumerator Breakthrough()
+    {
+        CancelTimedWork();
+        _flockBrokeThrough = true;
+        ChangeState(GameState.Breakthrough);
+        _projectiles.ReleaseAll();
+
+        yield return new WaitForSeconds(_waves.Balance.BreakthroughChargeDuration);
+        _player.HidePlayer();
+        OnPlayerDied?.Invoke();
+        OnBreakthroughImpact?.Invoke();
+
+        yield return new WaitForSeconds(_waves.Balance.BreakthroughHold);
+        _breakthroughRoutine = null;
+        EndRun(GameState.GameOver);
     }
 
     public void ReportBossDefeated()
@@ -312,7 +337,8 @@ public class GameManager : Singleton<GameManager>, IGameManager
         if (_respawnRoutine != null) StopCoroutine(_respawnRoutine);
         if (_protectionRoutine != null) StopCoroutine(_protectionRoutine);
         if (_waveRoutine != null) StopCoroutine(_waveRoutine);
-        _respawnRoutine = _protectionRoutine = _waveRoutine = null;
+        if (_breakthroughRoutine != null) StopCoroutine(_breakthroughRoutine);
+        _respawnRoutine = _protectionRoutine = _waveRoutine = _breakthroughRoutine = null;
         _invulnerable = false;
         if (_player != null) _player.SetInvulnerable(false);
     }
