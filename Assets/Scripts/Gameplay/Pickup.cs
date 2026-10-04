@@ -90,14 +90,7 @@ public sealed class Pickup : MonoBehaviour
         transform.position += (Vector3)(_velocity * dt);
         transform.Rotate(0f, 0f, _spinSpeed * dt);
 
-        var left = _camera.ViewportToWorldPoint(Vector3.zero).x;
-        var right = _camera.ViewportToWorldPoint(Vector3.right).x;
-        var x = transform.position.x;
-        if (x < left || x > right)
-        {
-            _owner.Release(this);
-            return;
-        }
+        KeepInsideWalls();
 
         var floor = _camera.ViewportToWorldPoint(Vector3.zero).y;
         if (_velocity.y >= 0f || _spriteRenderer.bounds.min.y > floor) return;
@@ -115,6 +108,25 @@ public sealed class Pickup : MonoBehaviour
         transform.position += Vector3.up * (floor - _spriteRenderer.bounds.min.y);
         _state = FoodState.Resting;
         _vanishAt = Time.time + _config.FloorLifetime;
+    }
+
+    // Food that reaches a side of the screen bounces back in, so it always lands where the ship can
+    // reach it. It only leaves the game by being caught or by its time on the floor running out.
+    private void KeepInsideWalls()
+    {
+        var bounds = _spriteRenderer.bounds;
+        var left = _camera.ViewportToWorldPoint(Vector3.zero).x;
+        var right = _camera.ViewportToWorldPoint(Vector3.right).x;
+        if (bounds.min.x < left)
+        {
+            transform.position += Vector3.right * (left - bounds.min.x);
+            _velocity.x = Mathf.Abs(_velocity.x) * 0.5f;
+        }
+        else if (bounds.max.x > right)
+        {
+            transform.position += Vector3.left * (bounds.max.x - right);
+            _velocity.x = -Mathf.Abs(_velocity.x) * 0.5f;
+        }
     }
 
     private void Rest()

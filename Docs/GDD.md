@@ -9,13 +9,14 @@
 | **Engine** | Unity 6 (`6000.3.20f1`), URP 2D, Input System |
 | **Orientation** | Landscape PC window, 1920 × 1080 reference resolution |
 | **Session length** | 3–6 minutes for a full run |
-| **Document version** | v1.3 — 2026-10-01 |
+| **Document version** | v1.11 — 2026-10-04 |
 
-A proposal for approval. Numbers below are starting values, not playtest results.
+The numbers below have been tuned by playtesting; every one of them lives in a config asset.
 
-**Status (2026-10-01):** the full loop is playable — four waves, the lose line, the two-phase
-Mother Hen with a health bar, respawn, pause, Game Over, Victory and restart, with music and sound
-effects, and the Feast Streak food pickups.
+**Status (2026-10-04):** complete and playable — four waves with dive bombers, the lose line, the
+two-phase Mother Hen with her chick escort and defeat feast, the Feast Streak, gift weapons and the
+shield, music and sound, a menu with How To Play and an attract mode, pause, Game Over, Victory and
+restart, and a Windows build.
 
 ---
 
@@ -30,8 +31,9 @@ beat the Mother Hen.
 
 1. **Clear danger** — the player can always say what hit them. *Rejects:* off-screen attacks, and
    eggs laid so close there is no room to dodge.
-2. **Formation-driven pressure** — difficulty comes from the flock descending and speeding up with
-   every kill. *Rejects:* time-based speed increases, tougher regular enemies, adaptive difficulty.
+2. **Formation-driven pressure** — difficulty comes from the flock: it descends, speeds up with every
+   kill, starts each later wave faster, and sends warned dive bombers out of its ranks. *Rejects:*
+   time-based speed increases, tougher regular enemies, adaptive difficulty.
 3. **Short runs, instant retry** — a run is a few minutes and death to the next attempt is one
    keypress. *Rejects:* level select, mid-run saves, unskippable result screens, loading between
    attempts.
@@ -57,18 +59,23 @@ beat the Mother Hen.
 stateDiagram-v2
     [*] --> Menu
     Menu --> WaveIntro: Play
-    WaveIntro --> Playing: countdown ends
+    WaveIntro --> Playing: the flock has flown in
     Playing --> WaveIntro: waves 1-3 cleared
     Playing --> BossFight: wave 4 cleared
-    Playing --> Respawn: egg hit, lives remain
+    Playing --> Respawn: hit, lives remain
+    BossFight --> Respawn: hit, lives remain
     Respawn --> Playing: back to a live board
-    BossFight --> Victory: boss defeated
+    Respawn --> BossFight: back to the boss
+    BossFight --> Victory: boss defeated and her feast gone
     Playing --> GameOver: no lives, or the flock crosses the lose line
     BossFight --> GameOver: no lives
-    Playing --> Paused: focus lost
-    Paused --> Playing: Resume
-    GameOver --> WaveIntro: Restart after a short lockout
-    Victory --> WaveIntro: Restart
+    Playing --> Paused: Esc or focus lost (also from intro, boss, respawn)
+    Paused --> Playing: Resume returns to the same phase
+    Paused --> Menu: Main Menu
+    GameOver --> WaveIntro: Play Again after a short lockout
+    Victory --> WaveIntro: Play Again
+    GameOver --> Menu: Main Menu
+    Victory --> Menu: Main Menu
 ```
 
 **Moment-to-moment rules**
@@ -96,9 +103,9 @@ stateDiagram-v2
   streak, and the streak decides the food: drumstick (50) → twin legs (100) → roast (200) → a
   burger that grows taller with every extra kill, from a plain burger (300) to the quad burger
   (1500). Food falls through the same air as the eggs, so chasing it is a risk for a reward; it
-  never hurts. It bounces once, rests on the floor for 2.5 s and blinks before it vanishes. A
-  rare red herring is worth nothing. Getting hit resets the streak.
-- **Failure:** an egg costs one life. The ship vanishes for 1.5 s, then returns at the centre with
+  never hurts. It bounces off the screen sides, bounces once on the floor, rests there for 2.5 s and
+  blinks before it vanishes. A rare red herring is worth nothing. Getting hit resets the streak.
+- **Failure:** an egg, or touching a diving chicken, costs one life. The ship vanishes for 1.5 s, then returns at the centre with
   2.5 s of blinking invulnerability. The enemies never pause — you come back to a live board.
 
 ### Waves and boss
@@ -151,14 +158,16 @@ the boss.
 
 | Action | Keyboard | Gamepad |
 |---|---|---|
-| Move | A/D or arrow keys | Left stick |
+| Move | A/D or arrow keys | Left stick or D-pad |
 | Fire | Hold Space | Hold south button |
 | Restart | R on the result screen | East button |
 | Pause / resume | Escape | Start button |
+| Mute / unmute | M | Select button |
 
 - Input is read every frame and movement applied during physics updates. Releasing stops the ship;
   its sprite leans in the direction of travel.
 - Gameplay input is off in menus and during respawn, and a UI press never also fires a shot.
+- Between waves the ship can move and collect food, but cannot shoot.
 - Game Over ignores Restart for half a second, so the keypress that killed you cannot restart the run.
 - Losing focus pauses the game rather than letting the run die.
 
@@ -174,8 +183,8 @@ the boss.
 3. **Wave Intro** — the wave number, centred, before combat starts.
 4. **Gameplay** — score and best top-left, wave top-centre, lives top-right. During the boss fight her
    health is a vertical bar on the right edge, so it never covers her.
-5. **Game Over / Victory** — result, final score, new-best message, Play Again.
-6. **Paused** — Resume over the frozen game.
+5. **Game Over / Victory** — result, final score, personal best, Play Again and Main Menu.
+6. **Paused** — Resume or Main Menu over the frozen game, with the music muffled.
 
 No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1920 × 1080 reference; HUD elements
 are anchored to their own corners. The gameplay view is letterboxed to 16:9: any other window shape
@@ -206,8 +215,9 @@ not a code change. Per-file sources: [ASSETS.md](ASSETS.md).
 sheets, Bilinear for the pre-rendered art. Draw order back to front: background, pickups,
 projectiles, chickens, player, effects, UI.
 
-> The chicken sheets import at 160 pixels-per-unit and the ship at 50. At Unity's default of 100 a
-> chicken is 1.28 units wide and five columns would be wider than the screen.
+> Sprites import at 100 pixels-per-unit, except the ship (40) and the pixel-art gift box (40, Point
+> filter). A chicken is then 1.28 units wide, so five columns at 1.35 units apart fit the 17.8-unit
+> wide 16:9 view with room to sweep.
 
 ---
 
@@ -314,23 +324,24 @@ sounds get small random pitch changes, and bursts (egg splats) are rate-limited.
 - Feast Streak food pickups and Mother Hen's feast.
 - Feather bursts and a short pop when a chicken dies; feathers on every boss hit.
 - Gift weapons (Spread, Lightning, Fireball) and the shield.
+- Boss music, faded screen transitions, How To Play and the attract-mode menu.
 - Windows standalone build.
 
 ### 8.2 Optional polish
 
-- A small screen shake on death.
-- Boss music and animated menu transitions.
+- A small screen shake when the player dies (the boss already has camera cues).
 
 ### 8.3 Out of scope
 
 - Extra levels or a campaign beyond four waves and the boss.
 - Permanent weapon upgrades and shops; combo systems beyond the Feast Streak.
 - Multiplayer, online leaderboards, accounts.
-- Saving anything beyond the local high score.
+- Saving anything beyond the local high score and the mute setting.
 - Localisation, selectable difficulty.
 
-**Risks:** the boss attacks need playtesting, and the artwork licence needs the lecturer's
-acceptance. The idea and this document need approval before full production.
+**Risks:** the artwork is ripped from Chicken Invaders and Starbound and has no reuse licence; it is
+declared as coursework-only third-party art (see ASSETS.md), and a public release would need
+replacements.
 
 ---
 
@@ -341,6 +352,7 @@ acceptance. The idea and this document need approval before full production.
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.11 | 2026-10-04 | GDD checked line by line against the game: state diagram, controls (mute, D-pad, between-wave movement), result and pause screens, import sizes, scope and risks corrected; food now bounces off the screen sides |
 | v1.10 | 2026-10-01 | Clean-up: shared TrackedPool, WaveManager split into helpers, scripts grouped into Core/Config/Managers/Gameplay/Effects/UI, third-party assets moved to Assets/ThirdParty, unused art removed, Quit button |
 | v1.9 | 2026-10-01 | Menu: How To Play screen, attract-mode flock behind the title, fade-in screen transitions and a floating logo |
 | v1.8 | 2026-10-01 | Gift boxes with 8 s weapons (Spread, Lightning, Fireball) and a 12 s one-hit shield, from a shuffled bag; weapons are WeaponConfig assets; Mother Hen raised to 75 health to balance them |

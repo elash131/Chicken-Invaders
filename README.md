@@ -60,7 +60,7 @@ Playable from menu to victory:
 
 | Action | Keyboard | Gamepad |
 |---|---|---|
-| Move | A / D or arrow keys | Left stick |
+| Move | A / D or arrow keys | Left stick or D-pad |
 | Fire | Hold Space | Hold south button |
 | Restart (result screen) | R | East button |
 | Pause / resume | Escape | Start button |
