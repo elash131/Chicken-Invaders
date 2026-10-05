@@ -17,6 +17,7 @@ Final project for **Unity 101 for CS Students**, The Academic College of Tel-Avi
 | Render pipeline | URP 2D |
 | Packages | Input System, TextMeshPro, Unity UI |
 | Targets | Windows PC standalone only |
+| Resolution | 1920 × 1080 reference (16:9); runs at any window size, letterboxed to keep the 16:9 play area |
 
 ## How to run
 
