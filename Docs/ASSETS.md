@@ -6,8 +6,9 @@ The single record of where every asset came from. Referenced from [`GDD.md`](GDD
 
 ## Licence position
 
-**Every sprite in this project is ripped artwork from InterAction studios' commercial *Chicken
-Invaders***, obtained from The Spriters Resource and the game's fan wiki. Per-file sources are in
+**Almost every sprite in this project is ripped artwork from InterAction studios' commercial *Chicken
+Invaders***, obtained from The Spriters Resource and the game's fan wiki. The exceptions are the gift box
+(ripped from *Starbound*, see below) and the original feather and shield textures. Per-file sources are in
 the tables below.
 
 Fandom's wiki *text* is CC-BY-SA; the uploaded game images are **not** — they carry **no reuse
@@ -39,7 +40,7 @@ Mip maps off everywhere. Wrap Mode **Repeat** on the starfield (**Full Rect** me
 shows seams), Clamp elsewhere.
 
 **Pixels Per Unit** differs per sheet because the source art does: ship **40**, chickens and
-projectiles **100**, food **128**, starfield **100**. Sorting layers back → front: `Background` →
+projectiles **100**, food **100**, starfield **100**. Sorting layers back → front: `Background` →
 `Pickups` → `Projectiles` → `Chickens` → `Player` → `VFX` → `UI`.
 
 > The background is Tiled with **Size set to a whole number of tiles**, never scaled. A non-uniform
@@ -68,7 +69,7 @@ projectiles **100**, food **128**, starfield **100**. Sorting layers back → fr
 | `…GUI - Logo.png` | Title logo | 100 | Main menu |
 
 > `hero_ship.png` is derived from the *Authentic Hero* rip below: the original had **no alpha**
-> (a black background), so the black was keyed out. The unmodified original is kept beside it.
+> (a black background), so the black was keyed out. Only the processed `hero_ship.png` is kept in the project.
 
 ### Food — `Assets/ThirdParty/ChickenInvaders/Sprites/Food/`
 
@@ -114,7 +115,9 @@ other ripped art: coursework only, credited, no reuse licence.
 
 Downloaded 2026-09-05 from `chickeninvaders.fandom.com/wiki/Food`. The CDN served WebP under `.png`
 names; the files were decoded and re-saved as real RGBA PNGs. Base URL for every row below is
-`https://static.wikia.nocookie.net/chickeninvaders/images/`.
+`https://static.wikia.nocookie.net/chickeninvaders/images/`. Rows not in the inventory above (corn,
+popcorn, pizza, sweets, vegetables, pumpkin, mistletoe and the old herrings) were removed from the
+project and remain here only as a historical download record.
 
 | File | Path under that base |
 |---|---|
