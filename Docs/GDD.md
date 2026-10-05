@@ -9,7 +9,7 @@
 | **Engine** | Unity 6 (`6000.3.20f1`), URP 2D, Input System |
 | **Orientation** | Landscape PC window, 1920 × 1080 reference resolution |
 | **Session length** | 3–6 minutes for a full run |
-| **Document version** | v1.13 — 2026-10-05 |
+| **Document version** | v1.16 — 2026-10-05 |
 
 The numbers below have been tuned by playtesting; every one of them lives in a config asset.
 
@@ -195,10 +195,11 @@ the boss.
    THROUGH!"), final score, personal best, Play Again and Main Menu.
 6. **Paused** — Resume or Main Menu over the frozen game, with the music muffled.
 
-No minimap, no ammo counter, no timer. The Canvas Scaler uses a 1920 × 1080 reference; HUD elements
-are anchored to their own corners. The gameplay view is letterboxed to 16:9: any other window shape
-gets black bars instead of a wider or narrower world, so the formation, ship lane and boss path are
-the same at every resolution.
+No minimap, no ammo counter, no timer. The camera and Screen Space – Overlay Canvas fill the window.
+Canvas Scaler uses Scale With Screen Size, a 1920 × 1080 reference and Expand; HUD elements are
+anchored to the window edges. The tiled starfield is a child of the camera and expands to cover its
+view, with extra coverage for scrolling and camera cues. Player, flock and boss bounds follow the
+camera viewport, so wider windows provide more horizontal space. There is no fixed-aspect frame.
 
 ---
 
@@ -272,7 +273,7 @@ prefabs placed in the scene; chickens, bullets, eggs and pickups are instantiate
 | `AudioManager` | Music per run state with crossfades; one-shots by name (`SoundEffect`) |
 | `GameUIManager`, `FeastPresenter`, `LoadoutPresenter`, `HowToPlayPresenter` | Menus, HUD, boss bar, streak and popups, weapon timer, instructions |
 | `FeatherBursts`, `ExplosionEffect`, `PlayerDeathPresenter`, `CameraFeedback`, `ImpactFlash` | Visual feedback only |
-| `LetterboxCamera`, `ScrollingBackground`, `MenuAttract` | Fixed 16:9 view, tiled starfield, the menu's living background |
+| `ScrollingBackground`, `MenuAttract` | Camera-child starfield covering the full view, the menu's living background |
 
 Scripts are grouped by role: `Core` (singleton base, interfaces, `TrackedPool`, constants),
 `Config` (ScriptableObject types), `Managers` (scene systems), `Gameplay` (objects with rules),
@@ -358,6 +359,7 @@ replacements.
 
 | Version | Date | Change |
 |---|---|---|
+| v1.16 | 2026-10-05 | Replaced fixed-aspect letterboxing with a full-window camera and camera-child tiled background that resizes with the view; full-window responsive Canvas; loadout accommodates weapon and shield lines |
 | v1.0 | 2026-09-05 | Initial proposal, written before implementation |
 | v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
 | v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |

@@ -45,7 +45,7 @@ Playable from menu to victory:
   on the right edge. Short camera cues mark her entrance, enrage and defeat.
 - Chickens pop in a burst of feathers (a world-space particle system); Mother Hen sheds feathers on
   every hit and bursts into a feather cloud.
-- The gameplay view is letterboxed to 16:9, so every resolution shows the same playfield.
+- The camera fills the window. Its child starfield tiles to cover different aspect ratios, with extra space for scrolling and camera cues.
 - Three lives, 1.5 s respawn and 2.5 s of blinking protection, score and saved high score.
 - Menu with How To Play and Quit, and a living background of drifting chickens; wave intro, HUD,
   pause (also on focus loss), Game Over and Victory screens with fade-in transitions, restart.
@@ -88,7 +88,7 @@ Assets/
     Config/     The ScriptableObject types
     Managers/   GameManager, WaveManager, PickupManager, AudioManager and the bullet/egg pools
     Gameplay/   Player and weapons, chickens and their formation helpers, Mother Hen, projectiles, pickups
-    Effects/    Visual feedback only: feathers, explosions, camera cues, letterbox, background, menu flock
+    Effects/    Visual feedback only: feathers, explosions, camera cues, background, menu flock
     UI/         Menus, HUD, How To Play and presenters
   ThirdParty/   Everything not made for this project: Chicken Invaders and Starbound art, Kenney and
                 OpenGameArt audio, the Bungee font (sources and licences in ASSETS.md)
@@ -110,7 +110,8 @@ Docs/
 - Bullets, eggs and pickups each own a `TrackedPool<T>`: Unity's `ObjectPool<T>`, prewarmed at load,
   plus release-everything and a guard against releasing the same object twice.
 - Everything tunable lives in ScriptableObjects, so balancing never needs a recompile.
-- The background is a tiled sprite; artwork is never scaled non-uniformly.
+- The background is a tiled sprite parented to the camera; artwork is never scaled non-uniformly.
+- The Overlay Canvas fills the window, with a 1920 × 1080 reference and Expand scaling; HUD elements stay anchored to the window edges.
 
 ## Assets
 

@@ -1,67 +1,65 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /// <summary>
-/// Scrolls a seamless starfield downwards for ever.
-///
-/// The sprite is drawn with Draw Mode = Tiled and sized to cover more than the screen, so the
-/// object repeats instead of being stretched. Once it has travelled exactly one tile height it
-/// snaps back up by that same amount, which is invisible because the tile is seamless.
+/// A camera-child starfield that tiles across the whole view, including wider windows.
+/// Extra rows cover a full scroll cycle; whole tiles keep the wrap seamless.
 /// </summary>
-[RequireComponent(typeof(SpriteRenderer))]
-public class ScrollingBackground : MonoBehaviour
+[ExecuteAlways, RequireComponent(typeof(SpriteRenderer))]
+public sealed class ScrollingBackground : MonoBehaviour
 {
     [SerializeField] private float _scrollSpeed = 1.2f;
     [SerializeField] private SpriteRenderer _spriteRenderer;
 
-    private Transform _transform;
-    private float _startY;
-    private float _tileHeight;
+    private Camera _camera;
+    private float _scrollOffset;
 
-    private void Awake()
+    private void OnEnable()
     {
-        _transform = transform;
-        _startY = _transform.position.y;
-
-        if (_spriteRenderer == null)
-        {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        // The snap distance is read from the sprite itself rather than typed into the Inspector.
-        // A hand-entered value that is even slightly off is exactly what makes the seam visible
-        // every few seconds instead of never.
-        _tileHeight = _spriteRenderer.sprite.bounds.size.y;
-
-        WarnIfSizeIsNotAWholeNumberOfTiles();
+        if (_spriteRenderer == null) _spriteRenderer = GetComponent<SpriteRenderer>();
+        _camera = GetComponentInParent<Camera>();
+        FitToCamera();
+        RenderPipelineManager.beginCameraRendering += BeforeCameraRendering;
     }
 
-    /// <summary>
-    /// Tiled draw mode divides the renderer's Size into a whole number of tiles. If Size is not an
-    /// exact multiple of the sprite, the tiles get resized to fit - so they are no longer
-    /// <see cref="_tileHeight"/> tall, and snapping by that amount jumps.
-    /// </summary>
-    private void WarnIfSizeIsNotAWholeNumberOfTiles()
+    private void OnDisable() => RenderPipelineManager.beginCameraRendering -= BeforeCameraRendering;
+
+    private void BeforeCameraRendering(ScriptableRenderContext context, Camera renderingCamera)
     {
-        var tilesTall = _spriteRenderer.size.y / _tileHeight;
-        if (Mathf.Abs(tilesTall - Mathf.Round(tilesTall)) > 0.001f)
-        {
-            Debug.LogWarning(
-                $"{name}: SpriteRenderer Size Y is {_spriteRenderer.size.y}, which is " +
-                $"{tilesTall:0.00} tiles. Set it to a whole multiple of {_tileHeight} or the " +
-                "scroll will visibly jump.", this);
-        }
+        // Also refresh when the editor Game view changes size without entering Play mode.
+        if (renderingCamera == _camera) FitToCamera();
     }
 
     private void Update()
     {
-        var position = _transform.position;
-        position.y -= _scrollSpeed * Time.deltaTime;
-
-        if (position.y <= _startY - _tileHeight)
+        if (_spriteRenderer == null || _spriteRenderer.sprite == null) return;
+        var tileHeight = _spriteRenderer.sprite.bounds.size.y;
+        if (Application.IsPlaying(gameObject) && tileHeight > 0f)
         {
-            position.y += _tileHeight;
+            _scrollOffset = Mathf.Repeat(_scrollOffset + _scrollSpeed * Time.deltaTime, tileHeight);
+            var position = transform.localPosition;
+            position.y = -_scrollOffset;
+            transform.localPosition = position;
         }
+        FitToCamera();
+    }
 
-        _transform.position = position;
+    private void FitToCamera()
+    {
+        if (_camera == null || !_camera.orthographic ||
+            _spriteRenderer == null || _spriteRenderer.sprite == null) return;
+
+        var tile = _spriteRenderer.sprite.bounds.size;
+        if (tile.x <= 0f || tile.y <= 0f) return;
+
+        // Overscan also covers the brief zoom-out cues. Tiling preserves the artwork's proportions.
+        var height = 2f * _camera.orthographicSize * 1.2f;
+        var width = height * _camera.aspect;
+        var size = new Vector2(
+            Mathf.Ceil(width / tile.x) * tile.x,
+            (Mathf.Ceil(height / tile.y) + 2f) * tile.y);
+        if (_spriteRenderer.drawMode != SpriteDrawMode.Tiled)
+            _spriteRenderer.drawMode = SpriteDrawMode.Tiled;
+        if (_spriteRenderer.size != size) _spriteRenderer.size = size;
     }
 }

@@ -88,7 +88,7 @@ public sealed class FeastPresenter : MonoBehaviour
                 continue;
             }
 
-            // Follows the world point, so it stays on the food's spot inside the letterboxed view.
+            // Follows the world point, so it stays on the food's spot as the window changes size.
             var world = popup.WorldPosition + Vector3.up * (_popupRise * progress);
             popup.Text.rectTransform.position = _camera.WorldToScreenPoint(world);
             popup.Text.alpha = 1f - progress * progress;
