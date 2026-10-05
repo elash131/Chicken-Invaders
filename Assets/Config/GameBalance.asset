@@ -16,9 +16,6 @@ MonoBehaviour:
   _respawnDelay: 1.5
   _invulnerabilityDuration: 2.5
   _restartLockout: 0.5
-  _formationSpeed: 1.5
-  _speedIncreasePerKill: 0.15
-  _descendStep: 0.12
   _columnSpacing: 1.35
   _rowSpacing: 1.15
   _screenSidePadding: 0.25
@@ -28,7 +25,6 @@ MonoBehaviour:
   _entrySideDistance: 1.5
   _waveDelay: 1
   _eggPrefab: {fileID: 5748392017465820391, guid: 8a9c1e6b3d4f420ab7c8293a4b5cdef0, type: 3}
-  _eggRatePerShooter: 0.15
   _eggSpeed: 6
   _eggSafetyDistance: 2.5
   _eggLifetime: 5

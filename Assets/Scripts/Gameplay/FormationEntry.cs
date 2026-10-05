@@ -38,7 +38,7 @@ public sealed class FormationEntry
         var allArrived = true;
         foreach (var flight in _flights)
         {
-            // A chicken shot down mid-entry no longer needs to arrive.
+            // A chicken removed mid-entry (e.g. restart or return to menu) no longer needs to arrive.
             if (flight.Chicken == null || flight.Arrived) continue;
 
             flight.Elapsed += deltaTime;

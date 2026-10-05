@@ -32,29 +32,6 @@ MonoBehaviour:
   _victoryDelay: 2
   _feastInterval: 0.35
   _feastBurst: 6
-  _visualScale: 1.65
-  _colliderSize: {x: 4.2, y: 2.7}
-  _spriteMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
-  _bodyBack: {fileID: 0}
-  _bodyFront: {fileID: 4657061927124224081, guid: e50a092c38f8e2c4aaa9defcc1df54d3, type: 3}
-  _leftFoot: {fileID: 1333972262994566923, guid: e50a092c38f8e2c4aaa9defcc1df54d3, type: 3}
-  _rightFoot: {fileID: 6771725066987163527, guid: e50a092c38f8e2c4aaa9defcc1df54d3, type: 3}
-  _wing: {fileID: -6292847553701653652, guid: e50a092c38f8e2c4aaa9defcc1df54d3, type: 3}
-  _rightWing: {fileID: -7667123960811486947, guid: e50a092c38f8e2c4aaa9defcc1df54d3, type: 3}
-  _headFrames: []
-  _bodyPosition: {x: 0, y: 0}
-  _leftFootPosition: {x: -0.32, y: -1.05}
-  _rightFootPosition: {x: 0.32, y: -1.05}
-  _leftWingPosition: {x: -0.86, y: -0.15}
-  _rightWingPosition: {x: 0.86, y: -0.15}
-  _headPosition: {x: 0, y: 0.82}
-  _leftWingScale: {x: 1, y: 1}
-  _rightWingScale: {x: 1, y: 1}
-  _normalHeadIndex: 0
-  _windupHeadIndex: 0
-  _enragedHeadIndex: 0
-  _hurtHeadIndex: 0
-  _defeatedHeadIndex: 0
   _burstInterval: 6
   _burstWarning: 0.6
   _burstEggCount: 9

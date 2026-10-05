@@ -30,7 +30,6 @@ public sealed class WaveManager : MonoBehaviour
     private Vector2 _formationOrigin;
     private float _direction = 1f;
     private float _currentSpeed;
-    private int _waveIndex;
     private int _lastScreenWidth;
     private int _lastScreenHeight;
     private bool _isClearing;
@@ -107,7 +106,6 @@ public sealed class WaveManager : MonoBehaviour
     public void StartWave(int index)
     {
         if (!IsReady || _game.State != GameState.WaveIntro) return;
-        _waveIndex = index;
         if (index < 0 || index >= _waves.Length)
         {
             _phase = WavePhase.Idle;

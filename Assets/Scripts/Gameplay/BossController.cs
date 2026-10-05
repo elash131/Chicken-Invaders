@@ -106,7 +106,9 @@ public sealed class BossController : MonoBehaviour, IDamageable
 
         if (_phase == BossPhase.Defeated)
         {
-            UpdateDefeat();
+            // The defeat show runs outside the usual enemy gate, so skip it while paused -
+            // otherwise it could report victory while the state is Paused and strand the run.
+            if (_game.State != GameState.Paused) UpdateDefeat();
             return;
         }
 

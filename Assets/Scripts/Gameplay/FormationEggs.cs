@@ -61,7 +61,7 @@ public sealed class FormationEggs
 
     public void Tick()
     {
-        if (_wave == null || Time.time < _nextEggTime) return;
+        if (_wave == null || _wave.EggRatePerShooter <= 0f || Time.time < _nextEggTime) return;
 
         var count = RefreshEligible();
         if (count == 0)

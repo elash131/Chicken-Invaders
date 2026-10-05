@@ -147,6 +147,8 @@ public sealed class AudioManager : Singleton<AudioManager>
         switch (state)
         {
             case GameState.Menu:
+                // Drop any pending result/intro cue, or its delayed music would play over the menu.
+                if (_cueRoutine != null) { StopCoroutine(_cueRoutine); _cueRoutine = null; }
                 PlayMusic(_config.MenuMusic);
                 break;
             case GameState.WaveIntro:
