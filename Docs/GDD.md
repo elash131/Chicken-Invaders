@@ -11,7 +11,7 @@
 | **Session length** | 3–6 minutes for a full run |
 | **Document version** | v1.16 — 2026-10-05 |
 
-The numbers below have been tuned by playtesting; every one of them lives in a config asset.
+The numbers below have been tuned by playtesting; most live in config assets, with a few (ship speed, bank response) as Inspector fields on their component.
 
 **Status (2026-10-04):** complete and playable — four waves with dive bombers, the lose line, the
 two-phase Mother Hen with her chick escort and defeat feast, the Feast Streak, gift weapons and the
@@ -60,8 +60,8 @@ stateDiagram-v2
     [*] --> Menu
     Menu --> WaveIntro: Play
     WaveIntro --> Playing: the flock has flown in
-    Playing --> WaveIntro: waves 1-3 cleared
-    Playing --> BossFight: wave 4 cleared
+    Playing --> WaveIntro: wave cleared
+    WaveIntro --> BossFight: after wave 4
     Playing --> Respawn: hit, lives remain
     BossFight --> Respawn: hit, lives remain
     Respawn --> Playing: back to a live board
@@ -83,7 +83,7 @@ stateDiagram-v2
 **Moment-to-moment rules**
 
 - **Ship:** three lives, constant speed, clamped to the screen. Holding Fire shoots upward on a
-  cooldown. Each bullet does one damage.
+  cooldown. Each default bullet does one damage (gift weapons differ — see below).
 - **Gifts:** now and then a kill also drops a gift box (a 3% chance per kill, never two at once,
   and at the latest after a random 10–18 kills). Catching it gives 8 s of **Spread** (3-way shot),
   **Lightning** (rapid bolts that pierce through chickens) or **Fireball** (slow, 3 damage), or a
@@ -124,7 +124,7 @@ stateDiagram-v2
 | Wave 2 | 3 rows × 5 | 1.8 / 0.20 | one at a time, ~7 s apart | Defeat all 15 |
 | Wave 3 | 4 rows × 5 | 2.1 / 0.25 | up to two, ~5 s apart | Defeat all 20 |
 | Wave 4 | 5 rows × 5 | 2.4 / 0.30 | up to two, ~3.5 s apart, faster | Defeat all 25 |
-| Mother Hen | One boss, 75 health, chick escort at half health | Defeat her to win |
+| Mother Hen | One boss, 75 health | — | chick escort at half health | Defeat her to win |
 
 The **Mother Hen** sweeps left and right above the lose line and never descends. A health bar shows
 what is left of her. In the first phase she fires aimed five-egg volleys after a short warning.
@@ -153,9 +153,9 @@ strengths are configured in GameBalance, and zero duration disables an individua
 | Gift weapon / shield duration | How long a gift helps | 8 s / 12 s |
 | Boss health / volley interval / ring burst | Length of the boss fight | 75 / 1.5 s / every 6 s |
 
-**Where these live:** ScriptableObjects — `GameBalance`, the five `WaveConfig` assets (four waves and
-the boss escort), `MotherHen`, `Food`, `Gifts`, the four weapons and `Audio` — so tuning never needs
-a recompile.
+**Where these live:** mostly ScriptableObjects — `GameBalance`, the five `WaveConfig` assets (four waves
+and the boss escort), `MotherHen`, `Food`, `Gifts`, the four weapons and `Audio` — so tuning rarely needs
+a recompile. Ship speed and bank response are `[SerializeField]` fields on `PlayerController`.
 
 **Feel target:** a new player clears wave 1 within three attempts; ten minutes of practice reaches
 the boss.
@@ -360,9 +360,7 @@ replacements.
 | Version | Date | Change |
 |---|---|---|
 | v1.16 | 2026-10-05 | Replaced fixed-aspect letterboxing with a full-window camera and camera-child tiled background that resizes with the view; full-window responsive Canvas; loadout accommodates weapon and shield lines |
-| v1.0 | 2026-09-05 | Initial proposal, written before implementation |
-| v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
-| v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.15 | 2026-10-05 | Doc fixes: state diagram routes wave 4 through WaveIntro to the boss; boss row fills all wave-table columns; changelog ordered newest-first; clarified default-bullet damage and that ship speed / bank response are Inspector fields; ASSETS corrected (not every sprite is from Chicken Invaders, food PPU 100, hero_ship original not kept, removed food marked historical) |
 | v1.13 | 2026-10-05 | A low flock keeps laying eggs from the sides; only chickens close and directly above the ship stay silent |
 | v1.12 | 2026-10-04 | Lose line shown as a breakthrough (flock dives onto the ship, red flash, shake, boom) with a Game Over reason; Mother Hen's health bar now visibly empties and changes colour |
 | v1.11 | 2026-10-04 | GDD checked line by line against the game: state diagram, controls (mute, D-pad, between-wave movement), result and pause screens, import sizes, scope and risks corrected; food now bounces off the screen sides |
@@ -374,3 +372,6 @@ replacements.
 | v1.5 | 2026-10-01 | Feather particle bursts and chicken death pop; chicken kills are now an event that food and effects listen to |
 | v1.4 | 2026-10-01 | Feast Streak food pickups and Mother Hen's feast; a streak-based reward moved into scope |
 | v1.3 | 2026-10-01 | Music and sound effects with mute; lose line implemented; 16:9 letterbox; bigger Mother Hen with damage looks, side health bar and a defeat show; UI and Mother Hen moved into scene prefabs; fixed orientation, font and system list to match the game; audio kept as the next major pass |
+| v1.2 | 2026-09-30 | Added explicit run states and manual pause/resume controls; documented the prototype interface and remaining gameplay work |
+| v1.1 | 2026-09-26 | Defined Windows PC as the sole target platform; updated controls, UI validation, technical design and scope accordingly |
+| v1.0 | 2026-09-05 | Initial proposal, written before implementation |
